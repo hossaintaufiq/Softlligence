@@ -15,6 +15,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { cn } from "@/lib/utils";
 
 function formatNumber(n: number) {
   if (n >= 1000) return `${(n / 1000).toFixed(0)}k`;
@@ -95,38 +96,67 @@ function GitHubIcon() {
   );
 }
 
-function MailIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M3 7l9 7 9-7" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function AvatarPlaceholder({
+function MemberPhoto({
+  name,
   initials,
   tone,
-  size = "md",
+  photo,
+  variant = "card",
 }: {
+  name: string;
   initials: string;
   tone: string;
-  size?: "md" | "lg" | "xl";
+  photo?: string | null;
+  variant?: "leadership" | "card" | "row";
 }) {
-  const sizes = {
-    md: "h-20 w-20 text-xl",
-    lg: "h-28 w-28 text-3xl sm:h-32 sm:w-32",
-    xl: "h-40 w-40 text-4xl sm:h-48 sm:w-48",
-  };
+  const frame = {
+    leadership: "aspect-[3/4] h-full min-h-[220px] w-full sm:min-h-[260px]",
+    card: "aspect-[4/5] w-full",
+    row: "aspect-square h-28 w-28 sm:h-32 sm:w-32",
+  }[variant];
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[18px] bg-linear-to-br ${tone} ${sizes[size]} border border-white/10`}
+      className={cn(
+        "relative overflow-hidden rounded-[18px] border border-white/10 bg-linear-to-br",
+        tone,
+        frame,
+      )}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]" />
-      <span className="relative flex h-full w-full items-center justify-center font-display font-semibold text-text/90">
-        {initials}
-      </span>
+      {photo ? (
+        <Image
+          src={photo}
+          alt={name}
+          fill
+          className="object-cover object-top"
+          sizes={variant === "leadership" ? "(max-width: 768px) 100vw, 320px" : "(max-width: 768px) 100vw, 280px"}
+        />
+      ) : (
+        <>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.16),transparent_55%)]" />
+          <div className="absolute -right-8 -bottom-10 h-40 w-40 rounded-full bg-accent/15 blur-3xl" />
+          <div className="absolute -top-6 -left-6 h-28 w-28 rounded-full bg-accent-2/15 blur-2xl" />
+          <div className="relative flex h-full w-full flex-col items-center justify-center gap-3 p-4 text-center">
+            <span
+              className={cn(
+                "font-display font-semibold tracking-tight text-text/90",
+                variant === "leadership" ? "text-4xl sm:text-5xl" : "text-3xl sm:text-4xl",
+              )}
+            >
+              {initials}
+            </span>
+            <span className="flex items-center gap-1.5 rounded-full border border-dashed border-white/20 bg-ink/25 px-3 py-1.5 font-mono text-[10px] tracking-wide text-text-dim uppercase backdrop-blur-sm">
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+                <path d="M4 7h3l2-2h6l2 2h3v12H4V7z" strokeLinejoin="round" />
+                <circle cx="12" cy="13" r="3.5" />
+              </svg>
+              Portrait
+            </span>
+            <span className="sr-only">Upload photo to public/team and set photo path in content</span>
+          </div>
+        </>
+      )}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-ink/50 to-transparent" />
     </div>
   );
 }
@@ -252,33 +282,55 @@ export function TeamDetail() {
         </Container>
       </section>
 
-      {/* 2. Leadership */}
-      <section className="section-perf border-b border-white/8 bg-panel py-16 md:py-24">
-        <Container>
+      {/* 2. Leadership — 2×2 premium cards */}
+      <section className="section-perf relative overflow-hidden border-b border-white/8 bg-panel py-16 md:py-24">
+        <div
+          className="pointer-events-none absolute top-20 right-0 h-72 w-72 rounded-full bg-accent/8 blur-[100px]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute bottom-10 left-0 h-64 w-64 rounded-full bg-accent-2/8 blur-[90px]"
+          aria-hidden="true"
+        />
+        <Container className="relative">
           <Reveal>
             <Eyebrow number="01">LEADERSHIP</Eyebrow>
             <SectionTitle>Guiding the work that ships.</SectionTitle>
+            <p className="mb-12 max-w-[560px] text-[15px] text-text-dim md:mb-14">
+              Four builders who set direction and still write the code — the people you meet on the
+              first call are the ones who deliver.
+            </p>
           </Reveal>
 
-          <div className="mt-10 grid gap-6">
+          <div className="grid gap-6 md:grid-cols-2 md:gap-7">
             {teamLeadership.map((leader, i) => (
               <Reveal key={leader.name} delay={i * 80}>
-                <article className="team-card group grid overflow-hidden rounded-[18px] border border-white/10 bg-ink/50 backdrop-blur-md max-[820px]:grid-cols-1 min-[821px]:grid-cols-[auto_1fr]">
-                  <div className="overflow-hidden p-6 sm:p-8">
-                    <div className="overflow-hidden rounded-[18px] transition-transform duration-500 group-hover:scale-[1.03]">
-                      <AvatarPlaceholder initials={leader.initials} tone={leader.photoTone} size="xl" />
+                <article className="team-card group relative grid h-full overflow-hidden rounded-[24px] border border-white/10 bg-ink/50 shadow-[var(--shadow-card)] backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_24px_60px_rgba(0,0,0,0.28),0_0_40px_color-mix(in_srgb,var(--theme-accent)_10%,transparent)] max-[640px]:grid-cols-1 min-[641px]:grid-cols-[minmax(180px,42%)_1fr]">
+                  <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-accent/5 via-transparent to-accent-2/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                  <div className="relative p-4 sm:p-5">
+                    <span className="absolute top-7 left-7 z-10 rounded-full border border-white/15 bg-ink/55 px-2.5 py-1 font-mono text-[10px] tracking-[0.12em] text-accent backdrop-blur-md">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div className="h-full overflow-hidden rounded-[18px] transition-transform duration-700 group-hover:scale-[1.03]">
+                      <MemberPhoto
+                        name={leader.name}
+                        initials={leader.initials}
+                        tone={leader.photoTone}
+                        photo={leader.photo}
+                        variant="leadership"
+                      />
                     </div>
                   </div>
-                  <div className="flex flex-col justify-center p-6 pt-0 sm:p-8 min-[821px]:pt-8">
-                    <p className="mb-2 font-mono text-[12px] tracking-[0.08em] text-accent uppercase">
+
+                  <div className="relative flex flex-col justify-center p-6 pt-2 sm:p-8 sm:pl-4 sm:pt-8">
+                    <p className="mb-2 font-mono text-[12px] tracking-[0.12em] text-accent uppercase">
                       {leader.role}
                     </p>
-                    <h3 className="mb-3 font-display text-[clamp(24px,3vw,32px)] font-semibold">
+                    <h3 className="mb-3 font-display text-[clamp(22px,2.5vw,28px)] leading-tight font-semibold tracking-tight">
                       {leader.name}
                     </h3>
-                    <p className="mb-5 max-w-[560px] text-[15px] leading-relaxed text-text-dim">
-                      {leader.bio}
-                    </p>
+                    <p className="mb-6 text-[14.5px] leading-relaxed text-text-dim">{leader.bio}</p>
                     <div className="mb-6 flex flex-wrap gap-2">
                       {leader.skills.map((skill) => (
                         <span key={skill} className="tech-pill">
@@ -286,25 +338,20 @@ export function TeamDetail() {
                         </span>
                       ))}
                     </div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      {leader.linkedin && leader.linkedin !== "#" ? (
-                        <a
-                          href={leader.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-4 py-2 font-mono text-[12px] text-accent transition-all hover:bg-accent/20"
-                        >
-                          <LinkedInIcon /> LinkedIn
-                        </a>
-                      ) : (
-                        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 font-mono text-[12px] text-text-dim/50">
-                          <LinkedInIcon /> LinkedIn soon
-                        </span>
-                      )}
+                    <div className="flex flex-wrap items-center gap-3 border-t border-white/8 pt-5">
+                      <SocialBtn href={leader.linkedin} label={`${leader.name} on LinkedIn`}>
+                        <LinkedInIcon />
+                      </SocialBtn>
+                      <SocialBtn href={leader.github} label={`${leader.name} on GitHub`}>
+                        <GitHubIcon />
+                      </SocialBtn>
                       {leader.email ? (
-                        <SocialBtn href={`mailto:${leader.email}`} label={`Email ${leader.name}`}>
-                          <MailIcon />
-                        </SocialBtn>
+                        <a
+                          href={`mailto:${leader.email}`}
+                          className="ml-auto font-mono text-[12px] text-accent-2 transition-colors hover:text-accent"
+                        >
+                          Email
+                        </a>
                       ) : null}
                     </div>
                   </div>
@@ -322,37 +369,44 @@ export function TeamDetail() {
             <Eyebrow number="02">ENGINEERING</Eyebrow>
             <SectionTitle>Engineering Team</SectionTitle>
             <p className="mb-10 max-w-[560px] text-[15px] text-text-dim">
-              The builders behind our web, mobile, and cloud products — named engineers you can
-              actually reach.
+              Specialized engineers who extend delivery across web, data, and cloud infrastructure.
             </p>
           </Reveal>
 
-          <div className="grid gap-5 max-[640px]:grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-5 max-[640px]:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {teamEngineering.map((member, i) => (
               <Reveal key={member.name} delay={i * 60}>
-                <article className="team-card group flex h-full flex-col rounded-[16px] border border-white/10 bg-panel/70 p-5 backdrop-blur-md sm:p-6">
-                  <div className="mb-5 overflow-hidden rounded-[14px]">
-                    <div className="transition-transform duration-500 group-hover:scale-105">
-                      <AvatarPlaceholder initials={member.initials} tone={member.photoTone} size="lg" />
+                <article className="team-card group flex h-full flex-col overflow-hidden rounded-[18px] border border-white/10 bg-panel/60 backdrop-blur-md">
+                  <div className="p-3 pb-0 sm:p-4 sm:pb-0">
+                    <div className="overflow-hidden rounded-[14px] transition-transform duration-500 group-hover:scale-[1.02]">
+                      <MemberPhoto
+                        name={member.name}
+                        initials={member.initials}
+                        tone={member.photoTone}
+                        photo={member.photo}
+                        variant="card"
+                      />
                     </div>
                   </div>
-                  <h3 className="mb-1 font-display text-lg font-semibold">{member.name}</h3>
-                  <p className="mb-3 font-mono text-[12px] text-accent-2">{member.role}</p>
-                  <p className="mb-4 flex-1 text-[13.5px] leading-relaxed text-text-dim">{member.bio}</p>
-                  <div className="mb-5 flex flex-wrap gap-1.5">
-                    {member.skills.map((skill) => (
-                      <span key={skill} className="tech-pill">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-2 border-t border-white/8 pt-4">
-                    <SocialBtn href={member.linkedin} label={`${member.name} on LinkedIn`}>
-                      <LinkedInIcon />
-                    </SocialBtn>
-                    <SocialBtn href={member.github} label={`${member.name} on GitHub`}>
-                      <GitHubIcon />
-                    </SocialBtn>
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <h3 className="mb-1 font-display text-lg font-semibold">{member.name}</h3>
+                    <p className="mb-3 font-mono text-[12px] text-accent-2">{member.role}</p>
+                    <p className="mb-4 flex-1 text-[13.5px] leading-relaxed text-text-dim">{member.bio}</p>
+                    <div className="mb-5 flex flex-wrap gap-1.5">
+                      {member.skills.map((skill) => (
+                        <span key={skill} className="tech-pill">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex gap-2 border-t border-white/8 pt-4">
+                      <SocialBtn href={member.linkedin} label={`${member.name} on LinkedIn`}>
+                        <LinkedInIcon />
+                      </SocialBtn>
+                      <SocialBtn href={member.github} label={`${member.name} on GitHub`}>
+                        <GitHubIcon />
+                      </SocialBtn>
+                    </div>
                   </div>
                 </article>
               </Reveal>
@@ -369,17 +423,25 @@ export function TeamDetail() {
             <SectionTitle>Product &amp; Design</SectionTitle>
           </Reveal>
 
-          <div className="mt-10 max-w-[720px]">
+          <div className="mt-10 max-w-[760px]">
             {teamDesign.map((member, i) => (
               <Reveal key={member.name} delay={i * 80}>
-                <article className="team-card group overflow-hidden rounded-[18px] border border-white/10 bg-ink/40 p-6 backdrop-blur-md sm:flex sm:gap-8 sm:p-8">
-                  <div className="mb-5 shrink-0 overflow-hidden rounded-[16px] sm:mb-0">
-                    <div className="transition-transform duration-500 group-hover:scale-105">
-                      <AvatarPlaceholder initials={member.initials} tone={member.photoTone} size="lg" />
+                <article className="team-card group overflow-hidden rounded-[20px] border border-white/10 bg-ink/40 backdrop-blur-md sm:grid sm:grid-cols-[200px_1fr] sm:gap-0">
+                  <div className="p-4 sm:p-5">
+                    <div className="overflow-hidden rounded-[16px] transition-transform duration-500 group-hover:scale-[1.02]">
+                      <MemberPhoto
+                        name={member.name}
+                        initials={member.initials}
+                        tone={member.photoTone}
+                        photo={member.photo}
+                        variant="card"
+                      />
                     </div>
                   </div>
-                  <div>
-                    <p className="mb-1 font-mono text-[12px] text-accent-2">{member.role}</p>
+                  <div className="flex flex-col justify-center p-6 pt-0 sm:p-8 sm:pl-2 sm:pt-8">
+                    <p className="mb-1 font-mono text-[12px] tracking-[0.08em] text-accent uppercase">
+                      {member.role}
+                    </p>
                     <h3 className="mb-3 font-display text-2xl font-semibold">{member.name}</h3>
                     <p className="mb-5 text-[15px] leading-relaxed text-text-dim">{member.bio}</p>
                     <div className="mb-5 flex flex-wrap gap-2">
@@ -408,17 +470,25 @@ export function TeamDetail() {
             <SectionTitle>Project Delivery</SectionTitle>
           </Reveal>
 
-          <div className="mt-10 max-w-[720px]">
+          <div className="mt-10 max-w-[760px]">
             {teamDelivery.map((member, i) => (
               <Reveal key={member.name} delay={i * 80}>
-                <article className="team-card group overflow-hidden rounded-[18px] border border-white/10 bg-panel/60 p-6 backdrop-blur-md sm:flex sm:gap-8 sm:p-8">
-                  <div className="mb-5 shrink-0 overflow-hidden rounded-[16px] sm:mb-0">
-                    <div className="transition-transform duration-500 group-hover:scale-105">
-                      <AvatarPlaceholder initials={member.initials} tone={member.photoTone} size="lg" />
+                <article className="team-card group overflow-hidden rounded-[20px] border border-white/10 bg-panel/60 backdrop-blur-md sm:grid sm:grid-cols-[200px_1fr] sm:gap-0">
+                  <div className="p-4 sm:p-5">
+                    <div className="overflow-hidden rounded-[16px] transition-transform duration-500 group-hover:scale-[1.02]">
+                      <MemberPhoto
+                        name={member.name}
+                        initials={member.initials}
+                        tone={member.photoTone}
+                        photo={member.photo}
+                        variant="card"
+                      />
                     </div>
                   </div>
-                  <div>
-                    <p className="mb-1 font-mono text-[12px] text-accent-2">{member.role}</p>
+                  <div className="flex flex-col justify-center p-6 pt-0 sm:p-8 sm:pl-2 sm:pt-8">
+                    <p className="mb-1 font-mono text-[12px] tracking-[0.08em] text-accent uppercase">
+                      {member.role}
+                    </p>
                     <h3 className="mb-3 font-display text-2xl font-semibold">{member.name}</h3>
                     <p className="mb-5 text-[15px] leading-relaxed text-text-dim">{member.bio}</p>
                     <div className="mb-5 flex flex-wrap gap-2">

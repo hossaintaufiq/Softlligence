@@ -147,11 +147,11 @@ export function AboutDetail() {
       <section className="section-perf border-b border-white/8 bg-ink py-16 md:py-24">
         <Container>
           <Reveal>
-            <Eyebrow number="04">LEADERSHIP</Eyebrow>
-            <SectionTitle>Operators who still engineer.</SectionTitle>
+            <Eyebrow number="02">LEADERSHIP</Eyebrow>
+            <SectionTitle>A compact build team.</SectionTitle>
             <p className="mb-10 max-w-[560px] text-[15px] text-text-dim">
-              Softlligence is run by founders who hold P&amp;L roles and ship code. Strategy and
-              delivery stay in the same hands.
+              Softlligence is run by engineers who ship together — strategy and delivery in the same
+              hands.
             </p>
           </Reveal>
 

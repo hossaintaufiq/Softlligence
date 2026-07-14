@@ -554,10 +554,10 @@ export const aboutCraft = [
 ];
 
 export const aboutLeadershipStrip = [
-  { role: "CEO & Technical Lead", focus: "Vision, architecture, standards" },
-  { role: "COO & Engineer", focus: "Operations and mobile delivery" },
-  { role: "CFO & Engineer", focus: "Finance and full-stack build" },
-  { role: "CMO & Engineer", focus: "Growth and backend systems" },
+  { role: "Team Lead & Full Stack Engineer", focus: "Architecture, standards, delivery" },
+  { role: "Full Stack Engineer", focus: "Backend systems and integrations" },
+  { role: "Senior Full Stack Engineer", focus: "Frontend and APIs" },
+  { role: "Full Stack Engineer", focus: "Mobile and cross-platform" },
 ];
 
 export const aboutCommitments = [
@@ -616,59 +616,62 @@ export const whySoftlligence = [
 export const team = [
   {
     initials: "MH",
-    name: "Md Hossain Ahmmed Taufiq",
-    role: "CEO & Technical Lead",
+    name: "Hossain Ahmmed Taufiq",
+    role: "Team Lead & Full Stack Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
     bio: "Full-stack developer focused on scalable web applications and clean API design.",
     skills: ["React", "Node.js", "PostgreSQL"],
-  },
-  {
-    initials: "MS",
-    name: "Mehedi Ashraf Simanto",
-    role: "Senior Full Stack Engineer",
-    school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Builds responsive frontends and mobile-friendly interfaces with attention to performance.",
-    skills: ["React", "TypeScript", "Tailwind CSS"],
   },
   {
     initials: "FS",
     name: "Faid Sarowar",
     role: "Full Stack Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Works across backend systems, integrations and deployment pipelines.",
-    skills: ["Python", "Docker", "AWS"],
+    bio: "Works across backend systems, integrations, and deployment pipelines with a focus on reliable delivery.",
+    skills: ["Python", "Docker", "AWS", "Node.js"],
+  },
+  {
+    initials: "MS",
+    name: "Mehedi Ashraf Simanto",
+    role: "Senior Full Stack Engineer",
+    school: "BSc in CSE, North South University, Bangladesh",
+    bio: "Builds performant frontends and reliable APIs with a sharp eye for UX and maintainability.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
   },
   {
     initials: "AB",
     name: "Al Mustafiz Bappy",
     role: "Full Stack Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Specializes in mobile development and cross-platform app delivery.",
-    skills: ["React Native", "Flutter", "Firebase"],
+    bio: "Delivers cross-platform mobile and web experiences with clean, production-ready code.",
+    skills: ["React Native", "Flutter", "Firebase", "TypeScript"],
   },
 ];
 
 export const teamPageStats = [
-  { count: 9, suffix: "", label: "Team Members" },
+  { count: 8, suffix: "", label: "Team Members" },
   { count: 12, suffix: "+", label: "Projects Delivered" },
-  { count: 4, suffix: "", label: "Founding Leaders" },
+  { count: 4, suffix: "", label: "Leadership" },
   { count: 100, suffix: "%", label: "Hands-on Delivery" },
 ];
 
+/**
+ * Drop portrait files into /public/team/ and set `photo` to the path, e.g. "/team/hossain.jpg"
+ * Recommended: square or 4:5 portrait, 800×1000px, JPG/WebP.
+ */
 export const teamLeadership = [
   {
     initials: "MH",
-    name: "Md Hossain Ahmmed Taufiq",
-    role: "CEO & Technical Lead",
-    bio: "Leads Softlligence as CEO and Technical Lead — setting product direction while owning architecture, engineering standards, and the systems organizations can depend on.",
-    skills: ["Product Strategy", "Architecture", "React", "Node.js", "AWS"],
+    name: "Hossain Ahmmed Taufiq",
+    role: "Team Lead & Full Stack Engineer",
+    bio: "Leads architecture and engineering standards — focused on scalable web applications, clean API design, and systems organizations can rely on.",
+    skills: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
     linkedin: "#",
+    github: "#",
     email: "",
+    photo: null as string | null,
     photoTone: "from-accent/25 to-accent-2/10",
   },
-];
-
-export const teamEngineering = [
   {
     initials: "FS",
     name: "Faid Sarowar",
@@ -677,7 +680,9 @@ export const teamEngineering = [
     skills: ["Python", "Docker", "AWS", "Node.js"],
     linkedin: "#",
     github: "#",
-    photoTone: "from-accent/25 to-accent-2/10",
+    email: "",
+    photo: null as string | null,
+    photoTone: "from-accent/20 to-panel",
   },
   {
     initials: "MS",
@@ -687,7 +692,9 @@ export const teamEngineering = [
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
     linkedin: "#",
     github: "#",
-    photoTone: "from-accent/20 to-panel",
+    email: "",
+    photo: null as string | null,
+    photoTone: "from-accent-2/20 to-panel",
   },
   {
     initials: "AB",
@@ -697,8 +704,13 @@ export const teamEngineering = [
     skills: ["React Native", "Flutter", "Firebase", "TypeScript"],
     linkedin: "#",
     github: "#",
+    email: "",
+    photo: null as string | null,
     photoTone: "from-accent-2/15 to-ink",
   },
+];
+
+export const teamEngineering = [
   {
     initials: "RK",
     name: "Rafi Khan",
@@ -707,6 +719,7 @@ export const teamEngineering = [
     skills: ["Node.js", "Python", "MongoDB", "PostgreSQL", "Docker"],
     linkedin: "#",
     github: "#",
+    photo: null as string | null,
     photoTone: "from-white/10 to-panel",
   },
   {
@@ -717,6 +730,7 @@ export const teamEngineering = [
     skills: ["React", "Next.js", "TypeScript", "Node.js"],
     linkedin: "#",
     github: "#",
+    photo: null as string | null,
     photoTone: "from-accent/15 to-panel-2",
   },
   {
@@ -727,6 +741,7 @@ export const teamEngineering = [
     skills: ["Docker", "AWS", "Node.js", "TypeScript", "CI/CD"],
     linkedin: "#",
     github: "#",
+    photo: null as string | null,
     photoTone: "from-accent-2/20 to-ink",
   },
 ];
@@ -739,6 +754,7 @@ export const teamDesign = [
     bio: "Crafts clear interfaces and design systems that help products feel intentional, accessible, and easy to ship.",
     skills: ["Figma", "UI Design", "UX Research", "Design Systems", "Brand Identity"],
     linkedin: "#",
+    photo: null as string | null,
     photoTone: "from-accent/30 to-accent-2/15",
   },
 ];
@@ -751,6 +767,7 @@ export const teamDelivery = [
     bio: "Keeps timelines honest, stakeholders aligned, and sprints moving — so engineering can focus on shipping.",
     skills: ["Agile", "Scrum", "Sprint Planning", "Client Communication", "Product Planning"],
     linkedin: "#",
+    photo: null as string | null,
     photoTone: "from-accent-2/25 to-panel",
   },
 ];
