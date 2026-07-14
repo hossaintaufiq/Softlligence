@@ -40,7 +40,7 @@ export function Contact({ summary = false }: ContactProps) {
 
   if (summary) {
     return (
-      <section className="border-y border-white/5 bg-ink py-24" id="contact">
+      <section className="section-perf border-y border-white/5 bg-ink py-20 md:py-24" id="contact">
         <Container className="max-w-[640px] text-center">
           <Eyebrow number="10">START A PROJECT</Eyebrow>
           <SectionTitle className="mx-auto">Tell us what you&apos;re building.</SectionTitle>
@@ -85,7 +85,7 @@ export function Contact({ summary = false }: ContactProps) {
         </div>
 
         <form
-          className="rounded-[14px] border border-white/9 bg-panel p-[34px]"
+          className="pro-card rounded-[14px] p-6 sm:p-[34px]"
           noValidate
           onSubmit={handleSubmit}
         >

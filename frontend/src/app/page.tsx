@@ -13,6 +13,7 @@ import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Container } from "@/components/ui/Section";
+import { Reveal } from "@/components/ui/Reveal";
 import { pageRoutes } from "@/lib/navigation";
 
 const quickLinks = [
@@ -33,29 +34,32 @@ export default function Home() {
       <Marquee />
       <Stats />
 
-      <section className="border-b border-white/5 bg-panel py-16">
+      <section className="section-perf border-b border-white/5 bg-panel py-14 md:py-16">
         <Container>
-          <p className="mb-3.5 font-mono text-[12.5px] tracking-[0.06em] text-text-dim">
-            <span className="text-accent">⟨</span> EXPLORE <span className="text-accent">⟩</span>
-          </p>
-          <h2 className="mb-8 font-display text-[clamp(24px,3vw,36px)] font-semibold tracking-tight">
-            Jump to a section
-          </h2>
-          <div className="grid gap-4 max-[720px]:grid-cols-1 max-[980px]:grid-cols-2 min-[981px]:grid-cols-4">
-            {quickLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="group rounded-[14px] border border-white/9 bg-panel-2 p-5 transition-all duration-200 hover:-translate-y-[3px] hover:border-accent"
-              >
-                <h3 className="mb-1.5 font-display text-base font-semibold group-hover:text-accent">
-                  {link.label}
-                </h3>
-                <p className="m-0 text-[13px] text-text-dim">{link.desc}</p>
-                <span className="mt-3 inline-block font-mono text-xs text-accent-2 group-hover:text-accent">
-                  View page →
-                </span>
-              </Link>
+          <Reveal>
+            <p className="mb-3.5 font-mono text-[12.5px] tracking-[0.06em] text-text-dim">
+              <span className="text-accent">⟨</span> EXPLORE <span className="text-accent">⟩</span>
+            </p>
+            <h2 className="mb-8 font-display text-[clamp(22px,3vw,36px)] font-semibold tracking-tight">
+              Jump to a section
+            </h2>
+          </Reveal>
+          <div className="grid gap-3 sm:gap-4 max-[720px]:grid-cols-1 max-[980px]:grid-cols-2 min-[981px]:grid-cols-4">
+            {quickLinks.map((link, i) => (
+              <Reveal key={link.href} delay={i * 60}>
+                <Link
+                  href={link.href}
+                  className="pro-card pro-card--alt pro-card--interactive group block h-full p-5"
+                >
+                  <h3 className="mb-1.5 font-display text-base font-semibold transition-colors group-hover:text-accent">
+                    {link.label}
+                  </h3>
+                  <p className="m-0 text-[13px] text-text-dim">{link.desc}</p>
+                  <span className="mt-3 inline-block font-mono text-xs text-accent-2 transition-all group-hover:text-accent">
+                    View page →
+                  </span>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </Container>

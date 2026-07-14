@@ -5,7 +5,6 @@ export const navLinks = [
   { href: "/process", label: "Process" },
   { href: "/about", label: "About" },
   { href: "/team", label: "Team" },
-  { href: "/faq", label: "FAQ" },
 ] as const;
 
 export const pageRoutes = {

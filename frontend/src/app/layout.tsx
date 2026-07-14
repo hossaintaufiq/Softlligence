@@ -8,18 +8,21 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-space-grotesk",
+  display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-ibm-plex-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -42,6 +45,11 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body className="antialiased">
+        <div className="site-bg" aria-hidden="true">
+          <div className="site-grid" />
+          <div className="site-glow site-glow--hero" />
+          <div className="site-glow site-glow--accent" />
+        </div>
         <Nav />
         {children}
         <Footer />

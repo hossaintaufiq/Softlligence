@@ -17,7 +17,7 @@ export function FAQ({ summary = false, limit = 3 }: FAQProps) {
   const items = summary ? faqs.slice(0, limit) : faqs;
 
   return (
-    <section className="bg-panel py-24" id="faq">
+    <section className="section-perf bg-panel py-20 md:py-24" id="faq">
       <Container>
         <Eyebrow number="09">QUESTIONS</Eyebrow>
         <SectionTitle>Answers before you have to ask.</SectionTitle>
@@ -29,13 +29,14 @@ export function FAQ({ summary = false, limit = 3 }: FAQProps) {
               <div
                 key={faq.question}
                 className={cn(
-                  "border-t border-white/9",
+                  "border-t border-white/9 transition-colors duration-200",
+                  isOpen && "bg-white/2",
                   index === items.length - 1 && "border-b",
                 )}
               >
                 <button
                   type="button"
-                  className="flex w-full cursor-pointer items-center justify-between gap-5 border-none bg-transparent py-5.5 text-left font-display text-[16.5px] font-medium text-text"
+                  className="flex w-full cursor-pointer items-center justify-between gap-5 border-none bg-transparent px-1 py-5 text-left font-display text-base font-medium text-text sm:py-5.5 sm:text-[16.5px]"
                   aria-expanded={isOpen}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
