@@ -73,7 +73,13 @@ html.light {
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -227,12 +233,28 @@ html.light .svc-model {
   opacity: 0;
   transform: translateY(16px);
   transition:
-    opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal--visible {
   opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal--static {
+  opacity: 1;
+  transform: none;
+}
+
+/* Always-readable soft entrance (homepage / static pages) */
+.reveal-soft {
+  opacity: 1;
+  transform: translateY(10px);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-soft--on {
   transform: translateY(0);
 }
 
@@ -334,10 +356,17 @@ html.light .svc-model {
   }
 }
 
-/* ── Section performance ── */
+/* ── Section performance (skip above-the-fold delay) ── */
 .section-perf {
   content-visibility: auto;
   contain-intrinsic-size: auto 480px;
+}
+
+@supports (content-visibility: auto) {
+  main > section:first-of-type,
+  main > section:nth-of-type(2) {
+    content-visibility: visible;
+  }
 }
 
 /* ── Tag pill ── */
@@ -771,6 +800,11 @@ html.light ::selection {
 
   .reveal {
     opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal-soft {
     transform: none;
     transition: none;
   }

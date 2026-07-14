@@ -9,33 +9,42 @@ interface RevealProps {
   delay?: number;
 }
 
+/**
+ * Soft entrance only — content is always visible (no opacity:0 flash on static pages).
+ */
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setVisible(true);
+      setActive(true);
+      return;
+    }
+
+    const revealNow = () => setActive(true);
+
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 40) {
+      revealNow();
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          revealNow();
           observer.unobserve(el);
         }
       },
-      { threshold: 0.06, rootMargin: "0px 0px 80px 0px" },
+      { threshold: 0.01, rootMargin: "100px 0px" },
     );
 
     observer.observe(el);
-
-    // Failsafe: never leave content invisible if IO is delayed
-    const failsafe = window.setTimeout(() => setVisible(true), 1800);
+    const failsafe = window.setTimeout(revealNow, 300);
 
     return () => {
       observer.disconnect();
@@ -46,8 +55,8 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
   return (
     <div
       ref={ref}
-      className={cn("reveal", visible && "reveal--visible", className)}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={cn("reveal-soft", active && "reveal-soft--on", className)}
+      style={{ transitionDelay: active ? `${delay}ms` : undefined }}
     >
       {children}
     </div>

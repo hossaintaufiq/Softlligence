@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -70,6 +71,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <ThemeProvider>
+          <ScrollToTop />
           <div className="site-bg" aria-hidden="true">
             <div className="site-grid" />
             <div className="site-glow site-glow--hero" />

@@ -18,6 +18,8 @@ export function Nav() {
   const pathname = usePathname();
   const menuId = useId();
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const scrollLockY = useRef(0);
+  const skipScrollRestore = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -27,7 +29,16 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
+    skipScrollRestore.current = true;
     setIsOpen(false);
+
+    const body = document.body;
+    body.style.overflow = "";
+    body.style.position = "";
+    body.style.top = "";
+    body.style.left = "";
+    body.style.right = "";
+    body.style.width = "";
   }, [pathname]);
 
   useEffect(() => {
@@ -57,8 +68,10 @@ export function Nav() {
   useEffect(() => {
     if (!isOpen) return;
 
+    skipScrollRestore.current = false;
     const body = document.body;
     const y = window.scrollY;
+    scrollLockY.current = y;
     body.style.overflow = "hidden";
     body.style.position = "fixed";
     body.style.top = `-${y}px`;
@@ -73,7 +86,10 @@ export function Nav() {
       body.style.left = "";
       body.style.right = "";
       body.style.width = "";
-      window.scrollTo(0, y);
+      // Only restore mid-page scroll when closing the menu in-place — never after route change
+      if (!skipScrollRestore.current) {
+        window.scrollTo({ top: scrollLockY.current, left: 0, behavior: "auto" });
+      }
     };
   }, [isOpen]);
 
