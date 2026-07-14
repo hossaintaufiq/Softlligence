@@ -388,6 +388,7 @@ export const projects = [
     timeline: "Ongoing",
     github: "https://github.com/hossaintaufiq/Playpen_Project",
     liveUrl: "",
+    ourHostedUrl: "",
     stats: [
       { value: "online", label: "Admission & bookings" },
       { value: "Payments", label: "Integrated gateway" },
@@ -411,6 +412,7 @@ export const projects = [
     timeline: "Shipped",
     github: "",
     liveUrl: "",
+    ourHostedUrl: "",
     stats: [
       { value: "<1s", label: "Load-time target" },
       { value: "Static", label: "Rendering model" },
@@ -442,6 +444,7 @@ export const projects = [
     timeline: "Shipped",
     github: "",
     liveUrl: "",
+    ourHostedUrl: "",
     stats: [
       { value: "3", label: "Client surfaces" },
       { value: "Gemini", label: "AI task automation" },
@@ -465,6 +468,7 @@ export const projects = [
     timeline: "4 months",
     github: "https://github",
     liveUrl: "https://example",
+    ourHostedUrl: "",
     stats: [
       { value: "-63%", label: "Branch visits for routine tasks" },
       { value: "4 mo", label: "Design to launch" },
@@ -488,6 +492,7 @@ export const projects = [
     timeline: "6 months",
     github: "https://github.com",
     liveUrl: "https://example.com",
+    ourHostedUrl: "",
     stats: [
       { value: "38k", label: "Students onboarded" },
       { value: "99.9%", label: "Uptime through exam season" },
@@ -511,6 +516,7 @@ export const projects = [
     timeline: "5 months",
     github: "https://github.com",
     liveUrl: "https://example.com",
+    ourHostedUrl: "",
     stats: [
       { value: "+220%", label: "Online order volume, year one" },
       { value: "1.8s", label: "Median page load" },
@@ -534,6 +540,7 @@ export const projects = [
     timeline: "7 months",
     github: "https://github.com",
     liveUrl: "https://example.com",
+    ourHostedUrl: "",
     stats: [
       { value: "-70%", label: "Average permit turnaround" },
       { value: "12", label: "Departments integrated" },

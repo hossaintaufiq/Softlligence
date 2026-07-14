@@ -136,6 +136,11 @@ export function WorkDetail() {
                             <span aria-hidden="true">↗</span> Live site
                           </ExternalLink>
                         )}
+                        {project.ourHostedUrl && (
+                          <ExternalLink href={project.ourHostedUrl} variant="accent">
+                            <span aria-hidden="true">↗</span> Our hosted
+                          </ExternalLink>
+                        )}
                         {project.github && (
                           <ExternalLink href={project.github}>
                             <span aria-hidden="true">⌘</span> GitHub
@@ -180,6 +185,11 @@ export function WorkDetail() {
                         {project.liveUrl && (
                           <ExternalLink href={project.liveUrl} variant="accent">
                             <span aria-hidden="true">↗</span> Live site
+                          </ExternalLink>
+                        )}
+                        {project.ourHostedUrl && (
+                          <ExternalLink href={project.ourHostedUrl} variant="accent">
+                            <span aria-hidden="true">↗</span> Our hosted
                           </ExternalLink>
                         )}
                         {project.github && (
