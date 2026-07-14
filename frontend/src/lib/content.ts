@@ -735,17 +735,6 @@ export const teamEngineering = [
     photo: null as string | null,
     photoTone: "from-accent-2/20 to-ink",
   },
-  {
-    initials: "MS",
-    name: "Minhajul Shobuj",
-    role: "Backend Engineer",
-    bio: "Builds backend systems and APIs with a focus on reliability and scalability.",
-    skills: ["TypeScript", "Python", "Docker", "AWS", "Node.js"],
-    linkedin: "https://www.linkedin.com/in/minhajul-shobuj-0000000000/",
-    github: "https://github.com/minhajulshobuj",
-    photo: null as string | null,
-    photoTone: "from-accent-2/20 to-ink",
-  },
 ];
 
 export const teamDesign = [
