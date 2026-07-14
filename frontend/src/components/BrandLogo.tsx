@@ -1,27 +1,70 @@
+"use client";
+
+import { useId } from "react";
+
 interface BrandLogoProps {
   size?: number;
 }
 
+/** Softlligence SL mark — gold accent, transparent background. */
 export function BrandLogo({ size = 28 }: BrandLogoProps) {
+  const uid = useId().replace(/:/g, "");
+  const darkGrad = `brand-goldDark-${uid}`;
+  const vibrantGrad = `brand-goldBright-${uid}`;
+
   return (
-    <svg viewBox="0 0 28 28" width={size} height={size}>
-      <rect
-        x="2"
-        y="2"
-        width="24"
-        height="24"
-        rx="4"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
+    <svg
+      viewBox="275 145 250 220"
+      width={size}
+      height={size}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <defs>
+        <linearGradient id={darkGrad} x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#8B5A00" />
+          <stop offset="55%" stopColor="#E8A012" />
+          <stop offset="100%" stopColor="#FFB020" />
+        </linearGradient>
+        <linearGradient id={vibrantGrad} x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#FFC94D" />
+          <stop offset="100%" stopColor="#A66A00" />
+        </linearGradient>
+      </defs>
+      <path
+        d="M 350,150
+           C 300,150 290,200 320,230
+           C 350,260 410,250 410,300
+           C 410,350 340,350 320,320
+           C 310,305 310,290 310,290
+           L 280,290
+           C 280,290 285,320 305,345
+           C 335,380 440,380 440,300
+           C 440,230 375,235 350,210
+           C 325,185 340,175 360,175
+           C 390,175 400,200 400,215
+           L 430,205
+           C 420,170 390,150 350,150 Z"
+        fill={`url(#${darkGrad})`}
       />
       <path
-        d="M8 18 L8 10 L14 16 L20 8 L20 18"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M 405,150
+           L 480,150
+           L 410,325
+           L 520,325
+           L 510,355
+           L 370,355
+           Z"
+        fill={`url(#${vibrantGrad})`}
+        opacity="0.95"
+      />
+      <path
+        d="M 410,230
+           C 418,240 422,255 420,270
+           L 445,260
+           C 448,245 440,225 430,215 Z"
+        fill="#FFB020"
+        opacity="0.85"
       />
     </svg>
   );
