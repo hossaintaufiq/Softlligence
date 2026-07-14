@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -14,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
   preload: true,
@@ -26,6 +27,8 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
   display: "swap",
 });
+
+const themeInitScript = `(function(){try{var k='softlligence-theme';var t=localStorage.getItem(k);if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(t);r.style.colorScheme=t;}catch(e){document.documentElement.classList.add('dark');}})();`;
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +46,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B1220",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0B1220" },
+    { media: "(prefers-color-scheme: light)", color: "#F3F5F9" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -56,17 +62,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} dark`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="antialiased">
-        <div className="site-bg" aria-hidden="true">
-          <div className="site-grid" />
-          <div className="site-glow site-glow--hero" />
-          <div className="site-glow site-glow--accent" />
-        </div>
-        <Nav />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <div className="site-bg" aria-hidden="true">
+            <div className="site-grid" />
+            <div className="site-glow site-glow--hero" />
+            <div className="site-glow site-glow--accent" />
+          </div>
+          <Nav />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

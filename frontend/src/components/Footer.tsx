@@ -4,17 +4,18 @@ import { Container } from "@/components/ui/Section";
 import { pageRoutes } from "@/lib/navigation";
 
 const serviceLinks = [
-  { href: pageRoutes.services, label: "Websites & apps" },
-  { href: pageRoutes.services, label: "Mobile" },
-  { href: pageRoutes.services, label: "Product design" },
-  { href: pageRoutes.services, label: "Integrations" },
-  { href: pageRoutes.services, label: "Cloud & DevOps" },
+  { href: `${pageRoutes.services}#web`, label: "Websites & apps" },
+  { href: `${pageRoutes.services}#mobile`, label: "Mobile" },
+  { href: `${pageRoutes.services}#design`, label: "Product design" },
+  { href: `${pageRoutes.services}#integrations`, label: "Integrations" },
+  { href: `${pageRoutes.services}#cloud`, label: "Cloud & DevOps" },
 ];
 
 const companyLinks = [
   { href: pageRoutes.about, label: "About" },
   { href: pageRoutes.team, label: "Team" },
   { href: pageRoutes.work, label: "Work" },
+  { href: pageRoutes.industries, label: "Industries" },
   { href: pageRoutes.process, label: "Process" },
   { href: pageRoutes.faq, label: "FAQ" },
   { href: pageRoutes.contact, label: "Contact" },
@@ -24,7 +25,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/8 bg-[#0a101c] pt-16 pb-8">
+    <footer className="border-t border-white/8 bg-elevated pt-16 pb-8">
       <Container>
         <div className="grid gap-10 border-b border-white/8 pb-12 max-[720px]:grid-cols-1 max-[980px]:grid-cols-2 min-[981px]:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="max-[980px]:col-span-2 min-[981px]:col-span-1">
@@ -35,8 +36,8 @@ export function Footer() {
               Softlligence
             </Link>
             <p className="mt-4 max-w-[300px] text-[14px] leading-relaxed text-text-dim">
-              Custom software for organizations that need systems they can rely on — from sketch to
-              production.
+              A modern software studio for organizations that need systems they can rely on — from
+              sketch to production.
             </p>
             <a
               href="mailto:fiadsarowar93@gmail.com"

@@ -123,8 +123,8 @@ export const services = [
 
 export const serviceStats = [
   { value: "6", label: "Core service lines" },
-  { value: "120+", label: "Products shipped" },
-  { value: "92%", label: "Client retention" },
+  { value: "12+", label: "Products shipped" },
+  { value: "100%", label: "Founder-led delivery" },
 ];
 
 export const serviceGuarantees = [
@@ -455,9 +455,9 @@ export const projects = [
 ];
 
 export const workStats = [
-  { value: "120+", label: "Products shipped" },
+  { value: "12+", label: "Products shipped" },
   { value: "4", label: "Featured case studies" },
-  { value: "8 yrs", label: "Building software" },
+  { value: "Founder-led", label: "Delivery model" },
 ];
 
 export const aboutPoints = [
@@ -489,6 +489,89 @@ export const values = [
   {
     title: "Honest timelines",
     description: "We tell you what's realistic upfront and flag risks early, not after the deadline passes.",
+  },
+];
+
+/** Full About page content */
+export const aboutStory = {
+  eyebrow: "ABOUT SOFTLLIGENCE",
+  title: "We build software organizations actually run on.",
+  lead:
+    "Softlligence Technologies is a founder-led software studio. We design, engineer, and ship production systems for companies, schools, agencies, and nonprofits — custom builds, not stretched templates.",
+  body: [
+    "Most organizations do not need another agency pitch. They need a named team that understands their workflow, writes maintainable code, and stays reachable after launch.",
+    "That is the studio we built: compact leadership, clear ownership, and engineers who still write the product. Discovery, architecture, delivery, and support live under one roof — so nothing gets lost between a slide deck and production.",
+  ],
+};
+
+export const aboutSignal = [
+  { label: "Model", value: "Founder-led studio" },
+  { label: "Delivery", value: "Design → build → ship" },
+  { label: "Focus", value: "Web, mobile & cloud" },
+  { label: "Base", value: "Dhaka · Bangladesh" },
+];
+
+export const aboutBeliefs = [
+  {
+    index: "01",
+    title: "Clarity before code",
+    description:
+      "We map workflows, constraints, and success criteria before a production sprint starts. Ambiguity is expensive — we remove it early.",
+  },
+  {
+    index: "02",
+    title: "Architecture that ages well",
+    description:
+      "Clean APIs, sensible data models, and stacks you can hire for later. We optimize for the next two years of change, not demo day.",
+  },
+  {
+    index: "03",
+    title: "Visible progress every sprint",
+    description:
+      "You click a working build at the end of each cycle — not a status slide. Trust grows when the software speaks for itself.",
+  },
+  {
+    index: "04",
+    title: "Ownership after launch",
+    description:
+      "Monitoring, handoff docs, and a real support window. Launch is a milestone, not the end of the relationship.",
+  },
+];
+
+export const aboutCraft = [
+  {
+    title: "Product & UX",
+    items: ["Workflow mapping", "Prototypes", "Design systems", "Accessibility"],
+  },
+  {
+    title: "Engineering",
+    items: ["Next.js / React", "APIs & data", "Mobile apps", "Cloud & DevOps"],
+  },
+  {
+    title: "Delivery",
+    items: ["Sprint cadence", "Code review", "QA & release", "Post-launch care"],
+  },
+];
+
+export const aboutLeadershipStrip = [
+  { role: "CEO & Technical Lead", focus: "Vision, architecture, standards" },
+  { role: "COO & Engineer", focus: "Operations and mobile delivery" },
+  { role: "CFO & Engineer", focus: "Finance and full-stack build" },
+  { role: "CMO & Engineer", focus: "Growth and backend systems" },
+];
+
+export const aboutCommitments = [
+  {
+    title: "You talk to builders",
+    description: "Leadership and engineering share the same channel. No telephone game.",
+  },
+  {
+    title: "Scope stays honest",
+    description: "Discovery first. If requirements change, the plan and estimate change with them.",
+  },
+  {
+    title: "Security from sprint one",
+    description: "Auth, roles, encryption, and audit trails are designed in — not bolted on before go-live.",
   },
 ];
 
@@ -566,10 +649,10 @@ export const team = [
 ];
 
 export const teamPageStats = [
-  { count: 8, suffix: "", label: "Team Members" },
-  { count: 120, suffix: "+", label: "Projects Delivered" },
-  { count: 24, suffix: "+", label: "Years Combined Experience" },
-  { count: 100, suffix: "%", label: "Dedicated Teams" },
+  { count: 9, suffix: "", label: "Team Members" },
+  { count: 12, suffix: "+", label: "Projects Delivered" },
+  { count: 4, suffix: "", label: "Founding Leaders" },
+  { count: 100, suffix: "%", label: "Hands-on Delivery" },
 ];
 
 export const teamLeadership = [

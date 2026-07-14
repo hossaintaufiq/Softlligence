@@ -17,6 +17,11 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
     const el = ref.current;
     if (!el) return;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -24,11 +29,18 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.08, rootMargin: "0px 0px -32px 0px" },
+      { threshold: 0.06, rootMargin: "0px 0px 80px 0px" },
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Failsafe: never leave content invisible if IO is delayed
+    const failsafe = window.setTimeout(() => setVisible(true), 1800);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(failsafe);
+    };
   }, []);
 
   return (

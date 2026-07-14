@@ -15,9 +15,9 @@ interface ButtonProps {
 
 const variantClasses: Record<ButtonVariant, string> = {
   accent:
-    "bg-accent text-accent-ink hover:shadow-[0_8px_28px_rgba(255,176,32,0.35)] active:scale-[0.98]",
+    "bg-accent text-accent-ink hover:shadow-[0_8px_28px_color-mix(in_srgb,var(--theme-accent)_35%,transparent)] active:scale-[0.98]",
   outline:
-    "border border-white/12 text-text hover:border-accent-2 hover:bg-white/3 active:scale-[0.98]",
+    "border border-white/12 text-text hover:border-accent-2 hover:bg-panel-2 active:scale-[0.98]",
   ghost: "text-text-dim hover:text-text active:scale-[0.98]",
 };
 

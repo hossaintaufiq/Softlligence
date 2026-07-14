@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
 import { navLinks } from "@/lib/navigation";
@@ -37,9 +38,9 @@ export function Nav() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-[100] border-b transition-all duration-300",
+        "site-header sticky top-0 z-[100] border-b transition-all duration-300",
         scrolled
-          ? "border-white/10 bg-ink/90 shadow-[0_8px_32px_rgba(0,0,0,0.4)] backdrop-blur-xl"
+          ? "site-header--scrolled border-white/10 bg-ink/90 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
           : "border-white/5 bg-ink/72 backdrop-blur-[14px]",
       )}
     >
@@ -56,6 +57,8 @@ export function Nav() {
         </Link>
 
         <nav
+          id="primary-nav"
+          aria-label="Primary"
           className={cn(
             "max-[720px]:fixed max-[720px]:top-[72px] max-[720px]:right-0 max-[720px]:left-0 max-[720px]:bottom-0 max-[720px]:flex max-[720px]:flex-col max-[720px]:gap-1 max-[720px]:overflow-y-auto max-[720px]:border-b max-[720px]:border-white/9 max-[720px]:bg-ink/98 max-[720px]:px-7 max-[720px]:py-6 max-[720px]:backdrop-blur-xl max-[720px]:transition-all max-[720px]:duration-300",
             "min-[721px]:flex min-[721px]:items-center min-[721px]:gap-[28px]",
@@ -81,12 +84,16 @@ export function Nav() {
               </Link>
             );
           })}
-          <Button href="/contact" className="mt-2 min-[721px]:hidden" block>
-            Book a call
-          </Button>
+          <div className="mt-3 flex items-center gap-3 min-[721px]:hidden">
+            <ThemeToggle />
+            <Button href="/contact" block>
+              Book a call
+            </Button>
+          </div>
         </nav>
 
         <div className="flex items-center gap-2.5">
+          <ThemeToggle className="max-[720px]:hidden" />
           <Button href="/contact" className="max-[720px]:hidden">
             Book a call
           </Button>
@@ -94,6 +101,7 @@ export function Nav() {
             type="button"
             aria-label="Toggle menu"
             aria-expanded={isOpen}
+            aria-controls="primary-nav"
             onClick={() => setIsOpen((prev) => !prev)}
             className="relative hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-white/9 bg-panel/50 max-[720px]:flex"
           >

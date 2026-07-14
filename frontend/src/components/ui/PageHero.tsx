@@ -29,16 +29,7 @@ interface PageHeroProps {
 export function PageHero({ eyebrow, title, description }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-white/8 bg-panel">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-60"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-          maskImage: "linear-gradient(180deg, black, transparent 90%)",
-        }}
-        aria-hidden="true"
-      />
+      <div className="hero-grid hero-grid--page pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="relative mx-auto w-full max-w-[1180px] px-5 py-14 sm:px-7 md:py-[72px]">
         <p className="mb-4 font-mono text-[12px] tracking-[0.14em] text-text-dim uppercase">
           <span className="text-accent">/</span> {eyebrow}

@@ -1,4 +1,7 @@
-import { aboutPoints, values } from "@/lib/content";
+import {
+  aboutPoints,
+  aboutStory,
+} from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
 import { SectionLink } from "@/components/ui/PageHero";
@@ -9,55 +12,49 @@ interface AboutProps {
 }
 
 export function About({ summary = false }: AboutProps) {
-  const points = summary ? aboutPoints.slice(0, 2) : aboutPoints;
+  if (!summary) {
+    return null;
+  }
 
   return (
-    <section className="section-perf bg-panel py-20 md:py-24" id="about">
+    <section className="section-perf border-y border-white/8 bg-panel py-20 md:py-24" id="about">
       <Container>
-        <div className="max-w-[820px]">
+        <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-16">
           <Reveal>
             <Eyebrow number="07">ABOUT US</Eyebrow>
             <SectionTitle>
-              A build studio, sized so you always know who&apos;s working on your project.
+              Softlligence builds software organizations actually run on.
             </SectionTitle>
-            <p className="mb-8 max-w-[640px] text-[15px] text-text-dim md:mb-9 md:text-base">
-              We&apos;re a software company built for organizations that need something real — not a
-              landing page, a working system people rely on every day. Small enough that you talk to
-              the engineers, structured enough to run a project the size a bank or a university
-              actually needs.
+            <p className="mb-0 max-w-[560px] text-[15px] leading-relaxed text-text-dim md:text-base">
+              {aboutStory.lead}
             </p>
           </Reveal>
 
-          <div className="grid gap-5 sm:gap-6 max-[980px]:grid-cols-1 min-[981px]:grid-cols-3">
-            {points.map((point, i) => (
-              <Reveal key={point.title} delay={i * 80}>
-                <div className="pro-card pro-card--alt h-full p-6">
-                  <h5 className="mb-2 text-[15.5px] font-semibold">{point.title}</h5>
-                  <p className="m-0 text-[13.5px] leading-snug text-text-dim">{point.description}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          {!summary && (
-            <div className="mt-12 grid gap-4 sm:gap-5 max-[720px]:grid-cols-1 min-[721px]:grid-cols-3">
-              {values.map((value, i) => (
-                <Reveal key={value.title} delay={i * 80}>
-                  <div className="pro-card pro-card--alt h-full p-6">
-                    <h5 className="mb-2 font-display text-base font-semibold">{value.title}</h5>
-                    <p className="m-0 text-[13.5px] text-text-dim">{value.description}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          )}
-
-          {summary && (
-            <Reveal className="mt-8" delay={200}>
-              <SectionLink href={pageRoutes.about}>Learn more about us</SectionLink>
-            </Reveal>
-          )}
+          <Reveal delay={100}>
+            <p className="m-0 border-l-2 border-accent pl-5 font-display text-[17px] leading-snug font-medium text-text md:text-xl">
+              Founder-led. Named engineers.
+              <span className="block text-text-dim">Production systems — not templates.</span>
+            </p>
+          </Reveal>
         </div>
+
+        <div className="mt-12 grid gap-0 divide-y divide-white/8 border-y border-white/8 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          {aboutPoints.map((point, i) => (
+            <Reveal key={point.title} delay={i * 70}>
+              <div className="px-0 py-6 sm:px-6 sm:py-8 first:sm:pl-0 last:sm:pr-0">
+                <span className="mb-3 block font-mono text-[11px] tracking-[0.12em] text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mb-2 font-display text-[16px] font-semibold">{point.title}</h3>
+                <p className="m-0 text-[13.5px] leading-relaxed text-text-dim">{point.description}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="mt-10" delay={200}>
+          <SectionLink href={pageRoutes.about}>Our full story</SectionLink>
+        </Reveal>
       </Container>
     </section>
   );

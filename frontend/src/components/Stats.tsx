@@ -5,10 +5,10 @@ import { Container } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 
 const stats = [
-  { count: 120, suffix: "+", label: "Products shipped", code: "01" },
-  { count: 45, suffix: "+", label: "Organizations", code: "02" },
-  { count: 2400000, suffix: "+", label: "People reached", code: "03" },
-  { count: 92, suffix: "%", label: "Client retention", code: "04" },
+  { count: 12, suffix: "+", label: "Products shipped", code: "01" },
+  { count: 8, suffix: "+", label: "Organizations", code: "02" },
+  { count: 4, suffix: "", label: "Founding engineers", code: "03" },
+  { count: 100, suffix: "%", label: "Hands-on delivery", code: "04" },
 ];
 
 function formatNumber(n: number) {

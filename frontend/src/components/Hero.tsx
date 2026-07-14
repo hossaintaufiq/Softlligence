@@ -36,7 +36,8 @@ export function Blueprint() {
 export function Hero() {
   return (
     <section className="relative overflow-hidden pt-14 pb-12 md:pt-[88px] md:pb-16">
-      <Container className="grid items-center gap-10 md:gap-14 max-[980px]:grid-cols-1 min-[981px]:grid-cols-[1.1fr_0.9fr]">
+      <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+      <Container className="relative grid items-center gap-10 md:gap-14 max-[980px]:grid-cols-1 min-[981px]:grid-cols-[1.1fr_0.9fr]">
         <div className="max-[980px]:order-2">
           <p className="hero-in hero-in--1 mb-5 flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-[0.08em] text-text-dim uppercase sm:text-[12px]">
             <span className="inline-flex items-center gap-2 rounded border border-white/10 bg-panel/70 px-3 py-1.5 normal-case tracking-normal">
@@ -68,16 +69,16 @@ export function Hero() {
 
           <dl className="hero-in hero-in--5 grid grid-cols-3 gap-4 border-t border-white/9 pt-6 sm:max-w-[460px]">
             <div>
-              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Rating</dt>
-              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">4.9/5</dd>
+              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Focus</dt>
+              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">Full-stack</dd>
             </div>
             <div>
-              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Shipped</dt>
-              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">120+</dd>
+              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Reply</dt>
+              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">&lt;24h</dd>
             </div>
             <div>
-              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Years</dt>
-              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">8</dd>
+              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Team</dt>
+              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">Founders</dd>
             </div>
           </dl>
         </div>

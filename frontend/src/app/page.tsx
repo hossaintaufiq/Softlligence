@@ -10,7 +10,6 @@ import { About } from "@/components/About";
 import { Team } from "@/components/Team";
 import { FAQ } from "@/components/FAQ";
 import { Contact } from "@/components/Contact";
-import { FinalCTA } from "@/components/FinalCTA";
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
       <Team summary />
       <FAQ summary />
       <Contact summary />
-      <FinalCTA />
     </main>
   );
 }

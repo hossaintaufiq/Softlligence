@@ -61,7 +61,7 @@ export function Comparison({ summary = false }: ComparisonProps) {
           </Reveal>
 
           <Reveal delay={160}>
-            <div className="relative h-full rounded-[14px] border border-accent bg-linear-to-br from-accent/10 to-panel-2 p-6 shadow-[0_0_40px_rgba(255,176,32,0.08)] sm:p-8">
+            <div className="relative h-full rounded-[14px] border border-accent bg-linear-to-br from-accent/10 to-panel-2 p-6 shadow-[var(--shadow-card)] sm:p-8">
               <span className="absolute -top-3 left-7 rounded-full bg-accent px-3 py-1 font-mono text-[11.5px] font-bold text-accent-ink">
                 Softlligence
               </span>

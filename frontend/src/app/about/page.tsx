@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
-import { About } from "@/components/About";
-import { Comparison } from "@/components/Comparison";
-import { PageHero } from "@/components/ui/PageHero";
+import { AboutDetail } from "@/components/AboutDetail";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "A build studio sized so you always know who's working on your project.",
+  description:
+    "Softlligence Technologies is a founder-led software studio that designs, builds, and ships production systems for organizations — custom software, not stretched templates.",
 };
 
 export default function AboutPage() {
   return (
     <main>
-      <PageHero
-        eyebrow="ABOUT US"
-        title="A build studio, sized so you always know who's working on your project."
-        description="Small enough to talk to the engineers. Structured enough for a bank or university."
-      />
-      <About />
-      <Comparison />
+      <AboutDetail />
     </main>
   );
 }

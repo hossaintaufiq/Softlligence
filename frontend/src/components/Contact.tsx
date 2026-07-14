@@ -10,11 +10,12 @@ interface ContactProps {
 
 export function Contact({ summary = false }: ContactProps) {
   const [status, setStatus] = useState("");
-  const [statusColor, setStatusColor] = useState("var(--color-accent-2)");
+  const [statusColor, setStatusColor] = useState("var(--theme-accent-2)");
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    const data = new FormData(form);
     const required = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(
       "[required]",
     );
@@ -24,18 +25,40 @@ export function Contact({ summary = false }: ContactProps) {
     });
 
     if (!valid) {
-      setStatusColor("#E86A5C");
+      setStatusColor("var(--theme-danger)");
       setStatus("Please fill in all required fields before sending.");
       return;
     }
 
-    setStatusColor("var(--color-accent-2)");
-    setStatus("Sending…");
+    const name = String(data.get("name") || "");
+    const company = String(data.get("company") || "");
+    const email = String(data.get("email") || "");
+    const phone = String(data.get("phone") || "");
+    const type = String(data.get("type") || "");
+    const budget = String(data.get("budget") || "");
+    const message = String(data.get("message") || "");
 
-    setTimeout(() => {
-      setStatus("Thanks — we've got your message and will reply within one business day.");
-      form.reset();
-    }, 700);
+    const body = [
+      `Name: ${name}`,
+      `Company: ${company}`,
+      `Email: ${email}`,
+      phone ? `Phone: ${phone}` : "",
+      `Project type: ${type}`,
+      budget ? `Budget: ${budget}` : "",
+      "",
+      message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const mailto = `mailto:fiadsarowar93@gmail.com?subject=${encodeURIComponent(
+      `Project inquiry — ${company || name}`,
+    )}&body=${encodeURIComponent(body)}`;
+
+    setStatusColor("var(--theme-accent-2)");
+    setStatus("Opening your email client…");
+    window.location.href = mailto;
+    form.reset();
   };
 
   if (summary) {
@@ -99,7 +122,7 @@ export function Contact({ summary = false }: ContactProps) {
                 name="name"
                 type="text"
                 required
-                className="w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
               />
             </div>
             <div className="mb-4.5">
@@ -111,7 +134,7 @@ export function Contact({ summary = false }: ContactProps) {
                 name="company"
                 type="text"
                 required
-                className="w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
               />
             </div>
           </div>
@@ -126,7 +149,7 @@ export function Contact({ summary = false }: ContactProps) {
                 name="email"
                 type="email"
                 required
-                className="w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
               />
             </div>
             <div className="mb-4.5">
@@ -137,7 +160,7 @@ export function Contact({ summary = false }: ContactProps) {
                 id="fPhone"
                 name="phone"
                 type="tel"
-                className="w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
               />
             </div>
           </div>
@@ -152,7 +175,7 @@ export function Contact({ summary = false }: ContactProps) {
                 name="type"
                 required
                 defaultValue=""
-                className="w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
               >
                 <option value="" disabled>
                   Select one
@@ -172,7 +195,7 @@ export function Contact({ summary = false }: ContactProps) {
                 id="fBudget"
                 name="budget"
                 defaultValue=""
-                className="w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
               >
                 <option value="" disabled>
                   Select a range
@@ -195,7 +218,7 @@ export function Contact({ summary = false }: ContactProps) {
               rows={4}
               required
               placeholder="What are you trying to build, and by when?"
-              className="w-full resize-y rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+              className="form-field w-full resize-y rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
             />
           </div>
 

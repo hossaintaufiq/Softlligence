@@ -140,12 +140,25 @@ function SocialBtn({
   label: string;
   children: ReactNode;
 }) {
+  const isExternal = href.startsWith("http");
+  const isPlaceholder = !href || href === "#";
+
+  if (isPlaceholder) {
+    return (
+      <span
+        aria-label={`${label} (coming soon)`}
+        className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/5 text-text-dim/50"
+      >
+        {children}
+      </span>
+    );
+  }
+
   return (
     <a
       href={href}
       aria-label={label}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/12 bg-white/5 text-text-dim transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-accent/10 hover:text-accent"
     >
       {children}
@@ -207,16 +220,16 @@ export function TeamDetail() {
       <section className="relative isolate min-h-[78vh] overflow-hidden border-b border-white/8 md:min-h-[85vh]">
         <div className="absolute inset-0 -z-10" aria-hidden="true">
           <Image
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=75"
             alt=""
             fill
             priority
             className="object-cover object-center"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-ink/78" />
-          <div className="absolute inset-0 bg-linear-to-b from-ink/55 via-ink/70 to-ink" />
-          <div className="absolute inset-0 bg-linear-to-r from-ink/50 via-transparent to-ink/40" />
+          <div className="photo-scrim absolute inset-0 bg-[rgb(11,18,32)]/80" />
+          <div className="photo-scrim-b absolute inset-0 bg-linear-to-b from-[rgb(11,18,32)]/50 via-[rgb(11,18,32)]/72 to-ink" />
+          <div className="photo-scrim-r absolute inset-0 bg-linear-to-r from-[rgb(11,18,32)]/45 via-transparent to-[rgb(11,18,32)]/35" />
         </div>
 
         <Container className="relative flex min-h-[78vh] flex-col justify-end py-16 md:min-h-[85vh] md:py-24">
@@ -274,12 +287,20 @@ export function TeamDetail() {
                       ))}
                     </div>
                     <div className="flex flex-wrap items-center gap-3">
-                      <a
-                        href={leader.linkedin}
-                        className="inline-flex items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-4 py-2 font-mono text-[12px] text-accent transition-all hover:bg-accent/20"
-                      >
-                        <LinkedInIcon /> LinkedIn
-                      </a>
+                      {leader.linkedin && leader.linkedin !== "#" ? (
+                        <a
+                          href={leader.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-4 py-2 font-mono text-[12px] text-accent transition-all hover:bg-accent/20"
+                        >
+                          <LinkedInIcon /> LinkedIn
+                        </a>
+                      ) : (
+                        <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 font-mono text-[12px] text-text-dim/50">
+                          <LinkedInIcon /> LinkedIn soon
+                        </span>
+                      )}
                       {leader.email ? (
                         <SocialBtn href={`mailto:${leader.email}`} label={`Email ${leader.name}`}>
                           <MailIcon />
