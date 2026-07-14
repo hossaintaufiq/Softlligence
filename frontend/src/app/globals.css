@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #0b1220;
+  --color-panel: #121b2e;
+  --color-panel-2: #17223a;
+  --color-paper: #edeff2;
+  --color-text: #e7eaf0;
+  --color-text-dim: #8791a6;
+  --color-text-dark: #10141c;
+  --color-accent: #ffb020;
+  --color-accent-ink: #3a2600;
+  --color-accent-2: #4cc3ff;
+  --color-danger: #e86a5c;
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-ibm-plex-mono);
+  --radius-card: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-2);
+  outline-offset: 3px;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cursor-move {
+  0% {
+    transform: translate(90px, 300px);
+  }
+  20% {
+    transform: translate(210px, 165px);
+  }
+  40% {
+    transform: translate(330px, 205px);
+  }
+  60% {
+    transform: translate(355px, 300px);
+  }
+  80% {
+    transform: translate(150px, 260px);
+  }
+  100% {
+    transform: translate(90px, 300px);
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.bp-draw {
+  fill: none;
+  stroke: var(--color-accent-2);
+  stroke-width: 1.6;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: draw 1.8s ease forwards;
+  opacity: 0.85;
+}
+
+.bp-frame {
+  stroke: var(--color-text-dim);
+}
+
+.bp-dot {
+  fill: var(--color-text-dim);
+  stroke: none;
+  animation: fade-in 0.4s ease forwards;
+  animation-delay: 1.6s;
+  opacity: 0;
+}
+
+.bp-block {
+  stroke: var(--color-accent);
+}
+
+.bp-block--d1 {
+  animation-delay: 0.15s;
+}
+.bp-block--d2 {
+  animation-delay: 0.3s;
+}
+.bp-block--d3 {
+  animation-delay: 0.45s;
+}
+.bp-block--d4 {
+  animation-delay: 0.6s;
+}
+.bp-block--d5 {
+  animation-delay: 0.5s;
+  stroke: var(--color-text-dim);
+}
+.bp-block--d6 {
+  animation-delay: 0.85s;
+  stroke: var(--color-accent-2);
+}
+
+.bp-measure {
+  stroke: var(--color-text-dim);
+  stroke-width: 1;
+  opacity: 0;
+  animation: fade-in 0.6s ease forwards;
+  animation-delay: 1.9s;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  fill: var(--color-text-dim);
+}
+
+.bp-cursor {
+  fill: var(--color-accent);
+  animation: cursor-move 5s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+.marquee-track {
+  animation: marquee-scroll 32s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bp-draw,
+  .bp-dot,
+  .bp-measure {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 0.85;
+  }
+  .bp-cursor {
+    animation: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
