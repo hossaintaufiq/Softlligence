@@ -17,7 +17,7 @@ export function Team({ summary = false, limit = 2 }: TeamProps) {
       <Container>
         <Reveal>
           <Eyebrow number="08">THE TEAM</Eyebrow>
-          <SectionTitle>Four developers, one build team.</SectionTitle>
+          <SectionTitle>Developers. One build team.</SectionTitle>
           <SectionSub>
             Softlligence Technologies is run by a small team of developers currently completing
             their BSc in Computer Science &amp; Engineering at North South University, Bangladesh.

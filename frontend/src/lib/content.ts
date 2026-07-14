@@ -507,11 +507,34 @@ export const comparison = {
   ],
 };
 
+export const whySoftlligence = [
+  {
+    title: "Builders you can reach",
+    description:
+      "You talk to the engineers writing the code — not a rotating account manager who passes notes along.",
+  },
+  {
+    title: "Scope that stays honest",
+    description:
+      "We price and plan after discovery. If something changes, the estimate changes with it — no silent scope creep.",
+  },
+  {
+    title: "Security from sprint one",
+    description:
+      "Role-based access, encrypted data and audit logging are built in early, not bolted on the week before launch.",
+  },
+  {
+    title: "Ship, then stay",
+    description:
+      "Launch includes monitoring and a support window. Most clients stay for roadmap work because the product keeps improving.",
+  },
+];
+
 export const team = [
   {
     initials: "MH",
-    name: "Md Hossain Ahmed Taufiq",
-    role: "Developer",
+    name: "Md Hossain Ahmmed Taufiq",
+    role: "CEO & Technical Lead",
     school: "BSc in CSE, North South University, Bangladesh",
     bio: "Full-stack developer focused on scalable web applications and clean API design.",
     skills: ["React", "Node.js", "PostgreSQL"],
@@ -519,15 +542,15 @@ export const team = [
   {
     initials: "MS",
     name: "Mehedi Ashraf Simanto",
-    role: "Developer",
+    role: "Senior Full Stack Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
     bio: "Builds responsive frontends and mobile-friendly interfaces with attention to performance.",
     skills: ["React", "TypeScript", "Tailwind CSS"],
   },
   {
     initials: "FS",
-    name: "Fiad Sarowar",
-    role: "Developer",
+    name: "Faid Sarowar",
+    role: "Full Stack Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
     bio: "Works across backend systems, integrations and deployment pipelines.",
     skills: ["Python", "Docker", "AWS"],
@@ -535,11 +558,191 @@ export const team = [
   {
     initials: "AB",
     name: "Al Mustafiz Bappy",
-    role: "Developer",
+    role: "Full Stack Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
     bio: "Specializes in mobile development and cross-platform app delivery.",
     skills: ["React Native", "Flutter", "Firebase"],
   },
+];
+
+export const teamPageStats = [
+  { count: 8, suffix: "", label: "Team Members" },
+  { count: 120, suffix: "+", label: "Projects Delivered" },
+  { count: 24, suffix: "+", label: "Years Combined Experience" },
+  { count: 100, suffix: "%", label: "Dedicated Teams" },
+];
+
+export const teamLeadership = [
+  {
+    initials: "MH",
+    name: "Md Hossain Ahmmed Taufiq",
+    role: "CEO & Technical Lead",
+    bio: "Leads Softlligence as CEO and Technical Lead — setting product direction while owning architecture, engineering standards, and the systems organizations can depend on.",
+    skills: ["Product Strategy", "Architecture", "React", "Node.js", "AWS"],
+    linkedin: "#",
+    email: "",
+    photoTone: "from-accent/25 to-accent-2/10",
+  },
+];
+
+export const teamEngineering = [
+  {
+    initials: "FS",
+    name: "Faid Sarowar",
+    role: "Full Stack Engineer",
+    bio: "Works across backend systems, integrations, and deployment pipelines with a focus on reliable delivery.",
+    skills: ["Python", "Docker", "AWS", "Node.js"],
+    linkedin: "#",
+    github: "#",
+    photoTone: "from-accent/25 to-accent-2/10",
+  },
+  {
+    initials: "MS",
+    name: "Mehedi Ashraf Simanto",
+    role: "Senior Full Stack Engineer",
+    bio: "Builds performant frontends and reliable APIs with a sharp eye for UX and maintainability.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+    linkedin: "#",
+    github: "#",
+    photoTone: "from-accent/20 to-panel",
+  },
+  {
+    initials: "AB",
+    name: "Al Mustafiz Bappy",
+    role: "Full Stack Engineer",
+    bio: "Delivers cross-platform mobile and web experiences with clean, production-ready code.",
+    skills: ["React Native", "Flutter", "Firebase", "TypeScript"],
+    linkedin: "#",
+    github: "#",
+    photoTone: "from-accent-2/15 to-ink",
+  },
+  {
+    initials: "RK",
+    name: "Rafi Khan",
+    role: "Full Stack Engineer",
+    bio: "Focused on API design, data modeling, and resilient backend services.",
+    skills: ["Node.js", "Python", "MongoDB", "PostgreSQL", "Docker"],
+    linkedin: "#",
+    github: "#",
+    photoTone: "from-white/10 to-panel",
+  },
+  {
+    initials: "NA",
+    name: "Nusrat Ahmed",
+    role: "Full Stack Engineer",
+    bio: "Builds polished interfaces and end-to-end features across modern JavaScript stacks.",
+    skills: ["React", "Next.js", "TypeScript", "Node.js"],
+    linkedin: "#",
+    github: "#",
+    photoTone: "from-accent/15 to-panel-2",
+  },
+  {
+    initials: "SH",
+    name: "Sakib Hasan",
+    role: "Full Stack Engineer",
+    bio: "Thrives on DevOps-friendly builds, containerization, and cloud deployments.",
+    skills: ["Docker", "AWS", "Node.js", "TypeScript", "CI/CD"],
+    linkedin: "#",
+    github: "#",
+    photoTone: "from-accent-2/20 to-ink",
+  },
+];
+
+export const teamDesign = [
+  {
+    initials: "LZ",
+    name: "Layla Zaman",
+    role: "UI/UX Designer",
+    bio: "Crafts clear interfaces and design systems that help products feel intentional, accessible, and easy to ship.",
+    skills: ["Figma", "UI Design", "UX Research", "Design Systems", "Brand Identity"],
+    linkedin: "#",
+    photoTone: "from-accent/30 to-accent-2/15",
+  },
+];
+
+export const teamDelivery = [
+  {
+    initials: "IR",
+    name: "Imran Rahman",
+    role: "Project Manager",
+    bio: "Keeps timelines honest, stakeholders aligned, and sprints moving — so engineering can focus on shipping.",
+    skills: ["Agile", "Scrum", "Sprint Planning", "Client Communication", "Product Planning"],
+    linkedin: "#",
+    photoTone: "from-accent-2/25 to-panel",
+  },
+];
+
+export const teamExpertise = [
+  {
+    title: "Frontend Development",
+    description: "Fast, accessible interfaces with modern React and Next.js stacks.",
+    icon: "frontend",
+  },
+  {
+    title: "Backend Development",
+    description: "Secure APIs, services, and business logic built to scale.",
+    icon: "backend",
+  },
+  {
+    title: "Full Stack Development",
+    description: "End-to-end ownership from UI to database and deploy.",
+    icon: "fullstack",
+  },
+  {
+    title: "Mobile Development",
+    description: "iOS and Android experiences with shared or native codebases.",
+    icon: "mobile",
+  },
+  {
+    title: "AI Solutions",
+    description: "Practical automation, search, and assistants grounded in your data.",
+    icon: "ai",
+  },
+  {
+    title: "Cloud Infrastructure",
+    description: "Reliable cloud environments that handle launch-day traffic.",
+    icon: "cloud",
+  },
+  {
+    title: "DevOps",
+    description: "CI/CD, monitoring, and repeatable release pipelines.",
+    icon: "devops",
+  },
+  {
+    title: "UI/UX Design",
+    description: "Research-led flows and systems teams can build against.",
+    icon: "design",
+  },
+  {
+    title: "Database Architecture",
+    description: "Clean schemas, indexing strategies, and durable data layers.",
+    icon: "database",
+  },
+  {
+    title: "API Development",
+    description: "Well-documented REST and GraphQL contracts partners can trust.",
+    icon: "api",
+  },
+  {
+    title: "Project Management",
+    description: "Clear milestones, demos, and communication every sprint.",
+    icon: "pm",
+  },
+  {
+    title: "Quality Assurance",
+    description: "Automated and manual checks before anything hits production.",
+    icon: "qa",
+  },
+];
+
+export const teamWorkflow = [
+  "Discovery",
+  "Planning",
+  "UI/UX Design",
+  "Development",
+  "Testing",
+  "Deployment",
+  "Maintenance",
 ];
 
 export const faqs = [

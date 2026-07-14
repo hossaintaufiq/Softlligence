@@ -16,7 +16,7 @@ export function About({ summary = false }: AboutProps) {
       <Container>
         <div className="max-w-[820px]">
           <Reveal>
-            <Eyebrow number="07">ABOUT NORTHSTACK</Eyebrow>
+            <Eyebrow number="07">ABOUT US</Eyebrow>
             <SectionTitle>
               A build studio, sized so you always know who&apos;s working on your project.
             </SectionTitle>

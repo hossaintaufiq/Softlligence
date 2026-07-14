@@ -35,60 +35,55 @@ export function Blueprint() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-16 md:py-[90px] md:pb-[60px]">
-      <Container className="grid items-center gap-10 md:gap-12 max-[980px]:grid-cols-1 min-[981px]:grid-cols-[1.05fr_0.95fr]">
+    <section className="relative overflow-hidden pt-14 pb-12 md:pt-[88px] md:pb-16">
+      <Container className="grid items-center gap-10 md:gap-14 max-[980px]:grid-cols-1 min-[981px]:grid-cols-[1.1fr_0.9fr]">
         <div className="max-[980px]:order-2">
-          <p className="hero-in hero-in--1 mb-4 flex flex-wrap items-center gap-2.5 font-mono text-[11px] tracking-[0.06em] text-text-dim sm:text-[12.5px]">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/9 bg-panel/60 px-3 py-1">
+          <p className="hero-in hero-in--1 mb-5 flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-[0.08em] text-text-dim uppercase sm:text-[12px]">
+            <span className="inline-flex items-center gap-2 rounded border border-white/10 bg-panel/70 px-3 py-1.5 normal-case tracking-normal">
               <span className="status-dot" aria-hidden="true" />
-              Available for new projects
+              Available for projects
             </span>
-            <span className="text-accent">⟨ 01 ⟩</span>
-            <span>BUILD PARTNER</span>
+            <span className="text-accent">01</span>
+            <span>Software studio</span>
           </p>
 
-          <h1 className="hero-in hero-in--2 mb-5 font-display text-[clamp(30px,4.6vw,58px)] leading-[1.08] font-semibold tracking-tight">
-            We turn a whiteboard sketch into{" "}
-            <span className="text-gradient">software your organization runs on.</span>
+          <h1 className="hero-in hero-in--2 mb-5 font-display text-[clamp(32px,5vw,56px)] leading-[1.06] font-semibold tracking-tight">
+            Software that organizations{" "}
+            <span className="text-gradient">actually run on.</span>
           </h1>
 
-          <p className="hero-in hero-in--3 mb-8 max-w-[520px] text-base text-text-dim sm:text-[17.5px]">
-            Softlligence Technologies designs, builds and ships digital products for companies,
-            nonprofits, schools and public agencies — custom software, not templates stretched to fit.
+          <p className="hero-in hero-in--3 mb-8 max-w-[520px] text-[15px] leading-relaxed text-text-dim sm:text-lg">
+            Softlligence designs, builds and ships websites, web apps and mobile products for
+            companies, schools, agencies and nonprofits — custom builds, not stretched templates.
           </p>
 
-          <div className="hero-in hero-in--4 mb-10 flex flex-wrap gap-3 sm:mb-11">
+          <div className="hero-in hero-in--4 mb-10 flex flex-wrap gap-3">
             <Button href="/contact" size="lg">
               Start a project
             </Button>
             <Button href="/work" variant="outline" size="lg">
-              See our work
+              View work
             </Button>
           </div>
 
-          <div className="hero-in hero-in--5 flex flex-wrap items-center gap-4 border-t border-white/9 pt-6 sm:gap-5">
-            <div className="flex items-center gap-2.5 text-[13px] text-text-dim sm:text-[13.5px]">
-              <div className="tracking-[2px] text-accent" aria-hidden="true">★★★★★</div>
-              <div>
-                <strong className="block font-display text-base text-text sm:text-[17px]">4.9/5</strong>
-                <span>Client rating</span>
-              </div>
+          <dl className="hero-in hero-in--5 grid grid-cols-3 gap-4 border-t border-white/9 pt-6 sm:max-w-[460px]">
+            <div>
+              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Rating</dt>
+              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">4.9/5</dd>
             </div>
-            <div className="hidden h-7 w-px bg-white/9 sm:block" />
-            <div className="text-[13px] text-text-dim sm:text-[13.5px]">
-              <strong className="block font-display text-base text-text sm:text-[17px]">120+</strong>
-              <span>Products shipped</span>
+            <div>
+              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Shipped</dt>
+              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">120+</dd>
             </div>
-            <div className="hidden h-7 w-px bg-white/9 sm:block" />
-            <div className="text-[13px] text-text-dim sm:text-[13.5px]">
-              <strong className="block font-display text-base text-text sm:text-[17px]">8 yrs</strong>
-              <span>Building software</span>
+            <div>
+              <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Years</dt>
+              <dd className="m-0 mt-1 font-display text-lg font-semibold text-text sm:text-xl">8</dd>
             </div>
-          </div>
+          </dl>
         </div>
 
         <div
-          className="blueprint-wrap hero-in hero-in--3 relative max-[980px]:order-1 max-[980px]:mx-auto max-[980px]:max-w-[380px] sm:max-w-[420px]"
+          className="blueprint-wrap hero-in hero-in--3 relative max-[980px]:order-1 max-[980px]:mx-auto max-[980px]:max-w-[360px] sm:max-w-[420px]"
           aria-hidden="true"
         >
           <Blueprint />

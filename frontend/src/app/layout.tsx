@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -9,6 +9,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"],
   variable: "--font-space-grotesk",
   display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
@@ -16,6 +17,7 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -27,11 +29,23 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Softlligence Technologies — Websites & Apps for Businesses and Organizations",
+    default: "Softlligence Technologies — Custom Software for Organizations",
     template: "%s · Softlligence Technologies",
   },
   description:
-    "Softlligence Technologies designs and builds websites, web apps and mobile apps for businesses and organizations — from first sketch to shipped product.",
+    "Softlligence designs and ships websites, web apps and mobile products for businesses, schools, agencies and nonprofits — from first sketch to production.",
+  metadataBase: new URL("https://softlligence.com"),
+  openGraph: {
+    title: "Softlligence Technologies",
+    description: "Custom software organizations actually run on.",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B1220",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

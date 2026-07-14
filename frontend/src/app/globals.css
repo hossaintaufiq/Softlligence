@@ -59,9 +59,9 @@ body {
 .site-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.35;
-  animation: glow-drift 18s ease-in-out infinite alternate;
+  filter: blur(90px);
+  opacity: 0.22;
+  animation: glow-drift 22s ease-in-out infinite alternate;
 }
 
 .site-glow--hero {
@@ -84,11 +84,10 @@ body {
 /* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(20px);
   transition:
-    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal--visible {
@@ -143,11 +142,9 @@ body {
 }
 
 .pro-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 176, 32, 0.45);
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(76, 195, 255, 0.08);
+  transform: translateY(-3px);
+  border-color: rgba(255, 176, 32, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
 }
 
 .pro-card:hover::before {
@@ -329,7 +326,12 @@ body {
 }
 
 .marquee-track {
-  animation: marquee-scroll 32s linear infinite;
+  animation: marquee-scroll 45s linear infinite;
+}
+
+::selection {
+  background: rgba(255, 176, 32, 0.28);
+  color: #fff;
 }
 
 .section-link {
@@ -479,6 +481,22 @@ body {
   background: rgba(255, 176, 32, 0.08);
 }
 
+.team-card {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 176, 32, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(255, 176, 32, 0.12),
+    0 20px 48px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(76, 195, 255, 0.06);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 
@@ -508,7 +526,8 @@ body {
     animation: none;
   }
 
-  .pro-card:hover {
+  .pro-card:hover,
+  .team-card:hover {
     transform: none;
   }
 }

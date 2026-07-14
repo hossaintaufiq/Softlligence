@@ -4,19 +4,18 @@ import { Container } from "@/components/ui/Section";
 import { pageRoutes } from "@/lib/navigation";
 
 const serviceLinks = [
-  "Websites & web apps",
-  "Mobile apps",
-  "Product design",
-  "Systems & integration",
-  "Cloud & DevOps",
+  { href: pageRoutes.services, label: "Websites & apps" },
+  { href: pageRoutes.services, label: "Mobile" },
+  { href: pageRoutes.services, label: "Product design" },
+  { href: pageRoutes.services, label: "Integrations" },
+  { href: pageRoutes.services, label: "Cloud & DevOps" },
 ];
-
-const industryLinks = ["Public sector", "Education", "Finance", "Healthcare", "Retail"];
 
 const companyLinks = [
   { href: pageRoutes.about, label: "About" },
   { href: pageRoutes.team, label: "Team" },
   { href: pageRoutes.work, label: "Work" },
+  { href: pageRoutes.process, label: "Process" },
   { href: pageRoutes.faq, label: "FAQ" },
   { href: pageRoutes.contact, label: "Contact" },
 ];
@@ -25,87 +24,78 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="pt-[70px] pb-[26px]">
-      <Container className="grid gap-10 border-b border-white/9 pb-11 max-[980px]:grid-cols-2 min-[981px]:grid-cols-[1.6fr_1fr_1fr_1fr]">
-        <div>
-          <Link href="/" className="flex items-center gap-2 font-display text-[19px] font-semibold">
-            <span className="flex text-accent" aria-hidden="true">
-              <BrandLogo />
-            </span>
-            Softlligence Technologies
-          </Link>
-          <p className="mt-3.5 mb-4.5 max-w-[280px] text-sm text-text-dim">
-            Websites and apps for businesses and organizations — from first sketch to shipped
-            product.
-          </p>
-          <div className="flex gap-2.5">
-            {[
-              { label: "LinkedIn", text: "in" },
-              { label: "X / Twitter", text: "X" },
-              { label: "Dribbble", text: "Dr" },
-            ].map((social) => (
-              <a
-                key={social.label}
-                href="#"
-                aria-label={social.label}
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/9 text-xs text-text-dim hover:border-accent hover:text-accent"
+    <footer className="border-t border-white/8 bg-[#0a101c] pt-16 pb-8">
+      <Container>
+        <div className="grid gap-10 border-b border-white/8 pb-12 max-[720px]:grid-cols-1 max-[980px]:grid-cols-2 min-[981px]:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div className="max-[980px]:col-span-2 min-[981px]:col-span-1">
+            <Link href="/" className="inline-flex items-center gap-2.5 font-display text-lg font-semibold">
+              <span className="flex text-accent" aria-hidden="true">
+                <BrandLogo />
+              </span>
+              Softlligence
+            </Link>
+            <p className="mt-4 max-w-[300px] text-[14px] leading-relaxed text-text-dim">
+              Custom software for organizations that need systems they can rely on — from sketch to
+              production.
+            </p>
+            <a
+              href="mailto:fiadsarowar93@gmail.com"
+              className="mt-5 inline-block font-mono text-[13px] text-accent-2 hover:text-accent"
+            >
+              fiadsarowar93@gmail.com
+            </a>
+          </div>
+
+          <div>
+            <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
+              Services
+            </h5>
+            {serviceLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
               >
-                {social.text}
-              </a>
+                {link.label}
+              </Link>
             ))}
+          </div>
+
+          <div>
+            <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
+              Company
+            </h5>
+            {companyLinks.map((link) => (
+              <Link
+                key={link.href + link.label}
+                href={link.href}
+                className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <div>
+            <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
+              Next step
+            </h5>
+            <p className="mb-4 text-[14px] leading-relaxed text-text-dim">
+              Tell us what you&apos;re building. We reply within one business day.
+            </p>
+            <Link
+              href={pageRoutes.contact}
+              className="inline-flex items-center gap-2 font-mono text-[13px] text-accent transition-colors hover:text-accent-2"
+            >
+              Start a project <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
 
-        <div>
-          <h5 className="mb-4 font-mono text-[13px] tracking-[0.05em] text-text-dim">Services</h5>
-          {serviceLinks.map((link) => (
-            <Link
-              key={link}
-              href={pageRoutes.services}
-              className="mb-2.5 block text-sm text-text-dim hover:text-text"
-            >
-              {link}
-            </Link>
-          ))}
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-6 text-[12px] text-text-dim">
+          <span>© {year} Softlligence Technologies</span>
+          <span className="font-mono tracking-wide uppercase">Build · Ship · Support</span>
         </div>
-
-        <div>
-          <h5 className="mb-4 font-mono text-[13px] tracking-[0.05em] text-text-dim">Industries</h5>
-          {industryLinks.map((link) => (
-            <Link
-              key={link}
-              href={pageRoutes.industries}
-              className="mb-2.5 block text-sm text-text-dim hover:text-text"
-            >
-              {link}
-            </Link>
-          ))}
-        </div>
-
-        <div>
-          <h5 className="mb-4 font-mono text-[13px] tracking-[0.05em] text-text-dim">Company</h5>
-          {companyLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="mb-2.5 block text-sm text-text-dim hover:text-text"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </Container>
-
-      <Container className="flex items-center justify-between pt-5.5 text-[13px] text-text-dim max-[720px]:flex-col max-[720px]:items-start max-[720px]:gap-3">
-        <span>© {year} Softlligence Technologies. All rights reserved.</span>
-        <span className="flex gap-4.5">
-          <a href="#" className="hover:text-text">
-            Privacy
-          </a>
-          <a href="#" className="hover:text-text">
-            Terms
-          </a>
-        </span>
       </Container>
     </footer>
   );
