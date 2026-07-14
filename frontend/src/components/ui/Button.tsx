@@ -1,12 +1,16 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type ButtonVariant = "accent" | "outline" | "ghost";
 type ButtonSize = "default" | "lg";
 
-interface ButtonProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface ButtonProps {
+  href: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
   block?: boolean;
+  className?: string;
+  children: React.ReactNode;
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -26,20 +30,27 @@ export function Button({
   size = "default",
   block = false,
   className,
+  href,
   children,
-  ...props
 }: ButtonProps) {
+  const classes = cn(
+    "inline-flex items-center justify-center gap-2 rounded-full border border-transparent font-semibold whitespace-nowrap transition-all duration-150 hover:-translate-y-px",
+    variantClasses[variant],
+    sizeClasses[size],
+    block && "w-full",
+    className,
+  );
+
+  if (href.startsWith("/") || href.startsWith("#")) {
+    return (
+      <Link href={href} className={classes}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <a
-      className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full border border-transparent font-semibold whitespace-nowrap transition-all duration-150 hover:-translate-y-px",
-        variantClasses[variant],
-        sizeClasses[size],
-        block && "w-full",
-        className,
-      )}
-      {...props}
-    >
+    <a href={href} className={classes}>
       {children}
     </a>
   );

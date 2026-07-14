@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Container } from "@/components/ui/Section";
+import { pageRoutes } from "@/lib/navigation";
 
 const serviceLinks = [
   "Websites & web apps",
@@ -12,11 +14,11 @@ const serviceLinks = [
 const industryLinks = ["Public sector", "Education", "Finance", "Healthcare", "Retail"];
 
 const companyLinks = [
-  { href: "#about", label: "About" },
-  { href: "#team", label: "Team" },
-  { href: "#work", label: "Work" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
+  { href: pageRoutes.about, label: "About" },
+  { href: pageRoutes.team, label: "Team" },
+  { href: pageRoutes.work, label: "Work" },
+  { href: pageRoutes.faq, label: "FAQ" },
+  { href: pageRoutes.contact, label: "Contact" },
 ];
 
 export function Footer() {
@@ -26,12 +28,12 @@ export function Footer() {
     <footer className="pt-[70px] pb-[26px]">
       <Container className="grid gap-10 border-b border-white/9 pb-11 max-[980px]:grid-cols-2 min-[981px]:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div>
-          <a href="#top" className="flex items-center gap-2 font-display text-[19px] font-semibold">
+          <Link href="/" className="flex items-center gap-2 font-display text-[19px] font-semibold">
             <span className="flex text-accent" aria-hidden="true">
               <BrandLogo />
             </span>
             Softlligence Technologies
-          </a>
+          </Link>
           <p className="mt-3.5 mb-4.5 max-w-[280px] text-sm text-text-dim">
             Websites and apps for businesses and organizations — from first sketch to shipped
             product.
@@ -57,39 +59,39 @@ export function Footer() {
         <div>
           <h5 className="mb-4 font-mono text-[13px] tracking-[0.05em] text-text-dim">Services</h5>
           {serviceLinks.map((link) => (
-            <a
+            <Link
               key={link}
-              href="#services"
+              href={pageRoutes.services}
               className="mb-2.5 block text-sm text-text-dim hover:text-text"
             >
               {link}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div>
           <h5 className="mb-4 font-mono text-[13px] tracking-[0.05em] text-text-dim">Industries</h5>
           {industryLinks.map((link) => (
-            <a
+            <Link
               key={link}
-              href="#industries"
+              href={pageRoutes.industries}
               className="mb-2.5 block text-sm text-text-dim hover:text-text"
             >
               {link}
-            </a>
+            </Link>
           ))}
         </div>
 
         <div>
           <h5 className="mb-4 font-mono text-[13px] tracking-[0.05em] text-text-dim">Company</h5>
           {companyLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="mb-2.5 block text-sm text-text-dim hover:text-text"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       </Container>

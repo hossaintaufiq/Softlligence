@@ -8,7 +8,7 @@ export function FinalCTA() {
         <h2 className="max-w-[600px] font-display text-[clamp(26px,3.2vw,38px)] font-semibold tracking-tight">
           Let&apos;s build something your organization can rely on.
         </h2>
-        <Button href="#contact" size="lg">
+        <Button href="/contact" size="lg">
           Book a call
         </Button>
       </Container>

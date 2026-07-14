@@ -2,8 +2,13 @@
 
 import { FormEvent, useState } from "react";
 import { Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
 
-export function Contact() {
+interface ContactProps {
+  summary?: boolean;
+}
+
+export function Contact({ summary = false }: ContactProps) {
   const [status, setStatus] = useState("");
   const [statusColor, setStatusColor] = useState("var(--color-accent-2)");
 
@@ -33,6 +38,31 @@ export function Contact() {
     }, 700);
   };
 
+  if (summary) {
+    return (
+      <section className="border-y border-white/5 bg-ink py-24" id="contact">
+        <Container className="max-w-[640px] text-center">
+          <Eyebrow number="10">START A PROJECT</Eyebrow>
+          <SectionTitle className="mx-auto">Tell us what you&apos;re building.</SectionTitle>
+          <SectionSub className="mx-auto">
+            We reply within one business day — no obligation, no auto-dialed sales calls.
+          </SectionSub>
+          <div className="mb-8 flex flex-col items-center gap-2 font-mono text-[14.5px]">
+            <a href="mailto:fiadsarowar93@gmail.com" className="hover:text-accent">
+              fiadsarowar93@gmail.com
+            </a>
+            <a href="tel:+8801629244690" className="hover:text-accent">
+              01629244690
+            </a>
+          </div>
+          <Button href="/contact" size="lg">
+            Go to contact form
+          </Button>
+        </Container>
+      </section>
+    );
+  }
+
   return (
     <section className="border-y border-white/5 bg-ink py-24" id="contact">
       <Container className="grid gap-14 max-[980px]:grid-cols-1 min-[981px]:grid-cols-[0.85fr_1.15fr]">
@@ -56,7 +86,6 @@ export function Contact() {
 
         <form
           className="rounded-[14px] border border-white/9 bg-panel p-[34px]"
-          id="contactForm"
           noValidate
           onSubmit={handleSubmit}
         >
@@ -178,7 +207,6 @@ export function Contact() {
           </button>
 
           <p
-            id="formStatus"
             role="status"
             aria-live="polite"
             className="mt-3.5 min-h-[18px] text-[13.5px]"

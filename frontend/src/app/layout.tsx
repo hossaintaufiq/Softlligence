@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -21,7 +23,10 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Softlligence Technologies — Websites & Apps for Businesses and Organizations",
+  title: {
+    default: "Softlligence Technologies — Websites & Apps for Businesses and Organizations",
+    template: "%s · Softlligence Technologies",
+  },
   description:
     "Softlligence Technologies designs and builds websites, web apps and mobile apps for businesses and organizations — from first sketch to shipped product.",
 };
@@ -36,7 +41,11 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Nav />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

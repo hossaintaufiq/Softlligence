@@ -1,39 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { faqs } from "@/lib/content";
+import { pageRoutes } from "@/lib/navigation";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { SectionLink } from "@/components/ui/PageHero";
 import { cn } from "@/lib/utils";
 
-const faqs = [
-  {
-    question: "How long does a typical website or app project take?",
-    answer:
-      "A marketing site usually ships in 3–5 weeks. A web application or mobile app with real user accounts and integrations typically runs 3–6 months, split into two-week cycles so you see working software throughout, not just at the end.",
-  },
-  {
-    question: "Do you work with organizations that already have an internal IT team?",
-    answer:
-      "Often. We can run the build end to end, or slot in as staff augmentation alongside your own developers — handing off documentation and access so your team can maintain it after we're done.",
-  },
-  {
-    question: "Can you build both the website and a companion mobile app?",
-    answer:
-      "Yes — most of our larger projects pair a web platform with an iOS/Android app sharing the same backend, so your data and login stay consistent across both.",
-  },
-  {
-    question: "What happens after launch?",
-    answer:
-      "Every project includes a support window after launch for fixes. Past that, most clients move to a monthly retainer for monitoring, small updates and a running backlog of what to build next.",
-  },
-  {
-    question: "How is a project priced?",
-    answer:
-      "Fixed-price for clearly scoped work, or monthly for a dedicated team on longer product builds. You'll get a written estimate after the discovery stage — before we ask you to commit to anything.",
-  },
-];
+interface FAQProps {
+  summary?: boolean;
+  limit?: number;
+}
 
-export function FAQ() {
+export function FAQ({ summary = false, limit = 3 }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const items = summary ? faqs.slice(0, limit) : faqs;
 
   return (
     <section className="bg-panel py-24" id="faq">
@@ -42,14 +23,14 @@ export function FAQ() {
         <SectionTitle>Answers before you have to ask.</SectionTitle>
 
         <div className="max-w-[760px]">
-          {faqs.map((faq, index) => {
+          {items.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div
                 key={faq.question}
                 className={cn(
                   "border-t border-white/9",
-                  index === faqs.length - 1 && "border-b",
+                  index === items.length - 1 && "border-b",
                 )}
               >
                 <button
@@ -58,7 +39,14 @@ export function FAQ() {
                   aria-expanded={isOpen}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
-                  {faq.question}
+                  <span className="flex flex-col gap-1">
+                    {!summary && (
+                      <span className="font-mono text-[11px] tracking-[0.04em] text-accent-2">
+                        {faq.category}
+                      </span>
+                    )}
+                    {faq.question}
+                  </span>
                   <span className="relative min-h-[18px] min-w-[18px] shrink-0">
                     <span className="absolute top-2 left-0 h-0.5 w-[18px] bg-accent" />
                     <span
@@ -81,6 +69,12 @@ export function FAQ() {
             );
           })}
         </div>
+
+        {summary && (
+          <div className="mt-8">
+            <SectionLink href={pageRoutes.faq}>Read all FAQs</SectionLink>
+          </div>
+        )}
       </Container>
     </section>
   );

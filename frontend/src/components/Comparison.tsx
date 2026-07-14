@@ -1,6 +1,35 @@
+import { comparison } from "@/lib/content";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
 
-export function Comparison() {
+interface ComparisonProps {
+  summary?: boolean;
+}
+
+export function Comparison({ summary = false }: ComparisonProps) {
+  if (summary) {
+    return (
+      <section className="border-y border-white/5 bg-ink py-16">
+        <Container>
+          <Eyebrow number="05">WHY SOFTLLIGENCE</Eyebrow>
+          <SectionTitle className="mb-6">
+            What changes when you switch from a template shop to a build partner.
+          </SectionTitle>
+          <div className="grid gap-4 max-[720px]:grid-cols-1 min-[721px]:grid-cols-2">
+            {comparison.us.slice(0, 2).map((item) => (
+              <div
+                key={item}
+                className="flex gap-2.5 rounded-[14px] border border-white/9 bg-panel p-5 text-[14.5px]"
+              >
+                <span className="text-accent">✓</span>
+                {item}
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+    );
+  }
+
   return (
     <section className="border-y border-white/5 bg-ink py-24">
       <Container>
@@ -11,12 +40,7 @@ export function Comparison() {
           <div className="rounded-[14px] border border-white/9 bg-panel p-8">
             <h4 className="mb-4.5 font-display text-lg font-semibold">Typical template agency</h4>
             <ul>
-              {[
-                "Same theme resold to every client",
-                "One person handling five accounts",
-                "Scope grows, quote doesn't move",
-                "Site goes quiet after handoff",
-              ].map((item) => (
+              {comparison.them.map((item) => (
                 <li key={item} className="mb-3.5 flex gap-2.5 text-[14.5px] text-text-dim">
                   <span className="text-danger">✕</span>
                   {item}
@@ -31,12 +55,7 @@ export function Comparison() {
             </span>
             <h4 className="mb-4.5 font-display text-lg font-semibold">Us</h4>
             <ul>
-              {[
-                "Interface designed around your workflow",
-                "A named team you can actually reach",
-                "Fixed-price or dedicated team — your call",
-                "Support & roadmap after launch",
-              ].map((item) => (
+              {comparison.us.map((item) => (
                 <li key={item} className="mb-3.5 flex gap-2.5 text-[14.5px] text-text">
                   <span className="text-accent">✓</span>
                   {item}

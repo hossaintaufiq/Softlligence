@@ -53,10 +53,10 @@ export function Hero() {
           </p>
 
           <div className="mb-11 flex flex-wrap gap-3.5">
-            <Button href="#contact" size="lg">
+            <Button href="/contact" size="lg">
               Start a project
             </Button>
-            <Button href="#work" variant="outline" size="lg">
+            <Button href="/work" variant="outline" size="lg">
               See our work
             </Button>
           </div>

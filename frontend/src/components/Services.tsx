@@ -1,60 +1,35 @@
-import { CardCorner, Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
+import { services } from "@/lib/content";
+import { pageRoutes } from "@/lib/navigation";
+import {
+  CardCorner,
+  Container,
+  Eyebrow,
+  SectionSub,
+  SectionTitle,
+} from "@/components/ui/Section";
+import { SectionLink } from "@/components/ui/PageHero";
 
-const services = [
-  {
-    index: "01",
-    title: "Websites & web apps",
-    description:
-      "Marketing sites, client portals, internal tools and dashboards — built to be fast, findable and easy for your own team to update.",
-    items: ["Corporate & marketing sites", "Web applications & portals", "E-commerce & booking systems"],
-  },
-  {
-    index: "02",
-    title: "Mobile apps",
-    description:
-      "Native iOS and Android, or one cross-platform codebase — whichever gets your organization to the app store without rebuilding twice.",
-    items: ["iOS & Android apps", "Cross-platform (React Native/Flutter)", "App store launch & upkeep"],
-  },
-  {
-    index: "03",
-    title: "Product design",
-    description:
-      "Wireframes, prototypes and a design system your future screens can reuse, tested with real users before a line of code ships.",
-    items: ["UX research & wireframing", "UI & design systems", "Clickable prototypes"],
-  },
-  {
-    index: "04",
-    title: "Systems & integration",
-    description:
-      "Connect the tools your organization already runs on — payments, CRMs, HR systems, government or partner APIs — into one workflow.",
-    items: ["Custom software & ERPs", "API & third-party integration", "Workflow automation"],
-  },
-  {
-    index: "05",
-    title: "Cloud & DevOps",
-    description:
-      "Infrastructure that scales with a launch day traffic spike and stays quiet the other 364 days of the year.",
-    items: ["Cloud architecture & migration", "CI/CD & automated deploys", "Monitoring & on-call support"],
-  },
-  {
-    index: "06",
-    title: "AI-powered features",
-    description:
-      "Search, chat, recommendations and automation added where they save your team real time — not bolted on for a press release.",
-    items: ["Chat & virtual assistants", "Search & recommendations", "Document & data automation"],
-  },
-];
+interface ServicesProps {
+  summary?: boolean;
+  limit?: number;
+}
 
-export function Services() {
+export function Services({ summary = false, limit = 3 }: ServicesProps) {
+  const items = summary ? services.slice(0, limit) : services;
+
   return (
     <section className="py-24" id="services">
       <Container>
         <Eyebrow number="02">WHAT WE BUILD</Eyebrow>
         <SectionTitle>One team, from first wireframe to what&apos;s next.</SectionTitle>
-        <SectionSub>Pick a starting point. Most projects touch three or four of these before launch.</SectionSub>
+        <SectionSub>
+          {summary
+            ? "Six core capabilities — most projects combine three or four before launch."
+            : "Pick a starting point. Most projects touch three or four of these before launch."}
+        </SectionSub>
 
         <div className="grid gap-5.5 max-[720px]:grid-cols-1 max-[980px]:grid-cols-2 min-[981px]:grid-cols-3">
-          {services.map((service) => (
+          {items.map((service) => (
             <article
               key={service.index}
               className="relative rounded-[14px] border border-white/9 bg-panel p-[30px_26px] transition-all duration-200 hover:-translate-y-[3px] hover:border-accent"
@@ -73,9 +48,42 @@ export function Services() {
                   </li>
                 ))}
               </ul>
+
+              {!summary && (
+                <>
+                  <div className="mt-5 border-t border-white/9 pt-4">
+                    <p className="mb-2 font-mono text-[11px] tracking-[0.04em] text-accent-2 uppercase">
+                      Highlights
+                    </p>
+                    <ul>
+                      {service.highlights.map((h) => (
+                        <li key={h} className="mb-1.5 text-[13px] text-text-dim">
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {service.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-white/9 px-2.5 py-1 font-mono text-[11px] text-text-dim"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
             </article>
           ))}
         </div>
+
+        {summary && (
+          <div className="mt-10">
+            <SectionLink href={pageRoutes.services}>Explore all services</SectionLink>
+          </div>
+        )}
       </Container>
     </section>
   );
