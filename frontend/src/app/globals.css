@@ -310,6 +310,27 @@ html.light .svc-model {
   box-shadow: var(--shadow-card);
 }
 
+.industry-card {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .industry-card:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--theme-accent) 35%, transparent);
+    box-shadow: var(--shadow-card);
+  }
+}
+
+@media (max-width: 720px) {
+  .pro-card:hover {
+    transform: none;
+  }
+}
+
 .pro-card:hover::before {
   opacity: 1;
 }

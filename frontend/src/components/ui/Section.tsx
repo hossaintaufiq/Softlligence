@@ -35,7 +35,7 @@ export function SectionTitle({
 }) {
   return (
     <h2
-      className={`mb-3.5 max-w-[820px] font-display text-[clamp(26px,3.4vw,42px)] leading-[1.12] font-semibold tracking-tight ${className ?? ""}`}
+      className={`mb-3.5 max-w-[820px] font-display text-[clamp(24px,6.2vw,42px)] leading-[1.12] font-semibold tracking-tight ${className ?? ""}`}
     >
       {children}
     </h2>
