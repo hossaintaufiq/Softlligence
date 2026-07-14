@@ -157,7 +157,7 @@ export function AboutDetail() {
 
           <div className="grid gap-px overflow-hidden rounded-[14px] border border-white/9 bg-white/9 sm:grid-cols-2 lg:grid-cols-4">
             {aboutLeadershipStrip.map((row, i) => (
-              <Reveal key={row.role} delay={i * 60}>
+              <Reveal key={`${row.role}-${row.focus}`} delay={i * 60}>
                 <div className="h-full bg-panel px-5 py-6 sm:px-6">
                   <p className="mb-2 font-mono text-[11px] tracking-[0.08em] text-accent uppercase">
                     {row.role}

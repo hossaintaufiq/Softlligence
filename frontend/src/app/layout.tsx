@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeInit } from "@/components/ThemeInit";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import "./globals.css";
 
@@ -28,8 +29,6 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-ibm-plex-mono",
   display: "swap",
 });
-
-const themeInitScript = `(function(){try{var k='softlligence-theme';var t=localStorage.getItem(k);if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}var r=document.documentElement;r.classList.remove('light','dark');r.classList.add(t);r.style.colorScheme=t;}catch(e){document.documentElement.classList.add('dark');}})();`;
 
 export const metadata: Metadata = {
   title: {
@@ -66,10 +65,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} dark`}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body className="antialiased">
+        <ThemeInit />
         <ThemeProvider>
           <ScrollToTop />
           <div className="site-bg" aria-hidden="true">

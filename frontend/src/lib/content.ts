@@ -363,6 +363,92 @@ export const processSteps = [
 
 export const projects = [
   {
+    id: "playpen-school",
+    sector: "Education",
+    type: "Web platform",
+    tag: "Education · Web platform",
+    title: "Playpen School Website",
+    headline: "School presence with online bookings and payments",
+    description:
+      "A platform that represents the school and lets parents book school services online — admission, payment, and school activities.",
+    challenge:
+      "Parents needed a reliable way to handle admissions, payments, and school activities without relying only on in-person office visits.",
+    solution:
+      "A parent-facing school website with service booking flows, online payments, and activity management built on a modern full-stack stack.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Express.js",
+      "Payment Gateway",
+      "AWS",
+    ],
+    timeline: "Ongoing",
+    github: "https://github.com/hossaintaufiq/Playpen_Project",
+    liveUrl: "",
+    stats: [
+      { value: "online", label: "Admission & bookings" },
+      { value: "Payments", label: "Integrated gateway" },
+      { value: "Parents", label: "Self-serve access" },
+    ],
+  },
+  {
+    id: "nsu-acm-sc",
+    sector: "Education",
+    type: "Static site",
+    tag: "Education · Chapter website",
+    title: "NSU ACM SC Website",
+    headline: "Sub-second chapter site on static rendering and CDN",
+    description:
+      "Official chapter website with sub-second load times via static rendering and aggressive CDN caching, plus a clean TypeScript architecture for long-term maintainability.",
+    challenge:
+      "The chapter needed a fast, maintainable public website that stayed quick under traffic without a heavy runtime stack.",
+    solution:
+      "A statically rendered Next.js site with CDN caching and a clear TypeScript structure designed for long-term ownership.",
+    stack: ["Next.js", "TypeScript", "Static Rendering", "CDN", "Tailwind CSS"],
+    timeline: "Shipped",
+    github: "",
+    liveUrl: "",
+    stats: [
+      { value: "<1s", label: "Load-time target" },
+      { value: "Static", label: "Rendering model" },
+      { value: "CDN", label: "Edge caching" },
+    ],
+  },
+  {
+    id: "ai-crm",
+    sector: "SaaS",
+    type: "Web + mobile + bot",
+    tag: "SaaS · AI CRM",
+    title: "AI CRM – Web, Mobile & Telegram Bot",
+    headline: "One CRM across web, Android, and Telegram AI workflows",
+    description:
+      "Full-featured CRM with Gemini 2.5 AI automation for intelligent task management, extended to a native Android app (Kotlin) and a Telegram bot for voice and chat-based CRM workflows.",
+    challenge:
+      "Teams needed CRM access beyond a desktop dashboard — including mobile and chat — with AI help for task management.",
+    solution:
+      "A Next.js and Express CRM backed by MongoDB, with Gemini 2.5 automation, a Kotlin Android app, and a Telegram bot for voice and chat workflows.",
+    stack: [
+      "Next.js",
+      "Express.js",
+      "MongoDB",
+      "Gemini 2.5",
+      "Kotlin",
+      "Telegram API",
+      "Tailwind CSS",
+    ],
+    timeline: "Shipped",
+    github: "",
+    liveUrl: "",
+    stats: [
+      { value: "3", label: "Client surfaces" },
+      { value: "Gemini", label: "AI task automation" },
+      { value: "Voice", label: "Telegram workflows" },
+    ],
+  },
+  {
     id: "bank-portal",
     sector: "FinTech",
     type: "Web platform",
@@ -458,7 +544,7 @@ export const projects = [
 
 export const workStats = [
   { value: "12+", label: "Products shipped" },
-  { value: "4", label: "Featured case studies" },
+  { value: "7", label: "Featured case studies" },
   { value: "Founder-led", label: "Delivery model" },
 ];
 
@@ -665,9 +751,9 @@ export const teamLeadership = [
   {
     initials: "MH",
     name: "Hossain Ahmmed Taufiq",
-    role: "Team Lead & Full Stack Engineer",
+    role: "Team Lead & Backend AI Engineer",
     bio: "Leads architecture and engineering standards — focused on scalable web applications, clean API design, and systems organizations can rely on.",
-    skills: ["React", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
+    skills: [ "Next.js", "Node.js","Python", "Tensorflow", "Keras", "Scikit-learn", "TypeScript", "PostgreSQL", "AWS"],
     linkedin: "https://www.linkedin.com/in/hossain-ahmmed-129b29253/",
     github: "https://github.com/hossaintaufiq",
     email: "hossainahmmedtaufiq22@gmail.com",
@@ -716,24 +802,35 @@ export const teamEngineering = [
   {
     initials: "MA",
     name: "Md Al Amin",
-    role: "Full Stack AI Engineer",
+    role: "AI Engineer",
     bio: "Focused on API design, Ai Integration, and resilient backend services.",
     skills: ["Node.js", "Python", "PostgreSQL", "Docker", "AI", "OpenAI", "Google Cloud", "Azure", "AWS", "Tensorflow", "PyTorch", "Keras", "Scikit-learn"],
     linkedin: "https://www.linkedin.com/in/mdalamin5/",
     github: "https://github.com/MDalamin5",
-    photo: null as string | null,
+    photo: "/team/engineering/md-al-amin.jpg" as string | null,
     photoTone: "from-white/10 to-panel",
   },
   {
     initials: "MS",
     name: "Minhajul Shobuj",
-    role: "Backend Engineer",
+    role: "Full Stack Engineer",
     bio: "Builds backend systems and APIs with a focus on reliability and scalability.",
-    skills: ["TypeScript", "Python", "Docker", "AWS", "Node.js"],
+    skills: ["TypeScript", "Next.js", "PostgreSQL", "MongoDB", "Node.js","Prisma","Express","Redux","React.js"],
     linkedin: "https://www.linkedin.com/in/minhajul-shobuj-0000000000/",
-    github: "https://github.com/minhajulshobuj",
-    photo: null as string | null,
+    github: "https://github.com/Minhajul-Shobuj",
+    photo: "/team/engineering/minhajul-shobuj.jpeg" as string | null,
     photoTone: "from-accent-2/20 to-ink",
+  },
+  {
+    initials: "AI_S",
+    name: "Ashraful Islam Shohan",
+    role: "Full Stack Engineer",
+    bio: "Just an enthusiastic explorer",
+    skills: ["Next.js","Django", "Rust","Python"],
+    linkedin: "https://www.linkedin.com/in/ashraful-islam-shohan",
+    github: "https://github.com/shohan12727",
+    photo: "https://res.cloudinary.com/dpwjt3jxx/image/upload/v1782306822/roman_pic_mine_kq3ilm.jpg",
+    photoTone: "",
   },
 ];
 

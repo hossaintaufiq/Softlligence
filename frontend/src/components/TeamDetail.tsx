@@ -128,6 +128,8 @@ function MemberPhoto({
           src={photo}
           alt={name}
           fill
+          quality={65}
+          loading="eager"
           className="object-cover object-top"
           sizes={variant === "leadership" ? "(max-width: 768px) 100vw, 320px" : "(max-width: 768px) 100vw, 280px"}
         />
@@ -250,10 +252,11 @@ export function TeamDetail() {
       <section className="relative isolate min-h-[78vh] overflow-hidden border-b border-white/8 md:min-h-[85vh]">
         <div className="absolute inset-0 -z-10" aria-hidden="true">
           <Image
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=75"
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=60"
             alt=""
             fill
             priority
+            quality={60}
             className="object-cover object-center"
             sizes="100vw"
           />

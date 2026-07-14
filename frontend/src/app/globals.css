@@ -228,34 +228,15 @@ html.light .svc-model {
   }
 }
 
-/* ── Scroll reveal ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal--static {
+/* ── Scroll reveal (legacy classes — Reveal is now instant) ── */
+.reveal,
+.reveal--visible,
+.reveal--static,
+.reveal-soft,
+.reveal-soft--on {
   opacity: 1;
   transform: none;
-}
-
-/* Always-readable soft entrance (homepage / static pages) */
-.reveal-soft {
-  opacity: 1;
-  transform: translateY(10px);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-soft--on {
-  transform: translateY(0);
+  transition: none;
 }
 
 /* ── Hero entrance ── */
