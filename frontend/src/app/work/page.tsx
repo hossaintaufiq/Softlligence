@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Work } from "@/components/Work";
+import { WorkDetail } from "@/components/WorkDetail";
 import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected case studies — FinTech, education, retail and public sector projects we've shipped.",
+  description:
+    "Selected case studies across FinTech, education, retail and public sector — with live demos and repositories where available.",
 };
 
 export default function WorkPage() {
@@ -12,10 +13,10 @@ export default function WorkPage() {
     <main>
       <PageHero
         eyebrow="SELECTED WORK"
-        title="A few of the products we've shipped."
-        description="Representative projects across industries — details adapted for client confidentiality."
+        title="A portfolio of shipped products."
+        description="Listed builds across industries — open the live site or GitHub when privacy allows."
       />
-      <Work />
+      <WorkDetail />
     </main>
   );
 }

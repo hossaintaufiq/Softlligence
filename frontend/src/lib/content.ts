@@ -1,133 +1,319 @@
 export const services = [
   {
+    id: "web",
     index: "01",
     title: "Websites & web apps",
+    headline: "Fast, findable systems your team can actually run",
     description:
       "Marketing sites, client portals, internal tools and dashboards — built to be fast, findable and easy for your own team to update.",
+    longDescription:
+      "From marketing sites to operational portals, we ship web products that load fast, rank cleanly, and stay maintainable after handoff. You get source code, documentation, and an admin path your team can use without calling us for every content change.",
     items: ["Corporate & marketing sites", "Web applications & portals", "E-commerce & booking systems"],
     highlights: [
       "SEO-ready architecture and performance budgets from day one",
       "CMS or admin panels your team can update without calling us",
       "Accessible, responsive layouts tested across devices and browsers",
     ],
+    deliverables: ["Production-ready codebase", "Admin / CMS access", "Performance & SEO baseline", "Launch checklist"],
+    timeline: "3–12 weeks",
+    bestFor: ["Companies replacing template sites", "Teams needing a client portal", "Ops tools that outgrew spreadsheets"],
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Vercel"],
   },
   {
+    id: "mobile",
     index: "02",
     title: "Mobile apps",
+    headline: "One app experience — without rebuilding twice",
     description:
       "Native iOS and Android, or one cross-platform codebase — whichever gets your organization to the app store without rebuilding twice.",
+    longDescription:
+      "We help you choose native or cross-platform based on your roadmap, not trends. Apps ship with store submission support, shared backends when needed, and the push / offline patterns that make mobile feel useful — not decorative.",
     items: ["iOS & Android apps", "Cross-platform (React Native/Flutter)", "App store launch & upkeep"],
     highlights: [
       "Push notifications, offline modes and deep linking where they matter",
       "App Store and Play Store submission handled end to end",
       "Shared backend with your web platform when you need both",
     ],
+    deliverables: ["Store-ready builds", "Backend APIs", "Release playbook", "Crash & analytics setup"],
+    timeline: "8–20 weeks",
+    bestFor: ["Products that need field / on-the-go access", "Web platforms adding a companion app", "Internal ops tools for staff"],
     technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
   },
   {
+    id: "design",
     index: "03",
     title: "Product design",
+    headline: "Clarity before a line of production code",
     description:
       "Wireframes, prototypes and a design system your future screens can reuse, tested with real users before a line of code ships.",
+    longDescription:
+      "Design isn't decoration — it's how we reduce risk. We map your workflows, prototype the critical paths, and leave you with a reusable system so the fifth screen doesn't take longer than the first.",
     items: ["UX research & wireframing", "UI & design systems", "Clickable prototypes"],
     highlights: [
       "User flows mapped against real workflows, not generic templates",
       "Reusable component libraries for faster future builds",
       "Usability testing before development starts",
     ],
+    deliverables: ["User flows & wireframes", "Clickable prototype", "Design system tokens", "Handoff specs"],
+    timeline: "2–6 weeks",
+    bestFor: ["Teams validating an MVP", "Rebuilds that need alignment first", "Products with complex multi-role UX"],
     technologies: ["Figma", "FigJam", "Maze", "Storybook"],
   },
   {
+    id: "integrations",
     index: "04",
     title: "Systems & integration",
+    headline: "Connect what you already run — into one workflow",
     description:
       "Connect the tools your organization already runs on — payments, CRMs, HR systems, government or partner APIs — into one workflow.",
+    longDescription:
+      "Most organizations don't need another silo. We wire payments, CRMs, HR systems and partner APIs into a single reliable flow — with access controls, sync rules, and clear ownership when something fails.",
     items: ["Custom software & ERPs", "API & third-party integration", "Workflow automation"],
     highlights: [
       "Single sign-on and role-based access across connected systems",
       "Reliable sync between legacy tools and new platforms",
       "Automated workflows that cut manual data entry",
     ],
+    deliverables: ["API maps & contracts", "Auth & SSO setup", "Sync monitoring", "Runbooks for failures"],
+    timeline: "4–16 weeks",
+    bestFor: ["Orgs stuck between legacy and new tools", "Teams drowning in duplicate data entry", "Multi-system digital transformation"],
     technologies: ["REST", "GraphQL", "Stripe", "Salesforce", "Zapier"],
   },
   {
+    id: "cloud",
     index: "05",
     title: "Cloud & DevOps",
+    headline: "Infrastructure that stays quiet — until launch day",
     description:
       "Infrastructure that scales with a launch day traffic spike and stays quiet the other 364 days of the year.",
+    longDescription:
+      "We set up cloud environments, CI/CD, monitoring and deploy guards so shipping isn't a ritual and outages aren't a surprise. Reproducible infrastructure means your next environment matches production — not a guess.",
     items: ["Cloud architecture & migration", "CI/CD & automated deploys", "Monitoring & on-call support"],
     highlights: [
       "Infrastructure as code for reproducible environments",
       "Automated testing and deploy pipelines on every merge",
       "Uptime monitoring and incident response playbooks",
     ],
+    deliverables: ["Cloud architecture diagram", "CI/CD pipelines", "Monitoring dashboards", "Incident playbooks"],
+    timeline: "2–10 weeks",
+    bestFor: ["Products approaching first serious scale", "Teams with fragile manual deploys", "Migrations off aging VPS setups"],
     technologies: ["AWS", "Docker", "GitHub Actions", "Terraform", "Datadog"],
   },
   {
+    id: "ai",
     index: "06",
     title: "AI-powered features",
+    headline: "Automation where it saves hours — not headlines",
     description:
       "Search, chat, recommendations and automation added where they save your team real time — not bolted on for a press release.",
+    longDescription:
+      "We add AI where it cuts real work: document search, assistants grounded in your policies, and classification jobs that don't need a human every time. Grounded systems, clear fallbacks, measurable time saved.",
     items: ["Chat & virtual assistants", "Search & recommendations", "Document & data automation"],
     highlights: [
       "Semantic search across your documents and knowledge base",
       "Assistants trained on your org's data and policies",
       "Automation for repetitive review and classification tasks",
     ],
+    deliverables: ["Use-case discovery", "Pilot feature in production", "Eval & safety checks", "Usage metrics"],
+    timeline: "4–12 weeks",
+    bestFor: ["Teams with large document libraries", "Support workloads drowning in tickets", "Products that need smart search"],
     technologies: ["OpenAI", "LangChain", "Pinecone", "Python", "RAG"],
+  },
+];
+
+export const serviceStats = [
+  { value: "6", label: "Core service lines" },
+  { value: "120+", label: "Products shipped" },
+  { value: "92%", label: "Client retention" },
+];
+
+export const serviceGuarantees = [
+  {
+    title: "Named team, no handoff roulette",
+    description: "The people on your kickoff call are the ones writing code and responding in your channel.",
+  },
+  {
+    title: "Visible progress every two weeks",
+    description: "You click a working build at the end of each sprint — not a status slide.",
+  },
+  {
+    title: "Ownership you keep",
+    description: "Source code, credentials and documentation are yours. No lock-in after launch.",
   },
 ];
 
 export const industries = [
   {
+    id: "public-sector",
+    index: "01",
     tag: "Public sector",
     title: "Government & civic",
+    headline: "Digital services citizens actually use",
     description:
       "Citizen-facing portals and back-office systems built to procurement and accessibility standards.",
+    longDescription:
+      "We help municipalities and public agencies move paper-heavy workflows online — permits, billing, licensing — without sacrificing WCAG accessibility, audit trails, or the security standards procurement requires.",
+    painPoints: [
+      "Citizens queue in person for tasks that should be self-serve",
+      "Departments run on disconnected spreadsheets and legacy tools",
+      "Launch delays because vendors don't understand public-sector constraints",
+    ],
+    outcomes: [
+      "Online portals that reduce walk-in volume from day one",
+      "Staff dashboards that work offline at service counters",
+      "Documentation and access your IT team can maintain after handoff",
+    ],
     examples: ["Permit & licensing portals", "Utility billing systems", "Open-data dashboards"],
-    capabilities: ["WCAG compliance", "Multi-language support", "Audit trails"],
+    capabilities: ["WCAG 2.1 compliance", "Multi-language support", "Audit trails & role-based access"],
+    metric: { value: "-70%", label: "Average permit turnaround" },
+    clients: ["City governments", "Municipal agencies", "Public utilities"],
   },
   {
+    id: "education",
+    index: "02",
     tag: "Education",
     title: "Schools & universities",
+    headline: "Platforms that survive exam season",
     description:
       "Admissions, student information systems and learning platforms that survive an entire term without a support ticket.",
+    longDescription:
+      "From admissions to fee payment to grade reporting, we unify fragmented campus workflows into one platform students and staff actually use — with uptime and peak-load handling built in before the first day of term.",
+    painPoints: [
+      "Students juggle three portals for admissions, grades and fees",
+      "Systems crash when registration or results go live",
+      "Manual data entry between departments every semester",
+    ],
+    outcomes: [
+      "One login for students across web and mobile",
+      "Infrastructure tested for registration-day traffic spikes",
+      "Admin tools your registrar team can update without a developer",
+    ],
     examples: ["Student information systems", "Admissions portals", "Learning management tools"],
     capabilities: ["Peak-load handling", "Parent & student portals", "Grade & fee workflows"],
+    metric: { value: "99.9%", label: "Uptime through exam season" },
+    clients: ["Universities", "K–12 school networks", "EdTech startups"],
   },
   {
+    id: "finance",
+    index: "03",
     tag: "Finance",
     title: "Banks & fintech",
+    headline: "Tools held to the security bar finance expects",
     description:
       "Dashboards, reporting and customer-facing tools held to the security bar the sector expects.",
+    longDescription:
+      "Whether you're a regional bank modernizing branch services or a fintech shipping a new product line, we build with encryption, access controls and transaction logging from sprint one — not as a pre-launch panic.",
+    painPoints: [
+      "Customers still visit branches for routine account tasks",
+      "Compliance reporting pulled manually from multiple systems",
+      "Vendor builds that fail security review at the last mile",
+    ],
+    outcomes: [
+      "Self-serve portals for statements, transfers and support",
+      "Real-time dashboards for ops and compliance teams",
+      "Architecture documentation ready for audit and review",
+    ],
     examples: ["Digital banking portals", "Loan origination tools", "Compliance reporting"],
     capabilities: ["Encryption at rest & in transit", "Role-based access", "Transaction logging"],
+    metric: { value: "-63%", label: "Branch visits for routine tasks" },
+    clients: ["Regional banks", "Credit unions", "FinTech startups"],
   },
   {
+    id: "healthcare",
+    index: "04",
     tag: "Healthcare",
     title: "Clinics & health orgs",
+    headline: "Software shaped around clinical workflows",
     description:
       "Scheduling, patient tools and records systems designed around real clinical workflows.",
+    longDescription:
+      "We design around how clinics actually operate — front-desk intake, appointment reminders, staff coordination — with privacy-aware architecture and interfaces that don't slow down a busy morning rush.",
+    painPoints: [
+      "Phone tag for appointment booking and rescheduling",
+      "Paper intake forms re-typed into multiple systems",
+      "Patient portals that staff recommend patients avoid",
+    ],
+    outcomes: [
+      "Online scheduling with automated reminders",
+      "Digital intake that feeds directly into your workflow",
+      "Staff tools that work on tablet and desktop",
+    ],
     examples: ["Appointment scheduling", "Patient intake forms", "Staff coordination tools"],
     capabilities: ["HIPAA-aware design", "Appointment reminders", "Secure messaging"],
+    metric: { value: "40%", label: "Fewer no-show appointments" },
+    clients: ["Clinics & hospitals", "Dental & specialty practices", "Health nonprofits"],
   },
   {
+    id: "commerce",
+    index: "05",
     tag: "Commerce",
     title: "Retail & e-commerce",
+    headline: "Storefronts that hold up on your busiest day",
     description:
       "Storefronts, inventory and checkout flows built to hold up on your busiest sales day.",
+    longDescription:
+      "We connect your online store to real inventory across locations, optimize checkout for conversion, and load-test before your biggest sale — so a holiday spike is a revenue win, not an outage story.",
+    painPoints: [
+      "Online stock doesn't match what's on the shelf",
+      "Checkout abandons spike on mobile during promotions",
+      "Previous site slowed or crashed on peak sales days",
+    ],
+    outcomes: [
+      "Real-time inventory sync across locations",
+      "Sub-2-second page loads on mobile checkout",
+      "Promo and loyalty flows tested under load before launch",
+    ],
     examples: ["Multi-location storefronts", "Inventory sync", "Loyalty & checkout flows"],
     capabilities: ["Payment gateway integration", "Real-time stock", "Promo & discount engines"],
+    metric: { value: "+220%", label: "Online order volume, year one" },
+    clients: ["Retail chains", "D2C brands", "Marketplace operators"],
   },
   {
+    id: "nonprofit",
+    index: "06",
     tag: "Non-profit",
     title: "NGOs & foundations",
+    headline: "Mission-driven tools sized to your budget",
     description:
       "Donor, volunteer and program-management tools sized to the budget of a mission-driven team.",
+    longDescription:
+      "Nonprofits need software that stretches every dollar — donor CRMs, volunteer scheduling, grant reporting — without the enterprise price tag or the complexity that keeps small teams stuck in spreadsheets.",
+    painPoints: [
+      "Donor data scattered across spreadsheets and inboxes",
+      "Volunteer coordination done over WhatsApp and phone",
+      "Grant reporting assembled manually every quarter",
+    ],
+    outcomes: [
+      "One system for donors, campaigns and communications",
+      "Volunteer self-signup with shift reminders",
+      "Impact dashboards ready for board and funder reviews",
+    ],
     examples: ["Donor management", "Volunteer scheduling", "Program impact tracking"],
     capabilities: ["Donation processing", "Grant reporting", "Volunteer onboarding"],
+    metric: { value: "3×", label: "Donor re-engagement rate" },
+    clients: ["NGOs & foundations", "Charities", "Social enterprises"],
   },
+];
+
+export const industryPrinciples = [
+  {
+    title: "Security by default",
+    description: "Role-based access, encrypted data and audit logging from the first sprint — not bolted on before launch.",
+  },
+  {
+    title: "Built for real users",
+    description: "We test with the people who'll use it daily — front-desk staff, citizens, students — not just stakeholders in a boardroom.",
+  },
+  {
+    title: "Support after go-live",
+    description: "Launch is a milestone, not a goodbye. Monitoring, fixes and a roadmap based on how people actually use the product.",
+  },
+];
+
+export const industryStats = [
+  { value: "6", label: "Sectors we specialize in" },
+  { value: "45+", label: "Organizations served" },
+  { value: "99.9%", label: "Avg. uptime SLA" },
 ];
 
 export const processSteps = [
@@ -175,61 +361,103 @@ export const processSteps = [
 
 export const projects = [
   {
+    id: "bank-portal",
+    sector: "FinTech",
+    type: "Web platform",
     tag: "FinTech · Web platform",
     title: "Regional bank digital-banking portal",
+    headline: "From branch queues to trusted self-serve",
     description:
       "Replaced a legacy branch-only system with a self-serve web portal for statements, transfers and support tickets.",
     challenge:
       "Customers were visiting branches for routine tasks that should have been self-serve, creating long queues and high operational cost.",
     solution:
       "A secure web portal with account dashboards, transfer flows, statement downloads and integrated support ticketing.",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS"],
+    timeline: "4 months",
+    github: "https://github.com",
+    liveUrl: "https://example.com",
     stats: [
       { value: "-63%", label: "Branch visits for routine tasks" },
       { value: "4 mo", label: "Design to launch" },
+      { value: "12k+", label: "Active monthly users" },
     ],
   },
   {
+    id: "university-sis",
+    sector: "Education",
+    type: "Web + mobile",
     tag: "Education · Web + mobile",
     title: "University student-information system",
+    headline: "One campus platform that holds up at peak",
     description:
       "Unified admissions, grading and fee payment into one platform with a companion mobile app for students.",
     challenge:
       "Admissions, grades and payments lived in three separate systems, causing confusion for students and staff every term.",
     solution:
       "One unified platform with a student mobile app, admin dashboard and automated fee reminders.",
+    stack: ["React", "React Native", "Node.js", "PostgreSQL", "Firebase"],
+    timeline: "6 months",
+    github: "https://github.com",
+    liveUrl: "https://example.com",
     stats: [
       { value: "38k", label: "Students onboarded" },
       { value: "99.9%", label: "Uptime through exam season" },
+      { value: "1", label: "Unified student record" },
     ],
   },
   {
+    id: "retail-store",
+    sector: "Retail",
+    type: "E-commerce",
     tag: "Retail · E-commerce",
     title: "Regional retail chain online store",
+    headline: "Inventory truth and checkout that survives peak",
     description:
       "Storefront, inventory sync across 40 locations and a checkout that held up through a nationwide holiday sale.",
     challenge:
       "Online orders couldn't reflect real store inventory, leading to cancellations and frustrated customers.",
     solution:
       "Real-time inventory sync across 40 locations, optimized checkout and a CDN-backed storefront.",
+    stack: ["Next.js", "Node.js", "Stripe", "Cloudflare", "Redis"],
+    timeline: "5 months",
+    github: "https://github.com",
+    liveUrl: "https://example.com",
     stats: [
       { value: "+220%", label: "Online order volume, year one" },
       { value: "1.8s", label: "Median page load" },
+      { value: "40", label: "Locations synced" },
     ],
   },
   {
+    id: "municipal-portal",
+    sector: "Public sector",
+    type: "Civic platform",
     tag: "Public sector · Civic platform",
     title: "Municipal services & permits portal",
+    headline: "Permits online — without locking out walk-ins",
     description:
       "Moved permit applications and utility billing online for a city government, with an offline-friendly counter-staff view.",
     challenge:
       "Permit applications required in-person visits and paper forms, creating weeks-long backlogs.",
     solution:
       "Online permit portal with document upload, status tracking and a counter-staff view for walk-in applicants.",
+    stack: ["React", "Node.js", "PostgreSQL", "S3", "Docker"],
+    timeline: "7 months",
+    github: "https://github.com",
+    liveUrl: "https://example.com",
     stats: [
       { value: "-70%", label: "Average permit turnaround" },
       { value: "12", label: "Departments integrated" },
+      { value: "WCAG", label: "Accessibility target met" },
     ],
   },
+];
+
+export const workStats = [
+  { value: "120+", label: "Products shipped" },
+  { value: "4", label: "Featured case studies" },
+  { value: "8 yrs", label: "Building software" },
 ];
 
 export const aboutPoints = [
@@ -363,13 +591,16 @@ export const engagementModels = [
   {
     title: "Fixed-price project",
     description: "Best for clearly scoped websites, MVPs or one-off builds with a defined launch date.",
+    points: ["Written scope & milestones", "Fixed budget before build", "Ideal for defined launches"],
   },
   {
     title: "Dedicated team",
     description: "A monthly team embedded on your product — ideal for ongoing feature work and roadmap delivery.",
+    points: ["Same engineers week to week", "Shared backlog & roadmap", "Best for continuous product work"],
   },
   {
     title: "Staff augmentation",
     description: "Our developers join your existing team and workflows for a defined period.",
+    points: ["Fits your tools & standups", "Flexible capacity", "Clean knowledge handoff"],
   },
 ];
