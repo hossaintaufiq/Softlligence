@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
@@ -10,10 +10,14 @@ import { Container } from "@/components/ui/Section";
 import { navLinks } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
+const MOBILE_BREAKPOINT = 721;
+
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const menuId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -27,105 +31,190 @@ export function Nav() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "";
+    const onResize = () => {
+      if (window.innerWidth >= MOBILE_BREAKPOINT) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const body = document.body;
+    const y = window.scrollY;
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${y}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+
     return () => {
-      document.body.style.overflow = "";
+      body.style.overflow = "";
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      window.scrollTo(0, y);
     };
   }, [isOpen]);
 
   const closeMenu = () => setIsOpen(false);
 
-  return (
-    <header
-      className={cn(
-        "site-header sticky top-0 z-[100] border-b transition-all duration-300",
-        scrolled
-          ? "site-header--scrolled border-white/10 bg-ink/90 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
-          : "border-white/5 bg-ink/72 backdrop-blur-[14px]",
-      )}
-    >
-      <Container className="flex h-[72px] items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2 font-display text-[17px] font-semibold min-[721px]:text-[19px]"
-        >
-          <span className="flex text-accent transition-transform duration-300 hover:scale-105" aria-hidden="true">
-            <BrandLogo />
-          </span>
-          <span className="max-[480px]:hidden">Softlligence Technologies</span>
-          <span className="hidden max-[480px]:inline">Softlligence</span>
-        </Link>
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
 
-        <nav
-          id="primary-nav"
-          aria-label="Primary"
-          className={cn(
-            "max-[720px]:fixed max-[720px]:top-[72px] max-[720px]:right-0 max-[720px]:left-0 max-[720px]:bottom-0 max-[720px]:flex max-[720px]:flex-col max-[720px]:gap-1 max-[720px]:overflow-y-auto max-[720px]:border-b max-[720px]:border-white/9 max-[720px]:bg-ink/98 max-[720px]:px-7 max-[720px]:py-6 max-[720px]:backdrop-blur-xl max-[720px]:transition-all max-[720px]:duration-300",
-            "min-[721px]:flex min-[721px]:items-center min-[721px]:gap-[28px]",
-            isOpen
-              ? "max-[720px]:pointer-events-auto max-[720px]:translate-y-0 max-[720px]:opacity-100"
-              : "max-[720px]:pointer-events-none max-[720px]:-translate-y-3 max-[720px]:opacity-0",
-          )}
-        >
-          {navLinks.map((link, i) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={closeMenu}
-                style={{ transitionDelay: isOpen ? `${i * 40}ms` : "0ms" }}
-                className={cn(
-                  "nav-link text-[14.5px] text-text-dim hover:text-text max-[720px]:rounded-lg max-[720px]:border max-[720px]:border-white/5 max-[720px]:px-4 max-[720px]:py-3.5 max-[720px]:transition-all",
-                  isActive && "nav-link--active text-text max-[720px]:border-accent/30 max-[720px]:bg-panel",
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-          <div className="mt-3 flex items-center gap-3 min-[721px]:hidden">
-            <ThemeToggle />
-            <Button href="/contact" block>
+  return (
+    <header className="sticky top-0 z-[100]">
+      {/* Blur lives on the bar only so the fixed mobile panel is not trapped */}
+      <div
+        className={cn(
+          "site-header relative z-[110] border-b transition-all duration-300",
+          scrolled
+            ? "site-header--scrolled border-white/10 bg-ink/90 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
+            : "border-white/5 bg-ink/72 backdrop-blur-[14px]",
+        )}
+      >
+        <Container className="flex h-[72px] items-center justify-between gap-3">
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="flex min-w-0 shrink items-center gap-2 font-display text-[17px] font-semibold min-[721px]:text-[19px]"
+          >
+            <span className="flex shrink-0 text-accent transition-transform duration-300 hover:scale-105" aria-hidden="true">
+              <BrandLogo />
+            </span>
+            <span className="truncate max-[480px]:hidden">Softlligence Technologies</span>
+            <span className="hidden max-[480px]:inline">Softlligence</span>
+          </Link>
+
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-[28px] min-[721px]:flex"
+          >
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "nav-link text-[14.5px] text-text-dim hover:text-text",
+                    isActive && "nav-link--active text-text",
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="flex shrink-0 items-center gap-2.5">
+            <ThemeToggle className="max-[720px]:hidden" />
+            <Button href="/contact" className="max-[720px]:hidden">
               Book a call
             </Button>
+            <button
+              ref={toggleRef}
+              type="button"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls={menuId}
+              onClick={toggleMenu}
+              className="relative hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-white/9 bg-panel/50 max-[720px]:flex"
+            >
+              <span
+                className={cn(
+                  "absolute block h-0.5 w-5 bg-text transition-all duration-300",
+                  isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute block h-0.5 w-5 bg-text transition-all duration-300",
+                  isOpen ? "opacity-0" : "opacity-100",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute block h-0.5 w-5 bg-text transition-all duration-300",
+                  isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5",
+                )}
+              />
+            </button>
           </div>
-        </nav>
+        </Container>
+      </div>
 
-        <div className="flex items-center gap-2.5">
-          <ThemeToggle className="max-[720px]:hidden" />
-          <Button href="/contact" className="max-[720px]:hidden">
+      {/* Backdrop — outside blurred bar so fixed positioning works */}
+      <button
+        type="button"
+        aria-label="Close menu"
+        tabIndex={isOpen ? 0 : -1}
+        onClick={closeMenu}
+        className={cn(
+          "fixed inset-0 z-[105] bg-ink/60 backdrop-blur-[2px] transition-opacity duration-300 max-[720px]:block min-[721px]:hidden",
+          isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
+        )}
+      />
+
+      {/* Mobile panel */}
+      <nav
+        id={menuId}
+        aria-label="Mobile"
+        aria-hidden={!isOpen}
+        inert={!isOpen ? true : undefined}
+        className={cn(
+          "mobile-nav-panel fixed top-[72px] right-0 left-0 z-[106] flex max-h-[calc(100dvh-72px)] flex-col gap-1 overflow-y-auto overscroll-contain border-b border-white/9 bg-ink/98 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-[0_24px_48px_rgba(0,0,0,0.35)] transition-[opacity,transform,visibility] duration-300 max-[720px]:flex min-[721px]:hidden sm:px-7",
+          isOpen
+            ? "visible translate-y-0 opacity-100"
+            : "invisible pointer-events-none -translate-y-3 opacity-0",
+        )}
+      >
+        {navLinks.map((link, i) => {
+          const isActive = pathname === link.href;
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={closeMenu}
+              tabIndex={isOpen ? 0 : -1}
+              style={{ transitionDelay: isOpen ? `${i * 40}ms` : "0ms" }}
+              className={cn(
+                "nav-link rounded-lg border border-white/5 px-4 py-3.5 text-[15px] text-text-dim transition-all hover:border-white/12 hover:bg-panel/60 hover:text-text",
+                isActive && "nav-link--active border-accent/30 bg-panel text-text",
+              )}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
+        <div className="mt-3 flex items-center gap-3">
+          <ThemeToggle />
+          <Button href="/contact" block onClick={closeMenu}>
             Book a call
           </Button>
-          <button
-            type="button"
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-            aria-controls="primary-nav"
-            onClick={() => setIsOpen((prev) => !prev)}
-            className="relative hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-white/9 bg-panel/50 max-[720px]:flex"
-          >
-            <span
-              className={cn(
-                "absolute block h-0.5 w-5 bg-text transition-all duration-300",
-                isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5",
-              )}
-            />
-            <span
-              className={cn(
-                "absolute block h-0.5 w-5 bg-text transition-all duration-300",
-                isOpen ? "opacity-0" : "opacity-100",
-              )}
-            />
-            <span
-              className={cn(
-                "absolute block h-0.5 w-5 bg-text transition-all duration-300",
-                isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5",
-              )}
-            />
-          </button>
         </div>
-      </Container>
+      </nav>
     </header>
   );
 }

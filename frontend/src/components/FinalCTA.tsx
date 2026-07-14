@@ -6,14 +6,14 @@ export function FinalCTA() {
   return (
     <section className="section-perf relative overflow-hidden bg-panel py-16 md:py-[90px]">
       <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-accent/5 via-transparent to-accent-2/5" aria-hidden="true" />
-      <Container className="relative flex flex-wrap items-center justify-between gap-6 max-[720px]:flex-col max-[720px]:items-start">
+      <Container className="relative flex flex-wrap items-center justify-between gap-6 max-[720px]:flex-col max-[720px]:items-stretch">
         <Reveal>
           <h2 className="max-w-[600px] font-display text-[clamp(24px,3.2vw,38px)] font-semibold tracking-tight">
             Let&apos;s build something your organization can rely on.
           </h2>
         </Reveal>
-        <Reveal delay={120}>
-          <Button href="/contact" size="lg">
+        <Reveal delay={120} className="max-[720px]:w-full">
+          <Button href="/contact" size="lg" className="max-[720px]:w-full">
             Book a call
           </Button>
         </Reveal>

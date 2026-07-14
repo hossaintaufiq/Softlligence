@@ -709,6 +709,25 @@ html.light .site-header--scrolled {
   box-shadow: 0 8px 28px rgb(12 18 32 / 0.06);
 }
 
+html.light .mobile-nav-panel {
+  background-color: rgb(246 247 250 / 0.98);
+  border-color: rgb(12 18 32 / 0.1);
+}
+
+html.light .mobile-nav-panel .nav-link {
+  border-color: rgb(12 18 32 / 0.08);
+}
+
+html.light .mobile-nav-panel .nav-link:hover {
+  background-color: rgb(255 255 255 / 0.9);
+  border-color: rgb(12 18 32 / 0.14);
+}
+
+html.light .mobile-nav-panel .nav-link--active {
+  background-color: #ffffff;
+  border-color: color-mix(in srgb, var(--theme-accent) 40%, transparent);
+}
+
 html.light .team-card {
   background-color: #ffffff;
   border-color: rgb(12 18 32 / 0.1);

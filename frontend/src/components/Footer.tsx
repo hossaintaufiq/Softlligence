@@ -27,8 +27,8 @@ export function Footer() {
   return (
     <footer className="border-t border-white/8 bg-elevated pt-16 pb-8">
       <Container>
-        <div className="grid gap-10 border-b border-white/8 pb-12 max-[720px]:grid-cols-1 max-[980px]:grid-cols-2 min-[981px]:grid-cols-[1.5fr_1fr_1fr_1fr]">
-          <div className="max-[980px]:col-span-2 min-[981px]:col-span-1">
+        <div className="grid gap-10 border-b border-white/8 pb-12 max-[640px]:grid-cols-1 max-[980px]:grid-cols-2 min-[981px]:grid-cols-[1.5fr_1fr_1fr_1fr]">
+          <div className="max-[640px]:col-span-1 max-[980px]:col-span-2 min-[981px]:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2.5 font-display text-lg font-semibold">
               <span className="flex text-accent" aria-hidden="true">
                 <BrandLogo />

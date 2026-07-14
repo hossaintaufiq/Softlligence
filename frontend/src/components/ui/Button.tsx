@@ -10,6 +10,7 @@ interface ButtonProps {
   size?: ButtonSize;
   block?: boolean;
   className?: string;
+  onClick?: () => void;
   children: React.ReactNode;
 }
 
@@ -32,6 +33,7 @@ export function Button({
   block = false,
   className,
   href,
+  onClick,
   children,
 }: ButtonProps) {
   const classes = cn(
@@ -44,14 +46,14 @@ export function Button({
 
   if (href.startsWith("/") || href.startsWith("#")) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
       </Link>
     );
   }
 
   return (
-    <a href={href} className={classes}>
+    <a href={href} className={classes} onClick={onClick}>
       {children}
     </a>
   );
