@@ -358,19 +358,10 @@ html.light .svc-model {
   }
 }
 
-/* ── Section performance (skip above-the-fold delay) ── */
+/* ── Section performance — keep visible (no scroll-deferred paint on static pages) ── */
 .section-perf {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 480px;
+  content-visibility: visible;
 }
-
-@supports (content-visibility: auto) {
-  main > section:first-of-type,
-  main > section:nth-of-type(2) {
-    content-visibility: visible;
-  }
-}
-
 /* ── Tag pill ── */
 .tech-pill {
   border-radius: 999px;

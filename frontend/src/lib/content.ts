@@ -636,6 +636,42 @@ export const aiMlProjects = [
 
 export const toolsProjects = [
   {
+    id: "banking-system-backend",
+    kind: "tools" as const,
+    sector: "FinTech",
+    type: "Banking backend · API",
+    tag: "Tools · Banking system",
+    title: "Banking System Backend",
+    headline: "Production banking backend tool powering a live bank's API layer",
+    description:
+      "A TypeScript Express banking backend we built for a bank client — accounts, auth, payments, and integrations. The bank continues to run their operations on this backend; public metrics aren't shared, so we don't claim unverified stats.",
+    challenge:
+      "The bank needed a custom backend they could own — secure APIs, payment rails, and operational workflows — instead of bolting onto a rigid off-the-shelf core alone.",
+    solution:
+      "Node.js / Express / TypeScript API with MongoDB (Mongoose), JWT auth, Stripe and Twilio integrations, Socket.io for real-time events, file uploads, and Zod validation — deployed as the bank's production backend service.",
+    stack: [
+      "TypeScript",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+      "Stripe",
+      "Twilio",
+      "Socket.io",
+      "Zod",
+    ],
+    timeline: "In production",
+    github: "https://github.com/Minhajul-Shobuj/bancking-system-backend",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "Live", label: "Bank in production" },
+      { value: "API", label: "Core banking backend" },
+      { value: "Secure", label: "JWT · payments" },
+    ],
+  },
+  {
     id: "focusflow",
     kind: "tools" as const,
     sector: "Productivity",

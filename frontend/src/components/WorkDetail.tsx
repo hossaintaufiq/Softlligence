@@ -234,7 +234,7 @@ export function WorkDetail() {
         </Container>
       </section>
 
-      <section className="section-perf bg-ink py-12 md:py-16">
+      <section className="bg-ink py-12 md:py-16">
         <Container>
           <Reveal>
             <div className="mb-8 max-w-[680px]">
@@ -304,7 +304,7 @@ export function WorkDetail() {
         </Container>
       </section>
 
-      <section className="section-perf border-t border-white/5 bg-panel py-14 md:py-20">
+      <section className="border-t border-white/5 bg-panel py-14 md:py-20">
         <Container>
           <Reveal>
             <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
