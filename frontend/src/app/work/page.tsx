@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected case studies across FinTech, education, retail and public sector — with live demos and repositories where available.",
+    "Shipped products and industry-ready templates — real client work, AI/ML builds, tools, and customizable starters.",
 };
 
 export default function WorkPage() {
@@ -13,8 +13,8 @@ export default function WorkPage() {
     <main>
       <PageHero
         eyebrow="SELECTED WORK"
-        title="A portfolio of shipped products."
-        description="Listed builds across industries — open the live site or GitHub when privacy allows."
+        title="Shipped products, AI/ML, tools, and templates."
+        description="Real client builds, intelligent workflows, internal utilities, and sector-ready starters — open live, hosted, or GitHub links when available."
       />
       <WorkDetail />
     </main>

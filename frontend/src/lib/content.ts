@@ -361,9 +361,10 @@ export const processSteps = [
   },
 ];
 
-export const projects = [
+export const clientProjects = [
   {
     id: "playpen-school",
+    kind: "shipped" as const,
     sector: "Education",
     type: "Web platform",
     tag: "Education · Web platform",
@@ -390,13 +391,14 @@ export const projects = [
     liveUrl: "",
     ourHostedUrl: "",
     stats: [
-      { value: "online", label: "Admission & bookings" },
+      { value: "Online", label: "Admission & bookings" },
       { value: "Payments", label: "Integrated gateway" },
       { value: "Parents", label: "Self-serve access" },
     ],
   },
   {
     id: "nsu-acm-sc",
+    kind: "shipped" as const,
     sector: "Education",
     type: "Static site",
     tag: "Education · Chapter website",
@@ -419,11 +421,15 @@ export const projects = [
       { value: "CDN", label: "Edge caching" },
     ],
   },
+];
+
+export const aiMlProjects = [
   {
     id: "ai-crm",
+    kind: "ai-ml" as const,
     sector: "SaaS",
     type: "Web + mobile + bot",
-    tag: "SaaS · AI CRM",
+    tag: "AI / ML · CRM",
     title: "AI CRM – Web, Mobile & Telegram Bot",
     headline: "One CRM across web, Android, and Telegram AI workflows",
     description:
@@ -452,107 +458,201 @@ export const projects = [
     ],
   },
   {
-    id: "bank-portal",
-    sector: "FinTech",
-    type: "Web platform",
-    tag: "FinTech · Web platform",
-    title: "Regional bank digital-banking portal",
-    headline: "From branch queues to trusted self-serve",
+    id: "doc-rag-assistant",
+    kind: "ai-ml" as const,
+    sector: "AI / ML",
+    type: "RAG assistant",
+    tag: "AI / ML · Document search",
+    title: "Document RAG assistant",
+    headline: "Chat over your docs with grounded answers",
     description:
-      "Replaced a legacy branch-only system with a self-serve web portal for statements, transfers and support tickets.",
+      "Upload PDFs and internal docs, then ask questions in natural language — answers cite sources and stay within your knowledge base.",
     challenge:
-      "Customers were visiting branches for routine tasks that should have been self-serve, creating long queues and high operational cost.",
+      "Teams drown in documentation but can't find answers quickly without reading long files or pinging colleagues.",
     solution:
-      "A secure web portal with account dashboards, transfer flows, statement downloads and integrated support ticketing.",
-    stack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS"],
-    timeline: "4 months",
-    github: "https://github",
-    liveUrl: "https://example",
+      "Embeddings + vector search with an LLM layer for cited, context-aware responses over private document libraries.",
+    stack: ["Python", "OpenAI", "Vector DB", "Next.js", "LangChain", "PostgreSQL"],
+    timeline: "Starter",
+    github: "",
+    liveUrl: "",
     ourHostedUrl: "",
     stats: [
-      { value: "-63%", label: "Branch visits for routine tasks" },
-      { value: "4 mo", label: "Design to launch" },
-      { value: "12k+", label: "Active monthly users" },
-    ],
-  },
-  {
-    id: "university-sis",
-    sector: "Education",
-    type: "Web + mobile",
-    tag: "Education · Web + mobile",
-    title: "University student-information system",
-    headline: "One campus platform that holds up at peak",
-    description:
-      "Unified admissions, grading and fee payment into one platform with a companion mobile app for students.",
-    challenge:
-      "Admissions, grades and payments lived in three separate systems, causing confusion for students and staff every term.",
-    solution:
-      "One unified platform with a student mobile app, admin dashboard and automated fee reminders.",
-    stack: ["React", "React Native", "Node.js", "PostgreSQL", "Firebase"],
-    timeline: "6 months",
-    github: "https://github.com",
-    liveUrl: "https://example.com",
-    ourHostedUrl: "",
-    stats: [
-      { value: "38k", label: "Students onboarded" },
-      { value: "99.9%", label: "Uptime through exam season" },
-      { value: "1", label: "Unified student record" },
-    ],
-  },
-  {
-    id: "retail-store",
-    sector: "Retail",
-    type: "E-commerce",
-    tag: "Retail · E-commerce",
-    title: "Regional retail chain online store",
-    headline: "Inventory truth and checkout that survives peak",
-    description:
-      "Storefront, inventory sync across 40 locations and a checkout that held up through a nationwide holiday sale.",
-    challenge:
-      "Online orders couldn't reflect real store inventory, leading to cancellations and frustrated customers.",
-    solution:
-      "Real-time inventory sync across 40 locations, optimized checkout and a CDN-backed storefront.",
-    stack: ["Next.js", "Node.js", "Stripe", "Cloudflare", "Redis"],
-    timeline: "5 months",
-    github: "https://github.com",
-    liveUrl: "https://example.com",
-    ourHostedUrl: "",
-    stats: [
-      { value: "+220%", label: "Online order volume, year one" },
-      { value: "1.8s", label: "Median page load" },
-      { value: "40", label: "Locations synced" },
-    ],
-  },
-  {
-    id: "municipal-portal",
-    sector: "Public sector",
-    type: "Civic platform",
-    tag: "Public sector · Civic platform",
-    title: "Municipal services & permits portal",
-    headline: "Permits online — without locking out walk-ins",
-    description:
-      "Moved permit applications and utility billing online for a city government, with an offline-friendly counter-staff view.",
-    challenge:
-      "Permit applications required in-person visits and paper forms, creating weeks-long backlogs.",
-    solution:
-      "Online permit portal with document upload, status tracking and a counter-staff view for walk-in applicants.",
-    stack: ["React", "Node.js", "PostgreSQL", "S3", "Docker"],
-    timeline: "7 months",
-    github: "https://github.com",
-    liveUrl: "https://example.com",
-    ourHostedUrl: "",
-    stats: [
-      { value: "-70%", label: "Average permit turnaround" },
-      { value: "12", label: "Departments integrated" },
-      { value: "WCAG", label: "Accessibility target met" },
+      { value: "RAG", label: "Grounded answers" },
+      { value: "Private", label: "Your documents" },
+      { value: "Chat", label: "Natural language" },
     ],
   },
 ];
 
+export const toolsProjects = [
+  {
+    id: "deploy-dashboard",
+    kind: "tools" as const,
+    sector: "DevOps",
+    type: "Internal tool",
+    tag: "Tools · DevOps",
+    title: "Deploy & release dashboard",
+    headline: "One view for builds, releases, and rollbacks",
+    description:
+      "Lightweight internal dashboard to track deployments across environments, trigger releases, and see build history at a glance.",
+    challenge:
+      "Release status lives across CI logs, cloud consoles, and chat — hard to know what's live where.",
+    solution:
+      "A unified panel wired to your pipeline with environment tags, release notes, and one-click rollback hooks.",
+    stack: ["Next.js", "TypeScript", "Docker", "GitHub Actions", "AWS"],
+    timeline: "Internal",
+    github: "",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "CI/CD", label: "Pipeline view" },
+      { value: "Env", label: "Multi-stage" },
+      { value: "Logs", label: "Build history" },
+    ],
+  },
+  {
+    id: "api-mock-studio",
+    kind: "tools" as const,
+    sector: "Developer tools",
+    type: "API utility",
+    tag: "Tools · API",
+    title: "API mock studio",
+    headline: "Spin up mock endpoints for frontend teams",
+    description:
+      "Define routes, sample payloads, and latency rules so frontend and mobile can ship before the real backend is ready.",
+    challenge:
+      "Frontend blocks on unfinished APIs; Postman collections don't stay in sync as schemas change.",
+    solution:
+      "Configurable mock server with shareable URLs, schema templates, and optional OpenAPI import.",
+    stack: ["Node.js", "Express.js", "TypeScript", "OpenAPI", "Docker"],
+    timeline: "Starter",
+    github: "",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "Mock", label: "REST endpoints" },
+      { value: "OpenAPI", label: "Schema import" },
+      { value: "Share", label: "Team URLs" },
+    ],
+  },
+];
+
+export const templateProjects = [
+  {
+    id: "bank-portal",
+    kind: "template" as const,
+    sector: "FinTech",
+    type: "Web platform",
+    tag: "FinTech · Template",
+    title: "Digital banking portal",
+    headline: "Self-serve banking flows for regional institutions",
+    description:
+      "Industry-ready template for statements, transfers, and support tickets — customizable for banks and credit unions.",
+    challenge:
+      "Customers visit branches for routine tasks that should be self-serve, creating queues and high operational cost.",
+    solution:
+      "A secure portal template with account dashboards, transfer flows, and integrated support ticketing.",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "AWS"],
+    timeline: "Template",
+    github: "",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "Portal", label: "Account dashboard" },
+      { value: "Secure", label: "Auth & audit ready" },
+      { value: "Custom", label: "Your branding" },
+    ],
+  },
+  {
+    id: "university-sis",
+    kind: "template" as const,
+    sector: "Education",
+    type: "Web + mobile",
+    tag: "Education · Template",
+    title: "Student information system",
+    headline: "Admissions, grades, and fees in one campus platform",
+    description:
+      "Starter template for schools and universities — admissions, grading, fee payment, and a companion student app.",
+    challenge:
+      "Admissions, grades, and payments live in separate systems, causing confusion every term.",
+    solution:
+      "Unified platform template with student mobile app, admin dashboard, and automated fee reminders.",
+    stack: ["React", "React Native", "Node.js", "PostgreSQL", "Firebase"],
+    timeline: "Template",
+    github: "",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "SIS", label: "Student records" },
+      { value: "Mobile", label: "Companion app" },
+      { value: "Admin", label: "Staff dashboard" },
+    ],
+  },
+  {
+    id: "retail-store",
+    kind: "template" as const,
+    sector: "Retail",
+    type: "E-commerce",
+    tag: "Retail · Template",
+    title: "Multi-location online store",
+    headline: "Inventory sync and checkout built for peak sales",
+    description:
+      "E-commerce template with multi-location inventory, optimized checkout, and CDN-backed storefront.",
+    challenge:
+      "Online orders can't reflect real store inventory, leading to cancellations and frustrated customers.",
+    solution:
+      "Real-time inventory sync, optimized checkout, and a fast storefront you can brand for any retail chain.",
+    stack: ["Next.js", "Node.js", "Stripe", "Cloudflare", "Redis"],
+    timeline: "Template",
+    github: "",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "Store", label: "Product catalog" },
+      { value: "Sync", label: "Multi-location" },
+      { value: "Fast", label: "CDN storefront" },
+    ],
+  },
+  {
+    id: "municipal-portal",
+    kind: "template" as const,
+    sector: "Public sector",
+    type: "Civic platform",
+    tag: "Public sector · Template",
+    title: "Municipal services & permits",
+    headline: "Permits and billing online — with a walk-in counter view",
+    description:
+      "Civic platform template for permit applications, utility billing, and counter-staff workflows.",
+    challenge:
+      "Permit applications require in-person visits and paper forms, creating weeks-long backlogs.",
+    solution:
+      "Online permit portal with document upload, status tracking, and a counter view for walk-in applicants.",
+    stack: ["React", "Node.js", "PostgreSQL", "S3", "Docker"],
+    timeline: "Template",
+    github: "",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "Permits", label: "Online applications" },
+      { value: "WCAG", label: "Accessibility ready" },
+      { value: "Staff", label: "Counter view" },
+    ],
+  },
+];
+
+/** All portfolio items. */
+export const projects = [
+  ...clientProjects,
+  ...aiMlProjects,
+  ...toolsProjects,
+  ...templateProjects,
+];
+
 export const workStats = [
-  { value: "12+", label: "Products shipped" },
-  { value: "7", label: "Featured case studies" },
-  { value: "Founder-led", label: "Delivery model" },
+  { value: String(clientProjects.length), label: "Shipped products" },
+  { value: String(aiMlProjects.length) + "+", label: "AI / ML" },
+  { value: String(toolsProjects.length) + "+", label: "Tools" },
+  { value: String(templateProjects.length) + "+", label: "Templates" },
 ];
 
 export const aboutPoints = [

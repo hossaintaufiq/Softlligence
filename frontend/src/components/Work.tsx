@@ -1,4 +1,4 @@
-import { projects } from "@/lib/content";
+import { clientProjects } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
 import { CardCornerCyan, Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
 import { SectionLink } from "@/components/ui/PageHero";
@@ -10,7 +10,7 @@ interface WorkProps {
 }
 
 export function Work({ summary = false, limit = 2 }: WorkProps) {
-  const items = summary ? projects.slice(0, limit) : projects;
+  const items = summary ? clientProjects.slice(0, limit) : clientProjects;
 
   return (
     <section className="section-perf py-20 md:py-24" id="work">
@@ -20,8 +20,8 @@ export function Work({ summary = false, limit = 2 }: WorkProps) {
           <SectionTitle>A few of the products we&apos;ve shipped.</SectionTitle>
           <SectionSub>
             {summary
-              ? "Representative projects — tap through for the full portfolio."
-              : "Representative projects — details adapted for client confidentiality."}
+              ? "Shipped products — plus industry templates you can customize on the work page."
+              : "Shipped products we've delivered for real clients."}
           </SectionSub>
         </Reveal>
 
@@ -62,7 +62,7 @@ export function Work({ summary = false, limit = 2 }: WorkProps) {
 
         {summary && (
           <Reveal className="mt-10" delay={200}>
-            <SectionLink href={pageRoutes.work}>View all case studies</SectionLink>
+            <SectionLink href={pageRoutes.work}>View work & templates</SectionLink>
           </Reveal>
         )}
       </Container>
