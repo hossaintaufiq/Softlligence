@@ -63,14 +63,18 @@ export function Contact({ summary = false }: ContactProps) {
 
   if (summary) {
     return (
-      <section className="section-perf border-y border-white/5 bg-ink py-20 md:py-24" id="contact">
-        <Container className="max-w-[640px] text-center">
+      <section className="section-perf relative overflow-hidden border-y border-white/5 bg-ink py-16 md:py-20" id="contact">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,color-mix(in_srgb,var(--theme-accent)_12%,transparent),transparent_55%)]"
+          aria-hidden="true"
+        />
+        <Container className="relative max-w-[640px] text-center">
           <Eyebrow number="10">START A PROJECT</Eyebrow>
           <SectionTitle className="mx-auto">Tell us what you&apos;re building.</SectionTitle>
           <SectionSub className="mx-auto">
-            We reply within one business day — no obligation, no auto-dialed sales calls.
+            Reply within one business day — no sales scripts.
           </SectionSub>
-          <div className="mb-8 flex flex-col items-center gap-2 font-mono text-[14.5px]">
+          <div className="mb-7 flex flex-col items-center gap-2 font-mono text-[14px]">
             <a href="mailto:fiadsarowar93@gmail.com" className="hover:text-accent">
               fiadsarowar93@gmail.com
             </a>

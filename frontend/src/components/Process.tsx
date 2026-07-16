@@ -1,6 +1,8 @@
+import Image from "next/image";
 import { processSteps } from "@/lib/content";
+import { processStepImages } from "@/lib/homeVisuals";
 import { pageRoutes } from "@/lib/navigation";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
 import { SectionLink } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -74,13 +76,11 @@ function RoadNode({ step, isLast, mobile }: { step: Step; isLast: boolean; mobil
 function ProcessRoad({ steps }: { steps: Step[] }) {
   return (
     <div className="process-road relative mx-auto max-w-[960px]">
-      {/* Center road spine — desktop */}
       <div className="road-spine pointer-events-none absolute top-0 bottom-0 left-1/2 hidden w-5 -translate-x-1/2 md:block" aria-hidden="true">
         <div className="road-asphalt" />
         <div className="road-dashes" />
       </div>
 
-      {/* Mobile left road */}
       <div className="road-spine-mobile pointer-events-none absolute top-0 bottom-0 left-[18px] w-5 md:hidden" aria-hidden="true">
         <div className="road-asphalt" />
         <div className="road-dashes" />
@@ -94,7 +94,6 @@ function ProcessRoad({ steps }: { steps: Step[] }) {
           return (
             <Reveal key={step.num} delay={i * 100}>
               <li className={`process-road-step ${isLast ? "process-road-step--last" : ""}`}>
-                {/* Desktop: alternating left / right */}
                 <div className="hidden md:grid md:grid-cols-[1fr_56px_1fr] md:items-start md:gap-6">
                   <div className={`relative pt-2 ${isLeft ? "" : "invisible pointer-events-none"}`}>
                     {isLeft && (
@@ -125,7 +124,6 @@ function ProcessRoad({ steps }: { steps: Step[] }) {
                   </div>
                 </div>
 
-                {/* Mobile: card on right of road */}
                 <div className="flex gap-5 pl-2 md:hidden">
                   <RoadNode step={step} isLast={isLast} mobile />
                   <div className="min-w-0 flex-1 pb-10">
@@ -138,7 +136,6 @@ function ProcessRoad({ steps }: { steps: Step[] }) {
         })}
       </ol>
 
-      {/* Finish flag at end of road */}
       <Reveal delay={steps.length * 100} className="relative z-10 mt-2 hidden justify-center md:flex">
         <div className="road-finish">
           <span className="font-mono text-[10px] tracking-widest text-accent uppercase">Launch ready</span>
@@ -148,21 +145,36 @@ function ProcessRoad({ steps }: { steps: Step[] }) {
   );
 }
 
-function ProcessSummaryList({ steps }: { steps: Step[] }) {
+function ProcessSummaryVisual({ steps }: { steps: Step[] }) {
   return (
-    <ol className="flex flex-col">
+    <div className="mt-8 grid gap-4 md:grid-cols-3">
       {steps.map((step, i) => (
-        <Reveal key={step.num} delay={i * 100}>
-          <li className="flex gap-5 border-t border-white/9 py-6 sm:gap-7 sm:py-[26px]">
-            <span className="min-w-[38px] font-mono text-sm text-accent">{step.num}</span>
-            <div className="flex-1">
-              <h4 className="mb-1.5 font-display text-lg font-semibold sm:text-[19px]">{step.title}</h4>
-              <p className="m-0 max-w-[640px] text-[15px] text-text-dim">{step.description}</p>
+        <Reveal key={step.num} delay={i * 80}>
+          <article className="group relative overflow-hidden rounded-[20px] border border-white/10 bg-ink">
+            <div className="relative aspect-[16/10] overflow-hidden">
+              <Image
+                src={processStepImages[i] ?? processStepImages[0]}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-ink via-ink/40 to-transparent" aria-hidden="true" />
+              <span className="absolute top-3 left-3 font-mono text-2xl font-bold text-accent/90">
+                {step.num}
+              </span>
             </div>
-          </li>
+            <div className="p-5">
+              <span className="mb-1 block font-mono text-[11px] text-accent-2">{step.duration}</span>
+              <h4 className="mb-1.5 font-display text-lg font-semibold">{step.title}</h4>
+              <p className="m-0 line-clamp-2 text-[13.5px] leading-relaxed text-text-dim">
+                {step.description}
+              </p>
+            </div>
+          </article>
         </Reveal>
       ))}
-    </ol>
+    </div>
   );
 }
 
@@ -170,23 +182,24 @@ export function Process({ summary = false, limit = 3 }: ProcessProps) {
   const steps = summary ? processSteps.slice(0, limit) : processSteps;
 
   return (
-    <section className="section-perf py-20 md:py-24" id="process">
+    <section className="section-perf py-16 md:py-20" id="process">
       <Container>
         <Reveal>
           <Eyebrow number="04">HOW A PROJECT RUNS</Eyebrow>
           <SectionTitle>
-            {summary
-              ? "Five stages — here are the first three."
-              : "Five stages. No stage starts before the last one is signed off."}
+            {summary ? "Three stages to start — five in total." : "Five stages. No stage starts before the last one is signed off."}
           </SectionTitle>
+          {summary && (
+            <SectionSub>Discovery through build — clear gates, visible progress.</SectionSub>
+          )}
         </Reveal>
 
         <div className={summary ? "" : "mt-10 md:mt-14"}>
-          {summary ? <ProcessSummaryList steps={steps} /> : <ProcessRoad steps={steps} />}
+          {summary ? <ProcessSummaryVisual steps={steps} /> : <ProcessRoad steps={steps} />}
         </div>
 
         {summary && (
-          <Reveal className="mt-6" delay={200}>
+          <Reveal className="mt-8" delay={200}>
             <SectionLink href={pageRoutes.process}>See full process</SectionLink>
           </Reveal>
         )}

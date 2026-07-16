@@ -17,10 +17,12 @@ export function FAQ({ summary = false, limit = 3 }: FAQProps) {
   const items = summary ? faqs.slice(0, limit) : faqs;
 
   return (
-    <section className="section-perf bg-panel py-20 md:py-24" id="faq">
+    <section className={`section-perf bg-panel ${summary ? "py-14 md:py-16" : "py-20 md:py-24"}`} id="faq">
       <Container>
         <Eyebrow number="09">QUESTIONS</Eyebrow>
-        <SectionTitle>Answers before you have to ask.</SectionTitle>
+        <SectionTitle>
+          {summary ? "Quick answers." : "Answers before you have to ask."}
+        </SectionTitle>
 
         <div className="max-w-[760px]">
           {items.map((faq, index) => {

@@ -9,25 +9,24 @@ interface ComparisonProps {
 export function Comparison({ summary = false }: ComparisonProps) {
   if (summary) {
     return (
-      <section className="section-perf border-y border-white/5 bg-ink py-14 md:py-20">
+      <section className="section-perf border-y border-white/5 bg-ink py-14 md:py-16">
         <Container>
           <Reveal>
             <Eyebrow number="05">WHY SOFTLLIGENCE</Eyebrow>
-            <SectionTitle className="mb-8">
-              Reasons organizations pick us as their build partner.
+            <SectionTitle className="mb-8 max-w-[520px]">
+              Built with you — not handed off.
             </SectionTitle>
           </Reveal>
-          <div className="grid gap-4 max-[720px]:grid-cols-1 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {whySoftlligence.map((reason, i) => (
-              <Reveal key={reason.title} delay={i * 70}>
-                <div className="relative h-full rounded-[14px] border border-white/9 bg-panel p-6 sm:p-7">
-                  <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-accent/15 font-mono text-xs font-bold text-accent">
+              <Reveal key={reason.title} delay={i * 60}>
+                <div className="group h-full rounded-[18px] border border-white/9 bg-panel/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30">
+                  <span className="mb-4 block font-mono text-[28px] leading-none font-semibold text-accent/40 transition-colors group-hover:text-accent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="mb-2 font-display text-lg font-semibold">{reason.title}</h3>
-                  <p className="m-0 text-[14px] leading-relaxed text-text-dim">
-                    {reason.description}
-                  </p>
+                  <h3 className="mb-0 font-display text-[16px] font-semibold leading-snug">
+                    {reason.title}
+                  </h3>
                 </div>
               </Reveal>
             ))}
