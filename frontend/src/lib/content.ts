@@ -364,7 +364,8 @@ export const processSteps = [
 export const clientProjects = [
   {
     id: "playpen-school",
-    kind: "shipped" as const,
+    kind: "web-app" as const,
+    ongoing: true,
     sector: "Education",
     type: "Web platform",
     tag: "Education · Web platform",
@@ -399,7 +400,7 @@ export const clientProjects = [
   },
   {
     id: "mango-ev",
-    kind: "shipped" as const,
+    kind: "web-app" as const,
     sector: "Automotive",
     type: "Full stack · Custom server",
     tag: "Automotive · Homegrown EV",
@@ -432,7 +433,7 @@ export const clientProjects = [
   },
   {
     id: "acumens-media",
-    kind: "shipped" as const,
+    kind: "web-app" as const,
     sector: "Marketing",
     type: "AI platform",
     tag: "Marketing · AI automation",
@@ -471,7 +472,7 @@ export const clientProjects = [
 
   {
     id: "nsu-acm-sc",
-    kind: "shipped" as const,
+    kind: "web-app" as const,
     sector: "Education",
     type: "Static site",
     tag: "Education · Chapter website",
@@ -501,6 +502,7 @@ export const aiMlProjects = [
   {
     id: "lucy",
     kind: "ai-ml" as const,
+    ongoing: true,
     sector: "Personal AI",
     type: "Local LLM · Voice",
     tag: "AI / ML · Local assistant",
@@ -526,7 +528,7 @@ export const aiMlProjects = [
       "SQLite",
       "OpenJarvis",
     ],
-    timeline: "Shipped",
+    timeline: "Ongoing",
     github: "https://github.com/hossaintaufiq/Autonomous_Ai_Agents",
     liveUrl: "",
     ourHostedUrl: "",
@@ -534,6 +536,40 @@ export const aiMlProjects = [
       { value: "Local", label: "On-device LLM" },
       { value: "Voice", label: "STT + TTS + live" },
       { value: "CPU", label: "No GPU required" },
+    ],
+  },
+  {
+    id: "ai-crm",
+    kind: "ai-ml" as const,
+    ongoing: true,
+    sector: "SaaS",
+    type: "Web + mobile + bot",
+    tag: "AI / ML · CRM",
+    title: "AI CRM – Web, Mobile & Telegram Bot",
+    headline: "One CRM across web, Android, and Telegram AI workflows",
+    description:
+      "Full-featured CRM with Gemini 2.5 AI automation for intelligent task management, extended to a native Android app (Kotlin) and a Telegram bot for voice and chat-based CRM workflows.",
+    challenge:
+      "Teams needed CRM access beyond a desktop dashboard — including mobile and chat — with AI help for task management.",
+    solution:
+      "A Next.js and Express CRM backed by MongoDB, with Gemini 2.5 automation, a Kotlin Android app, and a Telegram bot for voice and chat workflows.",
+    stack: [
+      "Next.js",
+      "Express.js",
+      "MongoDB",
+      "Gemini 2.5",
+      "Kotlin",
+      "Telegram API",
+      "Tailwind CSS",
+    ],
+    timeline: "Ongoing",
+    github: "https://github.com/hossaintaufiq/CSE327_Project",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "3", label: "Client surfaces" },
+      { value: "Gemini", label: "AI task automation" },
+      { value: "Voice", label: "Telegram workflows" },
     ],
   },
   {
@@ -598,43 +634,35 @@ export const aiMlProjects = [
       { value: "7+", label: "Models compared" },
     ],
   },
-  {
-    id: "ai-crm",
-    kind: "ai-ml" as const,
-    sector: "SaaS",
-    type: "Web + mobile + bot",
-    tag: "AI / ML · CRM",
-    title: "AI CRM – Web, Mobile & Telegram Bot",
-    headline: "One CRM across web, Android, and Telegram AI workflows",
-    description:
-      "Full-featured CRM with Gemini 2.5 AI automation for intelligent task management, extended to a native Android app (Kotlin) and a Telegram bot for voice and chat-based CRM workflows.",
-    challenge:
-      "Teams needed CRM access beyond a desktop dashboard — including mobile and chat — with AI help for task management.",
-    solution:
-      "A Next.js and Express CRM backed by MongoDB, with Gemini 2.5 automation, a Kotlin Android app, and a Telegram bot for voice and chat workflows.",
-    stack: [
-      "Next.js",
-      "Express.js",
-      "MongoDB",
-      "Gemini 2.5",
-      "Kotlin",
-      "Telegram API",
-      "Tailwind CSS",
-    ],
-    timeline: "Shipped",
-    github: "https://github.com/hossaintaufiq/CSE327_Project",
-    liveUrl: "",
-    ourHostedUrl: "",
-    stats: [
-      { value: "3", label: "Client surfaces" },
-      { value: "Gemini", label: "AI task automation" },
-      { value: "Voice", label: "Telegram workflows" },
-    ],
-  },
-  
 ];
 
 export const toolsProjects = [
+  {
+    id: "dhaka-road-network",
+    kind: "tools" as const,
+    ongoing: true,
+    sector: "Logistics",
+    type: "Shortest path · Graph",
+    tag: "Tools · Routing",
+    title: "DhakaRoadNetwork",
+    headline: "Shortest-path routing for Dhaka delivery and ride fleets",
+    description:
+      "A road-network shortest-path tool built to help logistics and mobility platforms — Foodpanda, Pathao, Uber, and similar rider apps — choose the fastest route from rider to customer across Dhaka's road graph.",
+    challenge:
+      "Riders and dispatch systems need reliable shortest-path decisions on a dense city network; generic maps alone don't always model local routing constraints for delivery and ride-hailing workflows.",
+    solution:
+      "Model Dhaka roads as a graph and compute shortest paths so companies can route riders to users efficiently — reducing ETA, fuel, and idle time for food delivery and ride platforms.",
+    stack: ["Python", "Graph algorithms", "Shortest path", "Dijkstra / A*", "Network analysis"],
+    timeline: "Ongoing",
+    github: "https://github.com/hossaintaufiq/DhakaRoadNetwork",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "Path", label: "Shortest route" },
+      { value: "Dhaka", label: "City road graph" },
+      { value: "Fleet", label: "Delivery · ride apps" },
+    ],
+  },
   {
     id: "banking-system-backend",
     kind: "tools" as const,
@@ -703,31 +731,6 @@ export const toolsProjects = [
       { value: "7.2k+", label: "Lines of Python" },
       { value: "56", label: "Modules" },
       { value: "100%", label: "Local · offline" },
-    ],
-  },
-  {
-    id: "dhaka-road-network",
-    kind: "tools" as const,
-    sector: "Logistics",
-    type: "Shortest path · Graph",
-    tag: "Tools · Routing",
-    title: "DhakaRoadNetwork",
-    headline: "Shortest-path routing for Dhaka delivery and ride fleets",
-    description:
-      "A road-network shortest-path tool built to help logistics and mobility platforms — Foodpanda, Pathao, Uber, and similar rider apps — choose the fastest route from rider to customer across Dhaka's road graph.",
-    challenge:
-      "Riders and dispatch systems need reliable shortest-path decisions on a dense city network; generic maps alone don't always model local routing constraints for delivery and ride-hailing workflows.",
-    solution:
-      "Model Dhaka roads as a graph and compute shortest paths so companies can route riders to users efficiently — reducing ETA, fuel, and idle time for food delivery and ride platforms.",
-    stack: ["Python", "Graph algorithms", "Shortest path", "Dijkstra / A*", "Network analysis"],
-    timeline: "Research",
-    github: "https://github.com/hossaintaufiq/DhakaRoadNetwork",
-    liveUrl: "",
-    ourHostedUrl: "",
-    stats: [
-      { value: "Path", label: "Shortest route" },
-      { value: "Dhaka", label: "City road graph" },
-      { value: "Fleet", label: "Delivery · ride apps" },
     ],
   },
   {
@@ -807,7 +810,7 @@ export const projects = [
 ];
 
 export const workStats = [
-  { value: String(clientProjects.length), label: "Shipped products" },
+  { value: String(clientProjects.length), label: "Web & App" },
   { value: String(aiMlProjects.length) + "+", label: "AI / ML" },
   { value: String(toolsProjects.length) + "+", label: "Tools" },
   { value: String(templateProjects.length) + "+", label: "Templates" },

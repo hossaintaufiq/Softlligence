@@ -1,6 +1,4 @@
-"use client";
-
-import { useMemo, useState } from "react";
+import Link from "next/link";
 import {
   clientProjects,
   aiMlProjects,
@@ -16,67 +14,40 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { cn } from "@/lib/utils";
 
 type WorkItem = (typeof projects)[number];
-type WorkFilter = "all" | "shipped" | "ai-ml" | "tools" | "templates";
+export type WorkFilter = "all" | "web-app" | "ai-ml" | "tools" | "templates";
 
-const filters: { id: WorkFilter; label: string; count: () => number }[] = [
+function isOngoing(project: WorkItem) {
+  return Boolean(
+    ("ongoing" in project && project.ongoing === true) || project.timeline === "Ongoing",
+  );
+}
+
+function sortOngoingFirst(items: readonly WorkItem[]) {
+  return [...items].sort((a, b) => Number(isOngoing(b)) - Number(isOngoing(a)));
+}
+
+const filters: { id: WorkFilter; label: string; count: number }[] = [
   {
     id: "all",
     label: "All work",
-    count: () =>
+    count:
       clientProjects.length +
       aiMlProjects.length +
       toolsProjects.length +
       templateProjects.length,
   },
-  { id: "shipped", label: "Shipped", count: () => clientProjects.length },
-  { id: "ai-ml", label: "AI / ML", count: () => aiMlProjects.length },
-  { id: "tools", label: "Tools", count: () => toolsProjects.length },
-  { id: "templates", label: "Templates", count: () => templateProjects.length },
-];
-
-const workSections: {
-  filter: WorkFilter;
-  title: string;
-  description: string;
-  items: WorkItem[];
-  gridClass: string;
-}[] = [
-  {
-    filter: "shipped",
-    title: "Shipped products",
-    description: "Live work with real users — open links when available.",
-    items: clientProjects,
-    gridClass: "sm:grid-cols-2 lg:grid-cols-3",
-  },
-  {
-    filter: "ai-ml",
-    title: "AI & ML",
-    description: "LLM integrations, automation, RAG, and intelligent workflows.",
-    items: aiMlProjects,
-    gridClass: "sm:grid-cols-2 lg:grid-cols-2",
-  },
-  {
-    filter: "tools",
-    title: "Tools & utilities",
-    description: "Internal dashboards, dev utilities, and ops tools we build and use.",
-    items: toolsProjects,
-    gridClass: "sm:grid-cols-2 lg:grid-cols-2",
-  },
-  {
-    filter: "templates",
-    title: "Industry templates",
-    description: "Sector-ready starters — we rebrand, extend, and ship for your business.",
-    items: templateProjects,
-    gridClass: "sm:grid-cols-2 lg:grid-cols-2",
-  },
+  { id: "web-app", label: "Web & App", count: clientProjects.length },
+  { id: "ai-ml", label: "AI / ML", count: aiMlProjects.length },
+  { id: "tools", label: "Tools", count: toolsProjects.length },
+  { id: "templates", label: "Templates", count: templateProjects.length },
 ];
 
 const kindMeta: Record<
   WorkItem["kind"],
   { label: string; badge: string; bar: string; card: string }
 > = {
-  shipped: {
-    label: "Shipped",
+  "web-app": {
+    label: "Web & App",
     badge: "border-accent/35 bg-accent/12 text-accent",
     bar: "bg-linear-to-r from-accent/80 via-accent to-accent-2/60",
     card: "border-accent/25 hover:border-accent/45 hover:shadow-[0_20px_50px_rgba(0,0,0,0.28),0_0_32px_color-mix(in_srgb,var(--theme-accent)_12%,transparent)]",
@@ -100,6 +71,42 @@ const kindMeta: Record<
     card: "border-white/10 hover:border-white/25 hover:shadow-[0_20px_50px_rgba(0,0,0,0.22)]",
   },
 };
+
+function getSections(filter: WorkFilter) {
+  const sections = [
+    {
+      filter: "web-app" as const,
+      title: "Web & App",
+      description: "Client websites and applications — ongoing builds tagged clearly.",
+      items: sortOngoingFirst(clientProjects),
+      gridClass: "sm:grid-cols-2 lg:grid-cols-3",
+    },
+    {
+      filter: "ai-ml" as const,
+      title: "AI & ML",
+      description: "LLM integrations, automation, RAG, and intelligent workflows.",
+      items: sortOngoingFirst(aiMlProjects),
+      gridClass: "sm:grid-cols-2 lg:grid-cols-2",
+    },
+    {
+      filter: "tools" as const,
+      title: "Tools & utilities",
+      description: "Internal dashboards, routing, and ops tools we build and use.",
+      items: sortOngoingFirst(toolsProjects),
+      gridClass: "sm:grid-cols-2 lg:grid-cols-2",
+    },
+    {
+      filter: "templates" as const,
+      title: "Industry templates",
+      description: "Sector-ready starters — we rebrand, extend, and ship for your business.",
+      items: [...templateProjects],
+      gridClass: "sm:grid-cols-2 lg:grid-cols-2",
+    },
+  ];
+
+  if (filter === "all") return sections;
+  return sections.filter((section) => section.filter === filter);
+}
 
 function ProjectLinks({ project }: { project: WorkItem }) {
   const links = [
@@ -137,21 +144,37 @@ function ProjectLinks({ project }: { project: WorkItem }) {
 
 function WorkCard({ project, index }: { project: WorkItem; index: number }) {
   const meta = kindMeta[project.kind];
+  const ongoing = isOngoing(project);
 
   return (
     <article
       id={project.id}
       className={cn(
         "group relative flex h-full scroll-mt-28 flex-col overflow-hidden rounded-[22px] border bg-ink/40 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1",
-        meta.card,
+        ongoing
+          ? "border-emerald-400/25 hover:border-emerald-400/45 hover:shadow-[0_20px_50px_rgba(0,0,0,0.22),0_0_28px_rgba(52,211,153,0.12)]"
+          : meta.card,
       )}
     >
-      <div className={cn("h-1 w-full", meta.bar)} aria-hidden="true" />
+      <div
+        className={cn(
+          "h-1 w-full",
+          ongoing
+            ? "bg-linear-to-r from-emerald-500/70 via-accent/50 to-accent-2/40"
+            : meta.bar,
+        )}
+        aria-hidden="true"
+      />
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="mb-4 flex items-start justify-between gap-3">
           <span className="font-mono text-sm text-accent">{String(index + 1).padStart(2, "0")}</span>
           <div className="flex flex-wrap justify-end gap-2">
+            {ongoing ? (
+              <span className="rounded-full border border-emerald-400/35 bg-emerald-500/12 px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-emerald-300 uppercase">
+                Ongoing
+              </span>
+            ) : null}
             <span
               className={cn(
                 "rounded-full border px-2.5 py-0.5 font-mono text-[10px] tracking-wide uppercase",
@@ -205,14 +228,13 @@ function WorkCard({ project, index }: { project: WorkItem; index: number }) {
   );
 }
 
-export function WorkDetail() {
-  const [filter, setFilter] = useState<WorkFilter>("all");
+function filterHref(id: WorkFilter) {
+  return id === "all" ? "/work" : `/work?filter=${id}`;
+}
 
-  const sectionsToShow = useMemo(() => {
-    if (filter === "all") return workSections;
-    return workSections.filter((section) => section.filter === filter);
-  }, [filter]);
-
+export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
+  const activeFilter = filters.some((f) => f.id === filter) ? filter : "all";
+  const sectionsToShow = getSections(activeFilter);
   let cardIndex = 0;
 
   return (
@@ -220,8 +242,8 @@ export function WorkDetail() {
       <section className="border-b border-white/5 bg-ink">
         <Container>
           <div className="grid grid-cols-2 divide-x divide-y divide-white/9 sm:grid-cols-4 sm:divide-y-0">
-            {workStats.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 60}>
+            {workStats.map((stat) => (
+              <Reveal key={stat.label}>
                 <div className="flex flex-col gap-1 px-3 py-6 sm:px-6 sm:py-8">
                   <span className="font-display text-2xl font-semibold text-accent sm:text-3xl">
                     {stat.value}
@@ -245,30 +267,33 @@ export function WorkDetail() {
                 Real builds, AI work, tools, and templates
               </h2>
               <p className="mt-3 text-[14px] leading-relaxed text-text-dim">
-                Filter by category — shipped client products, AI/ML builds, internal tools, or
-                industry templates you can customize.
+                Filter by category — web &amp; app, AI/ML, tools, and templates. Ongoing projects stay
+                in their category with an Ongoing tag.
               </p>
             </div>
           </Reveal>
 
-          <Reveal delay={60}>
+          <Reveal>
             <div className="mb-10 flex flex-wrap gap-2">
-              {filters.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setFilter(item.id)}
-                  className={cn(
-                    "rounded-full border px-4 py-2 font-mono text-[12px] transition-all duration-200",
-                    filter === item.id
-                      ? "border-accent/50 bg-accent/15 text-accent shadow-[0_0_20px_color-mix(in_srgb,var(--theme-accent)_18%,transparent)]"
-                      : "border-white/10 bg-panel/40 text-text-dim hover:border-white/20 hover:text-text",
-                  )}
-                >
-                  {item.label}
-                  <span className="ml-2 text-[10px] opacity-70">{item.count()}</span>
-                </button>
-              ))}
+              {filters.map((item) => {
+                const isActive = activeFilter === item.id;
+                return (
+                  <Link
+                    key={item.id}
+                    href={filterHref(item.id)}
+                    scroll={false}
+                    className={cn(
+                      "rounded-full border px-4 py-2 font-mono text-[12px] transition-all duration-200",
+                      isActive
+                        ? "border-accent/50 bg-accent/15 text-accent shadow-[0_0_20px_color-mix(in_srgb,var(--theme-accent)_18%,transparent)]"
+                        : "border-white/10 bg-panel/40 text-text-dim hover:border-white/20 hover:text-text",
+                    )}
+                  >
+                    {item.label}
+                    <span className="ml-2 text-[10px] opacity-70">{item.count}</span>
+                  </Link>
+                );
+              })}
             </div>
           </Reveal>
 
@@ -278,7 +303,7 @@ export function WorkDetail() {
 
             return (
               <div key={section.filter} className="mb-12 last:mb-0">
-                {filter === "all" && (
+                {activeFilter === "all" && (
                   <Reveal className="mb-5">
                     <h3 className="font-display text-lg font-semibold text-text">{section.title}</h3>
                     <p className="mt-1 text-[13px] text-text-dim">{section.description}</p>
@@ -286,7 +311,7 @@ export function WorkDetail() {
                 )}
                 <div className={cn("grid gap-5", section.gridClass)}>
                   {section.items.map((project, i) => (
-                    <Reveal key={project.id} delay={i * 50}>
+                    <Reveal key={project.id}>
                       <WorkCard project={project} index={startIndex + i} />
                     </Reveal>
                   ))}
@@ -295,7 +320,7 @@ export function WorkDetail() {
             );
           })}
 
-          <Reveal className="mt-10" delay={80}>
+          <Reveal className="mt-10">
             <p className="text-center text-[13px] text-text-dim">
               Live, hosted, and GitHub links appear on each card when you add them. Private repos can be
               shared under NDA.
@@ -310,7 +335,7 @@ export function WorkDetail() {
             <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
               <div>
                 <h2 className="mb-2 font-display text-[clamp(22px,3vw,32px)] font-semibold tracking-tight">
-                  Need a shipped product, AI build, tool, or template?
+                  Need a web app, AI build, tool, or template?
                 </h2>
                 <p className="m-0 max-w-[480px] text-[14px] text-text-dim">
                   Tell us your sector and timeline. We&apos;ll show you relevant work and what a first
