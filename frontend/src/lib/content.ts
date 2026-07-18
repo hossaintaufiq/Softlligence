@@ -399,6 +399,83 @@ export const clientProjects = [
     ],
   },
   {
+    id: "noksha",
+    kind: "web-app" as const,
+    ongoing: true,
+    sector: "Education",
+    type: "Web Platform",
+    tag: "Education · Planning",
+    title: "Noksha",
+    headline: "A smarter way to plan academic journeys",
+    description:
+      "An educational planning platform that helps students organize academic goals, manage learning progress, and stay on track through an intuitive dashboard.",
+    challenge:
+      "Students often struggle to organize academic plans, monitor progress, and maintain consistency across multiple learning goals.",
+    solution:
+      "Built a centralized platform with personalized roadmaps, progress tracking, task management, and interactive dashboards for students.",
+    stack: ["Next.js", "TypeScript", "Node.js", "MongoDB", "Tailwind CSS"],
+    timeline: "Ongoing",
+    github: "https://github.com/bappy-3/Noksha",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "100%", label: "Digital study planning" },
+      { value: "Real-time", label: "Progress tracking" },
+      { value: "Modern", label: "Responsive experience" },
+    ],
+  },
+  {
+    id: "career-craft-ai",
+    kind: "web-app" as const,
+    ongoing: true,
+    sector: "HR Tech",
+    type: "AI Web Application",
+    tag: "Career · AI",
+    title: "Career Craft AI Chatbot",
+    headline: "AI career guidance, available 24/7",
+    description:
+      "An AI-powered career assistant that helps users explore career paths, improve resumes, prepare for interviews, and receive personalized career guidance.",
+    challenge:
+      "Students and job seekers often lack instant access to personalized career advice and interview preparation resources.",
+    solution:
+      "Created an AI chatbot capable of answering career-related questions, providing resume suggestions, interview tips, and customized learning recommendations.",
+    stack: ["Next.js", "OpenAI API", "Node.js", "Tailwind CSS", "Vercel"],
+    timeline: "Ongoing",
+    github: "https://github.com/bappy-3/career-craft-ai-chatbot",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "24/7", label: "AI career assistant" },
+      { value: "Instant", label: "Personalized guidance" },
+      { value: "AI", label: "Resume & interview support" },
+    ],
+  },
+  {
+    id: "shorborno",
+    kind: "web-app" as const,
+    sector: "Education Technology",
+    type: "Cloud Platform",
+    tag: "EdTech · SaaS",
+    title: "Shorborno Cloud",
+    headline: "Modern cloud platform for educational institutions — built with Zerodevs",
+    description:
+      "A comprehensive cloud-based platform that streamlines academic management, communication, and administrative workflows for schools and educational organizations. Softlligence collaborated with the Zerodevs team to ship the product.",
+    challenge:
+      "Educational institutions rely on fragmented systems for academic records, communication, and administration, reducing operational efficiency.",
+    solution:
+      "In partnership with Zerodevs, we delivered a centralized cloud platform with student management, academic administration, communication tools, and secure access for teachers, students, and administrators.",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "AWS", "Docker"],
+    timeline: "6 months",
+    github: "",
+    liveUrl: "https://shorborno.cloud/",
+    ourHostedUrl: "",
+    stats: [
+      { value: "Cloud", label: "Education platform" },
+      { value: "All-in-one", label: "Academic management" },
+      { value: "24/7", label: "Online accessibility" },
+    ],
+  },
+  {
     id: "mango-ev",
     kind: "web-app" as const,
     sector: "Automotive",
@@ -570,6 +647,57 @@ export const aiMlProjects = [
       { value: "3", label: "Client surfaces" },
       { value: "Gemini", label: "AI task automation" },
       { value: "Voice", label: "Telegram workflows" },
+    ],
+  },
+  {
+    id: "ml-buddy",
+    kind: "ai-ml" as const,
+    ongoing: true,
+    sector: "Developer Tools",
+    type: "AI Learning Platform",
+    tag: "Machine Learning · Education",
+    title: "ML Buddy",
+    headline: "Your AI companion for learning machine learning",
+    description:
+      "An interactive learning assistant designed to simplify machine learning concepts, answer technical questions, and help learners understand algorithms through AI-powered conversations.",
+    challenge:
+      "Machine learning beginners often struggle to understand complex concepts without personalized explanations and interactive guidance.",
+    solution:
+      "Developed an AI-powered educational assistant that explains ML concepts, provides coding guidance, and supports learners through conversational interactions.",
+    stack: ["Python", "Streamlit", "OpenAI API", "Scikit-learn", "LangChain"],
+    timeline: "Ongoing",
+    github: "https://github.com/bappy-3/ml-buddy",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "AI", label: "Interactive tutor" },
+      { value: "ML", label: "Concept explanations" },
+      { value: "Hands-on", label: "Learning support" },
+    ],
+  },
+  {
+    id: "diabetiq",
+    kind: "ai-ml" as const,
+    sector: "Healthcare AI",
+    type: "Web Application",
+    tag: "Healthcare · AI",
+    title: "DiabetIQ",
+    headline: "AI-powered diabetes risk assessment platform",
+    description:
+      "An intelligent healthcare platform that helps users assess diabetes risk, monitor health indicators, and receive AI-assisted insights for better preventive care.",
+    challenge:
+      "Many people lack access to quick preliminary diabetes risk assessments and personalized health insights before consulting healthcare professionals.",
+    solution:
+      "Developed an AI-powered web application that analyzes user health information, estimates diabetes risk, visualizes health data, and provides personalized recommendations.",
+    stack: ["Next.js", "Python", "Machine Learning", "FastAPI", "PostgreSQL"],
+    timeline: "3 months",
+    github: "https://github.com/nipunsaif/DiabetIQ",
+    liveUrl: "",
+    ourHostedUrl: "",
+    stats: [
+      { value: "AI", label: "Risk prediction engine" },
+      { value: "100%", label: "Digital health assessment" },
+      { value: "Real-time", label: "Health insights" },
     ],
   },
   {
