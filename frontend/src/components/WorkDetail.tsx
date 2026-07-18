@@ -115,7 +115,7 @@ function ProjectLinks({ project }: { project: WorkItem }) {
   ].filter(Boolean) as { href: string; label: string; accent: boolean }[];
 
   if (links.length === 0) {
-    return <span className="font-mono text-[11px] text-text-dim">Links coming soon</span>;
+    return null;
   }
 
   return (
@@ -301,13 +301,6 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
               </div>
             );
           })}
-
-          <Reveal className="mt-10">
-            <p className="text-center text-[13px] text-text-dim">
-              Live, hosted, and GitHub links appear on each card when you add them. Private repos can be
-              shared under NDA.
-            </p>
-          </Reveal>
         </Container>
       </section>
 

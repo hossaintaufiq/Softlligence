@@ -1273,16 +1273,12 @@ export const team = [
 ];
 
 export const teamPageStats = [
-  { count: 8, suffix: "", label: "Team Members" },
+  { count: 7, suffix: "", label: "Team Members" },
   { count: 12, suffix: "+", label: "Projects Delivered" },
   { count: 4, suffix: "", label: "Leadership" },
   { count: 100, suffix: "%", label: "Hands-on Delivery" },
 ];
 
-/**
- * Drop portrait files into /public/team/ and set `photo` to the path, e.g. "/team/hossain.jpg"
- * Recommended: square or 4:5 portrait, 800×1000px, JPG/WebP.
- */
 export const teamLeadership = [
   {
     initials: "MH",

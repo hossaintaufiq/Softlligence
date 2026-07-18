@@ -27,7 +27,7 @@ export default async function WorkPage({
       <PageHero
         eyebrow="SELECTED WORK"
         title="Web & app, AI/ML, tools, and templates."
-        description="Real client builds, intelligent workflows, internal utilities, and sector-ready starters — open live, hosted, or GitHub links when available."
+        description="Real client builds, intelligent workflows, internal utilities, and sector-ready starters — with live, hosted, and GitHub links on each project."
         backgroundImage={pageHeroImages.work}
         meta={workStats.map((stat) => ({ value: stat.value, label: stat.label }))}
         actions={
