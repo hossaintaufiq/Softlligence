@@ -918,7 +918,7 @@ export const templateProjects = [
     stack: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Vercel"],
     timeline: "Template",
     github: "https://github.com/hossaintaufiq/amani-holdings",
-    liveUrl: "https://amani-holdings.vercel.app/",
+    liveUrl: "",
     ourHostedUrl: "https://amani-holdings.vercel.app/",
     stats: [
       { value: "Listings", label: "Featured properties" },
@@ -926,7 +926,81 @@ export const templateProjects = [
       { value: "Dhaka", label: "Luxury RE ready" },
     ],
   },
-  
+  {
+    id: "biker-zone",
+    kind: "template" as const,
+    sector: "Automotive retail",
+    type: "Marketing site · HTML / CSS / JS",
+    tag: "Automotive · Template",
+    title: "Biker Zone — Ride-on Motorcycle Storefront",
+    headline: "Raw HTML, CSS & JS template for bike brands and dealerships",
+    description:
+      "A lightweight motorcycle retail template featuring product hero slides (e.g. Ride-on R15 V4), shop navigation, and a latest-news section for models like Ducati XDiavel. Built as a pure HTML, CSS, and JavaScript starter — no framework required.",
+    challenge:
+      "Bike shops and powersports brands often need a fast marketing site that looks product-forward without committing to a full React or CMS stack.",
+    solution:
+      "A raw HTML / Tailwind CSS / JS storefront with hero carousel, shop and news blocks, and purchase CTAs — easy to rebrand, host on GitHub Pages, and extend into a full client build.",
+    stack: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    timeline: "Template",
+    github: "https://github.com/hossaintaufiq/Biker-Zone",
+    liveUrl: "",
+    ourHostedUrl: "https://hossaintaufiq.github.io/Biker-Zone/",
+    stats: [
+      { value: "Raw", label: "HTML · CSS · JS" },
+      { value: "Hero", label: "Product carousel" },
+      { value: "News", label: "Model highlights" },
+    ],
+  },
+  {
+    id: "fruit-burst",
+    kind: "template" as const,
+    sector: "Food & grocery",
+    type: "Marketing site · HTML / CSS / JS",
+    tag: "Organic retail · Template",
+    title: "Fruit Burst — Organic Fruit Storefront",
+    headline: "Vanilla HTML, CSS & JS template for organic produce brands",
+    description:
+      "A colorful organic fruit e-commerce style template with hero slides (“Exotic tastes at your doorstep”), fruit category chips, deal-of-the-day countdown, product cards (Apples, Orange, Red Dragon, Banana), team experts, and why-choose-us blocks. Pure HTML, CSS, and JavaScript — no framework.",
+    challenge:
+      "Grocery and organic brands need a bright, product-led marketing site that can launch quickly without a heavy frontend stack.",
+    solution:
+      "A raw HTML / Tailwind CSS / JS storefront with shop navigation, deal countdown, product details modals, team section, and trust pillars — ready to rebrand and host on GitHub Pages.",
+    stack: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    timeline: "Template",
+    github: "https://github.com/hossaintaufiq/Fruit-Brust",
+    liveUrl: "",
+    ourHostedUrl: "https://hossaintaufiq.github.io/Fruit-Brust/",
+    stats: [
+      { value: "Raw", label: "HTML · CSS · JS" },
+      { value: "Deal", label: "Countdown offers" },
+      { value: "Shop", label: "Product cards" },
+    ],
+  },
+  {
+    id: "summer-sale",
+    kind: "template" as const,
+    sector: "E-commerce",
+    type: "Promo shop · HTML / CSS / JS",
+    tag: "Retail · Template",
+    title: "Summer Sale — Interactive Promo Storefront",
+    headline: "Vanilla HTML, CSS & JS sale page with cart and coupon logic",
+    description:
+      "A sale-fever shopping template with kitchenware and sportswear product grids, cart totals, and a SELL200 promo flow (TK 200+ for 20% off). Built with pure HTML, CSS, and vanilla JavaScript — no framework.",
+    challenge:
+      "Campaign landing pages need working cart math and coupon rules without standing up a full e-commerce stack.",
+    solution:
+      "A raw HTML / Tailwind CSS / JS promo storefront with category sections, coupon apply, live price/discount totals, and purchase confirmation — easy to rebrand for seasonal sales.",
+    stack: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    timeline: "Template",
+    github: "https://github.com/hossaintaufiq/Summer-Sale",
+    liveUrl: "",
+    ourHostedUrl: "https://hossaintaufiq.github.io/Summer-Sale/",
+    stats: [
+      { value: "Raw", label: "HTML · CSS · JS" },
+      { value: "20%", label: "Coupon discount" },
+      { value: "Cart", label: "Live totals" },
+    ],
+  },
 ];
 
 /** All portfolio items. */
