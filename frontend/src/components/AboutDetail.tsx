@@ -1,6 +1,5 @@
 import {
   aboutStory,
-  aboutSignal,
   aboutBeliefs,
   aboutCraft,
   aboutLeadershipStrip,
@@ -16,48 +15,6 @@ import Image from "next/image";
 export function AboutDetail() {
   return (
     <>
-      {/* Hero — one composition */}
-      <section className="relative isolate overflow-hidden border-b border-white/8">
-        <div className="hero-grid hero-grid--page pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div
-          className="pointer-events-none absolute inset-0 opacity-50"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse 70% 55% at 85% 10%, color-mix(in srgb, var(--theme-accent-2) 14%, transparent), transparent), radial-gradient(ellipse 50% 40% at 10% 80%, color-mix(in srgb, var(--theme-accent) 10%, transparent), transparent)",
-          }}
-          aria-hidden="true"
-        />
-        <Container className="relative py-16 md:py-24 lg:py-28">
-          <Reveal>
-            <p className="mb-5 font-mono text-[12px] tracking-[0.14em] text-text-dim uppercase">
-              <span className="text-accent">/</span> {aboutStory.eyebrow}
-            </p>
-            <h1 className="mb-6 max-w-[900px] font-display text-[clamp(36px,5.5vw,60px)] leading-[1.05] font-semibold tracking-tight">
-              Softlligence{" "}
-              <span className="text-gradient">builds software</span> organizations actually run on.
-            </h1>
-            <p className="max-w-[560px] text-[16px] leading-relaxed text-text-dim md:text-lg">
-              {aboutStory.lead}
-            </p>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[14px] border border-white/9 bg-white/9 md:grid-cols-4">
-              {aboutSignal.map((item) => (
-                <div key={item.label} className="bg-ink px-5 py-5 sm:px-6 sm:py-6">
-                  <dt className="mb-1.5 font-mono text-[10px] tracking-[0.14em] text-text-dim uppercase">
-                    {item.label}
-                  </dt>
-                  <dd className="m-0 font-display text-[15px] font-semibold text-text sm:text-base">
-                    {item.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-        </Container>
-      </section>
-
       {/* Story */}
       <section className="section-perf border-b border-white/8 bg-panel py-16 md:py-24">
         <Container>

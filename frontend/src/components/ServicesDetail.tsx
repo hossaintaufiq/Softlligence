@@ -14,7 +14,6 @@ import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { TechChip } from "@/components/services/TechChip";
-import { HeroTeamIllustration } from "@/components/services/ServiceIllustrations";
 import { cn } from "@/lib/utils";
 
 const processRails = [
@@ -136,50 +135,6 @@ export function ServicesDetail() {
 
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="relative isolate overflow-hidden border-b border-white/8">
-        <div className="hero-grid hero-grid--page pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div
-          className="pointer-events-none absolute -top-24 right-0 h-80 w-80 rounded-full bg-accent-2/15 blur-[100px]"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute bottom-0 left-[-10%] h-72 w-72 rounded-full bg-accent/12 blur-[90px]"
-          aria-hidden="true"
-        />
-
-        <Container className="relative grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-28">
-          <Reveal>
-            <p className="mb-5 font-mono text-[12px] tracking-[0.14em] text-text-dim uppercase">
-              <span className="text-accent">/</span> What we build
-            </p>
-            <h1 className="mb-6 max-w-[640px] font-display text-[clamp(36px,5.2vw,58px)] leading-[1.05] font-semibold tracking-tight">
-              One team, from first wireframe to{" "}
-              <span className="text-gradient">what&apos;s next.</span>
-            </h1>
-            <p className="mb-9 max-w-[480px] text-[16px] leading-relaxed text-text-dim md:text-lg">
-              Six capabilities. Clear scope. Named engineers. Ownership you keep after launch.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Button href="/contact" size="lg">
-                Book Discovery Call
-              </Button>
-              <Button href="/work" variant="outline" size="lg">
-                View Case Studies
-              </Button>
-            </div>
-          </Reveal>
-
-          <Reveal delay={120} className="relative">
-            <div className="pointer-events-none absolute -top-8 -right-6 h-40 w-40 rounded-full bg-accent-2/20 blur-3xl" aria-hidden="true" />
-            <div className="pointer-events-none absolute -bottom-10 -left-8 h-44 w-44 rounded-full bg-accent/15 blur-3xl" aria-hidden="true" />
-            <div className="svc-illust relative rounded-[24px] border border-white/10 bg-panel/40 p-4 shadow-[var(--shadow-card)] backdrop-blur-md sm:p-6">
-              <HeroTeamIllustration />
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
       {/* ── Process rail ── */}
       <section id="svc-process" className="section-perf border-b border-white/8 bg-panel py-10 md:py-14">
         <Container>

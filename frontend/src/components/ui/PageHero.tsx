@@ -28,7 +28,7 @@ export interface PageHeroMeta {
 
 interface PageHeroProps {
   eyebrow: string;
-  title: string;
+  title: React.ReactNode;
   description?: string;
   /** Optional full-bleed atmosphere image */
   backgroundImage?: string;
@@ -91,7 +91,7 @@ export function PageHero({
         <p className="mb-3 font-mono text-[10px] tracking-[0.16em] text-text-dim uppercase sm:mb-4 sm:text-[12px]">
           <span className="text-accent">/</span> {eyebrow}
         </p>
-        <h1 className="mb-3 max-w-[18ch] font-display text-[clamp(28px,7.2vw,52px)] leading-[1.06] font-semibold tracking-tight sm:mb-4 sm:max-w-[820px]">
+        <h1 className="mb-3 max-w-[900px] font-display text-[clamp(28px,6.8vw,52px)] leading-[1.06] font-semibold tracking-tight sm:mb-4">
           {title}
         </h1>
         {description && (
