@@ -4,7 +4,6 @@ import {
   aiMlProjects,
   toolsProjects,
   templateProjects,
-  workStats,
   type projects,
 } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
@@ -198,10 +197,10 @@ function WorkCard({ project, index }: { project: WorkItem; index: number }) {
         <div className="mb-4 grid grid-cols-3 gap-2 border-t border-white/8 pt-4">
           {project.stats.map((stat) => (
             <div key={stat.label} className="min-w-0">
-              <strong className="block truncate font-display text-base font-semibold text-accent sm:text-lg">
+              <strong className="block truncate font-display text-[13px] font-semibold text-accent sm:text-base md:text-lg">
                 {stat.value}
               </strong>
-              <span className="block text-[10px] leading-tight text-text-dim sm:text-[11px]">
+              <span className="block text-[9px] leading-tight text-text-dim sm:text-[11px]">
                 {stat.label}
               </span>
             </div>
@@ -219,7 +218,7 @@ function WorkCard({ project, index }: { project: WorkItem; index: number }) {
           )}
         </div>
 
-        <div className="mt-auto flex items-center justify-between gap-3 border-t border-white/8 pt-4">
+        <div className="mt-auto flex flex-col gap-3 border-t border-white/8 pt-4 sm:flex-row sm:items-center sm:justify-between">
           <span className="font-mono text-[11px] text-text-dim">{project.timeline}</span>
           <ProjectLinks project={project} />
         </div>
@@ -239,34 +238,17 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
 
   return (
     <>
-      <section className="border-b border-white/5 bg-ink">
-        <Container>
-          <div className="grid grid-cols-2 divide-x divide-y divide-white/9 sm:grid-cols-4 sm:divide-y-0">
-            {workStats.map((stat) => (
-              <Reveal key={stat.label}>
-                <div className="flex flex-col gap-1 px-3 py-6 sm:px-6 sm:py-8">
-                  <span className="font-display text-2xl font-semibold text-accent sm:text-3xl">
-                    {stat.value}
-                  </span>
-                  <span className="text-[12px] text-text-dim sm:text-[13px]">{stat.label}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-ink py-12 md:py-16">
+      <section className="bg-ink py-10 sm:py-12 md:py-16">
         <Container>
           <Reveal>
-            <div className="mb-8 max-w-[680px]">
-              <p className="font-mono text-[12px] tracking-[0.06em] text-text-dim">
+            <div className="mb-6 max-w-[680px] sm:mb-8">
+              <p className="font-mono text-[11px] tracking-[0.06em] text-text-dim sm:text-[12px]">
                 <span className="text-accent">⟨</span> PORTFOLIO <span className="text-accent">⟩</span>
               </p>
-              <h2 className="mt-2 font-display text-[clamp(24px,3.5vw,36px)] font-semibold tracking-tight">
+              <h2 className="mt-2 font-display text-[clamp(22px,5vw,36px)] font-semibold tracking-tight">
                 Real builds, AI work, tools, and templates
               </h2>
-              <p className="mt-3 text-[14px] leading-relaxed text-text-dim">
+              <p className="mt-3 text-[13.5px] leading-relaxed text-text-dim sm:text-[14px]">
                 Filter by category — web &amp; app, AI/ML, tools, and templates. Ongoing projects stay
                 in their category with an Ongoing tag.
               </p>
@@ -274,7 +256,7 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
           </Reveal>
 
           <Reveal>
-            <div className="mb-10 flex flex-wrap gap-2">
+            <div className="-mx-5 mb-8 flex gap-2 overflow-x-auto px-5 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:mx-0 sm:mb-10 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden">
               {filters.map((item) => {
                 const isActive = activeFilter === item.id;
                 return (
@@ -283,7 +265,7 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
                     href={filterHref(item.id)}
                     scroll={false}
                     className={cn(
-                      "rounded-full border px-4 py-2 font-mono text-[12px] transition-all duration-200",
+                      "shrink-0 rounded-full border px-3.5 py-2 font-mono text-[11px] transition-all duration-200 sm:px-4 sm:text-[12px]",
                       isActive
                         ? "border-accent/50 bg-accent/15 text-accent shadow-[0_0_20px_color-mix(in_srgb,var(--theme-accent)_18%,transparent)]"
                         : "border-white/10 bg-panel/40 text-text-dim hover:border-white/20 hover:text-text",
@@ -309,7 +291,7 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
                     <p className="mt-1 text-[13px] text-text-dim">{section.description}</p>
                   </Reveal>
                 )}
-                <div className={cn("grid gap-5", section.gridClass)}>
+                <div className={cn("grid grid-cols-1 gap-4 sm:gap-5", section.gridClass)}>
                   {section.items.map((project, i) => (
                     <Reveal key={project.id}>
                       <WorkCard project={project} index={startIndex + i} />
@@ -329,24 +311,24 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
         </Container>
       </section>
 
-      <section className="border-t border-white/5 bg-panel py-14 md:py-20">
+      <section className="border-t border-white/5 bg-panel py-12 sm:py-14 md:py-20">
         <Container>
           <Reveal>
-            <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-              <div>
-                <h2 className="mb-2 font-display text-[clamp(22px,3vw,32px)] font-semibold tracking-tight">
+            <div className="flex flex-col items-start justify-between gap-5 sm:gap-6 md:flex-row md:items-center">
+              <div className="min-w-0">
+                <h2 className="mb-2 font-display text-[clamp(20px,4.5vw,32px)] font-semibold tracking-tight">
                   Need a web app, AI build, tool, or template?
                 </h2>
-                <p className="m-0 max-w-[480px] text-[14px] text-text-dim">
+                <p className="m-0 max-w-[480px] text-[13.5px] text-text-dim sm:text-[14px]">
                   Tell us your sector and timeline. We&apos;ll show you relevant work and what a first
                   milestone could look like.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
-                <Button href="/contact" size="lg">
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+                <Button href="/contact" size="lg" className="max-sm:w-full">
                   Start a project
                 </Button>
-                <Button href="/services" variant="outline" size="lg">
+                <Button href="/services" variant="outline" size="lg" className="max-sm:w-full">
                   View services
                 </Button>
               </div>

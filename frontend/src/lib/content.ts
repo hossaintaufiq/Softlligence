@@ -361,6 +361,72 @@ export const processSteps = [
   },
 ];
 
+/** Realistic day-to-day operating details shown on the process page. */
+export const processWorkingModel = [
+  {
+    title: "A named channel, not a ticket black hole",
+    detail:
+      "You get a shared WhatsApp or Slack thread with the engineers on the build. Questions get answered in hours on business days — not buried in a support portal.",
+  },
+  {
+    title: "Weekly sync + sprint demos",
+    detail:
+      "A short weekly call to unblock decisions. Every two weeks you click a staging build — working software, not a status slide.",
+  },
+  {
+    title: "Scope changes stay visible",
+    detail:
+      "New ideas are welcome. We log them, estimate impact on timeline and budget, and you approve before they enter the sprint. No silent scope creep.",
+  },
+  {
+    title: "You own the keys",
+    detail:
+      "Repo access, hosting, domains, and analytics stay under your accounts (or get transferred at handoff). We build on top of what you can keep running.",
+  },
+];
+
+export const processTypicalWeek = [
+  {
+    day: "Mon",
+    focus: "Plan",
+    detail: "Sprint priorities locked with you. Blockers and open decisions listed in the channel.",
+  },
+  {
+    day: "Tue–Thu",
+    focus: "Build",
+    detail: "Design and engineering ship to staging. You can review WIP anytime — no waiting for the demo.",
+  },
+  {
+    day: "Fri",
+    focus: "Review",
+    detail: "Async notes or a short call on what moved. Feedback becomes next week’s backlog items.",
+  },
+  {
+    day: "Every 2 weeks",
+    focus: "Demo",
+    detail: "Formal walkthrough of the sprint goal. Sign-off on what’s done before the next cycle starts.",
+  },
+];
+
+export const processRealTalk = [
+  {
+    title: "Discovery is paid for a reason",
+    body: "We don’t invent a fixed price from a one-line brief. A short discovery produces the estimate you can actually hold us to.",
+  },
+  {
+    title: "Design before production code",
+    body: "Changing a prototype costs hours. Changing a shipped feature mid-sprint costs days. We protect your budget by getting flows right first.",
+  },
+  {
+    title: "Launch is a checklist, not a vibe",
+    body: "Staging, backups, DNS, env vars, and a rollback plan get signed off before go-live. Opening day shouldn’t be the first real test.",
+  },
+  {
+    title: "After launch isn’t “goodbye”",
+    body: "A support window covers fixes. Most clients stay on a light retainer for monitoring and the next backlog — based on real usage, not guesswork.",
+  },
+];
+
 export const clientProjects = [
   {
     id: "playpen-school",

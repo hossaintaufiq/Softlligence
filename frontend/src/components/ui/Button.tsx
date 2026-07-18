@@ -37,7 +37,7 @@ export function Button({
   children,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full border border-transparent font-semibold whitespace-nowrap transition-all duration-200 hover:-translate-y-px",
+    "inline-flex items-center justify-center gap-2 rounded-full border border-transparent font-semibold transition-all duration-200 hover:-translate-y-px max-sm:whitespace-normal sm:whitespace-nowrap",
     variantClasses[variant],
     sizeClasses[size],
     block && "w-full",

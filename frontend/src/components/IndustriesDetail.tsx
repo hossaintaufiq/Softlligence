@@ -1,4 +1,4 @@
-import { industries, industryPrinciples, industryStats } from "@/lib/content";
+import { industries, industryPrinciples } from "@/lib/content";
 import { IndustryIcon } from "@/components/IndustryIcon";
 import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
@@ -8,27 +8,15 @@ import { FinalCTA } from "@/components/FinalCTA";
 export function IndustriesDetail() {
   return (
     <>
-      {/* Trust stats */}
+      {/* Intro */}
       <section className="border-b border-white/8 bg-ink py-10 sm:py-12 md:py-16">
         <Container>
           <Reveal>
-            <p className="mx-auto mb-7 max-w-[640px] text-center text-[14px] leading-relaxed text-text-dim sm:mb-8 sm:text-[15px] md:text-base">
+            <p className="mx-auto max-w-[640px] text-center text-[14px] leading-relaxed text-text-dim sm:text-[15px] md:text-base">
               Organizations across six sectors trust us to ship software their teams and users rely
               on every day — with the security, uptime and clarity a professional build demands.
             </p>
           </Reveal>
-          <div className="grid grid-cols-1 gap-px overflow-hidden rounded-[16px] border border-white/9 bg-white/9 min-[420px]:grid-cols-3">
-            {industryStats.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 60}>
-                <div className="bg-panel px-4 py-6 text-center transition-colors hover:bg-panel-2 sm:px-6 sm:py-8 md:py-10">
-                  <div className="mb-1 font-display text-[clamp(28px,7vw,44px)] font-semibold text-accent">
-                    {stat.value}
-                  </div>
-                  <div className="text-[12px] text-text-dim sm:text-sm">{stat.label}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </Container>
       </section>
 

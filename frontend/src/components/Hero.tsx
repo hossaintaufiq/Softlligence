@@ -58,11 +58,11 @@ export function Hero() {
             companies, schools, agencies and nonprofits — custom builds, not stretched templates.
           </p>
 
-          <div className="hero-in hero-in--4 mb-10 flex flex-wrap gap-3">
-            <Button href="/contact" size="lg">
+          <div className="hero-in hero-in--4 mb-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
+            <Button href="/contact" size="lg" className="max-sm:w-full">
               Start a project
             </Button>
-            <Button href="/work" variant="outline" size="lg">
+            <Button href="/work" variant="outline" size="lg" className="max-sm:w-full">
               View work
             </Button>
           </div>

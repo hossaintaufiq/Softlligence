@@ -1,10 +1,17 @@
 import Image from "next/image";
-import { processSteps } from "@/lib/content";
+import {
+  processRealTalk,
+  processSteps,
+  processTypicalWeek,
+  processWorkingModel,
+} from "@/lib/content";
 import { processStepImages } from "@/lib/homeVisuals";
 import { pageRoutes } from "@/lib/navigation";
+import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
 import { SectionLink } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
+import { FinalCTA } from "@/components/FinalCTA";
 
 interface ProcessProps {
   summary?: boolean;
@@ -178,32 +185,135 @@ function ProcessSummaryVisual({ steps }: { steps: Step[] }) {
   );
 }
 
+function ProcessReality() {
+  return (
+    <>
+      <section className="section-perf border-t border-white/8 bg-panel py-16 md:py-24">
+        <Container>
+          <Reveal>
+            <Eyebrow number="06">HOW IT ACTUALLY WORKS</Eyebrow>
+            <SectionTitle>The day-to-day — not the slide deck.</SectionTitle>
+            <SectionSub>
+              Five stages on paper. In practice, this is how we stay aligned while the product is being
+              built.
+            </SectionSub>
+          </Reveal>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {processWorkingModel.map((item, i) => (
+              <Reveal key={item.title} delay={i * 60}>
+                <article className="h-full rounded-[18px] border border-white/10 bg-ink/40 p-6 transition-colors hover:border-accent/30">
+                  <h3 className="mb-2 font-display text-[17px] font-semibold">{item.title}</h3>
+                  <p className="m-0 text-[14px] leading-relaxed text-text-dim">{item.detail}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-perf border-t border-white/8 bg-ink py-16 md:py-24">
+        <Container>
+          <Reveal>
+            <Eyebrow number="07">A TYPICAL BUILD WEEK</Eyebrow>
+            <SectionTitle>What a normal week looks like mid-project.</SectionTitle>
+            <SectionSub>
+              No mystery blackouts. You always know what we&apos;re doing and when you&apos;ll see it.
+            </SectionSub>
+          </Reveal>
+
+          <div className="mt-10 grid gap-px overflow-hidden rounded-[16px] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+            {processTypicalWeek.map((block, i) => (
+              <Reveal key={block.day} delay={i * 50}>
+                <div className="h-full bg-panel px-5 py-6 sm:px-6">
+                  <p className="mb-1 font-mono text-[11px] tracking-[0.1em] text-accent uppercase">
+                    {block.day}
+                  </p>
+                  <h3 className="mb-2 font-display text-lg font-semibold">{block.focus}</h3>
+                  <p className="m-0 text-[13.5px] leading-relaxed text-text-dim">{block.detail}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-perf border-t border-white/8 bg-panel py-16 md:py-24">
+        <Container>
+          <Reveal>
+            <Eyebrow number="08">STRAIGHT TALK</Eyebrow>
+            <SectionTitle>How real projects stay on track.</SectionTitle>
+          </Reveal>
+
+          <div className="mt-10 divide-y divide-white/8 border-y border-white/8">
+            {processRealTalk.map((item, i) => (
+              <Reveal key={item.title} delay={i * 50}>
+                <article className="grid gap-2 py-7 sm:grid-cols-[minmax(0,240px)_1fr] sm:gap-10 md:py-8">
+                  <h3 className="m-0 font-display text-[17px] font-semibold leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="m-0 max-w-[560px] text-[14.5px] leading-relaxed text-text-dim">
+                    {item.body}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-10" delay={160}>
+            <div className="flex flex-col items-start justify-between gap-5 rounded-[20px] border border-accent/25 bg-ink/50 p-6 sm:flex-row sm:items-center sm:p-8">
+              <div>
+                <h3 className="mb-1.5 font-display text-xl font-semibold">Ready to start discovery?</h3>
+                <p className="m-0 max-w-[420px] text-[14px] text-text-dim">
+                  Tell us what you&apos;re building. We&apos;ll reply within one business day with next
+                  steps — no pressure pitch.
+                </p>
+              </div>
+              <Button href="/contact" size="lg">
+                Start a project
+              </Button>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <FinalCTA />
+    </>
+  );
+}
+
 export function Process({ summary = false, limit = 3 }: ProcessProps) {
   const steps = summary ? processSteps.slice(0, limit) : processSteps;
 
   return (
-    <section className="section-perf py-16 md:py-20" id="process">
-      <Container>
-        <Reveal>
-          <Eyebrow number="04">HOW A PROJECT RUNS</Eyebrow>
-          <SectionTitle>
-            {summary ? "Three stages to start — five in total." : "Five stages. No stage starts before the last one is signed off."}
-          </SectionTitle>
-          {summary && (
-            <SectionSub>Discovery through build — clear gates, visible progress.</SectionSub>
-          )}
-        </Reveal>
-
-        <div className={summary ? "" : "mt-10 md:mt-14"}>
-          {summary ? <ProcessSummaryVisual steps={steps} /> : <ProcessRoad steps={steps} />}
-        </div>
-
-        {summary && (
-          <Reveal className="mt-8" delay={200}>
-            <SectionLink href={pageRoutes.process}>See full process</SectionLink>
+    <>
+      <section className="section-perf py-16 md:py-20" id="process">
+        <Container>
+          <Reveal>
+            <Eyebrow number="04">HOW A PROJECT RUNS</Eyebrow>
+            <SectionTitle>
+              {summary
+                ? "Three stages to start — five in total."
+                : "The roadmap from brief to production."}
+            </SectionTitle>
+            {summary && (
+              <SectionSub>Discovery through build — clear gates, visible progress.</SectionSub>
+            )}
           </Reveal>
-        )}
-      </Container>
-    </section>
+
+          <div className={summary ? "" : "mt-10 md:mt-14"}>
+            {summary ? <ProcessSummaryVisual steps={steps} /> : <ProcessRoad steps={steps} />}
+          </div>
+
+          {summary && (
+            <Reveal className="mt-8" delay={200}>
+              <SectionLink href={pageRoutes.process}>See full process</SectionLink>
+            </Reveal>
+          )}
+        </Container>
+      </section>
+
+      {!summary && <ProcessReality />}
+    </>
   );
 }
