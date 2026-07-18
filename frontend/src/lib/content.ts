@@ -1112,9 +1112,9 @@ export const aboutCraft = [
 ];
 
 export const aboutLeadershipStrip = [
-  { role: "Team Lead & Full Stack Engineer", focus: "Architecture, standards, delivery" },
-  { role: "Full Stack Engineer", focus: "Backend systems and integrations" },
-  { role: "Senior Full Stack Engineer", focus: "Frontend and APIs" },
+  { role: "Team Lead & Backend AI Engineer", focus: "Architecture, standards, delivery" },
+  { role: "Frontend & UI/UX Designer", focus: "Interfaces, design systems, frontend" },
+  { role: "Frontend Engineer", focus: "Performant UI and component architecture" },
   { role: "Full Stack Engineer", focus: "Mobile and cross-platform" },
 ];
 
@@ -1175,26 +1175,26 @@ export const team = [
   {
     initials: "MH",
     name: "Hossain Ahmmed Taufiq",
-    role: "Team Lead & Full Stack Engineer",
+    role: "Team Lead & Senior Backend Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
     bio: "Full-stack developer focused on scalable web applications and clean API design.",
-    skills: ["React", "Node.js", "PostgreSQL"],
+    skills: ["React", "Node.js", "PostgreSQL", "Python", "Docker", "AWS", "Node.js"],
   },
   {
     initials: "FS",
     name: "Faid Sarowar",
-    role: "Full Stack Engineer",
+    role: "Frontend & UI/UX Designer",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Works across backend systems, integrations, and deployment pipelines with a focus on reliable delivery.",
-    skills: ["Python", "Docker", "AWS", "Node.js"],
+    bio: "Works across frontend and UI/UX design with a focus on reliable delivery.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "UI/UX Design", "Figma", "Adobe XD", "Adobe Photoshop", "Adobe Illustrator"],
   },
   {
     initials: "MS",
     name: "Mehedi Ashraf Simanto",
-    role: "Senior Full Stack Engineer",
+    role: "Frontend Engineer",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Builds performant frontends and reliable APIs with a sharp eye for UX and maintainability.",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+    bio: "Builds performant, accessible frontends with a sharp eye for UX and maintainable component architecture.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
   },
   {
     initials: "AB",
@@ -1233,9 +1233,9 @@ export const teamLeadership = [
   {
     initials: "FS",
     name: "Faid Sarowar",
-    role: "Full Stack Engineer",
-    bio: "Works across backend systems, integrations, and deployment pipelines with a focus on reliable delivery.",
-    skills: ["Python", "Docker", "AWS", "Node.js"],
+    role: "Frontend & UI/UX Designer",
+    bio: "Designs and builds polished interfaces — from Figma systems to production React and Next.js frontends.",
+    skills: ["UI/UX Design", "Figma", "React", "Next.js", "TypeScript", "Tailwind CSS", "Adobe XD", "Adobe Photoshop"],
     linkedin: "https://www.linkedin.com/in/fiad-sarowar-965491422/",
     github: "https://github.com/Fiad-123",
     email: "fiadsarowar93@gmail.com",
@@ -1245,9 +1245,9 @@ export const teamLeadership = [
   {
     initials: "MS",
     name: "Mehedi Ashraf Simanto",
-    role: "Senior Full Stack Engineer",
-    bio: "Builds performant frontends and reliable APIs with a sharp eye for UX and maintainability.",
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js"],
+    role: "Frontend Engineer",
+    bio: "Builds performant, accessible frontends with a sharp eye for UX and maintainable component architecture.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
     linkedin: "www.linkedin.com/in/mehedi-simanto-1000641a7",
     github: "https://github.com/simanto4321",
     email: "msimanto46@gmail.com",
@@ -1304,31 +1304,6 @@ export const teamEngineering = [
   },
 ];
 
-export const teamDesign = [
-  {
-    initials: "LZ",
-    name: "Layla Zaman",
-    role: "UI/UX Designer",
-    bio: "Crafts clear interfaces and design systems that help products feel intentional, accessible, and easy to ship.",
-    skills: ["Figma", "UI Design", "UX Research", "Design Systems", "Brand Identity"],
-    linkedin: "#",
-    photo: null as string | null,
-    photoTone: "from-accent/30 to-accent-2/15",
-  },
-];
-
-export const teamDelivery = [
-  {
-    initials: "IR",
-    name: "Imran Rahman",
-    role: "Project Manager",
-    bio: "Keeps timelines honest, stakeholders aligned, and sprints moving — so engineering can focus on shipping.",
-    skills: ["Agile", "Scrum", "Sprint Planning", "Client Communication", "Product Planning"],
-    linkedin: "#",
-    photo: null as string | null,
-    photoTone: "from-accent-2/25 to-panel",
-  },
-];
 
 export const teamExpertise = [
   {

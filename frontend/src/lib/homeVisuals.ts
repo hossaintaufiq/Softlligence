@@ -1,4 +1,17 @@
-/** Curated visuals for homepage summary sections — real-world anchors, not abstract fills. */
+/** Curated visuals for homepage & detail sections — verified Unsplash URLs. */
+
+export const serviceImages: Record<string, string> = {
+  web: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=75",
+  mobile:
+    "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=75",
+  design:
+    "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1000&q=75",
+  integrations:
+    "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=75",
+  ai: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1000&q=75",
+  cloud:
+    "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=75",
+};
 
 export const industryImages: Record<string, string> = {
   "public-sector":
@@ -26,8 +39,29 @@ export const workCoverImages: Record<string, string> = {
     "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1000&q=70",
 };
 
+/** Primary about image + supporting collage tiles */
 export const aboutHomeImage =
-  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=70";
+  "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=75";
+
+export const aboutHomeGallery = [
+  {
+    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=75",
+    alt: "Founders reviewing product strategy",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=75",
+    alt: "Engineering workshop and whiteboard planning",
+  },
+];
+
+export const aboutDetailImages = {
+  studio:
+    "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=75",
+  craft:
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=75",
+  leadership:
+    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=75",
+};
 
 export const processStepImages = [
   "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=70",

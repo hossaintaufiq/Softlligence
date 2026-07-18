@@ -7,9 +7,11 @@ import {
   aboutCommitments,
   comparison,
 } from "@/lib/content";
+import { aboutDetailImages } from "@/lib/homeVisuals";
 import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
+import Image from "next/image";
 
 export function AboutDetail() {
   return (
@@ -59,23 +61,40 @@ export function AboutDetail() {
       {/* Story */}
       <section className="section-perf border-b border-white/8 bg-panel py-16 md:py-24">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
             <Reveal>
-              <Eyebrow number="01">THE STUDIO</Eyebrow>
-              <SectionTitle>Built to ship systems — not sell themes.</SectionTitle>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] border border-white/10 sm:aspect-[5/6]">
+                <Image
+                  src={aboutDetailImages.studio}
+                  alt="Softlligence studio environment"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
+                <div
+                  className="absolute inset-0 bg-linear-to-t from-ink/70 via-transparent to-transparent"
+                  aria-hidden="true"
+                />
+              </div>
             </Reveal>
-            <div className="space-y-5">
-              {aboutStory.body.map((para, i) => (
-                <Reveal key={para.slice(0, 24)} delay={i * 80}>
-                  <p className="m-0 text-[15px] leading-relaxed text-text-dim md:text-base">{para}</p>
-                </Reveal>
-              ))}
-              <Reveal delay={180}>
-                <p className="m-0 border-l-2 border-accent pl-5 font-display text-[17px] leading-snug font-medium text-text md:text-xl">
-                  Small enough that you know who builds your product.
-                  <span className="text-text-dim"> Structured enough to deliver serious systems.</span>
-                </p>
+            <div>
+              <Reveal>
+                <Eyebrow number="01">THE STUDIO</Eyebrow>
+                <SectionTitle>Built to ship systems — not sell themes.</SectionTitle>
               </Reveal>
+              <div className="mt-6 space-y-5">
+                {aboutStory.body.map((para, i) => (
+                  <Reveal key={para.slice(0, 24)} delay={i * 80}>
+                    <p className="m-0 text-[15px] leading-relaxed text-text-dim md:text-base">{para}</p>
+                  </Reveal>
+                ))}
+                <Reveal delay={180}>
+                  <p className="m-0 border-l-2 border-accent pl-5 font-display text-[17px] leading-snug font-medium text-text md:text-xl">
+                    Small enough that you know who builds your product.
+                    <span className="text-text-dim"> Structured enough to deliver serious systems.</span>
+                  </p>
+                </Reveal>
+              </div>
             </div>
           </div>
         </Container>
@@ -114,12 +133,26 @@ export function AboutDetail() {
       {/* Craft */}
       <section className="section-perf border-b border-white/8 bg-panel py-16 md:py-24">
         <Container>
-          <Reveal>
-            <Eyebrow number="03">THE CRAFT</Eyebrow>
-            <SectionTitle>What we cover end to end.</SectionTitle>
-          </Reveal>
+          <div className="mb-10 grid items-end gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
+            <Reveal>
+              <Eyebrow number="03">THE CRAFT</Eyebrow>
+              <SectionTitle>What we cover end to end.</SectionTitle>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] border border-white/10">
+                <Image
+                  src={aboutDetailImages.craft}
+                  alt="Collaborative product craft session"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-ink/25" aria-hidden="true" />
+              </div>
+            </Reveal>
+          </div>
 
-          <div className="mt-10 grid gap-8 border-t border-white/8 pt-10 md:grid-cols-3 md:gap-6">
+          <div className="grid gap-8 border-t border-white/8 pt-10 md:grid-cols-3 md:gap-6">
             {aboutCraft.map((column, i) => (
               <Reveal key={column.title} delay={i * 80}>
                 <div>
@@ -146,14 +179,28 @@ export function AboutDetail() {
       {/* Leadership model */}
       <section className="section-perf border-b border-white/8 bg-ink py-16 md:py-24">
         <Container>
-          <Reveal>
-            <Eyebrow number="02">LEADERSHIP</Eyebrow>
-            <SectionTitle>A compact build team.</SectionTitle>
-            <p className="mb-10 max-w-[560px] text-[15px] text-text-dim">
-              Softlligence is run by engineers who ship together — strategy and delivery in the same
-              hands.
-            </p>
-          </Reveal>
+          <div className="mb-10 grid items-center gap-8 lg:grid-cols-[1fr_0.9fr] lg:gap-12">
+            <Reveal>
+              <Eyebrow number="02">LEADERSHIP</Eyebrow>
+              <SectionTitle>A compact build team.</SectionTitle>
+              <p className="mb-0 max-w-[560px] text-[15px] text-text-dim">
+                Softlligence is run by engineers who ship together — strategy and delivery in the same
+                hands.
+              </p>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] border border-white/10">
+                <Image
+                  src={aboutDetailImages.leadership}
+                  alt="Leadership collaboration"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-r from-ink/40 to-transparent" aria-hidden="true" />
+              </div>
+            </Reveal>
+          </div>
 
           <div className="grid gap-px overflow-hidden rounded-[14px] border border-white/9 bg-white/9 sm:grid-cols-2 lg:grid-cols-4">
             {aboutLeadershipStrip.map((row, i) => (

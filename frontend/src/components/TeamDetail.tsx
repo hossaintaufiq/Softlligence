@@ -7,8 +7,6 @@ import {
   teamPageStats,
   teamLeadership,
   teamEngineering,
-  teamDesign,
-  teamDelivery,
   teamExpertise,
   teamWorkflow,
 } from "@/lib/content";
@@ -418,105 +416,11 @@ export function TeamDetail() {
         </Container>
       </section>
 
-      {/* 4. Product & Design */}
+      {/* Expertise */}
       <section className="section-perf border-b border-white/8 bg-panel py-16 md:py-24">
         <Container>
           <Reveal>
-            <Eyebrow number="03">PRODUCT &amp; DESIGN</Eyebrow>
-            <SectionTitle>Product &amp; Design</SectionTitle>
-          </Reveal>
-
-          <div className="mt-10 max-w-[760px]">
-            {teamDesign.map((member, i) => (
-              <Reveal key={member.name} delay={i * 80}>
-                <article className="team-card group overflow-hidden rounded-[20px] border border-white/10 bg-ink/40 backdrop-blur-md sm:grid sm:grid-cols-[200px_1fr] sm:gap-0">
-                  <div className="p-4 sm:p-5">
-                    <div className="overflow-hidden rounded-[16px] transition-transform duration-500 group-hover:scale-[1.02]">
-                      <MemberPhoto
-                        name={member.name}
-                        initials={member.initials}
-                        tone={member.photoTone}
-                        photo={member.photo}
-                        variant="card"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center p-6 pt-0 sm:p-8 sm:pl-2 sm:pt-8">
-                    <p className="mb-1 font-mono text-[12px] tracking-[0.08em] text-accent uppercase">
-                      {member.role}
-                    </p>
-                    <h3 className="mb-3 font-display text-2xl font-semibold">{member.name}</h3>
-                    <p className="mb-5 text-[15px] leading-relaxed text-text-dim">{member.bio}</p>
-                    <div className="mb-5 flex flex-wrap gap-2">
-                      {member.skills.map((skill) => (
-                        <span key={skill} className="tech-pill">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                    <SocialBtn href={member.linkedin} label={`${member.name} on LinkedIn`}>
-                      <LinkedInIcon />
-                    </SocialBtn>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 5. Project Delivery */}
-      <section className="section-perf border-b border-white/8 bg-ink py-16 md:py-24">
-        <Container>
-          <Reveal>
-            <Eyebrow number="04">DELIVERY</Eyebrow>
-            <SectionTitle>Project Delivery</SectionTitle>
-          </Reveal>
-
-          <div className="mt-10 max-w-[760px]">
-            {teamDelivery.map((member, i) => (
-              <Reveal key={member.name} delay={i * 80}>
-                <article className="team-card group overflow-hidden rounded-[20px] border border-white/10 bg-panel/60 backdrop-blur-md sm:grid sm:grid-cols-[200px_1fr] sm:gap-0">
-                  <div className="p-4 sm:p-5">
-                    <div className="overflow-hidden rounded-[16px] transition-transform duration-500 group-hover:scale-[1.02]">
-                      <MemberPhoto
-                        name={member.name}
-                        initials={member.initials}
-                        tone={member.photoTone}
-                        photo={member.photo}
-                        variant="card"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-col justify-center p-6 pt-0 sm:p-8 sm:pl-2 sm:pt-8">
-                    <p className="mb-1 font-mono text-[12px] tracking-[0.08em] text-accent uppercase">
-                      {member.role}
-                    </p>
-                    <h3 className="mb-3 font-display text-2xl font-semibold">{member.name}</h3>
-                    <p className="mb-5 text-[15px] leading-relaxed text-text-dim">{member.bio}</p>
-                    <div className="mb-5 flex flex-wrap gap-2">
-                      {member.skills.map((skill) => (
-                        <span key={skill} className="tech-pill">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                    <SocialBtn href={member.linkedin} label={`${member.name} on LinkedIn`}>
-                      <LinkedInIcon />
-                    </SocialBtn>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* 6. Expertise */}
-      <section className="section-perf border-b border-white/8 bg-panel py-16 md:py-24">
-        <Container>
-          <Reveal>
-            <Eyebrow number="05">EXPERTISE</Eyebrow>
+            <Eyebrow number="03">EXPERTISE</Eyebrow>
             <SectionTitle>What Our Team Brings</SectionTitle>
           </Reveal>
 
@@ -540,7 +444,7 @@ export function TeamDetail() {
       <section className="section-perf border-b border-white/8 bg-ink py-16 md:py-24">
         <Container>
           <Reveal>
-            <Eyebrow number="06">HOW WE WORK</Eyebrow>
+            <Eyebrow number="04">HOW WE WORK</Eyebrow>
             <SectionTitle>From discovery to maintenance.</SectionTitle>
           </Reveal>
 

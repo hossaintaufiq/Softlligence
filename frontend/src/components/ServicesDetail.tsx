@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   services,
   engagementModels,
@@ -8,14 +9,12 @@ import {
   serviceGuarantees,
   whySoftlligence,
 } from "@/lib/content";
+import { serviceImages } from "@/lib/homeVisuals";
 import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { TechChip } from "@/components/services/TechChip";
-import {
-  HeroTeamIllustration,
-  ServiceIllustration,
-} from "@/components/services/ServiceIllustrations";
+import { HeroTeamIllustration } from "@/components/services/ServiceIllustrations";
 import { cn } from "@/lib/utils";
 
 const processRails = [
@@ -222,12 +221,25 @@ export function ServicesDetail() {
                   >
                     <div
                       className={cn(
-                        "relative overflow-hidden rounded-[18px] border border-white/8 bg-ink/40 p-4 transition-transform duration-700 group-hover:scale-[1.02] sm:p-6",
+                        "relative aspect-[4/3] overflow-hidden rounded-[18px] border border-white/8 bg-ink/40 transition-transform duration-700 group-hover:scale-[1.02] lg:aspect-[5/4]",
                         reverse && "lg:order-2",
                       )}
                     >
-                      <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-accent/10 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
-                      <ServiceIllustration type={service.id} />
+                      <Image
+                        src={
+                          serviceImages[service.id] ??
+                          "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=75"
+                        }
+                        alt=""
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 45vw"
+                        className="object-cover"
+                      />
+                      <div
+                        className="absolute inset-0 bg-linear-to-t from-ink/70 via-ink/15 to-transparent"
+                        aria-hidden="true"
+                      />
+                      <div className="pointer-events-none absolute -top-10 -right-10 h-32 w-32 rounded-full bg-accent/15 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
                     </div>
 
                     <div className={cn(reverse && "lg:order-1")}>
