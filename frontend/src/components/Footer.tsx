@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
 import { companyContact, pageRoutes } from "@/lib/navigation";
 
@@ -83,15 +84,12 @@ export function Footer() {
             <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
               Next step
             </h5>
-            <p className="mb-4 text-[14px] leading-relaxed text-text-dim">
+            <p className="mb-5 text-[14px] leading-relaxed text-text-dim">
               Tell us what you&apos;re building. We reply within one business day.
             </p>
-            <Link
-              href={pageRoutes.contact}
-              className="inline-flex items-center gap-2 font-mono text-[13px] text-accent transition-colors hover:text-accent-2"
-            >
-              Contact us <span aria-hidden="true">→</span>
-            </Link>
+            <Button href={pageRoutes.contact} variant="outline">
+              Contact us
+            </Button>
           </div>
         </div>
 

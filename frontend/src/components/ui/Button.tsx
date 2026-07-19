@@ -16,15 +16,15 @@ interface ButtonProps {
 
 const variantClasses: Record<ButtonVariant, string> = {
   accent:
-    "bg-accent text-accent-ink hover:shadow-[0_8px_28px_color-mix(in_srgb,var(--theme-accent)_35%,transparent)] active:scale-[0.98]",
+    "border-accent bg-accent text-accent-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:bg-[color-mix(in_srgb,var(--theme-accent)_90%,white)] hover:shadow-[0_6px_20px_color-mix(in_srgb,var(--theme-accent)_22%,transparent)]",
   outline:
-    "border border-white/12 text-text hover:border-accent-2 hover:bg-panel-2 active:scale-[0.98]",
-  ghost: "text-text-dim hover:text-text active:scale-[0.98]",
+    "border-white/14 bg-transparent text-text hover:border-white/28 hover:bg-white/5",
+  ghost: "border-transparent text-text-dim hover:bg-white/5 hover:text-text",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  default: "px-[22px] py-3 text-[14.5px]",
-  lg: "px-7 py-3.5 text-[15px]",
+  default: "min-h-11 px-5 py-2.5 text-[13.5px]",
+  lg: "min-h-12 px-6 py-3 text-[14.5px]",
 };
 
 export function Button({
@@ -37,7 +37,7 @@ export function Button({
   children,
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full border border-transparent font-semibold transition-all duration-200 hover:-translate-y-px max-sm:whitespace-normal sm:whitespace-nowrap",
+    "inline-flex items-center justify-center gap-2 rounded-lg border font-medium tracking-[-0.01em] transition-[color,background-color,border-color,box-shadow] duration-200 max-sm:whitespace-normal sm:whitespace-nowrap",
     variantClasses[variant],
     sizeClasses[size],
     block && "w-full",
