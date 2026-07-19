@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { Container } from "@/components/ui/Section";
-import { pageRoutes } from "@/lib/navigation";
+import { companyContact, pageRoutes } from "@/lib/navigation";
 
 const serviceLinks = [
   { href: `${pageRoutes.services}#web`, label: "Websites & apps" },
@@ -39,12 +39,14 @@ export function Footer() {
               A modern software studio for organizations that need systems they can rely on — from
               sketch to production.
             </p>
-            <a
-              href="mailto:fiadsarowar93@gmail.com"
-              className="mt-5 inline-block font-mono text-[13px] text-accent-2 hover:text-accent"
-            >
-              fiadsarowar93@gmail.com
-            </a>
+            <div className="mt-5 flex flex-col gap-2 font-mono text-[13px]">
+              <a href={companyContact.mailto} className="text-accent-2 hover:text-accent">
+                {companyContact.email}
+              </a>
+              <a href={companyContact.tel} className="text-text-dim hover:text-accent">
+                {companyContact.phoneDisplay}
+              </a>
+            </div>
           </div>
 
           <div>
@@ -88,7 +90,7 @@ export function Footer() {
               href={pageRoutes.contact}
               className="inline-flex items-center gap-2 font-mono text-[13px] text-accent transition-colors hover:text-accent-2"
             >
-              Start a project <span aria-hidden="true">→</span>
+              Contact us <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

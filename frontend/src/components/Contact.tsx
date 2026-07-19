@@ -1,89 +1,74 @@
-"use client";
-
-import { FormEvent, useState } from "react";
+import { companyContact } from "@/lib/navigation";
 import { Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 interface ContactProps {
   summary?: boolean;
 }
 
+function ContactChannels({ centered = false }: { centered?: boolean }) {
+  return (
+    <div
+      className={
+        centered
+          ? "mx-auto grid w-full max-w-[560px] gap-3 sm:grid-cols-2"
+          : "grid w-full gap-3 sm:grid-cols-2"
+      }
+    >
+      <a
+        href={companyContact.mailto}
+        className="group flex flex-col gap-2 rounded-[18px] border border-white/10 bg-panel/60 px-5 py-5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-panel"
+      >
+        <span className="font-mono text-[10px] tracking-[0.14em] text-text-dim uppercase">Email</span>
+        <span className="break-all font-display text-[16px] font-semibold text-text transition-colors group-hover:text-accent sm:text-[17px]">
+          {companyContact.email}
+        </span>
+        <span className="font-mono text-[11px] text-accent-2">Write to us →</span>
+      </a>
+
+      <a
+        href={companyContact.tel}
+        className="group flex flex-col gap-2 rounded-[18px] border border-white/10 bg-panel/60 px-5 py-5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-panel"
+      >
+        <span className="font-mono text-[10px] tracking-[0.14em] text-text-dim uppercase">Phone</span>
+        <span className="font-display text-[16px] font-semibold text-text transition-colors group-hover:text-accent sm:text-[17px]">
+          {companyContact.phoneDisplay}
+        </span>
+        <span className="font-mono text-[11px] text-accent-2">Call or WhatsApp →</span>
+      </a>
+    </div>
+  );
+}
+
 export function Contact({ summary = false }: ContactProps) {
-  const [status, setStatus] = useState("");
-  const [statusColor, setStatusColor] = useState("var(--theme-accent-2)");
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const required = form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(
-      "[required]",
-    );
-    let valid = true;
-    required.forEach((field) => {
-      if (!field.value.trim()) valid = false;
-    });
-
-    if (!valid) {
-      setStatusColor("var(--theme-danger)");
-      setStatus("Please fill in all required fields before sending.");
-      return;
-    }
-
-    const name = String(data.get("name") || "");
-    const company = String(data.get("company") || "");
-    const email = String(data.get("email") || "");
-    const phone = String(data.get("phone") || "");
-    const type = String(data.get("type") || "");
-    const budget = String(data.get("budget") || "");
-    const message = String(data.get("message") || "");
-
-    const body = [
-      `Name: ${name}`,
-      `Company: ${company}`,
-      `Email: ${email}`,
-      phone ? `Phone: ${phone}` : "",
-      `Project type: ${type}`,
-      budget ? `Budget: ${budget}` : "",
-      "",
-      message,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const mailto = `mailto:fiadsarowar93@gmail.com?subject=${encodeURIComponent(
-      `Project inquiry — ${company || name}`,
-    )}&body=${encodeURIComponent(body)}`;
-
-    setStatusColor("var(--theme-accent-2)");
-    setStatus("Opening your email client…");
-    window.location.href = mailto;
-    form.reset();
-  };
-
   if (summary) {
     return (
-      <section className="section-perf relative overflow-hidden border-y border-white/5 bg-ink py-16 md:py-20" id="contact">
+      <section
+        className="section-perf relative overflow-hidden border-y border-white/5 bg-ink py-16 md:py-20"
+        id="contact"
+      >
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,color-mix(in_srgb,var(--theme-accent)_12%,transparent),transparent_55%)]"
           aria-hidden="true"
         />
-        <Container className="relative max-w-[640px] text-center">
+        <Container className="relative max-w-[720px] text-center">
           <Eyebrow number="10">START A PROJECT</Eyebrow>
           <SectionTitle className="mx-auto">Tell us what you&apos;re building.</SectionTitle>
           <SectionSub className="mx-auto">
-            Reply within one business day — no sales scripts.
+            Reach us by email or phone — we reply within one business day.
           </SectionSub>
-          <div className="mb-7 flex flex-col items-center gap-2 font-mono text-[14px]">
-            <a href="mailto:fiadsarowar93@gmail.com" className="hover:text-accent">
-              fiadsarowar93@gmail.com
-            </a>
-            <a href="tel:+8801629244690" className="hover:text-accent">
-              01629244690
-            </a>
+
+          <div className="mb-8">
+            <ContactChannels centered />
           </div>
-          <Button href="/contact" size="lg">
-            Go to contact form
+
+          <Button
+            href={`${companyContact.mailto}?subject=${encodeURIComponent("Project inquiry")}`}
+            size="lg"
+            className="max-sm:w-full"
+          >
+            Email Softlligence
           </Button>
         </Container>
       </section>
@@ -91,157 +76,43 @@ export function Contact({ summary = false }: ContactProps) {
   }
 
   return (
-    <section className="border-y border-white/5 bg-ink py-24" id="contact">
-      <Container className="grid gap-14 max-[980px]:grid-cols-1 min-[981px]:grid-cols-[0.85fr_1.15fr]">
-        <div>
-          <Eyebrow number="10">START A PROJECT</Eyebrow>
-          <SectionTitle className="mb-3">Tell us what you&apos;re building.</SectionTitle>
-          <SectionSub className="mb-7">
-            Fill this in and we&apos;ll come back with next steps within one business day — no
-            obligation, no auto-dialed sales calls.
+    <section className="border-b border-white/5 bg-ink py-14 sm:py-16 md:py-20" id="contact">
+      <Container className="max-w-[720px]">
+        <Reveal>
+          <Eyebrow number="10">REACH US</Eyebrow>
+          <SectionTitle className="mb-3">Email or call — we&apos;re ready.</SectionTitle>
+          <SectionSub className="mb-8">
+            No form, no ticket queue. Write or call the Softlligence desk and we&apos;ll respond within
+            one business day.
           </SectionSub>
+        </Reveal>
 
-          <div className="flex flex-col gap-2 font-mono text-[14.5px]">
-            <a href="mailto:fiadsarowar93@gmail.com" className="hover:text-accent">
-              fiadsarowar93@gmail.com
-            </a>
-            <a href="tel:+8801629244690" className="hover:text-accent">
-              01629244690
-            </a>
-          </div>
-        </div>
+        <Reveal delay={80}>
+          <ContactChannels />
+        </Reveal>
 
-        <form
-          className="pro-card rounded-[14px] p-6 sm:p-[34px]"
-          noValidate
-          onSubmit={handleSubmit}
-        >
-          <div className="mb-4.5 grid gap-4 max-[720px]:grid-cols-1 min-[721px]:grid-cols-2">
-            <div className="mb-4.5">
-              <label htmlFor="fName" className="mb-1.75 block font-mono text-[12.5px] tracking-[0.02em] text-text-dim">
-                Name *
-              </label>
-              <input
-                id="fName"
-                name="name"
-                type="text"
-                required
-                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
-              />
+        <Reveal delay={140} className="mt-8">
+          <div className="flex flex-col gap-3 rounded-[20px] border border-accent/25 bg-panel/40 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+            <div>
+              <p className="mb-1 font-display text-[17px] font-semibold">Ready to talk scope?</p>
+              <p className="m-0 text-[13.5px] text-text-dim">
+                Open your mail app with a project inquiry subject — or dial us directly.
+              </p>
             </div>
-            <div className="mb-4.5">
-              <label htmlFor="fCompany" className="mb-1.75 block font-mono text-[12.5px] tracking-[0.02em] text-text-dim">
-                Company / organization *
-              </label>
-              <input
-                id="fCompany"
-                name="company"
-                type="text"
-                required
-                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
-              />
-            </div>
-          </div>
-
-          <div className="mb-4.5 grid gap-4 max-[720px]:grid-cols-1 min-[721px]:grid-cols-2">
-            <div className="mb-4.5">
-              <label htmlFor="fEmail" className="mb-1.75 block font-mono text-[12.5px] tracking-[0.02em] text-text-dim">
-                Email *
-              </label>
-              <input
-                id="fEmail"
-                name="email"
-                type="email"
-                required
-                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
-              />
-            </div>
-            <div className="mb-4.5">
-              <label htmlFor="fPhone" className="mb-1.75 block font-mono text-[12.5px] tracking-[0.02em] text-text-dim">
-                Phone
-              </label>
-              <input
-                id="fPhone"
-                name="phone"
-                type="tel"
-                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
-              />
-            </div>
-          </div>
-
-          <div className="mb-4.5 grid gap-4 max-[720px]:grid-cols-1 min-[721px]:grid-cols-2">
-            <div className="mb-4.5">
-              <label htmlFor="fType" className="mb-1.75 block font-mono text-[12.5px] tracking-[0.02em] text-text-dim">
-                What are you building? *
-              </label>
-              <select
-                id="fType"
-                name="type"
-                required
-                defaultValue=""
-                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
+            <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+              <Button
+                href={`${companyContact.mailto}?subject=${encodeURIComponent("Project inquiry")}`}
+                size="lg"
+                className="max-sm:w-full"
               >
-                <option value="" disabled>
-                  Select one
-                </option>
-                <option>Website</option>
-                <option>Web application</option>
-                <option>Mobile app</option>
-                <option>Website + mobile app</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-            <div className="mb-4.5">
-              <label htmlFor="fBudget" className="mb-1.75 block font-mono text-[12.5px] tracking-[0.02em] text-text-dim">
-                Estimated budget
-              </label>
-              <select
-                id="fBudget"
-                name="budget"
-                defaultValue=""
-                className="form-field w-full rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
-              >
-                <option value="" disabled>
-                  Select a range
-                </option>
-                <option>Under $10,000</option>
-                <option>$10,000 – $50,000</option>
-                <option>$50,000 – $150,000</option>
-                <option>$150,000+</option>
-              </select>
+                Email us
+              </Button>
+              <Button href={companyContact.tel} variant="outline" size="lg" className="max-sm:w-full">
+                Call us
+              </Button>
             </div>
           </div>
-
-          <div className="mb-4.5">
-            <label htmlFor="fMessage" className="mb-1.75 block font-mono text-[12.5px] tracking-[0.02em] text-text-dim">
-              Your message *
-            </label>
-            <textarea
-              id="fMessage"
-              name="message"
-              rows={4}
-              required
-              placeholder="What are you trying to build, and by when?"
-              className="form-field w-full resize-y rounded-lg border border-white/9 bg-ink px-3.25 py-2.75 text-[14.5px] text-text focus:border-accent-2 focus:outline-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="inline-flex w-full cursor-pointer items-center justify-center rounded-full border border-transparent bg-accent px-7 py-3.5 text-[15px] font-semibold text-accent-ink transition-all duration-150 hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(255,176,32,0.28)]"
-          >
-            Send message
-          </button>
-
-          <p
-            role="status"
-            aria-live="polite"
-            className="mt-3.5 min-h-[18px] text-[13.5px]"
-            style={{ color: statusColor }}
-          >
-            {status}
-          </p>
-        </form>
+        </Reveal>
       </Container>
     </section>
   );

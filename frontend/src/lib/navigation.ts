@@ -17,3 +17,12 @@ export const pageRoutes = {
   faq: "/faq",
   contact: "/contact",
 } as const;
+
+/** Public company contact details */
+export const companyContact = {
+  email: "softlligence@gmail.com",
+  phoneDisplay: "+880 1728-360834",
+  phoneTel: "+8801728360834",
+  mailto: "mailto:softlligence@gmail.com",
+  tel: "tel:+8801728360834",
+} as const;
