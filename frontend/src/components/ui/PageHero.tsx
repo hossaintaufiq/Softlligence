@@ -62,6 +62,7 @@ export function PageHero({
             alt=""
             fill
             priority
+            quality={65}
             sizes="100vw"
             className="object-cover object-center"
           />

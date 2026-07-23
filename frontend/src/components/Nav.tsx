@@ -107,7 +107,7 @@ export function Nav() {
           "site-header relative z-[110] border-b transition-all duration-300",
           scrolled
             ? "site-header--scrolled border-white/10 bg-ink/90 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
-            : "border-white/5 bg-ink/72 backdrop-blur-[14px]",
+            : "border-white/5 bg-ink/85",
         )}
       >
         <Container className="flex h-[72px] items-center justify-between gap-3">

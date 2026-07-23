@@ -5,12 +5,12 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeInit } from "@/components/ThemeInit";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { CursorSpotlight } from "@/components/CursorSpotlight";
+import { CursorSpotlightLazy } from "@/components/CursorSpotlightLazy";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600"],
   variable: "--font-space-grotesk",
   display: "swap",
   preload: true,
@@ -18,10 +18,10 @@ const spaceGrotesk = Space_Grotesk({
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
   variable: "--font-inter",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -29,6 +29,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
   variable: "--font-ibm-plex-mono",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -70,7 +71,7 @@ export default function RootLayout({
         <ThemeInit />
         <ThemeProvider>
           <ScrollToTop />
-          <CursorSpotlight />
+          <CursorSpotlightLazy />
           <div className="site-bg" aria-hidden="true">
             <div className="site-grid" />
             <div className="site-glow site-glow--hero" />

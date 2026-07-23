@@ -74,7 +74,7 @@ export function MemberPhoto({
           src={photo}
           alt={name}
           fill
-          quality={70}
+          quality={55}
           className="object-cover object-top"
           sizes={variant === "leadership" ? "(max-width: 768px) 100vw, 360px" : "(max-width: 768px) 100vw, 280px"}
         />

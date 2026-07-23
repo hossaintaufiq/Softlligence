@@ -72,6 +72,8 @@ export function IndustrySection({
                 alt=""
                 fill
                 sizes="(max-width: 900px) 100vw, 48vw"
+                quality={60}
+                loading="lazy"
                 className="object-cover"
               />
               <div className="ip-section__image-veil" aria-hidden="true" />
