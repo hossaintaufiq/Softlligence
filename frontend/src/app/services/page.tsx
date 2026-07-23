@@ -22,7 +22,7 @@ export default function ServicesPage() {
             <span className="text-gradient">what&apos;s next.</span>
           </>
         }
-        description="Six capabilities. Clear scope. Named engineers. Ownership you keep after launch — websites, apps, design, AI, integrations, and ongoing support."
+        description="Six capabilities in a guided 3D scroll path — clear scope, named engineers, and ownership you keep after launch."
         backgroundImage={pageHeroImages.services}
         meta={serviceStats.map((stat) => ({ value: stat.value, label: stat.label }))}
         actions={
