@@ -12,17 +12,18 @@ export function ServiceCatalog() {
     <section className="sp-catalog" id="service-catalog" aria-labelledby="sp-catalog-title">
       <div className="sp-container">
         <motion.header
-          className="sp-section-head"
+          className="sp-section-head sp-section-head--center sp-catalog__intro"
           initial={reduced ? false : { opacity: 0, y: 28, filter: "blur(8px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-12%" }}
           transition={{ duration: 0.7 }}
         >
           <p className="sp-eyebrow">Service catalog</p>
-          <h2 id="sp-catalog-title" className="sp-section-title">
-            Capabilities organized
-            <br />
-            <span className="sp-text-gradient">for enterprise delivery.</span>
+          <h2 id="sp-catalog-title" className="sp-section-title sp-catalog__title">
+            <span className="sp-catalog__title-line">Capabilities organized</span>
+            <span className="sp-catalog__title-line sp-text-gradient">
+              for enterprise delivery.
+            </span>
           </h2>
           <p className="sp-section-sub">
             Six practice areas—from ERP and MES to AI, cloud, and long-term support—scoped with
