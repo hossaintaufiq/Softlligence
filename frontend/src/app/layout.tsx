@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeInit } from "@/components/ThemeInit";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { CursorSpotlight } from "@/components/CursorSpotlight";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -69,6 +70,7 @@ export default function RootLayout({
         <ThemeInit />
         <ThemeProvider>
           <ScrollToTop />
+          <CursorSpotlight />
           <div className="site-bg" aria-hidden="true">
             <div className="site-grid" />
             <div className="site-glow site-glow--hero" />

@@ -12,7 +12,6 @@ import { ProcessTimeline } from "./ProcessTimeline";
 import { TechMarquee } from "./TechMarquee";
 import { ServicesFinalCta } from "./ServicesFinalCta";
 import { ScrollProgress } from "./ScrollProgress";
-import { CursorSpotlight } from "./CursorSpotlight";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 import "./services-page.css";
 
@@ -52,7 +51,6 @@ export function ServicesPage() {
   return (
     <div className="services-page">
       <ScrollProgress />
-      <CursorSpotlight />
       <ServicesHero />
       <ServiceCatalog />
       <IndustriesServe />

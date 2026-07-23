@@ -110,6 +110,47 @@ main {
   overflow-x: clip;
 }
 
+section,
+article,
+header,
+footer {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Soft cursor spotlight (desktop) */
+.cursor-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    480px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    color-mix(in srgb, var(--theme-accent) 14%, transparent),
+    color-mix(in srgb, var(--theme-accent-2) 8%, transparent) 32%,
+    transparent 55%
+  );
+  mix-blend-mode: screen;
+}
+
+html.light .cursor-spotlight {
+  mix-blend-mode: multiply;
+  background: radial-gradient(
+    480px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
+    color-mix(in srgb, var(--theme-accent) 12%, transparent),
+    color-mix(in srgb, var(--theme-accent-2) 7%, transparent) 32%,
+    transparent 55%
+  );
+}
+
+@media (pointer: coarse), (max-width: 768px) {
+  .cursor-spotlight {
+    display: none !important;
+  }
+}
+
 .page-hero {
   min-height: clamp(280px, 52vw, 420px);
 }

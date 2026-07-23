@@ -48,21 +48,6 @@
   pointer-events: none;
 }
 
-.sp-spotlight {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  background: radial-gradient(
-    520px circle at var(--sp-x, 50%) var(--sp-y, 50%),
-    color-mix(in srgb, var(--sp-accent) 14%, transparent),
-    transparent 45%
-  );
-  mix-blend-mode: screen;
-}
-
 .sp-particles {
   position: absolute;
   inset: 0;
