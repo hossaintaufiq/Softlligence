@@ -65,13 +65,13 @@ export const services = [
     title: "AI integration & SAAS Systems",
     headline: "Connect your systems with AI — for smarter workflows",
     description:
-      "Integrate AI tools into your existing workflows — document search, assistants, and automation — to streamline your operations and improve efficiency.",
+      "Integrate AI into existing workflows — document intelligence, assistants, and automation — with access controls and clear ownership.",
     longDescription:
-      "We help you choose the right AI tools for your needs and integrate them into your existing systems — with access controls, sync rules, and clear ownership when something fails.",
-    items: ["AI document search", "AI assistants", "AI automation", "SAAS integration"],
+      "We help you choose the right AI capabilities for your operations and wire them into systems your team already runs — with guardrails, logging, and measurable outcomes.",
+    items: ["AI document search", "AI assistants", "AI automation", "SaaS integration"],
     highlights: [
       "Semantic search across your documents and knowledge base",
-      "Assistants trained on your org's data and policies",
+      "Assistants grounded in your org's data and policies",
       "Automation for repetitive review and classification tasks",
       "Integration with your existing systems",
     ],
@@ -103,24 +103,24 @@ export const services = [
   {
     id: "cloud",
     index: "05",
-    title: "Maintenance & Support",
-    headline: "Keep your systems running smoothly — without breaking the bank",
+    title: "Cloud, DevOps & support",
+    headline: "Ship safely — and keep systems healthy after launch",
     description:
-      "Regular maintenance, updates and support to keep your systems running smoothly — without breaking the bank.",
+      "AWS and Azure deployments, CI/CD, monitoring, and ongoing maintenance so production stays stable.",
     longDescription:
-      "We offer regular maintenance, updates and support to keep your systems running smoothly — without breaking the bank.",
-    items: ["Regular maintenance", "Updates & security patches", "Support & troubleshooting"],
+      "From containerized deploys to monitoring and long-term support, we keep environments predictable: repeatable releases, security updates, and a named team when something needs attention.",
+    items: ["Cloud deployment (AWS / Azure)", "CI/CD & Docker", "Monitoring", "Maintenance & LTS"],
     highlights: [
-      "Regular maintenance to keep your systems running smoothly",
-      "Updates & security patches to keep your systems secure",
-      "Support & troubleshooting to keep your systems running smoothly",
+      "Repeatable deploys with rollback paths",
+      "Observability before users notice issues",
+      "Security patches and dependency hygiene",
+      "Long-term support from the builders who shipped it",
     ],
-    deliverables: ["Regular maintenance", "Updates & security patches", "Support & troubleshooting"],
+    deliverables: ["Deployed environments", "Pipeline & runbooks", "Monitoring alerts", "Support cadence"],
     timeline: "Ongoing",
     bestFor: ["Teams with existing systems", "Products that need regular maintenance", "Systems that need support"],
-    technologies: ["AWS", "Docker", "GitHub Actions", "Terraform", "Datadog"],
+    technologies: ["AWS", "Azure", "Docker", "GitHub Actions", "Datadog"],
   },
- 
 ];
 
 export const serviceStats = [
