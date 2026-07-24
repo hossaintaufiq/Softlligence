@@ -18,32 +18,18 @@ export function ScrollToTop() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const clearBodyLock = () => {
-      const body = document.body;
-      body.style.overflow = "";
-      body.style.position = "";
-      body.style.top = "";
-      body.style.left = "";
-      body.style.right = "";
-      body.style.width = "";
-    };
+    const body = document.body;
+    body.style.overflow = "";
+    body.style.position = "";
+    body.style.top = "";
+    body.style.left = "";
+    body.style.right = "";
+    body.style.width = "";
 
-    clearBodyLock();
     resetScrollPosition();
+    const raf = requestAnimationFrame(resetScrollPosition);
 
-    let raf2 = 0;
-    const raf1 = requestAnimationFrame(() => {
-      resetScrollPosition();
-      raf2 = requestAnimationFrame(resetScrollPosition);
-    });
-
-    const timers = [0, 50, 120].map((ms) => window.setTimeout(resetScrollPosition, ms));
-
-    return () => {
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
-      timers.forEach((id) => window.clearTimeout(id));
-    };
+    return () => cancelAnimationFrame(raf);
   }, [pathname]);
 
   return null;

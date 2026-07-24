@@ -441,6 +441,30 @@ html.light .svc-model {
   cursor: default;
 }
 
+/* Soft route transition indicator */
+.route-loader {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
+  border-top-color: var(--theme-accent);
+  animation: route-spin 0.7s linear infinite;
+}
+
+@keyframes route-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-loader {
+    animation: none;
+    border-top-color: var(--theme-accent);
+    opacity: 0.7;
+  }
+}
+
 /* ── Nav link underline ── */
 .nav-link {
   position: relative;
