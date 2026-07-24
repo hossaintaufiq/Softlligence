@@ -200,7 +200,7 @@ export function Nav() {
         aria-hidden={!isOpen}
         inert={!isOpen ? true : undefined}
         className={cn(
-          "mobile-nav-panel fixed top-[72px] right-0 left-0 z-[106] flex max-h-[calc(100dvh-72px)] flex-col gap-1 overflow-y-auto overscroll-contain border-b border-white/9 bg-ink/98 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-[0_24px_48px_rgba(0,0,0,0.35)] transition-[opacity,transform,visibility] duration-300 max-[720px]:flex min-[721px]:hidden sm:px-7",
+          "mobile-nav-panel fixed top-[72px] right-0 left-0 z-[106] flex max-h-[calc(100dvh-72px)] flex-col items-center gap-1 overflow-y-auto overscroll-contain border-b border-white/9 bg-ink/98 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-[0_24px_48px_rgba(0,0,0,0.35)] transition-[opacity,transform,visibility] duration-300 max-[720px]:flex min-[721px]:hidden sm:px-7",
           isOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible pointer-events-none -translate-y-3 opacity-0",
@@ -216,7 +216,7 @@ export function Nav() {
               tabIndex={isOpen ? 0 : -1}
               style={{ transitionDelay: isOpen ? `${i * 40}ms` : "0ms" }}
               className={cn(
-                "nav-link rounded-lg border border-white/5 px-4 py-3.5 text-[15px] text-text-dim transition-all hover:border-white/12 hover:bg-panel/60 hover:text-text",
+                "nav-link w-full max-w-[320px] rounded-lg border border-white/5 px-4 py-3.5 text-center text-[15px] text-text-dim transition-all hover:border-white/12 hover:bg-panel/60 hover:text-text",
                 isActive && "nav-link--active border-accent/30 bg-panel text-text",
               )}
             >
@@ -224,7 +224,7 @@ export function Nav() {
             </Link>
           );
         })}
-        <div className="mt-3 flex items-center gap-3">
+        <div className="mt-3 flex w-full max-w-[320px] items-center justify-center gap-3">
           <ThemeToggle />
           <Button href="/contact" block onClick={closeMenu}>
             Book a call
