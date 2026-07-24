@@ -27,8 +27,6 @@
   position: relative;
   padding: 4.25rem 0;
   border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
-  content-visibility: auto;
-  contain-intrinsic-size: auto 520px;
 }
 
 @media (min-width: 768px) {

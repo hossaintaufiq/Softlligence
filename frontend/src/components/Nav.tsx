@@ -22,6 +22,17 @@ export function Nav() {
   const skipScrollRestore = useRef(false);
 
   useEffect(() => {
+    // Clear any leftover scroll-lock from HMR / menu (prevents blank/stuck pages)
+    const body = document.body;
+    body.style.overflow = "";
+    body.style.position = "";
+    body.style.top = "";
+    body.style.left = "";
+    body.style.right = "";
+    body.style.width = "";
+  }, []);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });

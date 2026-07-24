@@ -469,7 +469,7 @@ html.light .svc-model {
   color: var(--theme-text);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 979px) {
   .nav-link::after {
     display: none;
   }
