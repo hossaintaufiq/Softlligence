@@ -28,8 +28,8 @@ export function ServicesPage() {
 
     let cancelled = false;
     let cleanup: (() => void) | undefined;
-    let idleId = 0;
-    let timeoutId = 0;
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
     const startSmoothScroll = () => {
       void (async () => {
@@ -72,18 +72,17 @@ export function ServicesPage() {
       })();
     };
 
-    if ("requestIdleCallback" in window) {
-      idleId = window.requestIdleCallback(startSmoothScroll, { timeout: 1200 });
+    const ric = window.requestIdleCallback?.bind(window);
+    if (ric) {
+      idleId = ric(startSmoothScroll, { timeout: 1200 });
     } else {
-      timeoutId = window.setTimeout(startSmoothScroll, 200);
+      timeoutId = setTimeout(startSmoothScroll, 200);
     }
 
     return () => {
       cancelled = true;
-      if (idleId && "cancelIdleCallback" in window) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId) window.clearTimeout(timeoutId);
+      if (idleId != null) window.cancelIdleCallback?.(idleId);
+      if (timeoutId != null) clearTimeout(timeoutId);
       cleanup?.();
     };
   }, [reduced]);
