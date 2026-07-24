@@ -74,9 +74,15 @@
 /* Hero — two column with gates panel (not work/team clone) */
 .pp-hero {
   position: relative;
-  padding: 7.25rem 0 4.5rem;
+  padding: 6.25rem 0 3.25rem;
   overflow: hidden;
   border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+}
+
+@media (min-width: 768px) {
+  .pp-hero {
+    padding: 7.25rem 0 4.5rem;
+  }
 }
 
 .pp-hero__bg {

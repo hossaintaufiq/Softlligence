@@ -17,9 +17,6 @@ const TeamCapabilities = dynamic(() =>
 const TeamTechStack = dynamic(() =>
   import("./team-page/TeamTechStack").then((m) => ({ default: m.TeamTechStack })),
 );
-const TeamProcess = dynamic(() =>
-  import("./team-page/TeamProcess").then((m) => ({ default: m.TeamProcess })),
-);
 const TeamValues = dynamic(() =>
   import("./team-page/TeamValues").then((m) => ({ default: m.TeamValues })),
 );
@@ -42,7 +39,6 @@ export function TeamDetail() {
       <TeamEngineering />
       <TeamCapabilities />
       <TeamTechStack />
-      <TeamProcess />
       <TeamValues />
       <TeamWhyClients />
       <TeamStatsBand />

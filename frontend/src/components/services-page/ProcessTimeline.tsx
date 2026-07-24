@@ -19,10 +19,13 @@ export function ProcessTimeline() {
     if (reduced || !section.current || !pin.current || !track.current) return;
     if (window.matchMedia("(max-width: 768px)").matches) return;
 
-    const ctx = gsap.context(() => {
-      const distance = track.current!.scrollWidth - pin.current!.clientWidth;
+    const trackEl = track.current;
+    trackEl.classList.add("is-horizontal");
 
-      gsap.to(track.current, {
+    const ctx = gsap.context(() => {
+      const distance = trackEl.scrollWidth - pin.current!.clientWidth;
+
+      gsap.to(trackEl, {
         x: () => -Math.max(distance, 0),
         ease: "none",
         scrollTrigger: {
@@ -37,7 +40,10 @@ export function ProcessTimeline() {
       });
     }, section);
 
-    return () => ctx.revert();
+    return () => {
+      trackEl.classList.remove("is-horizontal");
+      ctx.revert();
+    };
   }, [reduced]);
 
   return (

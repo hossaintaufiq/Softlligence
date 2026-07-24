@@ -84,12 +84,19 @@
 /* ── Hero ── */
 .hp-hero {
   position: relative;
-  min-height: min(100svh, 980px);
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding: 7.25rem 0 5rem;
+  padding: 6.25rem 0 3.25rem;
   overflow: hidden;
   border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+}
+
+@media (min-width: 768px) {
+  .hp-hero {
+    min-height: min(100svh, 980px);
+    padding: 7.25rem 0 5rem;
+  }
 }
 
 .hp-hero__atmosphere {
@@ -147,12 +154,19 @@
 
 .hp-hero__title {
   margin: 0 0 1.15rem;
-  max-width: 12ch;
+  max-width: 14ch;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
-  font-size: clamp(2.35rem, 5.6vw, 4.1rem);
+  font-size: clamp(2.05rem, 8vw, 4.1rem);
   font-weight: 600;
   line-height: 1.02;
   letter-spacing: -0.035em;
+}
+
+@media (min-width: 640px) {
+  .hp-hero__title {
+    max-width: 12ch;
+    font-size: clamp(2.35rem, 5.6vw, 4.1rem);
+  }
 }
 
 .hp-hero__lead {
@@ -183,7 +197,7 @@
   bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
-  display: inline-flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 0.45rem;
@@ -193,6 +207,12 @@
   text-transform: uppercase;
   text-decoration: none;
   color: var(--theme-text-dim);
+}
+
+@media (min-width: 768px) {
+  .hp-scroll {
+    display: inline-flex;
+  }
 }
 
 .hp-scroll span {
@@ -405,8 +425,14 @@
 
 .hp-trust__grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .hp-trust__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 768px) {
@@ -654,7 +680,13 @@
 .hp-industries__grid {
   display: grid;
   gap: 0.75rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .hp-industries__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 768px) {
@@ -1342,7 +1374,7 @@
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 640px) {
   .hp-visual__body {
     grid-template-columns: 1fr;
   }

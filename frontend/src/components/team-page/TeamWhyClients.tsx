@@ -10,7 +10,7 @@ export function TeamWhyClients() {
   return (
     <section className="tp-section tp-why" aria-labelledby="team-why-title">
       <Container>
-        <Eyebrow number="08">PARTNERSHIP</Eyebrow>
+        <Eyebrow number="07">PARTNERSHIP</Eyebrow>
         <SectionTitle>Why clients work with us</SectionTitle>
         <p className="tp-lead tp-lead--narrow" id="team-why-title">
           Engagements built for clarity, continuity, and enterprise-grade outcomes.

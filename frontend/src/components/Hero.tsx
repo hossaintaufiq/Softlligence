@@ -190,7 +190,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <dl className="hero-in hero-in--5 grid grid-cols-3 gap-3 border-t border-white/9 pt-6 sm:max-w-[460px] sm:gap-4">
+          <dl className="hero-in hero-in--5 grid grid-cols-1 gap-3 border-t border-white/9 pt-6 min-[400px]:grid-cols-3 sm:max-w-[460px] sm:gap-4">
             <div>
               <dt className="font-mono text-[10px] tracking-[0.1em] text-text-dim uppercase">Focus</dt>
               <dd className="m-0 mt-1 font-display text-[15px] font-semibold text-text sm:text-xl">Full-stack</dd>

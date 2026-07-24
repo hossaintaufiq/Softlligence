@@ -10,7 +10,7 @@ export function TeamValues() {
   return (
     <section className="tp-section tp-values" aria-labelledby="team-values-title">
       <Container>
-        <Eyebrow number="07">VALUES</Eyebrow>
+        <Eyebrow number="06">VALUES</Eyebrow>
         <SectionTitle>Team values</SectionTitle>
         <p className="tp-lead tp-lead--narrow" id="team-values-title">
           Principles that shape how we design, build, and partner.

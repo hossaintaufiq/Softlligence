@@ -10,7 +10,7 @@ import { Container } from "@/components/ui/Section";
 import { navLinks } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
-const MOBILE_BREAKPOINT = 721;
+const MOBILE_BREAKPOINT = 980;
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -114,7 +114,7 @@ export function Nav() {
           <Link
             href="/"
             onClick={closeMenu}
-            className="flex min-w-0 shrink items-center gap-2 font-display text-[17px] font-semibold min-[721px]:text-[19px]"
+            className="flex min-w-0 shrink items-center gap-2 font-display text-[17px] font-semibold min-[980px]:text-[19px]"
           >
             <span className="flex shrink-0 text-accent transition-transform duration-300 hover:scale-105" aria-hidden="true">
               <BrandLogo />
@@ -125,7 +125,7 @@ export function Nav() {
 
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-[28px] min-[721px]:flex"
+            className="hidden items-center gap-5 min-[980px]:flex min-[1100px]:gap-[28px]"
           >
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -145,8 +145,8 @@ export function Nav() {
           </nav>
 
           <div className="flex shrink-0 items-center gap-2.5">
-            <ThemeToggle className="max-[720px]:hidden" />
-            <Button href="/contact" className="max-[720px]:hidden">
+            <ThemeToggle className="max-[979px]:hidden" />
+            <Button href="/contact" className="max-[979px]:hidden">
               Book a call
             </Button>
             <button
@@ -156,7 +156,7 @@ export function Nav() {
               aria-expanded={isOpen}
               aria-controls={menuId}
               onClick={toggleMenu}
-              className="relative hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-white/9 bg-panel/50 max-[720px]:flex"
+              className="relative hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-white/9 bg-panel/50 max-[979px]:flex"
             >
               <span
                 className={cn(
@@ -188,7 +188,7 @@ export function Nav() {
         tabIndex={isOpen ? 0 : -1}
         onClick={closeMenu}
         className={cn(
-          "fixed inset-0 z-[105] bg-ink/60 backdrop-blur-[2px] transition-opacity duration-300 max-[720px]:block min-[721px]:hidden",
+          "fixed inset-0 z-[105] bg-ink/60 backdrop-blur-[2px] transition-opacity duration-300 max-[979px]:block min-[980px]:hidden",
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       />
@@ -200,7 +200,7 @@ export function Nav() {
         aria-hidden={!isOpen}
         inert={!isOpen ? true : undefined}
         className={cn(
-          "mobile-nav-panel fixed top-[72px] right-0 left-0 z-[106] flex max-h-[calc(100dvh-72px)] flex-col items-center gap-1 overflow-y-auto overscroll-contain border-b border-white/9 bg-ink/98 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-[0_24px_48px_rgba(0,0,0,0.35)] transition-[opacity,transform,visibility] duration-300 max-[720px]:flex min-[721px]:hidden sm:px-7",
+          "mobile-nav-panel fixed top-[72px] right-0 left-0 z-[106] flex max-h-[calc(100dvh-72px)] flex-col items-center gap-1 overflow-y-auto overscroll-contain border-b border-white/9 bg-ink/98 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-[0_24px_48px_rgba(0,0,0,0.35)] transition-[opacity,transform,visibility] duration-300 max-[979px]:flex min-[980px]:hidden sm:px-7",
           isOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible pointer-events-none -translate-y-3 opacity-0",

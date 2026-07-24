@@ -61,17 +61,6 @@ export const teamTechStack = [
   "Prisma",
 ];
 
-export const teamProcessSteps = [
-  "Discovery",
-  "Business Analysis",
-  "System Design",
-  "UI/UX",
-  "Development",
-  "Testing",
-  "Deployment",
-  "Maintenance",
-];
-
 export const teamCapabilityExtras: Record<string, string[]> = {
   "Frontend Development": ["React", "Next.js", "TypeScript"],
   "Backend Development": ["Node.js", "NestJS", "APIs"],

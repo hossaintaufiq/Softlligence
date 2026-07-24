@@ -118,6 +118,56 @@ footer {
   max-width: 100%;
 }
 
+/* Footer wave — sits on the top edge, overlapping into content above */
+.site-footer {
+  position: relative;
+  margin-top: 4.5rem;
+}
+
+.site-footer__wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  line-height: 0;
+  transform: translateY(-99%);
+  pointer-events: none;
+}
+
+.site-footer__wave-svg {
+  display: block;
+  width: 100%;
+  height: 48px;
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    margin-top: 5.5rem;
+  }
+
+  .site-footer__wave-svg {
+    height: 64px;
+  }
+}
+
+.site-footer__wave-accent {
+  fill: color-mix(in srgb, var(--theme-accent) 18%, transparent);
+}
+
+.site-footer__wave-fill {
+  fill: var(--theme-elevated);
+}
+
+html.light .site-footer__wave-accent {
+  fill: color-mix(in srgb, var(--theme-accent) 22%, transparent);
+}
+
+.site-footer__body {
+  position: relative;
+  z-index: 1;
+}
+
 /* Soft cursor spotlight (desktop) */
 .cursor-spotlight {
   position: fixed;
