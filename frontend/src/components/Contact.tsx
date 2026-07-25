@@ -1,6 +1,7 @@
 "use client";
 
 import { companyContact } from "@/lib/navigation";
+import { LinkedInIcon } from "@/components/icons/SocialIcons";
 import { Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 
@@ -32,6 +33,15 @@ export function Contact({ summary = false }: { summary?: boolean }) {
           </a>
           <a href={companyContact.tel} className="transition-colors hover:text-accent">
             {companyContact.phoneDisplay}
+          </a>
+          <a
+            href={companyContact.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+          >
+            <LinkedInIcon className="h-3.5 w-3.5" />
+            LinkedIn
           </a>
         </div>
 

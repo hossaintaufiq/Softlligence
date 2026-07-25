@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { companyContact } from "@/lib/navigation";
+import { LinkedInIcon } from "@/components/icons/SocialIcons";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import "./contact-page.css";
@@ -24,6 +25,21 @@ function ContactChannels() {
           <strong>{companyContact.phoneDisplay}</strong>
         </div>
         <em>Call</em>
+      </a>
+      <a
+        href={companyContact.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cp-channel"
+      >
+        <div>
+          <span className="inline-flex items-center gap-2">
+            <LinkedInIcon className="h-3.5 w-3.5" />
+            LinkedIn
+          </span>
+          <strong>Softlligence Technologies</strong>
+        </div>
+        <em>Follow</em>
       </a>
     </div>
   );
@@ -269,7 +285,8 @@ export function ContactPageView() {
               <p>Direct contact</p>
               <h3>Reach the team</h3>
               <p>
-                Prefer email or phone? Use either channel below — the same team that delivers the work.
+                Prefer email, phone, or LinkedIn? Use any channel below — the same team that delivers
+                the work.
               </p>
               <ContactChannels />
               <div className="cp-next">

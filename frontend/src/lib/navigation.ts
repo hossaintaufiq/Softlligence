@@ -25,4 +25,6 @@ export const companyContact = {
   phoneTel: "+8801728360834",
   mailto: "mailto:softlligence@gmail.com",
   tel: "tel:+8801728360834",
+  linkedin: "https://www.linkedin.com/company/133357800",
+  linkedinLabel: "LinkedIn",
 } as const;
