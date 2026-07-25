@@ -1248,7 +1248,7 @@ export const team = [
   },
   {
     initials: "FS",
-    name: "Faid Sarowar",
+    name: "Fiad Sarowar",
     role: "Frontend & UI/UX Designer",
     school: "BSc in CSE, North South University, Bangladesh",
     bio: "Works across frontend and UI/UX design with a focus on reliable delivery.",
@@ -1294,7 +1294,7 @@ export const teamLeadership = [
   },
   {
     initials: "FS",
-    name: "Faid Sarowar",
+    name: "Fiad Sarowar",
     role: "Frontend & UI/UX Designer",
     bio: "Designs and builds polished interfaces — from Figma systems to production React and Next.js frontends.",
     skills: ["UI/UX Design", "Figma", "React", "Next.js", "TypeScript", "Tailwind CSS", "Adobe XD", "Adobe Photoshop"],
