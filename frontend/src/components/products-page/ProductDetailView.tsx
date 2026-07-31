@@ -29,14 +29,13 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             <p className="prd-detail-hero__tagline">{product.tagline}</p>
             <p className="prd-detail-hero__lead">{product.aiNote}</p>
             <div className="prd-detail-hero__actions">
-              <Button href={trialSignupUrl(product.slug)} size="lg" external className="max-sm:w-full">
+              <Button href={trialSignupUrl(product.slug)} size="lg" external>
                 Start 7-day free trial
               </Button>
               <Button
                 href={`${pageRoutes.contact}?product=${product.slug}`}
                 variant="outline"
                 size="lg"
-                className="max-sm:w-full"
               >
                 Discuss integration
               </Button>

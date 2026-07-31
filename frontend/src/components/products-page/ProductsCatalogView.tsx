@@ -64,10 +64,10 @@ export function ProductsCatalogView() {
           </h1>
           <p className="prd-hero__lead">{productsCatalogIntro.lead}</p>
           <div className="prd-hero__actions">
-            <Button href="#catalog" size="lg" className="max-sm:w-full">
+            <Button href="#catalog" size="lg">
               Browse products
             </Button>
-            <Button href={pageRoutes.contact} variant="outline" size="lg" className="max-sm:w-full">
+            <Button href={pageRoutes.contact} variant="outline" size="lg">
               Talk about integration
             </Button>
           </div>

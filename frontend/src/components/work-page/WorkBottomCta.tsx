@@ -26,10 +26,10 @@ export function WorkBottomCta() {
             </p>
           </div>
           <div className="wp-bottom-cta__actions">
-            <Button href="/contact" size="lg" className="max-sm:w-full">
+            <Button href="/contact" size="lg">
               Start a project
             </Button>
-            <Button href="/services" variant="outline" size="lg" className="max-sm:w-full">
+            <Button href="/services" variant="outline" size="lg">
               View services
             </Button>
           </div>

@@ -237,6 +237,18 @@
   margin-top: 1.85rem;
 }
 
+@media (max-width: 639px) {
+  .wp-hero__actions {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wp-hero__actions > * {
+    width: min(100%, 17.5rem);
+  }
+}
+
 .wp-hero__pillars {
   display: grid;
   grid-template-columns: 1fr;
@@ -1071,14 +1083,25 @@
 .wp-bottom-cta__actions {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 0.65rem;
   width: 100%;
+}
+
+.wp-bottom-cta__actions > * {
+  width: min(100%, 17.5rem);
 }
 
 @media (min-width: 520px) {
   .wp-bottom-cta__actions {
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: stretch;
+    width: auto;
+  }
+
+  .wp-bottom-cta__actions > * {
     width: auto;
   }
 }

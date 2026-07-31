@@ -89,10 +89,10 @@ export function WorkHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.36 }}
           >
-            <Button href="#portfolio" size="lg" className="max-sm:w-full">
+            <Button href="#portfolio" size="lg">
               Explore portfolio
             </Button>
-            <Button href="/contact" variant="outline" size="lg" className="max-sm:w-full">
+            <Button href="/contact" variant="outline" size="lg">
               Start a project
             </Button>
           </motion.div>
