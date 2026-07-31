@@ -11,6 +11,8 @@ interface ButtonProps {
   block?: boolean;
   className?: string;
   onClick?: () => void;
+  /** Open in a new tab (for external trial / social links). */
+  external?: boolean;
   children: React.ReactNode;
 }
 
@@ -34,6 +36,7 @@ export function Button({
   className,
   href,
   onClick,
+  external = false,
   children,
 }: ButtonProps) {
   const classes = cn(
@@ -44,7 +47,11 @@ export function Button({
     className,
   );
 
-  if (href.startsWith("/") || href.startsWith("#")) {
+  const externalProps = external
+    ? ({ target: "_blank", rel: "noopener noreferrer" } as const)
+    : {};
+
+  if (!external && (href.startsWith("/") || href.startsWith("#"))) {
     return (
       <Link href={href} className={classes} onClick={onClick}>
         {children}
@@ -53,7 +60,7 @@ export function Button({
   }
 
   return (
-    <a href={href} className={classes} onClick={onClick}>
+    <a href={href} className={classes} onClick={onClick} {...externalProps}>
       {children}
     </a>
   );

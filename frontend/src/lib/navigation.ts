@@ -1,5 +1,6 @@
 export const navLinks = [
   { href: "/services", label: "Services" },
+  { href: "/products", label: "Products" },
   { href: "/work", label: "Work" },
   { href: "/industries", label: "Industries" },
   { href: "/process", label: "Process" },
@@ -9,6 +10,7 @@ export const navLinks = [
 
 export const pageRoutes = {
   services: "/services",
+  products: "/products",
   work: "/work",
   industries: "/industries",
   process: "/process",

@@ -14,6 +14,7 @@ const serviceLinks = [
 ];
 
 const companyLinks = [
+  { href: pageRoutes.products, label: "Products" },
   { href: pageRoutes.about, label: "About" },
   { href: pageRoutes.team, label: "Team" },
   { href: pageRoutes.work, label: "Work" },
@@ -21,6 +22,12 @@ const companyLinks = [
   { href: pageRoutes.process, label: "Process" },
   { href: pageRoutes.faq, label: "FAQ" },
   { href: pageRoutes.contact, label: "Contact" },
+];
+
+const productLinks = [
+  { href: `${pageRoutes.products}/erp`, label: "ERP" },
+  { href: `${pageRoutes.products}/crm`, label: "CRM" },
+  { href: `${pageRoutes.products}/mis`, label: "MIS" },
 ];
 
 export function Footer() {
@@ -81,6 +88,26 @@ export function Footer() {
 
             <div className="max-md:w-full max-md:text-center">
               <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
+                Products
+              </h5>
+              <div className="max-md:flex max-md:flex-col max-md:items-center">
+                <Link
+                  href={pageRoutes.products}
+                  className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
+                >
+                  All products
+                </Link>
+                {productLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+              <h5 className="mb-4 mt-8 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
                 Services
               </h5>
               <div className="max-md:flex max-md:flex-col max-md:items-center">
