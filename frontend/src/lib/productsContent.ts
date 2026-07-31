@@ -39,8 +39,7 @@ export const productsAiShared = {
 export const productsCatalogIntro = {
   eyebrow: "Products",
   title: "Enterprise platforms. Ready to trial.",
-  lead:
-    "Softlligence offers AI-powered ERP, CRM, and MIS platforms with a 7-day free cloud trial. Get purchase recommendations, AI summaries, and support across mobile, WordPress, and Telegram — or integrate and customize for your operations.",
+  lead: "AI-powered ERP, CRM, and MIS — try free for 7 days, then integrate or deploy locally.",
 };
 
 export const products: ProductRecord[] = [
@@ -54,7 +53,7 @@ export const products: ProductRecord[] = [
     description:
       "Softlligence ERP gives organizations reliable control over inventory, procurement, accounting workflows, and operational visibility. A trained recommendation model suggests what to purchase and restock based on demand and best sellers, while AI-powered summaries help teams act faster. Use it on web, mobile app, WordPress, or Telegram chatbot — with room to customize as you grow.",
     aiNote:
-      "AI recommends purchase and restock decisions, highlights best-selling products, and generates operational summaries. Available on mobile app, WordPress, and Telegram chatbot.",
+      "AI recommends what to buy and restock, highlights best sellers, and summarizes operations — on mobile, WordPress, and Telegram.",
     audience: "Manufacturers, distributors, multi-branch businesses, and growing operators.",
     capabilities: [
       "AI purchase & restock recommendations",
@@ -118,7 +117,7 @@ export const products: ProductRecord[] = [
     description:
       "Softlligence CRM helps commercial teams capture demand, move deals forward, and keep customer context in one place. A trained model recommends what customers should buy next, highlights best-selling products, and delivers AI-powered summaries of pipeline and conversations. Access CRM from mobile app, WordPress, or Telegram chatbot — ready for cloud trial or deeper integration.",
     aiNote:
-      "AI recommends products to pitch and purchase next, tracks best sellers, and summarizes deals and follow-ups. Supported on mobile app, WordPress, and Telegram chatbot.",
+      "AI suggests what to sell next, tracks best sellers, and summarizes your pipeline — on mobile, WordPress, and Telegram.",
     audience: "Sales teams, agencies, service businesses, and growing B2B operators.",
     capabilities: [
       "AI product & purchase recommendations",
@@ -182,7 +181,7 @@ export const products: ProductRecord[] = [
     description:
       "Softlligence MIS focuses on management visibility: KPIs, departmental reports, and decision-ready views on top of your operations data. A trained recommendation model suggests what to buy and restock, surfaces best-selling products, and produces AI-powered summaries for leadership. Reach MIS via mobile app, WordPress, or Telegram chatbot — trial in the cloud or integrate with your systems.",
     aiNote:
-      "AI analyzes performance into clear summaries, recommends purchase priorities from best sellers and demand, and works on mobile app, WordPress, and Telegram chatbot.",
+      "AI recommends purchase priorities, surfaces best sellers, and writes executive summaries — on mobile, WordPress, and Telegram.",
     audience: "Founders, ops leads, and managers who need clear reporting across teams.",
     capabilities: [
       "AI purchase priority recommendations",

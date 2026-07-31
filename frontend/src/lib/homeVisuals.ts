@@ -80,3 +80,112 @@ export const pageHeroImages = {
   services:
     "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=60",
 } as const;
+
+/** Product detail pages — Unsplash visuals by slug */
+export const productDetailVisuals: Record<
+  "erp" | "crm" | "mis",
+  {
+    hero: string;
+    modules: string[];
+    channels: { src: string; label: string; hint: string }[];
+    cta: string;
+  }
+> = {
+  erp: {
+    hero: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1400&q=70",
+    modules: [
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
+    ],
+    channels: [
+      {
+        src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=720&q=60",
+        label: "AI recommendations",
+        hint: "Buy · restock · best sellers",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=720&q=60",
+        label: "AI summaries",
+        hint: "Ops insights in plain language",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=60",
+        label: "Mobile app",
+        hint: "Manage operations on the go",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=720&q=60",
+        label: "WP · Telegram",
+        hint: "Embed and chat assistants",
+      },
+    ],
+    cta: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=60",
+  },
+  crm: {
+    hero: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=70",
+    modules: [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
+    ],
+    channels: [
+      {
+        src: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=720&q=60",
+        label: "AI recommendations",
+        hint: "What to pitch and sell next",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=720&q=60",
+        label: "AI summaries",
+        hint: "Pipeline without the noise",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=60",
+        label: "Mobile app",
+        hint: "Close deals from anywhere",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=720&q=60",
+        label: "WP · Telegram",
+        hint: "Leads into your CRM",
+      },
+    ],
+    cta: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1400&q=60",
+  },
+  mis: {
+    hero: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=70",
+    modules: [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
+    ],
+    channels: [
+      {
+        src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=720&q=60",
+        label: "AI recommendations",
+        hint: "Purchase priorities from demand",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=720&q=60",
+        label: "AI summaries",
+        hint: "Executive packs, written for you",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=60",
+        label: "Mobile app",
+        hint: "KPIs in your pocket",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=720&q=60",
+        label: "WP · Telegram",
+        hint: "Reports where leaders already are",
+      },
+    ],
+    cta: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=60",
+  },
+};
+

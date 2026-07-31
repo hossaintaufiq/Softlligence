@@ -82,13 +82,13 @@
 
 .prd-hero__inner {
   position: relative;
-  max-width: 52rem;
+  max-width: 40rem;
   margin-inline: auto;
   z-index: 1;
 }
 
 .prd-hero__title {
-  margin: 0 auto 1.15rem;
+  margin: 0 auto 1rem;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(2.1rem, 5vw, 3.5rem);
   font-weight: 600;
@@ -102,33 +102,11 @@
 }
 
 .prd-hero__lead {
-  margin: 0 auto 1.75rem;
-  max-width: 38rem;
-  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-  line-height: 1.65;
-  color: var(--theme-text-dim);
-}
-
-.prd-hero__tagline {
-  margin: 0 auto 0.85rem;
-  max-width: 36rem;
-  font-size: 1.05rem;
-  font-weight: 500;
-  line-height: 1.4;
-  color: color-mix(in srgb, var(--theme-accent) 88%, white);
-}
-
-.prd-hero__audience {
   margin: 0 auto 1.5rem;
-  max-width: 36rem;
-  font-size: 0.92rem;
+  max-width: 32rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  line-height: 1.55;
   color: var(--theme-text-dim);
-}
-
-.prd-hero__audience strong {
-  color: var(--theme-text);
-  font-weight: 600;
-  margin-right: 0.35rem;
 }
 
 .prd-hero__actions {
@@ -136,50 +114,27 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.35rem;
 }
 
-.prd-hero__signals {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
+.prd-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem 0.15rem;
   margin: 0;
-  text-align: left;
-}
-
-@media (min-width: 480px) {
-  .prd-hero__signals {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 800px) {
-  .prd-hero__signals {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.prd-hero__signals > div {
-  padding: 0.9rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--theme-panel) 55%, transparent);
-}
-
-.prd-hero__signals dt {
-  margin: 0 0 0.3rem;
   font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--theme-text-dim);
+  color: color-mix(in srgb, var(--theme-text) 52%, transparent);
 }
 
-.prd-hero__signals dd {
-  margin: 0;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
+.prd-hero__meta i {
+  margin-inline: 0.45rem;
+  font-style: normal;
+  color: color-mix(in srgb, var(--theme-accent) 55%, transparent);
 }
 
 /* ── Sections ── */

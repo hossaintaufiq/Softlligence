@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { pageRoutes } from "@/lib/navigation";
+import { productDetailVisuals } from "@/lib/homeVisuals";
 import {
   products,
   productsAiShared,
@@ -8,80 +10,90 @@ import {
   type ProductRecord,
 } from "@/lib/productsContent";
 import "./products-page.css";
+import "./product-detail-visual.css";
 
 export function ProductDetailView({ product }: { product: ProductRecord }) {
   const others = products.filter((p) => p.slug !== product.slug);
+  const visuals = productDetailVisuals[product.slug];
 
   return (
     <div className="products-page">
-      <section className="prd-hero prd-hero--detail" aria-labelledby="prd-detail-title">
-        <div className="prd-hero__bg" aria-hidden="true">
-          <div className="prd-hero__grid" />
-          <div className="prd-hero__beam" />
-        </div>
-
-        <div className="prd-container prd-hero__inner">
-          <p className="prd-kicker">
-            <span>/</span> Products · {product.shortName} · {productsAiShared.label}
-          </p>
-          <h1 id="prd-detail-title" className="prd-hero__title">
-            {product.name}
-          </h1>
-          <p className="prd-hero__tagline">{product.tagline}</p>
-          <p className="prd-hero__lead">{product.description}</p>
-          <p className="prd-ai-note">{product.aiNote}</p>
-          <p className="prd-hero__audience">
-            <strong>Built for</strong> {product.audience}
-          </p>
-          <div className="prd-hero__actions">
-            <Button href={trialSignupUrl(product.slug)} size="lg" external className="max-sm:w-full">
-              Start 7-day free trial
-            </Button>
-            <Button
-              href={`${pageRoutes.contact}?product=${product.slug}`}
-              variant="outline"
-              size="lg"
-              className="max-sm:w-full"
-            >
-              Discuss integration
-            </Button>
+      <section className="prd-detail-hero" aria-labelledby="prd-detail-title">
+        <div className="prd-container prd-detail-hero__layout">
+          <div className="prd-detail-hero__copy">
+            <p className="prd-kicker">
+              <span>/</span> Products · {product.shortName}
+              <em className="prd-detail-hero__badge">{productsAiShared.label}</em>
+            </p>
+            <h1 id="prd-detail-title">{product.name}</h1>
+            <p className="prd-detail-hero__tagline">{product.tagline}</p>
+            <p className="prd-detail-hero__lead">{product.aiNote}</p>
+            <div className="prd-detail-hero__actions">
+              <Button href={trialSignupUrl(product.slug)} size="lg" external className="max-sm:w-full">
+                Start 7-day free trial
+              </Button>
+              <Button
+                href={`${pageRoutes.contact}?product=${product.slug}`}
+                variant="outline"
+                size="lg"
+                className="max-sm:w-full"
+              >
+                Discuss integration
+              </Button>
+            </div>
           </div>
-          <dl className="prd-hero__signals">
-            <div>
-              <dt>AI model</dt>
-              <dd>Buy &amp; best-seller recs</dd>
+
+          <div className="prd-detail-hero__visual">
+            <div className="prd-detail-hero__frame">
+              <Image
+                src={visuals.hero}
+                alt=""
+                fill
+                priority
+                sizes="(max-width: 900px) 100vw, 48vw"
+                quality={70}
+                className="object-cover"
+              />
+              <div className="prd-detail-hero__veil" aria-hidden="true" />
             </div>
-            <div>
-              <dt>Summaries</dt>
-              <dd>AI-powered analysis</dd>
+            <div className="prd-detail-hero__float">
+              <p>AI-powered</p>
+              <strong>Recommend · Summarize · Reach</strong>
+              <span>Mobile · WordPress · Telegram</span>
             </div>
-            <div>
-              <dt>Channels</dt>
-              <dd>Mobile · WP · Telegram</dd>
-            </div>
-            <div>
-              <dt>Trial</dt>
-              <dd>7 days free</dd>
-            </div>
-          </dl>
+          </div>
         </div>
       </section>
 
-      <section className="prd-section" aria-labelledby="prd-caps-title">
-        <div className="prd-container prd-split">
-          <div>
+      <section className="prd-section" aria-labelledby="prd-ai-title">
+        <div className="prd-container">
+          <div className="prd-section__head prd-section__head--center">
             <p className="prd-kicker">
-              <span>/</span> Capabilities
+              <span>/</span> AI &amp; access
             </p>
-            <h2 id="prd-caps-title">What {product.shortName} covers.</h2>
-            <p className="prd-muted">{product.summary}</p>
-            <p className="prd-ai-note prd-ai-note--inline">{productsAiShared.note}</p>
+            <h2 id="prd-ai-title">Intelligence where your team already works.</h2>
           </div>
-          <ul className="prd-cap-list">
-            {product.capabilities.map((cap) => (
-              <li key={cap}>{cap}</li>
+          <div className="prd-channel-grid">
+            {visuals.channels.map((channel) => (
+              <article key={channel.label} className="prd-channel-card">
+                <div className="prd-channel-card__media">
+                  <Image
+                    src={channel.src}
+                    alt=""
+                    fill
+                    sizes="(max-width: 720px) 100vw, 25vw"
+                    quality={60}
+                    className="object-cover"
+                  />
+                  <div className="prd-channel-card__veil" aria-hidden="true" />
+                </div>
+                <div className="prd-channel-card__body">
+                  <h3>{channel.label}</h3>
+                  <p>{channel.hint}</p>
+                </div>
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
@@ -93,20 +105,50 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             </p>
             <h2 id="prd-mod-title">Core areas inside the platform.</h2>
           </div>
-          <div className="prd-modules">
-            {product.modules.map((mod) => (
-              <article key={mod.title}>
-                <h3>{mod.title}</h3>
-                <p>{mod.description}</p>
+          <div className="prd-mod-visual">
+            {product.modules.map((mod, i) => (
+              <article key={mod.title} className="prd-mod-card">
+                <div className="prd-mod-card__media">
+                  <Image
+                    src={visuals.modules[i] ?? visuals.modules[0]}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    quality={60}
+                    className="object-cover"
+                  />
+                  <div className="prd-mod-card__veil" aria-hidden="true" />
+                  <span>{String(i + 1).padStart(2, "0")}</span>
+                </div>
+                <div className="prd-mod-card__body">
+                  <h3>{mod.title}</h3>
+                  <p>{mod.description}</p>
+                </div>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="prd-section" aria-labelledby="prd-paths-title">
+      <section className="prd-section" aria-labelledby="prd-caps-title">
+        <div className="prd-container prd-caps-band">
+          <div>
+            <p className="prd-kicker">
+              <span>/</span> Capabilities
+            </p>
+            <h2 id="prd-caps-title">What {product.shortName} covers.</h2>
+          </div>
+          <ul className="prd-pill-list">
+            {product.capabilities.map((cap) => (
+              <li key={cap}>{cap}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="prd-section prd-section--panel" aria-labelledby="prd-paths-title">
         <div className="prd-container">
-          <div className="prd-section__head">
+          <div className="prd-section__head prd-section__head--center">
             <p className="prd-kicker">
               <span>/</span> Engagement
             </p>
@@ -121,7 +163,34 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
               </article>
             ))}
           </div>
-          <div className="prd-section__action">
+        </div>
+      </section>
+
+      <section className="prd-cta-band" aria-labelledby="prd-cta-title">
+        <div className="prd-cta-band__media" aria-hidden="true">
+          <Image
+            src={visuals.cta}
+            alt=""
+            fill
+            sizes="100vw"
+            quality={60}
+            className="object-cover"
+          />
+          <div className="prd-cta-band__veil" />
+        </div>
+        <div className="prd-container prd-cta-band__inner">
+          <div>
+            <p className="prd-kicker">
+              <span>/</span> Outcomes
+            </p>
+            <h2 id="prd-cta-title">What teams gain.</h2>
+            <ul className="prd-cta-band__outcomes">
+              {product.outcomes.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="prd-cta-band__actions">
             <Button href={trialSignupUrl(product.slug)} size="lg" external>
               Start free trial
             </Button>
@@ -129,22 +198,6 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
               Book a consultation
             </Button>
           </div>
-        </div>
-      </section>
-
-      <section className="prd-section prd-section--panel" aria-labelledby="prd-out-title">
-        <div className="prd-container prd-split">
-          <div>
-            <p className="prd-kicker">
-              <span>/</span> Outcomes
-            </p>
-            <h2 id="prd-out-title">What teams gain.</h2>
-          </div>
-          <ul className="prd-outcome-list">
-            {product.outcomes.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -157,14 +210,33 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
               </p>
               <h2 id="prd-more-title">Explore the rest of the suite.</h2>
             </div>
-            <div className="prd-more">
-              {others.map((p) => (
-                <Link key={p.slug} href={`${pageRoutes.products}/${p.slug}`} className="prd-more__card">
-                  <span>{p.shortName}</span>
-                  <strong>{p.name}</strong>
-                  <em>{p.tagline}</em>
-                </Link>
-              ))}
+            <div className="prd-more prd-more--visual">
+              {others.map((p) => {
+                const thumb = productDetailVisuals[p.slug].hero;
+                return (
+                  <Link
+                    key={p.slug}
+                    href={`${pageRoutes.products}/${p.slug}`}
+                    className="prd-more__card prd-more__card--media"
+                  >
+                    <span className="prd-more__thumb">
+                      <Image
+                        src={thumb}
+                        alt=""
+                        fill
+                        sizes="(max-width: 720px) 100vw, 33vw"
+                        quality={55}
+                        className="object-cover"
+                      />
+                    </span>
+                    <span className="prd-more__meta">
+                      <span>{p.shortName}</span>
+                      <strong>{p.name}</strong>
+                      <em>{p.tagline}</em>
+                    </span>
+                  </Link>
+                );
+              })}
               <Link href={pageRoutes.products} className="prd-more__card prd-more__card--all">
                 <span>All</span>
                 <strong>Back to products</strong>

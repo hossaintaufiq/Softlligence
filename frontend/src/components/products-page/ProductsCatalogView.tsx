@@ -10,13 +10,6 @@ import {
 } from "@/lib/productsContent";
 import "./products-page.css";
 
-const heroSignals = [
-  { label: "AI", value: "Recommendations · summaries" },
-  { label: "Channels", value: "Mobile · WP · Telegram" },
-  { label: "Trial", value: "7 days free" },
-  { label: "Suite", value: "ERP · CRM · MIS" },
-];
-
 function ProductCard({ product, index }: { product: ProductRecord; index: number }) {
   return (
     <article className="prd-card">
@@ -78,14 +71,15 @@ export function ProductsCatalogView() {
               Talk about integration
             </Button>
           </div>
-          <dl className="prd-hero__signals">
-            {heroSignals.map((item) => (
-              <div key={item.label}>
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </dl>
+          <p className="prd-hero__meta">
+            <span>ERP</span>
+            <i aria-hidden="true">·</i>
+            <span>CRM</span>
+            <i aria-hidden="true">·</i>
+            <span>MIS</span>
+            <i aria-hidden="true">·</i>
+            <span>Mobile · WordPress · Telegram</span>
+          </p>
         </div>
       </section>
 
