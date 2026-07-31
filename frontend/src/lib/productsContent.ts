@@ -21,6 +21,7 @@ export type ProductRecord = {
   tagline: string;
   summary: string;
   description: string;
+  aiNote: string;
   audience: string;
   capabilities: string[];
   modules: { title: string; description: string }[];
@@ -28,11 +29,18 @@ export type ProductRecord = {
   outcomes: string[];
 };
 
+/** Shared across ERP, CRM, and MIS — every Softlligence product is AI-powered. */
+export const productsAiShared = {
+  label: "AI-powered",
+  note:
+    "Every Softlligence product includes a trained recommendation model for what to buy and restock, AI-powered summaries of your data, plus access via mobile app, WordPress, and a Telegram chatbot.",
+};
+
 export const productsCatalogIntro = {
   eyebrow: "Products",
-  title: "Enterprise platforms ready to trial.",
+  title: "Enterprise platforms. Ready to trial.",
   lead:
-    "Softlligence offers ready ERP, CRM, and MIS platforms with a 7-day free cloud trial. Need them on your website, existing stack, or local devices? We integrate and customize them around your operations.",
+    "Softlligence offers AI-powered ERP, CRM, and MIS platforms with a 7-day free cloud trial. Get purchase recommendations, AI summaries, and support across mobile, WordPress, and Telegram — or integrate and customize for your operations.",
 };
 
 export const products: ProductRecord[] = [
@@ -40,48 +48,52 @@ export const products: ProductRecord[] = [
     slug: "erp",
     name: "Softlligence ERP",
     shortName: "ERP",
-    tagline: "Operations, finance, and inventory in one system of record.",
+    tagline: "AI-powered operations, finance, and inventory in one system of record.",
     summary:
-      "Unify purchasing, stock, finance, and day-to-day operations so teams stop living in spreadsheets.",
+      "Unify purchasing, stock, finance, and day-to-day operations — with a trained model that recommends what to buy, surfaces best-selling products, and delivers AI-powered summaries.",
     description:
-      "Softlligence ERP is built for organizations that need reliable control over inventory, procurement, accounting workflows, and operational visibility — with room to customize as you grow.",
+      "Softlligence ERP gives organizations reliable control over inventory, procurement, accounting workflows, and operational visibility. A trained recommendation model suggests what to purchase and restock based on demand and best sellers, while AI-powered summaries help teams act faster. Use it on web, mobile app, WordPress, or Telegram chatbot — with room to customize as you grow.",
+    aiNote:
+      "AI recommends purchase and restock decisions, highlights best-selling products, and generates operational summaries. Available on mobile app, WordPress, and Telegram chatbot.",
     audience: "Manufacturers, distributors, multi-branch businesses, and growing operators.",
     capabilities: [
+      "AI purchase & restock recommendations",
+      "Best-selling product insights",
+      "AI-powered operational summaries",
       "Finance & ledger workflows",
       "Inventory & warehouses",
       "Procurement & vendors",
-      "Sales orders & invoicing",
-      "Role-based access",
-      "Operational dashboards",
+      "Mobile app · WordPress · Telegram bot",
+      "Role-based access & dashboards",
     ],
     modules: [
       {
         title: "Finance",
-        description: "Track receivables, payables, and core ledgers without disconnected tools.",
+        description: "Track receivables, payables, and core ledgers — with AI summaries of cash and outstanding positions.",
       },
       {
         title: "Inventory",
-        description: "Real-time stock, transfers, and warehouse visibility across locations.",
+        description: "Real-time stock plus AI recommendations on what to buy and which SKUs are best sellers.",
       },
       {
         title: "Procurement",
-        description: "Vendor management, purchase orders, and receiving in one flow.",
+        description: "Vendor management, purchase orders, and AI-guided buying suggestions in one flow.",
       },
       {
-        title: "Operations",
-        description: "Order-to-fulfillment visibility for teams that need one source of truth.",
+        title: "AI & channels",
+        description: "Trained recommendation model, AI summaries, mobile app, WordPress embed, and Telegram chatbot.",
       },
     ],
     paths: [
       {
         id: "trial",
         title: "7-day cloud trial",
-        description: "Spin up a sandbox tenant and explore ERP with demo data — free for seven days.",
+        description: "Spin up a sandbox tenant and explore AI-powered ERP with demo data — free for seven days.",
       },
       {
         id: "integrate",
         title: "Integrate with your systems",
-        description: "Connect ERP to your website, APIs, or existing tools with Softlligence engineering.",
+        description: "Connect ERP to your website, WordPress, APIs, mobile, or Telegram with Softlligence engineering.",
       },
       {
         id: "local",
@@ -90,57 +102,62 @@ export const products: ProductRecord[] = [
       },
     ],
     outcomes: [
-      "Replace spreadsheet-driven operations",
-      "Connect finance, stock, and fulfillment",
-      "Scale branches without losing control",
+      "Buy and restock with AI recommendations",
+      "See best sellers without spreadsheet digging",
+      "Act on AI-powered operational summaries",
+      "Reach teams on mobile, WordPress, and Telegram",
     ],
   },
   {
     slug: "crm",
     name: "Softlligence CRM",
     shortName: "CRM",
-    tagline: "Pipeline, customers, and service — built for how your team sells.",
+    tagline: "AI-powered pipeline, customers, and service — built for how your team sells.",
     summary:
-      "Manage leads, deals, customer history, and follow-ups in a platform your sales and support teams will actually use.",
+      "Manage leads, deals, and customer history with AI that recommends next products to sell, surfaces best sellers, and summarizes pipeline activity — on web, mobile, WordPress, and Telegram.",
     description:
-      "Softlligence CRM helps commercial teams capture demand, move deals forward, and keep customer context in one place — ready for cloud trial or integration into your stack.",
+      "Softlligence CRM helps commercial teams capture demand, move deals forward, and keep customer context in one place. A trained model recommends what customers should buy next, highlights best-selling products, and delivers AI-powered summaries of pipeline and conversations. Access CRM from mobile app, WordPress, or Telegram chatbot — ready for cloud trial or deeper integration.",
+    aiNote:
+      "AI recommends products to pitch and purchase next, tracks best sellers, and summarizes deals and follow-ups. Supported on mobile app, WordPress, and Telegram chatbot.",
     audience: "Sales teams, agencies, service businesses, and growing B2B operators.",
     capabilities: [
-      "Lead & pipeline tracking",
+      "AI product & purchase recommendations",
+      "Best-selling product signals",
+      "AI-powered pipeline summaries",
+      "Lead & deal tracking",
       "Contact & company records",
-      "Deal stages & activities",
-      "Follow-up reminders",
-      "Service / ticket notes",
+      "Follow-up reminders & activities",
+      "Mobile app · WordPress · Telegram bot",
       "Lightweight reporting",
     ],
     modules: [
       {
         title: "Pipeline",
-        description: "See every deal stage clearly — from first inquiry to closed won.",
+        description: "See every deal stage clearly — with AI summaries of momentum and risk.",
       },
       {
         title: "Customers",
-        description: "Keep people, companies, and conversation history connected.",
+        description: "Keep people, companies, and history connected, plus AI suggestions on what to offer next.",
       },
       {
         title: "Activities",
         description: "Calls, notes, and tasks that keep follow-ups from falling through.",
       },
       {
-        title: "Insights",
-        description: "Simple views of conversion and workload without heavy BI overhead.",
+        title: "AI & channels",
+        description: "Purchase recommendations, best-seller insights, mobile app, WordPress, and Telegram chatbot.",
       },
     ],
     paths: [
       {
         id: "trial",
         title: "7-day cloud trial",
-        description: "Try CRM with sample pipeline data and invite your team during the trial window.",
+        description: "Try AI-powered CRM with sample pipeline data and invite your team during the trial window.",
       },
       {
         id: "integrate",
         title: "Integrate with your website",
-        description: "Connect web forms, chat, or existing tools so leads land where sales works.",
+        description: "Connect web forms, WordPress, chat, mobile, or Telegram so leads land where sales works.",
       },
       {
         id: "local",
@@ -149,57 +166,62 @@ export const products: ProductRecord[] = [
       },
     ],
     outcomes: [
-      "Stop losing leads in inboxes",
-      "Give sales one shared pipeline",
-      "Keep customer context after the deal",
+      "Recommend the right products to buy next",
+      "Spot best sellers across the pipeline",
+      "Get AI summaries instead of status meetings",
+      "Sell from mobile, WordPress, and Telegram",
     ],
   },
   {
     slug: "mis",
     name: "Softlligence MIS",
     shortName: "MIS",
-    tagline: "Management information that turns operations into decisions.",
+    tagline: "AI-powered management information that turns operations into decisions.",
     summary:
-      "Dashboards and operational reports that pull the right numbers for leadership — without another spreadsheet ritual.",
+      "Dashboards and reports with AI that recommends what to purchase, highlights best-selling products, and generates executive summaries — available on mobile, WordPress, and Telegram.",
     description:
-      "Softlligence MIS focuses on management visibility: KPIs, departmental reports, and decision-ready views that sit on top of your operations data — trial in the cloud or integrate with your systems.",
+      "Softlligence MIS focuses on management visibility: KPIs, departmental reports, and decision-ready views on top of your operations data. A trained recommendation model suggests what to buy and restock, surfaces best-selling products, and produces AI-powered summaries for leadership. Reach MIS via mobile app, WordPress, or Telegram chatbot — trial in the cloud or integrate with your systems.",
+    aiNote:
+      "AI analyzes performance into clear summaries, recommends purchase priorities from best sellers and demand, and works on mobile app, WordPress, and Telegram chatbot.",
     audience: "Founders, ops leads, and managers who need clear reporting across teams.",
     capabilities: [
-      "Executive dashboards",
+      "AI purchase priority recommendations",
+      "Best-selling product analysis",
+      "AI-powered executive summaries",
+      "Executive dashboards & KPIs",
       "Departmental reports",
-      "KPI tracking",
-      "Exportable summaries",
-      "Role-based views",
-      "Data connectors (as configured)",
+      "Exportable management packs",
+      "Mobile app · WordPress · Telegram bot",
+      "Role-based views & connectors",
     ],
     modules: [
       {
         title: "Dashboards",
-        description: "At-a-glance views for leadership across sales, ops, and finance signals.",
+        description: "At-a-glance views for leadership — with AI callouts on demand, stock, and best sellers.",
       },
       {
         title: "Reports",
-        description: "Repeatable management reports instead of one-off spreadsheet builds.",
+        description: "Repeatable management reports plus AI-generated summaries instead of spreadsheet rituals.",
       },
       {
         title: "KPIs",
-        description: "Track the metrics that matter for your operating rhythm.",
+        description: "Track the metrics that matter, including purchase and product performance signals.",
       },
       {
-        title: "Access",
-        description: "Give each role the visibility they need — nothing more, nothing less.",
+        title: "AI & channels",
+        description: "Trained recommendations, AI summaries, mobile app, WordPress embed, and Telegram chatbot.",
       },
     ],
     paths: [
       {
         id: "trial",
         title: "7-day cloud trial",
-        description: "Explore MIS dashboards and sample reports in a guided trial environment.",
+        description: "Explore AI-powered MIS dashboards and sample reports in a guided trial environment.",
       },
       {
         id: "integrate",
         title: "Integrate with your data sources",
-        description: "Connect MIS to ERP, CRM, databases, or local systems with Softlligence support.",
+        description: "Connect MIS to ERP, CRM, WordPress, databases, mobile, or Telegram with Softlligence support.",
       },
       {
         id: "local",
@@ -208,9 +230,10 @@ export const products: ProductRecord[] = [
       },
     ],
     outcomes: [
-      "Replace manual management packs",
-      "See performance across departments",
-      "Decide faster with trusted numbers",
+      "Decide purchases with AI recommendations",
+      "See best sellers in management views",
+      "Read AI summaries instead of raw tables",
+      "Access insights on mobile, WordPress, and Telegram",
     ],
   },
 ];

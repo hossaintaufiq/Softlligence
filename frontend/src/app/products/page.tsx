@@ -4,7 +4,7 @@ import { ProductsCatalogView } from "@/components/products-page/ProductsCatalogV
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Softlligence ERP, CRM, and MIS — enterprise platforms with a 7-day free cloud trial, plus integration and local deployment options.",
+    "AI-powered Softlligence ERP, CRM, and MIS — purchase recommendations, AI summaries, mobile, WordPress, and Telegram chatbot, with a 7-day free cloud trial.",
 };
 
 export default function ProductsPage() {

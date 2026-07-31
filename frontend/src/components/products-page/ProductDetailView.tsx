@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { pageRoutes } from "@/lib/navigation";
 import {
   products,
+  productsAiShared,
   trialSignupUrl,
   type ProductRecord,
 } from "@/lib/productsContent";
@@ -17,55 +18,52 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         <div className="prd-hero__bg" aria-hidden="true">
           <div className="prd-hero__grid" />
           <div className="prd-hero__beam" />
-          <div className="prd-hero__glow" />
         </div>
 
-        <div className="prd-container prd-hero__layout">
-          <div className="prd-hero__copy">
-            <p className="prd-kicker">
-              <span>/</span> Products · {product.shortName}
-            </p>
-            <h1 id="prd-detail-title" className="prd-hero__title prd-hero__title--product">
-              {product.name}
-            </h1>
-            <p className="prd-hero__tagline">{product.tagline}</p>
-            <p className="prd-hero__lead">{product.description}</p>
-            <p className="prd-hero__audience">
-              <strong>Built for</strong> {product.audience}
-            </p>
-            <div className="prd-hero__actions">
-              <Button href={trialSignupUrl(product.slug)} size="lg" external className="max-sm:w-full">
-                Start 7-day free trial
-              </Button>
-              <Button
-                href={`${pageRoutes.contact}?product=${product.slug}`}
-                variant="outline"
-                size="lg"
-                className="max-sm:w-full"
-              >
-                Discuss integration
-              </Button>
-            </div>
-          </div>
-
-          <aside className="prd-hero__panel" aria-label={`${product.shortName} trial overview`}>
-            <p className="prd-hero__panel-label">Start here</p>
-            <div className="prd-hero__panel-stat">
-              <strong>7 days</strong>
-              <span>Free cloud trial</span>
-            </div>
-            <ul className="prd-hero__panel-list">
-              <li>Sandbox tenant with demo data</li>
-              <li>No credit card to begin</li>
-              <li>Upgrade or integrate after trial</li>
-            </ul>
-            <p className="prd-hero__trial-note">
-              Trial runs on <span>app.softlligence.com</span>
-            </p>
-            <Button href={trialSignupUrl(product.slug)} external block>
-              Open trial signup
+        <div className="prd-container prd-hero__inner">
+          <p className="prd-kicker">
+            <span>/</span> Products · {product.shortName} · {productsAiShared.label}
+          </p>
+          <h1 id="prd-detail-title" className="prd-hero__title">
+            {product.name}
+          </h1>
+          <p className="prd-hero__tagline">{product.tagline}</p>
+          <p className="prd-hero__lead">{product.description}</p>
+          <p className="prd-ai-note">{product.aiNote}</p>
+          <p className="prd-hero__audience">
+            <strong>Built for</strong> {product.audience}
+          </p>
+          <div className="prd-hero__actions">
+            <Button href={trialSignupUrl(product.slug)} size="lg" external className="max-sm:w-full">
+              Start 7-day free trial
             </Button>
-          </aside>
+            <Button
+              href={`${pageRoutes.contact}?product=${product.slug}`}
+              variant="outline"
+              size="lg"
+              className="max-sm:w-full"
+            >
+              Discuss integration
+            </Button>
+          </div>
+          <dl className="prd-hero__signals">
+            <div>
+              <dt>AI model</dt>
+              <dd>Buy &amp; best-seller recs</dd>
+            </div>
+            <div>
+              <dt>Summaries</dt>
+              <dd>AI-powered analysis</dd>
+            </div>
+            <div>
+              <dt>Channels</dt>
+              <dd>Mobile · WP · Telegram</dd>
+            </div>
+            <div>
+              <dt>Trial</dt>
+              <dd>7 days free</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
@@ -77,6 +75,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             </p>
             <h2 id="prd-caps-title">What {product.shortName} covers.</h2>
             <p className="prd-muted">{product.summary}</p>
+            <p className="prd-ai-note prd-ai-note--inline">{productsAiShared.note}</p>
           </div>
           <ul className="prd-cap-list">
             {product.capabilities.map((cap) => (
