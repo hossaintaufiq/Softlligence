@@ -1,33 +1,7 @@
 @import "tailwindcss";
 
-/* Theme source tokens */
-:root,
-html.dark {
-  color-scheme: dark;
-  --theme-ink: #0b1220;
-  --theme-panel: #121b2e;
-  --theme-panel-2: #17223a;
-  --theme-elevated: #0a101c;
-  --theme-strip: #0d1524;
-  --theme-paper: #edeff2;
-  --theme-text: #e7eaf0;
-  --theme-text-dim: #8791a6;
-  --theme-text-dark: #10141c;
-  --theme-accent: #ffb020;
-  --theme-accent-ink: #3a2600;
-  --theme-accent-2: #4cc3ff;
-  --theme-danger: #e86a5c;
-  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.28);
-  --shadow-team: 0 20px 48px rgba(0, 0, 0, 0.35);
-  --grid-line: rgba(255, 255, 255, 0.025);
-  --card-border: rgba(255, 255, 255, 0.09);
-  --road-asphalt-a: #1a2438;
-  --road-asphalt-b: #0f1726;
-  --marquee-label: #6b7589;
-  --marquee-hover: #c8d0e0;
-}
-
-html.light {
+/* Theme — light / day mode only */
+:root {
   color-scheme: light;
   --theme-ink: #f6f7fa;
   --theme-panel: #ffffff;
@@ -94,7 +68,7 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: clip;
   min-width: 0;
-  transition: background-color 0.35s ease, color 0.35s ease;
+  transition: none;
 }
 
 img,
@@ -152,15 +126,11 @@ footer {
 }
 
 .site-footer__wave-accent {
-  fill: color-mix(in srgb, var(--theme-accent) 18%, transparent);
+  fill: color-mix(in srgb, var(--theme-accent) 22%, transparent);
 }
 
 .site-footer__wave-fill {
   fill: var(--theme-elevated);
-}
-
-html.light .site-footer__wave-accent {
-  fill: color-mix(in srgb, var(--theme-accent) 22%, transparent);
 }
 
 .site-footer__body {
@@ -176,16 +146,6 @@ html.light .site-footer__wave-accent {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.35s ease;
-  background: radial-gradient(
-    480px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
-    color-mix(in srgb, var(--theme-accent) 14%, transparent),
-    color-mix(in srgb, var(--theme-accent-2) 8%, transparent) 32%,
-    transparent 55%
-  );
-  mix-blend-mode: screen;
-}
-
-html.light .cursor-spotlight {
   mix-blend-mode: multiply;
   background: radial-gradient(
     480px circle at var(--cursor-x, 50%) var(--cursor-y, 50%),
@@ -238,7 +198,7 @@ html.light .cursor-spotlight {
 .site-glow {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.18;
+  opacity: 0.35;
   will-change: auto;
 }
 
@@ -247,7 +207,7 @@ html.light .cursor-spotlight {
   right: -80px;
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--theme-accent-2) 30%, transparent), transparent 70%);
+  background: radial-gradient(circle, rgba(11, 124, 184, 0.16), transparent 70%);
 }
 
 .site-glow--accent {
@@ -255,56 +215,30 @@ html.light .cursor-spotlight {
   left: -100px;
   width: 360px;
   height: 360px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--theme-accent) 18%, transparent), transparent 70%);
-}
-
-html.light .site-glow {
-  opacity: 0.35;
-}
-
-html.light .site-glow--hero {
-  background: radial-gradient(circle, rgba(11, 124, 184, 0.16), transparent 70%);
-}
-
-html.light .site-glow--accent {
   background: radial-gradient(circle, rgba(232, 160, 18, 0.14), transparent 70%);
 }
 
 /* Home hero grid — soft, low-contrast blueprint feel */
 .hero-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    linear-gradient(rgba(12, 18, 32, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 18, 32, 0.035) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center top;
   mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, black 15%, transparent 72%);
   -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, black 15%, transparent 72%);
-  opacity: 0.55;
+  opacity: 0.4;
 }
 
 /* Inner page heroes — a touch more present */
 .hero-grid--page {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(rgba(12, 18, 32, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 18, 32, 0.055) 1px, transparent 1px);
   background-size: 48px 48px;
   background-position: center top;
   mask-image: linear-gradient(180deg, black 0%, black 45%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, black 0%, black 45%, transparent 100%);
-  opacity: 0.75;
-}
-
-html.light .hero-grid {
-  background-image:
-    linear-gradient(rgba(12, 18, 32, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 18, 32, 0.035) 1px, transparent 1px);
-  opacity: 0.4;
-}
-
-html.light .hero-grid--page {
-  background-image:
-    linear-gradient(rgba(12, 18, 32, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 18, 32, 0.055) 1px, transparent 1px);
   opacity: 0.55;
 }
 
@@ -329,12 +263,12 @@ html.light .hero-grid--page {
   transform: translateY(-4px);
 }
 
-html.light .svc-card {
+.svc-card {
   background-color: #ffffff;
   box-shadow: var(--shadow-card);
 }
 
-html.light .svc-model {
+.svc-model {
   background-color: #ffffff;
 }
 
@@ -385,6 +319,7 @@ html.light .svc-model {
   border-radius: var(--radius-card);
   border: 1px solid var(--card-border);
   background: var(--theme-panel);
+  box-shadow: 0 1px 2px rgba(12, 18, 32, 0.04);
   transition:
     transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.25s ease,
@@ -522,7 +457,7 @@ html.light .svc-model {
 
 /* ── Gradient text accent ── */
 .text-gradient {
-  background: linear-gradient(135deg, var(--theme-text) 0%, var(--theme-accent-2) 100%);
+  background: linear-gradient(135deg, #0c1220 0%, #0b7cb8 88%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -746,49 +681,45 @@ html.light .svc-model {
     var(--shadow-team);
 }
 
-/* ── Light mode polish ── */
-html.light .pro-card {
+/* ── Day-mode surface remaps (legacy white/ink utility classes) ── */
+.pro-card {
   box-shadow: 0 1px 2px rgba(12, 18, 32, 0.04);
 }
 
-html.light .pro-card:hover {
+.pro-card:hover {
   box-shadow: var(--shadow-card);
 }
 
-html.light .text-gradient {
-  background: linear-gradient(135deg, #0c1220 0%, #0b7cb8 88%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-html.light :is(
+:is(
   .border-white\/5,
   .border-white\/8,
   .border-white\/9,
   .border-white\/10,
-  .border-white\/12
+  .border-white\/12,
+  .border-white\/14,
+  .border-white\/15
 ) {
   border-color: rgb(12 18 32 / 0.1);
 }
 
-html.light :is(
+:is(
   .bg-white\/4,
   .bg-white\/5,
+  .bg-white\/6,
   .bg-white\/9,
   .bg-white\/10
 ) {
   background-color: rgb(12 18 32 / 0.045);
 }
 
-html.light .from-white\/10 {
+.from-white\/10 {
   --tw-gradient-from: rgb(12 18 32 / 0.06);
 }
 
-/* Transparent ink overlays are muddy on light — solid white surfaces */
-html.light :is(
+:is(
   .bg-ink\/30,
   .bg-ink\/40,
+  .bg-ink\/45,
   .bg-ink\/50,
   .bg-ink\/55,
   .bg-ink\/60,
@@ -798,103 +729,98 @@ html.light :is(
   box-shadow: 0 1px 2px rgb(12 18 32 / 0.04);
 }
 
-html.light :is(.bg-panel\/60, .bg-panel\/70) {
+:is(.bg-panel\/60, .bg-panel\/70) {
   background-color: #ffffff;
 }
 
-html.light .bg-ink\/72,
-html.light .bg-ink\/90,
-html.light .bg-ink\/98 {
-  background-color: rgb(246 247 250 / 0.92);
+.bg-ink\/72,
+.bg-ink\/90,
+.bg-ink\/92,
+.bg-ink\/98 {
+  background-color: rgb(246 247 250 / 0.94);
 }
 
-html.light .divide-white\/8 > :not([hidden]) ~ :not([hidden]) {
+.divide-white\/8 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgb(12 18 32 / 0.1);
 }
 
-html.light .site-header {
-  border-color: rgb(12 18 32 / 0.12);
-  background-color: rgb(18 24 38 / 0.55);
-  box-shadow: 0 8px 28px rgb(12 18 32 / 0.1);
+/* Floating nav pill — light glass over heroes */
+.site-header {
+  border-color: rgb(12 18 32 / 0.1);
+  background-color: rgb(255 255 255 / 0.72);
+  box-shadow: 0 8px 28px rgb(12 18 32 / 0.08);
   backdrop-filter: blur(14px);
 }
 
-html.light .site-header--scrolled {
-  border-color: rgb(12 18 32 / 0.14);
-  background-color: rgb(255 255 255 / 0.82);
-  box-shadow: 0 10px 32px rgb(12 18 32 / 0.08);
+.site-header--scrolled {
+  border-color: rgb(12 18 32 / 0.12);
+  background-color: rgb(255 255 255 / 0.9);
+  box-shadow: 0 10px 32px rgb(12 18 32 / 0.1);
 }
 
-html.light .site-header a {
-  color: rgb(231 234 240 / 0.78);
-}
-
-html.light .site-header a:hover {
-  color: #e7eaf0;
-}
-
-html.light .site-header--scrolled a {
+.site-header a {
   color: rgb(12 18 32 / 0.62);
 }
 
-html.light .site-header--scrolled a:hover {
-  color: #10141c;
+.site-header a:hover {
+  color: #0c1220;
 }
 
-html.light .mobile-nav-panel {
-  background-color: rgb(246 247 250 / 0.94);
+.mobile-nav-panel {
+  background-color: rgb(255 255 255 / 0.96);
   border-color: rgb(12 18 32 / 0.1);
   backdrop-filter: blur(16px);
+  box-shadow: 0 24px 48px rgb(12 18 32 / 0.12);
 }
 
-html.light .mobile-nav-panel .nav-link {
+.mobile-nav-panel .nav-link {
   border-color: rgb(12 18 32 / 0.08);
 }
 
-html.light .mobile-nav-panel .nav-link:hover {
-  background-color: rgb(255 255 255 / 0.9);
+.mobile-nav-panel .nav-link:hover {
+  background-color: rgb(246 247 250 / 0.95);
   border-color: rgb(12 18 32 / 0.14);
 }
 
-html.light .mobile-nav-panel .nav-link--active {
+.mobile-nav-panel .nav-link--active {
   background-color: #ffffff;
   border-color: color-mix(in srgb, var(--theme-accent) 40%, transparent);
 }
 
-html.light .team-card {
+.team-card {
   background-color: #ffffff;
   border-color: rgb(12 18 32 / 0.1);
   box-shadow: 0 1px 2px rgb(12 18 32 / 0.04);
 }
 
-html.light .team-card:hover {
+.team-card:hover {
   box-shadow: var(--shadow-team);
 }
 
-html.light .form-field {
+.form-field {
   background-color: var(--theme-panel-2);
   border-color: rgb(12 18 32 / 0.12);
   color: var(--theme-text);
 }
 
-html.light .form-field:focus {
+.form-field:focus {
   background-color: #ffffff;
   border-color: var(--theme-accent-2);
 }
 
-html.light .photo-scrim {
+.photo-scrim {
   background: rgb(12 18 32 / 0.72) !important;
 }
 
-html.light .photo-scrim-b {
+.photo-scrim-b {
   background: linear-gradient(to bottom, rgb(12 18 32 / 0.4), rgb(12 18 32 / 0.75), #f6f7fa) !important;
 }
 
-html.light .photo-scrim-r {
+.photo-scrim-r {
   background: linear-gradient(to right, rgb(12 18 32 / 0.3), transparent, rgb(12 18 32 / 0.22)) !important;
 }
 
-html.light ::selection {
+::selection {
   background: color-mix(in srgb, var(--theme-accent) 35%, transparent);
   color: #0c1220;
 }

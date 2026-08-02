@@ -20,8 +20,8 @@ const variantClasses: Record<ButtonVariant, string> = {
   accent:
     "border-accent bg-accent text-accent-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:bg-[color-mix(in_srgb,var(--theme-accent)_90%,white)] hover:shadow-[0_6px_20px_color-mix(in_srgb,var(--theme-accent)_22%,transparent)]",
   outline:
-    "border-white/14 bg-transparent text-text hover:border-white/28 hover:bg-white/5",
-  ghost: "border-transparent text-text-dim hover:bg-white/5 hover:text-text",
+    "border-[rgb(12_18_32_/0.14)] bg-transparent text-text hover:border-[rgb(12_18_32_/0.28)] hover:bg-[rgb(12_18_32_/0.04)]",
+  ghost: "border-transparent text-text-dim hover:bg-[rgb(12_18_32_/0.04)] hover:text-text",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

@@ -2,8 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import { ThemeInit } from "@/components/ThemeInit";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { CursorSpotlightLazy } from "@/components/CursorSpotlightLazy";
 import "./globals.css";
@@ -48,10 +46,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0B1220" },
-    { media: "(prefers-color-scheme: light)", color: "#F3F5F9" },
-  ],
+  themeColor: "#F6F7FA",
   width: "device-width",
   initialScale: 1,
 };
@@ -64,23 +59,19 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} dark`}
-      suppressHydrationWarning
+      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
     >
       <body className="antialiased">
-        <ThemeInit />
-        <ThemeProvider>
-          <ScrollToTop />
-          <CursorSpotlightLazy />
-          <div className="site-bg" aria-hidden="true">
-            <div className="site-grid" />
-            <div className="site-glow site-glow--hero" />
-            <div className="site-glow site-glow--accent" />
-          </div>
-          <Nav />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <ScrollToTop />
+        <CursorSpotlightLazy />
+        <div className="site-bg" aria-hidden="true">
+          <div className="site-grid" />
+          <div className="site-glow site-glow--hero" />
+          <div className="site-glow site-glow--accent" />
+        </div>
+        <Nav />
+        {children}
+        <Footer />
       </body>
     </html>
   );
