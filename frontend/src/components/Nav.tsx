@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Section";
 import { navLinks } from "@/lib/navigation";
 import { cn } from "@/lib/utils";
 
@@ -111,95 +110,102 @@ export function Nav() {
   };
 
   return (
-    <header className="sticky top-0 z-[100]">
-      {/* Blur lives on the bar only so the fixed mobile panel is not trapped */}
+    <header className="pointer-events-none sticky top-0 z-[100]">
       <div
         className={cn(
-          "site-header relative z-[110] border-b transition-all duration-300",
-          scrolled
-            ? "site-header--scrolled border-white/10 bg-ink/90 shadow-[0_8px_32px_rgba(0,0,0,0.18)] backdrop-blur-xl"
-            : "border-white/5 bg-ink/85",
+          "pointer-events-auto relative z-[110] mx-auto grid w-full max-w-[1180px] grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 pt-4 transition-all duration-300 min-[400px]:px-5 sm:px-7 sm:pt-5",
+          scrolled && "pt-3 sm:pt-3.5",
         )}
       >
-        <Container className="flex h-[72px] items-center justify-between gap-3">
-          <Link
-            href="/"
-            onClick={closeMenu}
-            className="flex min-w-0 shrink items-center gap-2 font-display text-[17px] font-semibold min-[980px]:text-[19px]"
-          >
-            <span className="flex shrink-0 text-accent transition-transform duration-300 hover:scale-105" aria-hidden="true">
-              <BrandLogo />
-            </span>
-            <span className="truncate max-[480px]:hidden">Softlligence Technologies</span>
-            <span className="hidden max-[480px]:inline">Softlligence</span>
-          </Link>
+        {/* Left — logo floats over hero */}
+        <Link
+          href="/"
+          onClick={closeMenu}
+          className="flex min-w-0 items-center gap-2.5 justify-self-start font-display text-[17px] font-semibold tracking-tight text-text sm:text-[18px]"
+        >
+          <span className="flex shrink-0 text-accent drop-shadow-[0_0_18px_rgba(255,176,32,0.35)]" aria-hidden="true">
+            <BrandLogo size={30} />
+          </span>
+          <span className="truncate max-[420px]:hidden">Softlligence</span>
+        </Link>
 
-          <nav
-            aria-label="Primary"
-            className="hidden items-center gap-5 min-[980px]:flex min-[1100px]:gap-[28px]"
-          >
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={cn(
-                    "nav-link text-[14.5px] text-text-dim hover:text-text",
-                    isActive && "nav-link--active text-text",
-                  )}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-          </nav>
+        {/* Center — compact links pill (desktop) */}
+        <nav
+          aria-label="Primary"
+          className={cn(
+            "site-header hidden h-11 items-center gap-1 rounded-full border px-2 min-[980px]:flex",
+            scrolled
+              ? "site-header--scrolled border-white/14 bg-ink/70 shadow-[0_10px_32px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+              : "border-white/12 bg-ink/45 shadow-[0_8px_28px_rgba(0,0,0,0.18)] backdrop-blur-md",
+          )}
+        >
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "rounded-full px-3 py-1.5 text-[13px] text-text-dim transition-colors hover:text-text",
+                  isActive && "bg-white/6 text-text",
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </nav>
 
-          <div className="flex shrink-0 items-center gap-2.5">
-            <ThemeToggle className="max-[979px]:hidden" />
-            <Button href="/contact" className="max-[979px]:hidden">
-              Book a call
-            </Button>
-            <button
-              ref={toggleRef}
-              type="button"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isOpen}
-              aria-controls={menuId}
-              onClick={toggleMenu}
-              className="relative hidden h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-white/9 bg-panel/50 max-[979px]:flex"
-            >
-              <span
-                className={cn(
-                  "absolute block h-0.5 w-5 bg-text transition-all duration-300",
-                  isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute block h-0.5 w-5 bg-text transition-all duration-300",
-                  isOpen ? "opacity-0" : "opacity-100",
-                )}
-              />
-              <span
-                className={cn(
-                  "absolute block h-0.5 w-5 bg-text transition-all duration-300",
-                  isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5",
-                )}
-              />
-            </button>
-          </div>
-        </Container>
+        {/* Right — CTA (+ theme / mobile toggle) */}
+        <div className="flex items-center justify-end gap-2 justify-self-end">
+          <ThemeToggle className="max-[979px]:hidden" />
+          <Button href="/contact" className="max-[979px]:hidden shadow-[0_0_24px_rgba(255,176,32,0.22)]">
+            Book a call
+          </Button>
+          <button
+            ref={toggleRef}
+            type="button"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls={menuId}
+            onClick={toggleMenu}
+            className={cn(
+              "relative hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full border transition-colors max-[979px]:flex",
+              scrolled
+                ? "border-white/14 bg-ink/70 backdrop-blur-xl"
+                : "border-white/12 bg-ink/45 backdrop-blur-md",
+            )}
+          >
+            <span
+              className={cn(
+                "absolute block h-0.5 w-4 bg-text transition-all duration-300",
+                isOpen ? "translate-y-0 rotate-45" : "-translate-y-1.5",
+              )}
+            />
+            <span
+              className={cn(
+                "absolute block h-0.5 w-4 bg-text transition-all duration-300",
+                isOpen ? "opacity-0" : "opacity-100",
+              )}
+            />
+            <span
+              className={cn(
+                "absolute block h-0.5 w-4 bg-text transition-all duration-300",
+                isOpen ? "translate-y-0 -rotate-45" : "translate-y-1.5",
+              )}
+            />
+          </button>
+        </div>
       </div>
 
-      {/* Backdrop — outside blurred bar so fixed positioning works */}
+      {/* Backdrop */}
       <button
         type="button"
         aria-label="Close menu"
         tabIndex={isOpen ? 0 : -1}
         onClick={closeMenu}
         className={cn(
-          "fixed inset-0 z-[105] bg-ink/60 backdrop-blur-[2px] transition-opacity duration-300 max-[979px]:block min-[980px]:hidden",
+          "pointer-events-auto fixed inset-0 z-[105] bg-ink/55 backdrop-blur-[2px] transition-opacity duration-300 max-[979px]:block min-[980px]:hidden",
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0",
         )}
       />
@@ -211,10 +217,10 @@ export function Nav() {
         aria-hidden={!isOpen}
         inert={!isOpen ? true : undefined}
         className={cn(
-          "mobile-nav-panel fixed top-[72px] right-0 left-0 z-[106] flex max-h-[calc(100dvh-72px)] flex-col items-center gap-1 overflow-y-auto overscroll-contain border-b border-white/9 bg-ink/98 px-5 pt-5 pb-[max(1.25rem,env(safe-area-inset-bottom))] shadow-[0_24px_48px_rgba(0,0,0,0.35)] transition-[opacity,transform,visibility] duration-300 max-[979px]:flex min-[980px]:hidden sm:px-7",
+          "mobile-nav-panel pointer-events-auto fixed top-[4.75rem] right-4 left-4 z-[106] mx-auto flex max-h-[calc(100dvh-5.5rem)] w-auto max-w-[22rem] flex-col items-center gap-1 overflow-y-auto overscroll-contain rounded-2xl border border-white/12 bg-ink/92 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] shadow-[0_24px_48px_rgba(0,0,0,0.35)] backdrop-blur-xl transition-[opacity,transform,visibility] duration-300 max-[979px]:flex min-[980px]:hidden sm:right-7 sm:left-auto",
           isOpen
             ? "visible translate-y-0 opacity-100"
-            : "invisible pointer-events-none -translate-y-3 opacity-0",
+            : "invisible pointer-events-none -translate-y-2 opacity-0",
         )}
       >
         {navLinks.map((link, i) => {
@@ -227,7 +233,7 @@ export function Nav() {
               tabIndex={isOpen ? 0 : -1}
               style={{ transitionDelay: isOpen ? `${i * 40}ms` : "0ms" }}
               className={cn(
-                "nav-link w-full max-w-[320px] rounded-lg border border-white/5 px-4 py-3.5 text-center text-[15px] text-text-dim transition-all hover:border-white/12 hover:bg-panel/60 hover:text-text",
+                "nav-link w-full rounded-xl border border-white/5 px-4 py-3 text-center text-[15px] text-text-dim transition-all hover:border-white/12 hover:bg-panel/60 hover:text-text",
                 isActive && "nav-link--active border-accent/30 bg-panel text-text",
               )}
             >
@@ -235,7 +241,7 @@ export function Nav() {
             </Link>
           );
         })}
-        <div className="mt-3 flex w-full max-w-[320px] items-center justify-center gap-3">
+        <div className="mt-2 flex w-full items-center justify-center gap-3">
           <ThemeToggle />
           <Button href="/contact" block onClick={closeMenu}>
             Book a call

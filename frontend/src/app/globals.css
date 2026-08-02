@@ -813,20 +813,38 @@ html.light .divide-white\/8 > :not([hidden]) ~ :not([hidden]) {
 }
 
 html.light .site-header {
-  border-color: rgb(12 18 32 / 0.08);
-  background-color: rgb(246 247 250 / 0.86);
-  box-shadow: none;
+  border-color: rgb(12 18 32 / 0.12);
+  background-color: rgb(18 24 38 / 0.55);
+  box-shadow: 0 8px 28px rgb(12 18 32 / 0.1);
+  backdrop-filter: blur(14px);
 }
 
 html.light .site-header--scrolled {
-  border-color: rgb(12 18 32 / 0.1);
-  background-color: rgb(255 255 255 / 0.94);
-  box-shadow: 0 8px 28px rgb(12 18 32 / 0.06);
+  border-color: rgb(12 18 32 / 0.14);
+  background-color: rgb(255 255 255 / 0.82);
+  box-shadow: 0 10px 32px rgb(12 18 32 / 0.08);
+}
+
+html.light .site-header a {
+  color: rgb(231 234 240 / 0.78);
+}
+
+html.light .site-header a:hover {
+  color: #e7eaf0;
+}
+
+html.light .site-header--scrolled a {
+  color: rgb(12 18 32 / 0.62);
+}
+
+html.light .site-header--scrolled a:hover {
+  color: #10141c;
 }
 
 html.light .mobile-nav-panel {
-  background-color: rgb(246 247 250 / 0.98);
+  background-color: rgb(246 247 250 / 0.94);
   border-color: rgb(12 18 32 / 0.1);
+  backdrop-filter: blur(16px);
 }
 
 html.light .mobile-nav-panel .nav-link {
