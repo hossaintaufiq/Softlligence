@@ -29,14 +29,6 @@ export function HomeHero() {
 
   return (
     <section className="hp-hero" aria-labelledby="hp-hero-title">
-      <div className="hp-hero__atmosphere" aria-hidden="true">
-        <div className="hp-hero__grid" />
-        <div className="hp-hero__veil" />
-        <div className="hp-hero__beam hp-hero__beam--a" />
-        <div className="hp-hero__beam hp-hero__beam--b" />
-        <div className="hp-hero__noise" />
-      </div>
-
       <Container className="hp-hero__layout">
         <div className="hp-hero__copy">
           <motion.p

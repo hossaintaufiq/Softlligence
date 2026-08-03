@@ -11,18 +11,6 @@ export function TeamHero() {
 
   return (
     <section className="tp-hero" aria-labelledby="team-hero-title">
-      <div className="tp-hero__bg" aria-hidden="true">
-        <div className="tp-hero__grid" />
-        <div className="tp-hero__glow tp-hero__glow--a" />
-        <div className="tp-hero__glow tp-hero__glow--b" />
-        <div className="tp-hero__orbit" />
-        <div className="tp-hero__lines">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <span key={i} style={{ ["--i" as string]: i }} />
-          ))}
-        </div>
-      </div>
-
       <Container className="tp-hero__inner">
         <div className="tp-hero__copy">
           <motion.p

@@ -26,7 +26,6 @@
 .tp-section {
   position: relative;
   padding: 4.5rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
 }
 
 @media (min-width: 768px) {
@@ -67,7 +66,7 @@
   align-items: flex-end;
   padding: 6.25rem 0 3.25rem;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   background: var(--theme-ink);
 }
 
@@ -76,82 +75,6 @@
     min-height: min(92svh, 920px);
     padding: 7.5rem 0 4rem;
   }
-}
-
-.tp-hero__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.tp-hero__grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--theme-text) 4.5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--theme-text) 4.5%, transparent) 1px, transparent 1px);
-  background-size: 68px 68px;
-  mask-image: radial-gradient(ellipse 70% 60% at 35% 40%, #000 15%, transparent 72%);
-  opacity: 0.65;
-}
-
-.tp-hero__glow {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-}
-
-.tp-hero__glow--a {
-  top: 8%;
-  left: 12%;
-  width: min(48vw, 480px);
-  height: min(48vw, 480px);
-  background: color-mix(in srgb, var(--theme-accent) 16%, transparent);
-  animation: tp-drift 18s ease-in-out infinite alternate;
-}
-
-.tp-hero__glow--b {
-  right: 5%;
-  bottom: 10%;
-  width: min(40vw, 400px);
-  height: min(40vw, 400px);
-  background: color-mix(in srgb, var(--theme-accent-2) 14%, transparent);
-  animation: tp-drift 22s ease-in-out infinite alternate-reverse;
-}
-
-.tp-hero__orbit {
-  position: absolute;
-  top: 18%;
-  right: 12%;
-  width: min(34vw, 340px);
-  height: min(34vw, 340px);
-  border: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
-  border-radius: 50%;
-  mask-image: linear-gradient(135deg, #000 20%, transparent 70%);
-}
-
-.tp-hero__lines {
-  position: absolute;
-  inset: 12% 8% auto auto;
-  width: min(42vw, 420px);
-  height: min(36vw, 360px);
-  display: grid;
-  gap: 12%;
-}
-
-.tp-hero__lines span {
-  display: block;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in srgb, var(--theme-accent) 35%, transparent),
-    transparent
-  );
-  opacity: 0.35;
-  transform: translateX(calc(var(--i) * 8px));
-  animation: tp-line 10s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.4s);
 }
 
 .tp-hero__inner {
@@ -198,7 +121,7 @@
 
 .tp-hero__pillars li {
   padding: 0.45rem 0.8rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 18%, transparent);
   border-radius: 999px;
   background: color-mix(in srgb, var(--theme-text) 4%, transparent);
   font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
@@ -209,7 +132,7 @@
 }
 
 .tp-hero__panel {
-  border: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 18%, transparent);
   border-radius: 20px;
   background:
     linear-gradient(
@@ -237,7 +160,7 @@
   gap: 0.55rem;
   margin-top: 1rem;
   padding-top: 0.9rem;
-  border-top: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   font-size: 0.82rem;
   line-height: 1.45;
   color: var(--theme-text-dim);
@@ -278,7 +201,7 @@
 }
 
 .tp-stat {
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 14px;
   background: color-mix(in srgb, var(--theme-text) 3.5%, transparent);
   padding: 1rem 0.95rem;
@@ -335,7 +258,7 @@
   grid-template-columns: auto 1fr;
   gap: 1rem;
   padding: 1.15rem 1.2rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-ink) 55%, transparent);
   backdrop-filter: blur(10px);
@@ -384,7 +307,7 @@
   display: grid;
   gap: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 24px;
   background: color-mix(in srgb, var(--theme-panel) 70%, transparent);
   box-shadow: var(--shadow-card);
@@ -500,7 +423,7 @@
 
 .tp-chips li {
   padding: 0.28rem 0.55rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 999px;
   background: color-mix(in srgb, var(--theme-text) 4%, transparent);
   font-size: 0.72rem;
@@ -542,7 +465,7 @@
   align-items: center;
   gap: 0.75rem;
   padding-top: 1rem;
-  border-top: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 .tp-leader__socials,
@@ -576,7 +499,7 @@
   height: 2.25rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 18%, transparent);
   border-radius: 999px;
   background: color-mix(in srgb, var(--theme-text) 4%, transparent);
   color: var(--theme-text-dim);
@@ -599,7 +522,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 18px;
   background: linear-gradient(
     145deg,
@@ -680,7 +603,7 @@
   gap: 1rem;
   margin-bottom: 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 .tp-eng-group__head h3 {
@@ -718,7 +641,7 @@
   flex-direction: column;
   overflow: hidden;
   height: 100%;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 18px;
   background: color-mix(in srgb, var(--theme-ink) 45%, transparent);
   backdrop-filter: blur(10px);
@@ -770,7 +693,7 @@
 .tp-eng-card__socials {
   margin-top: 1rem;
   padding-top: 0.9rem;
-  border-top: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 /* ── Capabilities ── */
@@ -804,7 +727,7 @@
 .tp-cap-card {
   height: 100%;
   padding: 1.2rem 1.15rem 1.25rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-panel) 55%, transparent);
   backdrop-filter: blur(8px);
@@ -829,7 +752,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 0.9rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 12px;
   background: color-mix(in srgb, var(--theme-accent) 10%, transparent);
   color: var(--theme-accent);
@@ -871,7 +794,7 @@
 .tp-marquee__item {
   flex: none;
   padding: 0.7rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 999px;
   background: color-mix(in srgb, var(--theme-ink) 50%, transparent);
   font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
@@ -911,7 +834,7 @@
 .tp-value,
 .tp-why-card {
   padding: 1.2rem 1.15rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-ink) 40%, transparent);
   backdrop-filter: blur(8px);
@@ -967,20 +890,6 @@
   text-align: center;
 }
 
-.tp-cta__bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 50% 45% at 50% 0%, color-mix(in srgb, var(--theme-accent) 16%, transparent), transparent 70%),
-    linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--theme-accent) 8%, transparent),
-      var(--theme-panel),
-      color-mix(in srgb, var(--theme-accent-2) 8%, transparent)
-    );
-  pointer-events: none;
-}
-
 .tp-cta__inner {
   position: relative;
 }
@@ -1019,27 +928,6 @@
 }
 
 /* ── Motion prefs ── */
-@keyframes tp-drift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(24px, -18px, 0);
-  }
-}
-
-@keyframes tp-line {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: translateX(0);
-  }
-  50% {
-    opacity: 0.55;
-    transform: translateX(18px);
-  }
-}
-
 @keyframes tp-marquee {
   from {
     transform: translateX(0);
@@ -1050,9 +938,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .tp-hero__glow--a,
-  .tp-hero__glow--b,
-  .tp-hero__lines span,
   .tp-marquee__track {
     animation: none !important;
   }

@@ -6,11 +6,6 @@ import { pageRoutes } from "@/lib/navigation";
 export function AboutHero() {
   return (
     <section className="ap-hero" aria-labelledby="ap-hero-title">
-      <div className="ap-hero__bg" aria-hidden="true">
-        <div className="ap-hero__beam" />
-        <div className="ap-hero__grid" />
-      </div>
-
       <div className="ap-container ap-hero__inner">
         <p className="ap-kicker">
           <span>/</span> {aboutStory.eyebrow}

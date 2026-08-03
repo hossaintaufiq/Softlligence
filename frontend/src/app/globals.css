@@ -3,14 +3,14 @@
 /* Theme — light / day mode only */
 :root {
   color-scheme: light;
-  --theme-ink: #f6f7fa;
+  --theme-ink: #ffffff;
   --theme-panel: #ffffff;
-  --theme-panel-2: #eef1f6;
+  --theme-panel-2: #f4f6fa;
   --theme-elevated: #ffffff;
-  --theme-strip: #e9edf4;
-  --theme-paper: #fbfcfe;
+  --theme-strip: #eef1f6;
+  --theme-paper: #ffffff;
   --theme-text: #0c1220;
-  --theme-text-dim: #556074;
+  --theme-text-dim: #3f4a5c;
   --theme-text-dark: #0c1220;
   --theme-accent: #e8a012;
   --theme-accent-ink: #1c1400;
@@ -18,8 +18,8 @@
   --theme-danger: #d94a3d;
   --shadow-card: 0 12px 32px rgba(12, 18, 32, 0.07), 0 2px 6px rgba(12, 18, 32, 0.04);
   --shadow-team: 0 16px 40px rgba(12, 18, 32, 0.09), 0 2px 8px rgba(12, 18, 32, 0.04);
-  --grid-line: rgba(12, 18, 32, 0.045);
-  --card-border: rgba(12, 18, 32, 0.1);
+  --grid-line: rgba(12, 18, 32, 0.06);
+  --card-border: rgba(12, 18, 32, 0.2);
   --road-asphalt-a: #dfe5ef;
   --road-asphalt-b: #cdd5e3;
   --marquee-label: #617086;
@@ -176,13 +176,14 @@ footer {
   outline-offset: 3px;
 }
 
-/* ── Site atmosphere ── */
+/* ── Continuous site canvas: white + light grid ── */
 .site-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
   overflow: hidden;
+  background: #ffffff;
 }
 
 .site-grid {
@@ -191,55 +192,132 @@ footer {
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 70%);
+  background-size: 56px 56px;
+  opacity: 0.85;
 }
 
-.site-glow {
+/* Section gold bubbles — only where SectionBubbles is mounted (1–2 per section) */
+.has-section-bubbles {
+  position: relative;
+  overflow: hidden;
+}
+
+.has-section-bubbles > *:not(.section-bubbles) {
+  position: relative;
+  z-index: 1;
+}
+
+.section-bubbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.section-bubble {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.35;
-  will-change: auto;
+  background: radial-gradient(
+    circle at 38% 32%,
+    color-mix(in srgb, var(--theme-accent) 32%, transparent),
+    color-mix(in srgb, var(--theme-accent) 10%, transparent) 45%,
+    transparent 72%
+  );
+  filter: blur(1.5px);
 }
 
-.site-glow--hero {
-  top: -120px;
-  right: -80px;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(11, 124, 184, 0.16), transparent 70%);
+@media (prefers-reduced-motion: no-preference) {
+  .section-bubble--a {
+    animation: section-bubble-drift 16s ease-in-out infinite alternate;
+  }
+
+  .section-bubble--b {
+    animation: section-bubble-drift 13s ease-in-out infinite alternate-reverse;
+  }
 }
 
-.site-glow--accent {
-  bottom: 20%;
-  left: -100px;
-  width: 360px;
-  height: 360px;
-  background: radial-gradient(circle, rgba(232, 160, 18, 0.14), transparent 70%);
+@keyframes section-bubble-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(10px, -14px, 0) scale(1.05);
+  }
+}
+
+/* Kill page/section washes so the global canvas reads continuously */
+.home-page,
+.about-page,
+.services-page,
+.work-page,
+.industries-page,
+.process-page,
+.team-page,
+.contact-page,
+.products-page,
+.faq-page {
+  background: transparent !important;
+}
+
+.hp-trust,
+.hp-build,
+.hp-problems,
+.hp-industries,
+.hp-work,
+.hp-delivery,
+.hp-team,
+.hp-why,
+.hp-tech,
+.hp-faq,
+.ap-section--panel,
+.pp-section--panel,
+.prd-section--panel,
+.sp-hero,
+.sp-catalog,
+.sp-industries,
+.sp-why,
+.sp-process,
+.sp-tech,
+.sp-final,
+.sp-process__pin,
+.tp-hero,
+.tp-culture,
+.tp-leadership,
+.tp-engineering,
+.tp-capabilities,
+.tp-stack,
+.tp-why,
+.tp-values,
+.tp-stats-band,
+.wp-hero,
+.ip-hero,
+.ip-section--alt {
+  background: transparent !important;
 }
 
 /* Home hero grid — soft, low-contrast blueprint feel */
 .hero-grid {
   background-image:
-    linear-gradient(rgba(12, 18, 32, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 18, 32, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(12, 18, 32, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 18, 32, 0.022) 1px, transparent 1px);
   background-size: 56px 56px;
   background-position: center top;
   mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, black 15%, transparent 72%);
   -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 20%, black 15%, transparent 72%);
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 /* Inner page heroes — a touch more present */
 .hero-grid--page {
   background-image:
-    linear-gradient(rgba(12, 18, 32, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(12, 18, 32, 0.055) 1px, transparent 1px);
+    linear-gradient(rgba(12, 18, 32, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 18, 32, 0.028) 1px, transparent 1px);
   background-size: 48px 48px;
   background-position: center top;
   mask-image: linear-gradient(180deg, black 0%, black 45%, transparent 100%);
   -webkit-mask-image: linear-gradient(180deg, black 0%, black 45%, transparent 100%);
-  opacity: 0.55;
+  opacity: 0.4;
 }
 
 @keyframes svc-float {
@@ -566,7 +644,7 @@ footer {
   border-radius: 6px;
   background: linear-gradient(180deg, var(--road-asphalt-a) 0%, var(--road-asphalt-b) 50%, var(--road-asphalt-a) 100%);
   border: 1px solid var(--card-border);
-  box-shadow: inset 0 0 12px color-mix(in srgb, var(--theme-text) 8%, transparent);
+  box-shadow: inset 0 0 12px color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 .road-dashes {

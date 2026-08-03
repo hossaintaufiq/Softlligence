@@ -6,7 +6,6 @@ import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 export function HomeFinalCta() {
   return (
     <section className="hp-cta" id="contact" aria-labelledby="hp-cta-title">
-      <div className="hp-cta__bg" aria-hidden="true" />
       <Container className="hp-cta__inner">
         <SketchHeadline id="hp-cta-title" className="sketch-headline--cta">
           Let&apos;s Build <SketchMark type="circle">Software</SketchMark> That Moves Your Business{" "}

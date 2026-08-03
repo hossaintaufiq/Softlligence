@@ -25,13 +25,6 @@ export function WorkHero() {
 
   return (
     <section className="wp-hero" aria-labelledby="wp-hero-title">
-      <div className="wp-hero__atmosphere" aria-hidden="true">
-        <div className="wp-hero__grid" />
-        <div className="wp-hero__glow wp-hero__glow--a" />
-        <div className="wp-hero__glow wp-hero__glow--b" />
-        <div className="wp-hero__frame" />
-      </div>
-
       <div className="wp-container wp-hero__layout">
         <div className="wp-hero__copy">
           <motion.div

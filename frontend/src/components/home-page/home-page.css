@@ -26,7 +26,6 @@
 .hp-section {
   position: relative;
   padding: 4.25rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
 }
 
 @media (min-width: 768px) {
@@ -87,7 +86,6 @@
   align-items: center;
   padding: 6.25rem 0 3.5rem;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
 }
 
 @media (min-width: 768px) {
@@ -95,78 +93,6 @@
     min-height: min(100svh, 980px);
     padding: 7.5rem 0 5.25rem;
   }
-}
-
-.hp-hero__atmosphere {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.hp-hero__grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--theme-text) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--theme-text) 4%, transparent) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 78% 68% at 32% 38%, #000 12%, transparent 72%);
-  opacity: 0.55;
-  animation: hp-grid-drift 28s linear infinite;
-}
-
-.hp-hero__veil {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse 55% 45% at 18% 30%,
-      color-mix(in srgb, var(--theme-accent) 9%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 50% 40% at 88% 72%,
-      color-mix(in srgb, var(--theme-accent-2) 8%, transparent),
-      transparent 68%
-    ),
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--theme-ink) 20%, transparent),
-      transparent 40%,
-      color-mix(in srgb, var(--theme-ink) 55%, transparent)
-    );
-}
-
-.hp-hero__beam {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(72px);
-  opacity: 0.7;
-}
-
-.hp-hero__beam--a {
-  top: -8%;
-  left: -4%;
-  width: min(48vw, 460px);
-  height: min(38vw, 340px);
-  background: color-mix(in srgb, var(--theme-accent) 16%, transparent);
-}
-
-.hp-hero__beam--b {
-  right: -6%;
-  bottom: 8%;
-  width: min(40vw, 380px);
-  height: min(36vw, 320px);
-  background: color-mix(in srgb, var(--theme-accent-2) 12%, transparent);
-}
-
-.hp-hero__noise {
-  position: absolute;
-  inset: 0;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  mix-blend-mode: overlay;
 }
 
 .hp-hero__layout {
@@ -276,7 +202,7 @@
   flex-direction: column;
   gap: 0.85rem;
   padding: 0.95rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background:
     linear-gradient(
@@ -323,7 +249,7 @@
   gap: 0.35rem 0.1rem;
   margin: 0;
   padding-top: 0.15rem;
-  border-top: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
   font-size: 0.66rem;
   letter-spacing: 0.1em;
@@ -352,7 +278,7 @@
 
 .hp-hero__proof > div {
   padding: 0.55rem 0.6rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 11px;
   background: color-mix(in srgb, var(--theme-ink) 35%, transparent);
 }
@@ -453,7 +379,7 @@
       color-mix(in srgb, var(--theme-panel) 70%, transparent)
     );
   box-shadow:
-    0 1px 0 color-mix(in srgb, var(--theme-text) 10%, transparent) inset,
+    0 1px 0 color-mix(in srgb, var(--theme-text) 16%, transparent) inset,
     0 24px 56px color-mix(in srgb, #000 38%, transparent),
     0 0 0 1px color-mix(in srgb, var(--theme-accent) 6%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);
@@ -530,7 +456,7 @@
   flex-direction: column;
   gap: 0.35rem;
   padding: 0.9rem 0.7rem;
-  border-right: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   background: color-mix(in srgb, var(--theme-ink) 48%, transparent);
 }
 
@@ -564,7 +490,7 @@
 
 .hp-visual__metric {
   padding: 0.6rem 0.65rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 11px;
   background:
     linear-gradient(
@@ -603,7 +529,7 @@
   position: relative;
   height: 118px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 13px;
   background:
     linear-gradient(
@@ -651,7 +577,7 @@
   align-items: center;
   gap: 0.55rem;
   padding: 0.58rem 0.7rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 11px;
   background: color-mix(in srgb, var(--theme-text) 3.5%, transparent);
   transition: border-color 0.25s ease, background 0.25s ease;
@@ -681,15 +607,6 @@
   font-style: normal;
   font-size: 0.65rem;
   color: var(--theme-text-dim);
-}
-
-@keyframes hp-grid-drift {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 64px 64px;
-  }
 }
 
 /* ── Trust ── */
@@ -723,7 +640,7 @@
 
 .hp-trust__card {
   padding: 1.15rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-ink) 45%, transparent);
   transition: border-color 0.3s ease, transform 0.3s ease;
@@ -779,7 +696,7 @@
   text-align: left;
   min-height: 10.5rem;
   padding: 1.15rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-panel) 55%, transparent);
   color: inherit;
@@ -806,7 +723,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 11px;
   background: color-mix(in srgb, var(--theme-accent) 10%, transparent);
   color: var(--theme-accent);
@@ -980,7 +897,7 @@
   display: block;
   min-height: 8.5rem;
   padding: 1.15rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-panel) 50%, transparent);
   text-decoration: none;
@@ -1078,7 +995,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.25rem 1.2rem 1.3rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 18px;
   background: color-mix(in srgb, var(--theme-ink) 55%, transparent);
   text-decoration: none;
@@ -1135,7 +1052,7 @@
 
 .hp-work__stack li {
   padding: 0.22rem 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 999px;
   font-size: 0.68rem;
   color: var(--theme-text-dim);
@@ -1205,7 +1122,7 @@
 .hp-delivery__card {
   height: 100%;
   padding: 1.35rem 1.2rem 1.4rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 18px;
   background: color-mix(in srgb, var(--theme-panel) 60%, transparent);
   transition: border-color 0.25s ease, transform 0.25s ease;
@@ -1299,7 +1216,7 @@
   align-items: flex-start;
   gap: 0.85rem;
   padding: 1rem 1.05rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 14px;
   background: color-mix(in srgb, var(--theme-panel) 50%, transparent);
   transition: border-color 0.25s ease;
@@ -1363,7 +1280,7 @@
 
 .hp-why__card {
   padding: 1.2rem 1.1rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-ink) 40%, transparent);
   transition: border-color 0.3s ease, transform 0.3s ease;
@@ -1420,7 +1337,7 @@
 .hp-marquee__item {
   flex: none;
   padding: 0.7rem 1.05rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 999px;
   background: color-mix(in srgb, var(--theme-ink) 45%, transparent);
   font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
@@ -1519,20 +1436,6 @@
   text-align: center;
 }
 
-.hp-cta__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 50% 45% at 50% 0%, color-mix(in srgb, var(--theme-accent) 16%, transparent), transparent 70%),
-    linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--theme-accent) 8%, transparent),
-      var(--theme-panel),
-      color-mix(in srgb, var(--theme-accent-2) 8%, transparent)
-    );
-}
-
 .hp-cta__inner {
   position: relative;
 }
@@ -1621,10 +1524,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hp-hero__glow--a,
-  .hp-hero__glow--b,
-  .hp-hero__beam,
-  .hp-hero__grid,
   .hp-scroll span,
   .hp-visual__line,
   .hp-visual__scan,
@@ -1664,7 +1563,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     border-right: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   }
 
   .hp-visual__metrics {

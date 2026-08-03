@@ -8,11 +8,6 @@ import { processSteps } from "@/lib/content";
 export function ProcessHero() {
   return (
     <section className="pp-hero" aria-labelledby="pp-hero-title">
-      <div className="pp-hero__bg" aria-hidden="true">
-        <div className="pp-hero__grid" />
-        <div className="pp-hero__glow" />
-      </div>
-
       <div className="pp-container pp-hero__layout">
         <div className="pp-hero__copy">
           <p className="pp-kicker">

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { SectionBubbles } from "@/components/ui/SectionBubbles";
 import { pageRoutes } from "@/lib/navigation";
 import {
   products,
@@ -49,11 +50,6 @@ export function ProductsCatalogView() {
   return (
     <div className="products-page">
       <section className="prd-hero" aria-labelledby="prd-catalog-title">
-        <div className="prd-hero__bg" aria-hidden="true">
-          <div className="prd-hero__grid" />
-          <div className="prd-hero__beam" />
-        </div>
-
         <div className="prd-container prd-hero__inner">
           <p className="prd-kicker">
             <span>/</span> {productsCatalogIntro.eyebrow}
@@ -84,7 +80,8 @@ export function ProductsCatalogView() {
         </div>
       </section>
 
-      <section className="prd-section" id="catalog" aria-labelledby="prd-list-title">
+      <section className="prd-section has-section-bubbles" id="catalog" aria-labelledby="prd-list-title">
+        <SectionBubbles seed={5} />
         <div className="prd-container">
           <div className="prd-section__head">
             <p className="prd-kicker">

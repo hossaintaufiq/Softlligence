@@ -6,7 +6,7 @@
   --sp-text: var(--theme-text);
   --sp-muted: var(--theme-text-dim);
   --sp-dim: color-mix(in srgb, var(--theme-text-dim) 75%, transparent);
-  --sp-border: color-mix(in srgb, var(--theme-text) 12%, transparent);
+  --sp-border: color-mix(in srgb, var(--theme-text) 18%, transparent);
   --sp-glass: color-mix(in srgb, var(--theme-text) 4%, transparent);
   --sp-glass-strong: color-mix(in srgb, var(--theme-text) 7%, transparent);
   --sp-radius: 1.25rem;
@@ -46,19 +46,6 @@
   transform-origin: 0% 50%;
   background: linear-gradient(90deg, var(--sp-accent), var(--sp-accent-2));
   pointer-events: none;
-}
-
-.sp-particles {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.sp-particle {
-  position: absolute;
-  border-radius: 999px;
-  filter: blur(0.4px);
 }
 
 .sp-eyebrow {
@@ -1031,26 +1018,22 @@
   overflow: hidden;
 }
 
-.sp-final__glow {
-  position: absolute;
-  inset: 20% 10% auto;
-  height: 50%;
-  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--sp-accent) 28%, transparent), transparent 65%);
-  filter: blur(20px);
-  pointer-events: none;
-}
-
 .sp-final__panel {
   position: relative;
   padding: clamp(2rem, 5vw, 3.5rem);
   border-radius: 1.75rem;
-  border: 1px solid color-mix(in srgb, var(--sp-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sp-text) 18%, transparent);
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--sp-accent) 18%, transparent), color-mix(in srgb, var(--sp-accent-2) 10%, transparent) 45%, color-mix(in srgb, var(--sp-text) 3%, transparent)),
-    rgba(8, 8, 12, 0.75);
-  backdrop-filter: blur(22px);
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--sp-accent) 12%, transparent),
+      color-mix(in srgb, var(--sp-accent-2) 6%, transparent) 45%,
+      color-mix(in srgb, var(--sp-text) 2%, transparent)
+    ),
+    color-mix(in srgb, var(--theme-panel) 82%, transparent);
+  backdrop-filter: blur(14px);
   text-align: center;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--shadow-card);
 }
 
 .sp-final__title {

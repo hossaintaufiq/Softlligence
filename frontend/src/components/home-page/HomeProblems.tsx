@@ -1,10 +1,12 @@
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { homeProblems } from "@/lib/homePageContent";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { SectionBubbles } from "@/components/ui/SectionBubbles";
 
 export function HomeProblems() {
   return (
-    <section className="hp-section hp-problems" aria-labelledby="hp-problems-title">
+    <section className="hp-section hp-problems has-section-bubbles" aria-labelledby="hp-problems-title">
+      <SectionBubbles seed={2} />
       <Container>
         <header className="hp-problems__intro">
           <Eyebrow number="03">PROBLEMS</Eyebrow>

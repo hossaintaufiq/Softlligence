@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/Button";
 import { homeWhyPoints } from "@/lib/homePageContent";
 import { pageRoutes } from "@/lib/navigation";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { SectionBubbles } from "@/components/ui/SectionBubbles";
 
 export function HomeWhy() {
   return (
-    <section className="hp-section hp-why" aria-labelledby="hp-why-title">
+    <section className="hp-section hp-why has-section-bubbles" aria-labelledby="hp-why-title">
+      <SectionBubbles seed={4} />
       <Container>
         <Eyebrow number="07">WHY SOFTLLIGENCE</Eyebrow>
         <SketchHeadline id="hp-why-title">

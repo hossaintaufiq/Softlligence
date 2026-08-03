@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { companyContact } from "@/lib/navigation";
-import { LinkedInIcon } from "@/components/icons/SocialIcons";
+import { FacebookIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { cn } from "@/lib/utils";
@@ -37,6 +37,21 @@ function ContactChannels() {
           <span className="inline-flex items-center gap-2">
             <LinkedInIcon className="h-3.5 w-3.5" />
             LinkedIn
+          </span>
+          <strong>Softlligence Technologies</strong>
+        </div>
+        <em>Follow</em>
+      </a>
+      <a
+        href={companyContact.facebook}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cp-channel"
+      >
+        <div>
+          <span className="inline-flex items-center gap-2">
+            <FacebookIcon className="h-3.5 w-3.5" />
+            Facebook
           </span>
           <strong>Softlligence Technologies</strong>
         </div>
@@ -222,10 +237,6 @@ export function ContactPageView() {
   return (
     <div className="contact-page">
       <section className="cp-hero" aria-labelledby="cp-hero-title">
-        <div className="cp-hero__bg" aria-hidden="true">
-          <div className="cp-hero__grid" />
-          <div className="cp-hero__glow" />
-        </div>
         <div className="cp-container cp-hero__inner">
           <p className="cp-kicker">
             <span>/</span> Start a project
@@ -288,7 +299,7 @@ export function ContactPageView() {
               <p>Direct contact</p>
               <h3>Reach the team</h3>
               <p>
-                Prefer email, phone, or LinkedIn? Use any channel below — the same team that delivers
+                Prefer email, phone, LinkedIn, or Facebook? Use any channel below — the same team that delivers
                 the work.
               </p>
               <ContactChannels />

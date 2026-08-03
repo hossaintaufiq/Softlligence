@@ -37,7 +37,6 @@
 
 .pp-section {
   padding: 4.25rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
 }
 
 .pp-section--panel {
@@ -76,40 +75,13 @@
   position: relative;
   padding: 6.25rem 0 3.25rem;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 @media (min-width: 768px) {
   .pp-hero {
     padding: 7.25rem 0 4.5rem;
   }
-}
-
-.pp-hero__bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.pp-hero__grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--theme-text) 4%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--theme-text) 4%, transparent) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 70% 55% at 30% 40%, #000 15%, transparent 72%);
-  opacity: 0.55;
-}
-
-.pp-hero__glow {
-  position: absolute;
-  top: -10%;
-  right: -5%;
-  width: min(48vw, 460px);
-  height: min(48vw, 460px);
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--theme-accent) 14%, transparent);
 }
 
 .pp-hero__layout {
@@ -155,7 +127,7 @@
 }
 
 .pp-hero__gates {
-  border: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 18%, transparent);
   border-radius: 20px;
   background:
     linear-gradient(
@@ -191,7 +163,7 @@
   align-items: center;
   padding: 0.65rem 0.7rem;
   border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   background: color-mix(in srgb, var(--theme-ink) 35%, transparent);
 }
 
@@ -261,14 +233,14 @@
   background: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--theme-accent) 50%, transparent),
-    color-mix(in srgb, var(--theme-text) 10%, transparent)
+    color-mix(in srgb, var(--theme-text) 16%, transparent)
   );
 }
 
 .pp-stage__card {
   margin-bottom: 1rem;
   padding: 1.25rem 1.2rem 1.35rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 18px;
   background: color-mix(in srgb, var(--theme-panel) 55%, transparent);
   transition: border-color 0.25s ease, transform 0.25s ease;
@@ -332,7 +304,7 @@
 
 .pp-stage__deliverables li {
   padding: 0.28rem 0.55rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 999px;
   font-size: 0.75rem;
   color: var(--theme-text-dim);
@@ -352,7 +324,7 @@
 
 .pp-ops__card {
   padding: 1.25rem 1.2rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
   background: color-mix(in srgb, var(--theme-ink) 40%, transparent);
   transition: border-color 0.25s ease;
@@ -389,9 +361,9 @@
   display: grid;
   gap: 1px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   border-radius: 16px;
-  background: color-mix(in srgb, var(--theme-text) 10%, transparent);
+  background: color-mix(in srgb, var(--theme-text) 16%, transparent);
 }
 
 @media (min-width: 640px) {

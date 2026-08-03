@@ -8,6 +8,7 @@ import {
 } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { SectionBubbles } from "@/components/ui/SectionBubbles";
 import { pageRoutes } from "@/lib/navigation";
 
 export function AboutStory() {
@@ -42,7 +43,8 @@ export function AboutStory() {
 
 export function AboutBeliefs() {
   return (
-    <section className="ap-section" aria-labelledby="ap-beliefs-title">
+    <section className="ap-section has-section-bubbles" aria-labelledby="ap-beliefs-title">
+      <SectionBubbles seed={6} />
       <div className="ap-container">
         <header className="ap-section__head">
           <p className="ap-eyebrow">
@@ -103,7 +105,8 @@ export function AboutCraft() {
 
 export function AboutLeadership() {
   return (
-    <section className="ap-section" aria-labelledby="ap-lead-title">
+    <section className="ap-section has-section-bubbles" aria-labelledby="ap-lead-title">
+      <SectionBubbles seed={8} />
       <div className="ap-container">
         <header className="ap-section__head">
           <p className="ap-eyebrow">
@@ -196,7 +199,6 @@ export function AboutCommitments() {
 export function AboutFinalCta() {
   return (
     <section className="ap-cta" aria-labelledby="ap-cta-title">
-      <div className="ap-cta__bg" aria-hidden="true" />
       <div className="ap-container ap-cta__inner">
         <p className="ap-kicker">
           <span>/</span> Next step

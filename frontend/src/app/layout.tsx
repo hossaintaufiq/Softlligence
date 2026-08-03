@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#F6F7FA",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -75,8 +75,6 @@ export default function RootLayout({
         <CursorSpotlightLazy />
         <div className="site-bg" aria-hidden="true">
           <div className="site-grid" />
-          <div className="site-glow site-glow--hero" />
-          <div className="site-glow site-glow--accent" />
         </div>
         <Nav />
         {children}

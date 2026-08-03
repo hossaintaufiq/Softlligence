@@ -23,13 +23,6 @@ export function IndustriesHero() {
 
   return (
     <section className="ip-hero" aria-labelledby="ip-hero-title">
-      <div className="ip-hero__atmosphere" aria-hidden="true">
-        <div className="ip-hero__grid" />
-        <div className="ip-hero__glow ip-hero__glow--a" />
-        <div className="ip-hero__glow ip-hero__glow--b" />
-        <div className="ip-hero__frame" />
-      </div>
-
       <div className="ip-container ip-hero__layout">
         <div className="ip-hero__copy">
           <motion.div

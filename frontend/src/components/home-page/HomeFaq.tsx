@@ -6,13 +6,15 @@ import { Button } from "@/components/ui/Button";
 import { faqs } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { SectionBubbles } from "@/components/ui/SectionBubbles";
 
 export function HomeFaq() {
   const [open, setOpen] = useState<number | null>(0);
   const items = faqs.slice(0, 5);
 
   return (
-    <section className="hp-section hp-faq hp-section--center" id="faq" aria-labelledby="hp-faq-title">
+    <section className="hp-section hp-faq hp-section--center has-section-bubbles" id="faq" aria-labelledby="hp-faq-title">
+      <SectionBubbles seed={9} />
       <Container>
         <div className="hp-section__head">
           <Eyebrow number="10">FAQ</Eyebrow>

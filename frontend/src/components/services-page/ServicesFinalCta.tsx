@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { servicesFinalCta } from "@/lib/servicesPageContent";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { MagneticButton } from "./MagneticButton";
-import { FloatingParticles } from "./FloatingParticles";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 export function ServicesFinalCta() {
@@ -12,8 +11,6 @@ export function ServicesFinalCta() {
 
   return (
     <section className="sp-final" id="start-project" aria-labelledby="sp-final-title">
-      <FloatingParticles count={16} />
-      <div className="sp-final__glow" aria-hidden="true" />
       <div className="sp-container">
         <motion.div
           className="sp-final__panel"

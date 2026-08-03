@@ -3,7 +3,7 @@
   position: relative;
   padding: 6.25rem 0 3.5rem;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 @media (min-width: 768px) {
@@ -133,7 +133,7 @@
   aspect-ratio: 4 / 3;
   border-radius: 22px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 18%, transparent);
   box-shadow: var(--shadow-card);
 }
 
@@ -207,7 +207,7 @@
 .prd-channel-card {
   overflow: hidden;
   border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   background: color-mix(in srgb, var(--theme-panel) 50%, transparent);
   transition: border-color 0.25s ease, transform 0.25s ease;
 }
@@ -260,7 +260,7 @@
 .prd-mod-card {
   overflow: hidden;
   border-radius: 18px;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
   background: color-mix(in srgb, var(--theme-ink) 30%, transparent);
   transition: border-color 0.25s ease;
 }
@@ -334,7 +334,7 @@
 .prd-pill-list li {
   padding: 0.55rem 0.85rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 18%, transparent);
   background: color-mix(in srgb, var(--theme-panel) 55%, transparent);
   font-size: 0.84rem;
   color: color-mix(in srgb, var(--theme-text) 90%, transparent);
@@ -344,7 +344,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 8%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 .prd-cta-band__media {

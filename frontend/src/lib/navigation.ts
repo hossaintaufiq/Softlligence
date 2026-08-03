@@ -29,4 +29,6 @@ export const companyContact = {
   tel: "tel:+8801728360834",
   linkedin: "https://www.linkedin.com/company/133357800",
   linkedinLabel: "LinkedIn",
+  facebook: "https://www.facebook.com/profile.php?id=61592406496958",
+  facebookLabel: "Facebook",
 } as const;

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { SectionBubbles } from "@/components/ui/SectionBubbles";
 import { industryPrinciples } from "@/lib/content";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
@@ -10,7 +11,8 @@ export function IndustriesPrinciples() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <section className="ip-principles" aria-labelledby="ip-principles-title">
+    <section className="ip-principles has-section-bubbles" aria-labelledby="ip-principles-title">
+      <SectionBubbles seed={0} />
       <div className="ip-container">
         <motion.header
           className="ip-principles__head"

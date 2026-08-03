@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
-import { LinkedInIcon } from "@/components/icons/SocialIcons";
+import { FacebookIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
 import { companyContact, pageRoutes } from "@/lib/navigation";
@@ -83,6 +83,15 @@ export function Footer() {
                   <LinkedInIcon className="h-3.5 w-3.5" />
                   {companyContact.linkedinLabel}
                 </a>
+                <a
+                  href={companyContact.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-text-dim hover:text-accent"
+                >
+                  <FacebookIcon className="h-3.5 w-3.5" />
+                  {companyContact.facebookLabel}
+                </a>
               </div>
             </div>
 
@@ -155,15 +164,26 @@ export function Footer() {
 
           <div className="flex flex-wrap items-center justify-between gap-3 pt-6 text-[12px] text-text-dim max-md:flex-col max-md:justify-center max-md:text-center">
             <span>© {year} Softlligence Technologies</span>
-            <a
-              href={companyContact.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono tracking-wide uppercase transition-colors hover:text-accent"
-            >
-              <LinkedInIcon className="h-3.5 w-3.5" />
-              LinkedIn
-            </a>
+            <div className="flex flex-wrap items-center gap-4 max-md:justify-center">
+              <a
+                href={companyContact.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono tracking-wide uppercase transition-colors hover:text-accent"
+              >
+                <LinkedInIcon className="h-3.5 w-3.5" />
+                LinkedIn
+              </a>
+              <a
+                href={companyContact.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono tracking-wide uppercase transition-colors hover:text-accent"
+              >
+                <FacebookIcon className="h-3.5 w-3.5" />
+                Facebook
+              </a>
+            </div>
           </div>
         </Container>
       </div>

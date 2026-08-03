@@ -1,9 +1,11 @@
 import { processSteps } from "@/lib/content";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { SectionBubbles } from "@/components/ui/SectionBubbles";
 
 export function ProcessStages() {
   return (
-    <section className="pp-section" id="process" aria-labelledby="pp-stages-title">
+    <section className="pp-section has-section-bubbles" id="process" aria-labelledby="pp-stages-title">
+      <SectionBubbles seed={2} />
       <div className="pp-container">
         <header className="pp-section__head">
           <p className="pp-eyebrow">

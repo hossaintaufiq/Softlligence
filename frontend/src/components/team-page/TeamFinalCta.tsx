@@ -10,7 +10,6 @@ export function TeamFinalCta() {
 
   return (
     <section className="tp-cta" aria-labelledby="team-cta-title">
-      <div className="tp-cta__bg" aria-hidden="true" />
       <Container className="tp-cta__inner">
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 18 }}
