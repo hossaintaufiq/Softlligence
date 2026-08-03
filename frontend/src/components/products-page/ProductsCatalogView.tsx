@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionBubbles } from "@/components/ui/SectionBubbles";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { pageRoutes } from "@/lib/navigation";
 import {
   products,
@@ -49,6 +50,7 @@ function ProductCard({ product, index }: { product: ProductRecord; index: number
 export function ProductsCatalogView() {
   return (
     <div className="products-page">
+      <PageOrbBridge />
       <section className="prd-hero" aria-labelledby="prd-catalog-title">
         <div className="prd-container prd-hero__inner">
           <p className="prd-kicker">

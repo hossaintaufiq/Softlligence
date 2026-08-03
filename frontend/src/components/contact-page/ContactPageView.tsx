@@ -5,6 +5,7 @@ import { companyContact } from "@/lib/navigation";
 import { FacebookIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { cn } from "@/lib/utils";
 import "./contact-page.css";
 
@@ -236,6 +237,7 @@ function ContactForm() {
 export function ContactPageView() {
   return (
     <div className="contact-page">
+      <PageOrbBridge />
       <section className="cp-hero" aria-labelledby="cp-hero-title">
         <div className="cp-container cp-hero__inner">
           <p className="cp-kicker">

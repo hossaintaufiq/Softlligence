@@ -733,7 +733,6 @@
   position: relative;
   z-index: 2;
   padding: clamp(4.5rem, 10vw, 7rem) 0;
-  border-top: 1px solid color-mix(in srgb, var(--sp-text) 6%, transparent);
   background: linear-gradient(180deg, var(--theme-elevated), var(--sp-bg));
 }
 
@@ -872,7 +871,6 @@
   position: relative;
   z-index: 2;
   padding-top: clamp(4rem, 8vw, 6rem);
-  border-top: 1px solid color-mix(in srgb, var(--sp-text) 6%, transparent);
 }
 
 .sp-process__pin {

@@ -3,7 +3,6 @@
   position: relative;
   padding: 6.25rem 0 3.5rem;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 @media (min-width: 768px) {
@@ -344,7 +343,6 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 .prd-cta-band__media {

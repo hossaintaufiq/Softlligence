@@ -1,4 +1,5 @@
 import "./team-page/team-page.css";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { TeamHero } from "./team-page/TeamHero";
 import { TeamCulture } from "./team-page/TeamCulture";
 import { TeamLeadership } from "./team-page/TeamLeadership";
@@ -13,6 +14,7 @@ import { TeamFinalCta } from "./team-page/TeamFinalCta";
 export function TeamDetail() {
   return (
     <div className="team-page">
+      <PageOrbBridge />
       <TeamHero />
       <TeamCulture />
       <TeamLeadership />

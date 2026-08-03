@@ -56,7 +56,6 @@
   align-items: center;
   padding: 6.25rem 0 3.25rem;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   background: var(--theme-ink);
   text-align: left;
 }
@@ -510,7 +509,6 @@
 /* Industry sections */
 .ip-section {
   padding: clamp(3.5rem, 8vw, 6.5rem) 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 7%, transparent);
   scroll-margin-top: 8rem;
 }
 
@@ -1012,7 +1010,6 @@
 /* Principles */
 .ip-principles {
   padding: clamp(3.5rem, 8vw, 6rem) 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 7%, transparent);
 }
 
 .ip-principles__head {

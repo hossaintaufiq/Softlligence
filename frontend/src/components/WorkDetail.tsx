@@ -11,6 +11,7 @@ import { ProjectCaseStudy } from "@/components/work-page/ProjectCaseStudy";
 import { WorkBottomCta } from "@/components/work-page/WorkBottomCta";
 import { WorkScrollProgress } from "@/components/work-page/WorkScrollProgress";
 import { WorkHero } from "@/components/work-page/WorkHero";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import {
   isOngoing,
   sortOngoingFirst,
@@ -82,6 +83,7 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
 
   return (
     <div className="work-page">
+      <PageOrbBridge />
       <WorkScrollProgress />
       <WorkHero />
 

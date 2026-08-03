@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FAQ } from "@/components/FAQ";
 import { PageHero } from "@/components/ui/PageHero";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { SketchMark } from "@/components/ui/SketchHeadline";
 
 export const metadata: Metadata = {
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
 
 export default function FAQPage() {
   return (
-    <main>
+    <main className="faq-page">
+      <PageOrbBridge />
       <PageHero
         eyebrow="QUESTIONS"
         title={

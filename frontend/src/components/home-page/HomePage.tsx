@@ -1,5 +1,6 @@
 import "./home-page.css";
 import "./sketch-headline.css";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { HomeHero } from "./HomeHero";
 import { HomeTrust } from "./HomeTrust";
 import { HomeWhatWeBuild } from "./HomeWhatWeBuild";
@@ -11,11 +12,13 @@ import { HomeWhy } from "./HomeWhy";
 import { HomeTeam } from "./HomeTeam";
 import { HomeTech } from "./HomeTech";
 import { HomeFaq } from "./HomeFaq";
+import { HomeSocialProof } from "./HomeSocialProof";
 import { HomeFinalCta } from "./HomeFinalCta";
 
 export function HomePage() {
   return (
     <div className="home-page">
+      <PageOrbBridge />
       <HomeHero />
       <HomeTrust />
       <HomeWhatWeBuild />
@@ -27,6 +30,7 @@ export function HomePage() {
       <HomeTeam />
       <HomeTech />
       <HomeFaq />
+      <HomeSocialProof />
       <HomeFinalCta />
     </div>
   );

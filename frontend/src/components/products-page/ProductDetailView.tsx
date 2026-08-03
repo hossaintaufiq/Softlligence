@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { pageRoutes } from "@/lib/navigation";
 import { productDetailVisuals } from "@/lib/homeVisuals";
 import {
@@ -19,6 +20,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
 
   return (
     <div className="products-page">
+      <PageOrbBridge />
       <section className="prd-detail-hero" aria-labelledby="prd-detail-title">
         <div className="prd-container prd-detail-hero__layout">
           <div className="prd-detail-hero__copy">

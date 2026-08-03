@@ -75,6 +75,10 @@ export default function RootLayout({
         <CursorSpotlightLazy />
         <div className="site-bg" aria-hidden="true">
           <div className="site-grid" />
+          <div className="site-orbs">
+            <span className="site-orb site-orb--lg" />
+            <span className="site-orb site-orb--sm" />
+          </div>
         </div>
         <Nav />
         {children}

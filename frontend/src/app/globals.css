@@ -196,6 +196,133 @@ footer {
   opacity: 0.85;
 }
 
+/* Top-left gold shading — sits under navbar + hero */
+.site-orbs {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.site-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 38% 32%,
+    color-mix(in srgb, var(--theme-accent) 40%, transparent),
+    color-mix(in srgb, var(--theme-accent) 14%, transparent) 42%,
+    transparent 72%
+  );
+  filter: blur(2px);
+}
+
+.site-orb--lg {
+  top: -6%;
+  left: -5%;
+  width: min(380px, 62vw);
+  height: min(380px, 62vw);
+  opacity: 0.58;
+}
+
+.site-orb--sm {
+  top: 12%;
+  left: 16%;
+  width: min(170px, 30vw);
+  height: min(170px, 30vw);
+  opacity: 0.42;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-orb--lg {
+    animation: site-orb-drift 18s ease-in-out infinite alternate;
+  }
+
+  .site-orb--sm {
+    animation: site-orb-drift 14s ease-in-out infinite alternate-reverse;
+  }
+}
+
+@keyframes site-orb-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(14px, 10px, 0) scale(1.06);
+  }
+}
+
+/* Large gold circle bridging hero → next section (all pages) */
+.page-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    circle at 42% 38%,
+    color-mix(in srgb, var(--theme-accent) 42%, transparent),
+    color-mix(in srgb, var(--theme-accent) 14%, transparent) 44%,
+    transparent 72%
+  );
+  filter: blur(2px);
+}
+
+.page-orb--bridge {
+  top: clamp(28rem, 58vh, 46rem);
+  right: -14%;
+  width: min(560px, 88vw);
+  height: min(560px, 88vw);
+  opacity: 0.52;
+}
+
+@media (min-width: 768px) {
+  .page-orb--bridge {
+    top: clamp(36rem, 62vh, 52rem);
+    width: min(640px, 55vw);
+    height: min(640px, 55vw);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-orb--bridge {
+    animation: page-orb-drift 20s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes page-orb-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-16px, -12px, 0) scale(1.05);
+  }
+}
+
+.home-page,
+.about-page,
+.services-page,
+.work-page,
+.industries-page,
+.process-page,
+.team-page,
+.contact-page,
+.products-page,
+.faq-page {
+  position: relative;
+}
+
+.home-page > :not(.page-orb),
+.about-page > :not(.page-orb),
+.services-page > :not(.page-orb),
+.work-page > :not(.page-orb),
+.industries-page > :not(.page-orb),
+.process-page > :not(.page-orb),
+.team-page > :not(.page-orb),
+.contact-page > :not(.page-orb),
+.products-page > :not(.page-orb),
+.faq-page > :not(.page-orb) {
+  position: relative;
+  z-index: 1;
+}
+
 /* Section gold bubbles — only where SectionBubbles is mounted (1–2 per section) */
 .has-section-bubbles {
   position: relative;

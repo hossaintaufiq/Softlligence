@@ -9,6 +9,7 @@ import { WhySoftlligenceSection } from "./WhySoftlligenceSection";
 import { TechMarquee } from "./TechMarquee";
 import { ServicesFinalCta } from "./ServicesFinalCta";
 import { ScrollProgress } from "./ScrollProgress";
+import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 import "./services-page.css";
 
@@ -89,6 +90,7 @@ export function ServicesPage() {
 
   return (
     <div className="services-page">
+      <PageOrbBridge />
       <ScrollProgress />
       <ServicesHero />
       <ServiceCatalog />

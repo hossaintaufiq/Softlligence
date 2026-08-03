@@ -38,7 +38,6 @@
   position: relative;
   padding: 6.25rem 0 3.25rem;
   overflow: hidden;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
   text-align: center;
 }
 
@@ -120,7 +119,6 @@
 /* ── Sections ── */
 .prd-section {
   padding: 4rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--theme-text) 12%, transparent);
 }
 
 @media (min-width: 768px) {
