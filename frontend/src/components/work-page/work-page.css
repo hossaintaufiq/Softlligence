@@ -453,7 +453,6 @@
 
 .wp-portfolio__head h2 {
   margin: 0;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(1.85rem, 4.2vw, 3.1rem);
   font-weight: 600;
   line-height: 1.08;
@@ -999,7 +998,6 @@
 
 .wp-bottom-cta__copy h2 {
   margin: 0;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(1.35rem, 3vw, 2rem);
   font-weight: 600;
   letter-spacing: -0.03em;

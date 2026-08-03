@@ -566,7 +566,6 @@
 
 .ip-section__title {
   margin: 0;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(2rem, 4.5vw, 3.4rem);
   font-weight: 600;
   letter-spacing: -0.035em;
@@ -1038,7 +1037,6 @@
 
 .ip-principles__head h2 {
   margin: 0;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(1.7rem, 3.8vw, 2.6rem);
   font-weight: 600;
   letter-spacing: -0.03em;
@@ -1106,7 +1104,6 @@
 .ip-final__panel h2 {
   margin: 0 auto;
   max-width: 16ch;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(1.8rem, 4.5vw, 3rem);
   font-weight: 600;
   letter-spacing: -0.035em;

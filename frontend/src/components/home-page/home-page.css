@@ -1202,69 +1202,99 @@
   gap: 0.75rem;
 }
 
-/* ── Team strip (no photos on home) ── */
+/* ── Team strip — small photo cards ── */
 .hp-team {
   background: var(--theme-ink);
 }
 
 .hp-team__strip {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
 @media (min-width: 720px) {
   .hp-team__strip {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1100px) {
-  .hp-team__strip {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.85rem;
   }
 }
 
-.hp-team__chip {
+.hp-team__card {
   display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-  padding: 1rem 1.05rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--theme-panel) 50%, transparent);
-  transition: border-color 0.25s ease;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 16.7rem;
+  padding: 1.2rem 0.75rem 1.4rem;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  transition: transform 0.25s ease;
 }
 
-.hp-team__chip:hover {
-  border-color: color-mix(in srgb, var(--theme-accent) 32%, transparent);
+.hp-team__card:hover {
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.hp-team__photo {
+  position: relative;
+  width: 7.2rem;
+  height: 8.9rem;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  background: color-mix(in srgb, var(--theme-panel-2) 80%, #fff);
+}
+
+@media (min-width: 720px) {
+  .hp-team__photo {
+    width: 8.35rem;
+    height: 10.35rem;
+  }
+}
+
+.hp-team__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+  display: block;
 }
 
 .hp-team__initials {
-  flex: none;
   display: grid;
   place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--theme-accent) 30%, transparent);
-  background: color-mix(in srgb, var(--theme-accent) 12%, transparent);
+  width: 100%;
+  height: 100%;
   font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   color: var(--theme-accent);
+  background: color-mix(in srgb, var(--theme-accent) 12%, transparent);
 }
 
-.hp-team__chip h3 {
-  margin: 0 0 0.25rem;
+.hp-team__meta {
+  min-width: 0;
+  width: 100%;
+}
+
+.hp-team__card h3 {
+  margin: 0 0 0.2rem;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 600;
   line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
-.hp-team__chip p {
+.hp-team__card p {
   margin: 0;
   font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   line-height: 1.4;
   color: var(--theme-accent-2);
 }
@@ -1977,7 +2007,7 @@
   .hp-industry:hover,
   .hp-work__card:hover,
   .hp-delivery__card:hover,
-  .hp-team__chip:hover,
+  .hp-team__card:hover,
   .hp-magnetic:hover {
     transform: none;
   }

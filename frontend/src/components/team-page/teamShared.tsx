@@ -70,7 +70,7 @@ export function MemberPhoto({
           alt={name}
           fill
           quality={55}
-          className="object-cover object-top"
+          className="object-cover object-[center_18%]"
           sizes={variant === "leadership" ? "(max-width: 768px) 100vw, 360px" : "(max-width: 768px) 100vw, 280px"}
         />
       ) : (

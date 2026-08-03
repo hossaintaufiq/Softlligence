@@ -138,7 +138,6 @@
 .prd-section__head h2,
 .prd-split h2 {
   margin: 0 0 0.75rem;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(1.55rem, 3.5vw, 2.35rem);
   font-weight: 600;
   letter-spacing: -0.03em;

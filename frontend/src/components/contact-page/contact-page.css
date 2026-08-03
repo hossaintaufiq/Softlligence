@@ -193,7 +193,6 @@
 
 .cp-form-panel__head h2 {
   margin: 0 0 0.45rem;
-  font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
   font-weight: 600;
   letter-spacing: -0.02em;

@@ -118,6 +118,13 @@
   text-align: center;
 }
 
+.sketch-headline--cta-inline {
+  max-width: 600px;
+  margin-inline: 0;
+  text-align: left;
+  font-size: clamp(1.375rem, 5vw, 2.375rem);
+}
+
 /* Shared gradient for hero / display titles */
 .headline-gradient,
 .hp-hero__title,
@@ -212,8 +219,11 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Caveat wins over page-specific h2 / section-title font rules */
+/* Caveat must win over page-specific h1/h2/title font rules (loaded later). */
+.sketch-headline,
+h1.sketch-headline,
 h2.sketch-headline,
+h3.sketch-headline,
 .pp-section__head h2.sketch-headline,
 .ap-section__head h2.sketch-headline,
 .ap-story h2.sketch-headline,
@@ -225,10 +235,14 @@ h2.sketch-headline,
 .ip-section__title.sketch-headline,
 .cp-form-panel__head h2.sketch-headline,
 .prd-section__head h2.sketch-headline,
+.prd-split h2.sketch-headline,
 .tp-cta h2.sketch-headline,
+.tp-section h2.sketch-headline,
 h2.sketch-headline.sp-section-title,
-h2.sketch-headline.sp-final__title {
-  font-family: var(--font-caveat), "Segoe Print", "Comic Sans MS", cursive;
+h2.sketch-headline.sp-final__title,
+.sp-section-title.sketch-headline,
+.sp-final__title.sketch-headline {
+  font-family: var(--font-caveat), "Segoe Print", "Comic Sans MS", cursive !important;
   font-weight: 600;
   letter-spacing: -0.01em;
 }

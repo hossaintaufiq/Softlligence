@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { teamLeadership } from "@/lib/content";
@@ -20,11 +21,25 @@ export function HomeTeam() {
 
         <div className="hp-team__strip">
           {leaders.map((member) => (
-            <article key={member.name} className="hp-team__chip">
-              <span className="hp-team__initials" aria-hidden="true">
-                {member.initials}
-              </span>
-              <div>
+            <article key={member.name} className="hp-team__card">
+              <div className="hp-team__photo">
+                {member.photo ? (
+                  <Image
+                    key={member.photo}
+                    src={member.photo}
+                    alt={member.name}
+                    width={280}
+                    height={360}
+                    className="hp-team__img"
+                    sizes="(max-width: 720px) 7.2rem, 8.35rem"
+                  />
+                ) : (
+                  <span className="hp-team__initials" aria-hidden="true">
+                    {member.initials}
+                  </span>
+                )}
+              </div>
+              <div className="hp-team__meta">
                 <h3>{member.name}</h3>
                 <p>{member.role}</p>
               </div>

@@ -1289,7 +1289,7 @@ export const teamLeadership = [
     linkedin: "https://www.linkedin.com/in/hossain-ahmmed-129b29253/",
     github: "https://github.com/hossaintaufiq",
     email: "hossainahmmedtaufiq22@gmail.com",
-    photo: "/team/leadership/hossain-ahmmed-taufiq.jpeg" as string | null,
+    photo: "/team/leadership/hossain-ahmmed-taufiq-v2.jpeg" as string | null,
     photoTone: "from-accent/25 to-accent-2/10",
   },
   {
