@@ -158,7 +158,7 @@ export function HeroSystemVisual() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-10 pb-10 sm:pt-14 sm:pb-12 md:pt-[88px] md:pb-16">
+    <section className="relative overflow-hidden pt-6 pb-10 sm:pt-12 sm:pb-12 md:pt-[88px] md:pb-16">
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
       <Container className="relative grid items-center gap-10 md:gap-14 max-[980px]:grid-cols-1 min-[981px]:grid-cols-[1.1fr_0.9fr]">
         <div className="max-[980px]:order-1">

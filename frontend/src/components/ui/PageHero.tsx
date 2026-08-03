@@ -88,7 +88,7 @@ export function PageHero({
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto w-full max-w-[1180px] px-4 pt-12 pb-10 min-[400px]:px-5 sm:px-7 sm:pt-16 sm:pb-14 md:pt-[88px] md:pb-[76px]">
+      <div className="relative mx-auto w-full max-w-[1180px] px-4 pt-6 pb-10 min-[400px]:px-5 sm:px-7 sm:pt-12 sm:pb-14 md:pt-[88px] md:pb-[76px]">
         <p className="mb-3 font-mono text-[10px] tracking-[0.16em] text-text-dim uppercase sm:mb-4 sm:text-[12px]">
           <span className="text-accent">/</span> {eyebrow}
         </p>

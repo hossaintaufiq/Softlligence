@@ -127,25 +127,25 @@ export function Nav() {
     <header ref={headerRef} className="pointer-events-none sticky top-0 z-[100]">
       <div
         className={cn(
-          "pointer-events-auto relative z-[110] mx-auto grid w-full max-w-[1180px] grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] transition-[padding] duration-300 min-[400px]:gap-3 min-[400px]:px-5 sm:px-7 sm:pt-5",
-          scrolled && "pt-3 sm:pt-3.5",
+          "pointer-events-auto relative z-[110] mx-auto flex w-full max-w-[1180px] items-center justify-between gap-3 px-3 pt-[max(0.5rem,env(safe-area-inset-top))] pb-1.5 transition-[padding] duration-300 min-[400px]:px-5 sm:px-7 sm:pt-5 sm:pb-0",
+          scrolled && "pt-2.5 pb-1 sm:pt-3.5 sm:pb-0",
         )}
       >
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex min-w-0 items-center gap-2.5 justify-self-start font-display text-[17px] font-semibold tracking-tight text-text transition-opacity duration-200 hover:opacity-90 sm:text-[18px]"
+          className="flex min-w-0 items-center gap-2.5 font-display text-[17px] font-semibold tracking-tight text-text transition-opacity duration-200 hover:opacity-90 sm:text-[18px]"
         >
           <span className="flex shrink-0 text-accent" aria-hidden="true">
             <BrandLogo size={30} />
           </span>
-          <span className="truncate max-[420px]:hidden">Softlligence</span>
+          <span className="truncate max-[360px]:hidden">Softlligence</span>
         </Link>
 
         <nav
           aria-label="Primary"
           className={cn(
-            "site-header hidden h-11 items-center gap-0.5 rounded-full border px-1.5 min-[980px]:flex",
+            "site-header absolute left-1/2 hidden h-11 -translate-x-1/2 items-center gap-0.5 rounded-full border px-1.5 min-[980px]:flex",
             scrolled && "site-header--scrolled",
           )}
         >
@@ -168,7 +168,7 @@ export function Nav() {
           })}
         </nav>
 
-        <div className="flex items-center justify-end gap-2 justify-self-end">
+        <div className="flex shrink-0 items-center justify-end gap-2">
           <Button href="/contact" className="max-[979px]:hidden shadow-[0_8px_24px_rgba(232,160,18,0.28)]">
             Book a call
           </Button>
@@ -180,7 +180,7 @@ export function Nav() {
             aria-controls={menuId}
             onClick={toggleMenu}
             className={cn(
-              "site-header relative hidden h-11 w-11 cursor-pointer items-center justify-center rounded-full border transition-colors max-[979px]:flex",
+              "site-header relative flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border transition-colors min-[980px]:hidden",
               scrolled && "site-header--scrolled",
             )}
           >
@@ -212,7 +212,7 @@ export function Nav() {
         tabIndex={isOpen ? 0 : -1}
         onClick={closeMenu}
         className={cn(
-          "pointer-events-auto fixed inset-0 z-[105] bg-[rgb(12_18_32_/0.35)] backdrop-blur-[2px] transition-opacity duration-300 max-[979px]:block min-[980px]:hidden",
+          "pointer-events-auto fixed inset-0 z-[105] bg-[rgb(12_18_32_/0.35)] backdrop-blur-[2px] transition-opacity duration-300 min-[980px]:hidden",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0",
         )}
       />
@@ -223,7 +223,9 @@ export function Nav() {
         aria-hidden={!isOpen}
         inert={!isOpen ? true : undefined}
         className={cn(
-          "mobile-nav-panel pointer-events-auto fixed top-[4.75rem] right-4 left-4 z-[106] mx-auto flex max-h-[calc(100dvh-5.5rem)] w-auto max-w-[22rem] flex-col items-center gap-1 overflow-y-auto overscroll-contain rounded-2xl border px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] transition-[opacity,transform,visibility] duration-300 max-[979px]:flex min-[980px]:hidden sm:right-7 sm:left-auto",
+          "mobile-nav-panel pointer-events-auto fixed z-[106] flex flex-col items-stretch gap-1 overflow-x-hidden overflow-y-auto overscroll-contain rounded-2xl border px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-[opacity,transform,visibility] duration-300 min-[980px]:hidden",
+          "top-[calc(var(--site-header-offset)+0.25rem)] left-[max(0.75rem,env(safe-area-inset-left))] right-[max(0.75rem,env(safe-area-inset-right))] ml-auto max-w-[22rem]",
+          "max-h-[calc(100dvh-var(--site-header-offset)-0.75rem-env(safe-area-inset-bottom,0px))]",
           isOpen
             ? "visible translate-y-0 opacity-100"
             : "invisible pointer-events-none -translate-y-2 opacity-0",
@@ -239,7 +241,7 @@ export function Nav() {
               tabIndex={isOpen ? 0 : -1}
               style={{ transitionDelay: isOpen ? `${i * 40}ms` : "0ms" }}
               className={cn(
-                "nav-link w-full rounded-xl border px-4 py-3 text-center text-[15px] text-text-dim transition-all duration-200 hover:text-text",
+                "nav-link w-full shrink-0 rounded-xl border px-4 py-2.5 text-center text-[15px] text-text-dim transition-all duration-200 hover:text-text",
                 isActive && "nav-link--active text-text",
               )}
             >
@@ -247,7 +249,7 @@ export function Nav() {
             </Link>
           );
         })}
-        <div className="mt-2 w-full">
+        <div className="mt-2 w-full shrink-0">
           <Button href="/contact" block onClick={closeMenu}>
             Book a call
           </Button>
