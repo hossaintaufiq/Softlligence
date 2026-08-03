@@ -12,6 +12,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { ServiceCategory, ServiceItem } from "@/lib/servicesPageContent";
+import { getTechIcon } from "@/lib/techIcons";
 import { MagneticButton } from "./MagneticButton";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 import { cn } from "@/lib/utils";
@@ -114,9 +115,30 @@ export function ServiceCard({ service, index, accent, categoryId }: ServiceCardP
       <div className="sp-service-card__block">
         <p className="sp-label">Technologies</p>
         <div className="sp-tech-row">
-          {service.technologies.map((tech) => (
-            <span key={tech}>{tech}</span>
-          ))}
+          {service.technologies.map((tech) => {
+            const icon = getTechIcon(tech);
+            if (!icon) {
+              return (
+                <span key={tech} className="sp-tech-row__fallback">
+                  {tech}
+                </span>
+              );
+            }
+            return (
+              <span key={tech} className="sp-tech-row__item" title={tech}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={icon}
+                  alt={tech}
+                  width={24}
+                  height={24}
+                  className="sp-tech-row__logo"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+            );
+          })}
         </div>
       </div>
 

@@ -103,10 +103,6 @@
   letter-spacing: -0.03em;
 }
 
-.ap-hero h1 span {
-  color: var(--theme-accent);
-}
-
 .ap-hero__lead {
   margin: 0 auto 1.75rem;
   max-width: 38rem;

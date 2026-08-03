@@ -1316,34 +1316,84 @@
 
 /* ── Tech ── */
 .hp-tech {
-  background: var(--theme-panel);
+  background: transparent;
   padding-bottom: 3.25rem;
 }
 
-.hp-marquee {
-  margin-top: 0.5rem;
-  overflow: visible;
-}
-
-.hp-marquee__track {
+.hp-tech__pyramid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.7rem;
-  width: min(100% - 2rem, 1180px);
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
   margin-inline: auto;
-  padding-inline: 1rem;
+  max-width: 56rem;
 }
 
-.hp-marquee__item {
-  flex: none;
-  padding: 0.7rem 1.05rem;
-  border: 1px solid color-mix(in srgb, var(--theme-text) 16%, transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--theme-ink) 45%, transparent);
-  font-family: var(--font-ibm-plex-mono), ui-monospace, monospace;
-  font-size: 0.78rem;
-  color: var(--theme-text-dim);
+.hp-tech__row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0.55rem;
+}
+
+.hp-tech__item {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--theme-panel-2) 75%, #fff);
+  border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hp-tech__item:hover {
+  border-color: color-mix(in srgb, var(--theme-accent) 40%, transparent);
+  transform: translateY(-2px);
+}
+
+.hp-tech__logo {
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: contain;
+}
+
+.hp-tech__logo[src*="amazonwebservices"] {
+  width: 2rem;
+  height: 1.35rem;
+}
+
+.hp-tech__logo[src*="express"] {
+  /* Express SVG is near-black; keep it readable on light tiles */
+  filter: invert(0.12);
+}
+
+@media (min-width: 768px) {
+  .hp-tech__pyramid {
+    gap: 0.65rem;
+  }
+
+  .hp-tech__row {
+    gap: 0.65rem;
+  }
+
+  .hp-tech__item {
+    width: 3.35rem;
+    height: 3.35rem;
+    border-radius: 0.9rem;
+  }
+
+  .hp-tech__logo {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
 }
 
 /* ── FAQ ── */
@@ -1543,8 +1593,17 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.12;
-  color: #0c1220;
   text-wrap: balance;
+  background-image: linear-gradient(
+    100deg,
+    var(--theme-accent) 0%,
+    var(--theme-accent-2) 45%,
+    #0c1220 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .hp-social__mark {
@@ -1563,6 +1622,7 @@
   font-size: 0.55em;
   font-weight: 600;
   color: var(--theme-accent);
+  -webkit-text-fill-color: var(--theme-accent);
   line-height: 1;
   white-space: nowrap;
 }
@@ -1735,7 +1795,6 @@
   font-size: clamp(3.2rem, 10vw, 5.25rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #0c1220;
 }
 
 .hp-cta__title-rest {
@@ -1743,7 +1802,6 @@
   font-size: clamp(1.85rem, 5.5vw, 2.85rem);
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--theme-accent-2);
 }
 
 .hp-cta__btn {

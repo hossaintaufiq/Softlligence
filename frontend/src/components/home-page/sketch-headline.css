@@ -1,4 +1,4 @@
-/* Sketch / handwritten section headlines */
+/* Sketch / handwritten section headlines — gold → teal → navy */
 
 .sketch-headline {
   margin: 0 0 0.9rem;
@@ -8,7 +8,18 @@
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.01em;
-  color: var(--theme-text);
+  background-image: linear-gradient(
+    100deg,
+    var(--theme-accent) 0%,
+    color-mix(in srgb, var(--theme-accent) 55%, var(--theme-accent-2)) 28%,
+    var(--theme-accent-2) 52%,
+    color-mix(in srgb, var(--theme-accent-2) 45%, #0c1220) 72%,
+    #0c1220 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .hp-section--center .sketch-headline {
@@ -33,8 +44,12 @@
   overflow: visible;
 }
 
-.sketch-mark--circle {
+/* Marked words stay solid gold (like “Capabilities” in the reference) */
+.sketch-mark--circle,
+.sketch-mark--underline {
   color: var(--theme-accent);
+  -webkit-text-fill-color: var(--theme-accent);
+  background: none;
 }
 
 .sketch-mark--circle .sketch-mark__svg--circle {
@@ -43,10 +58,12 @@
   width: 112%;
   height: 116%;
   opacity: 0.95;
+  color: var(--theme-accent);
 }
 
 .sketch-mark--underline {
-  color: color-mix(in srgb, var(--theme-accent) 82%, #ffd27a);
+  color: color-mix(in srgb, var(--theme-accent) 88%, #ffd27a);
+  -webkit-text-fill-color: color-mix(in srgb, var(--theme-accent) 88%, #ffd27a);
 }
 
 .sketch-mark--underline .sketch-mark__svg--underline {
@@ -55,6 +72,7 @@
   width: 104%;
   height: 0.42em;
   opacity: 0.95;
+  color: color-mix(in srgb, var(--theme-accent) 88%, #ffd27a);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -90,6 +108,100 @@
   max-width: 28ch;
   margin-inline: auto;
   text-align: center;
+}
+
+/* Shared gradient for hero / display titles */
+.headline-gradient,
+.hp-hero__title,
+.sp-hero__title,
+.sp-hero__line,
+.wp-hero__title,
+.wp-hero__line,
+.ip-hero__title,
+.ip-hero__line,
+.tp-hero__title,
+.ap-hero h1,
+.pp-hero h1,
+.cp-hero h1,
+.prd-hero__title,
+.prd-detail-hero h1,
+.page-hero h1 {
+  background-image: linear-gradient(
+    100deg,
+    var(--theme-accent) 0%,
+    color-mix(in srgb, var(--theme-accent) 55%, var(--theme-accent-2)) 28%,
+    var(--theme-accent-2) 52%,
+    color-mix(in srgb, var(--theme-accent-2) 45%, #0c1220) 72%,
+    #0c1220 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hp-hero__title .sketch-mark--circle,
+.hp-hero__title .sketch-mark--underline,
+.sp-hero__title .sketch-mark--circle,
+.sp-hero__title .sketch-mark--underline,
+.wp-hero__title .sketch-mark--circle,
+.wp-hero__title .sketch-mark--underline,
+.ip-hero__title .sketch-mark--circle,
+.ip-hero__title .sketch-mark--underline,
+.tp-hero__title .sketch-mark--circle,
+.tp-hero__title .sketch-mark--underline,
+.ap-hero h1 .sketch-mark--circle,
+.ap-hero h1 .sketch-mark--underline,
+.pp-hero h1 .sketch-mark--circle,
+.pp-hero h1 .sketch-mark--underline,
+.cp-hero h1 .sketch-mark--circle,
+.cp-hero h1 .sketch-mark--underline,
+.prd-hero__title .sketch-mark--circle,
+.prd-hero__title .sketch-mark--underline,
+.prd-detail-hero h1 .sketch-mark--circle,
+.prd-detail-hero h1 .sketch-mark--underline,
+.page-hero h1 .sketch-mark--circle,
+.page-hero h1 .sketch-mark--underline {
+  color: var(--theme-accent);
+  -webkit-text-fill-color: var(--theme-accent);
+  background: none;
+}
+
+.prd-hero__title em,
+.pp-hero h1 em,
+.cp-hero h1 em,
+.sp-hero__line--accent,
+.wp-hero__line--accent,
+.ip-hero__line--accent {
+  background-image: linear-gradient(
+    100deg,
+    var(--theme-accent) 0%,
+    var(--theme-accent-2) 55%,
+    #0c1220 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Final CTA sketch lines */
+.hp-cta__title-lead {
+  color: #0c1220;
+  -webkit-text-fill-color: #0c1220;
+}
+
+.hp-cta__title-rest {
+  background-image: linear-gradient(
+    100deg,
+    var(--theme-accent) 0%,
+    var(--theme-accent-2) 45%,
+    #0c1220 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Caveat wins over page-specific h2 / section-title font rules */

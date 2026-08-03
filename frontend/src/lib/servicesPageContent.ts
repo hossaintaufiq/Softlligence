@@ -627,6 +627,7 @@ export const servicesProcessSteps = [
   "Support",
 ];
 
+/** @deprecated Tech marquee now uses homeTechStack logos; kept for any string-only consumers. */
 export const servicesTechnologies = [
   "Next.js",
   "React",
@@ -644,7 +645,7 @@ export const servicesTechnologies = [
   "OpenAI",
   "TensorFlow",
   "React Native",
-];
+] as const;
 
 export const servicesFinalCta = {
   title: "Ready to build your next enterprise system?",

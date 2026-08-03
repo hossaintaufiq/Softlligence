@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Section";
 const COLS = 12;
 const ROWS = 5;
 
-/** Online portraits for the mosaic (Unsplash). */
+/** Unique online portraits for the mosaic (Unsplash) — one per photo cell, no repeats. */
 const portraits = [
   "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=70",
   "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=70",
@@ -20,7 +20,22 @@ const portraits = [
   "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=70",
   "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=70",
   "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1619895862022-09114b1f27c2?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=200&q=70",
+  "https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&w=200&q=70",
 ];
+
+/** Quote attribution — kept distinct from mosaic faces. */
+const quotePortrait =
+  "https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=200&q=70";
+
 
 type Form = "circle" | "square" | "leaf-tr" | "leaf-tl" | "leaf-br" | "leaf-bl" | "soft";
 type Tone = "blue" | "mist" | "ink" | "gold";
@@ -57,12 +72,23 @@ function buildMosaic(): Cell[] {
       if (token === "e") {
         cells.push({ kind: "empty" });
       } else if (token === "p") {
-        cells.push({
-          kind: "photo",
-          src: portraits[photoN % portraits.length],
-          form: forms[photoN % forms.length],
-        });
-        photoN += 1;
+        const src = portraits[photoN];
+        if (!src) {
+          // Prefer a shape over repeating a face if we somehow run short.
+          cells.push({
+            kind: "shape",
+            tone: tones[shapeN % tones.length],
+            form: forms[(shapeN + 2) % forms.length],
+          });
+          shapeN += 1;
+        } else {
+          cells.push({
+            kind: "photo",
+            src,
+            form: forms[photoN % forms.length],
+          });
+          photoN += 1;
+        }
       } else {
         cells.push({
           kind: "shape",
@@ -161,7 +187,7 @@ export function HomeSocialProof() {
           <aside className="hp-social__attribution">
             <div className="hp-social__avatar">
               <Image
-                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=70"
+                src={quotePortrait}
                 alt=""
                 width={72}
                 height={72}
