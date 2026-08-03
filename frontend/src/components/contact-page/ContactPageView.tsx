@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { companyContact } from "@/lib/navigation";
 import { LinkedInIcon } from "@/components/icons/SocialIcons";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { cn } from "@/lib/utils";
 import "./contact-page.css";
 
@@ -230,7 +231,7 @@ export function ContactPageView() {
             <span>/</span> Start a project
           </p>
           <h1 id="cp-hero-title">
-            Tell us what you&apos;re <em>building.</em>
+            Tell us what you&apos;re <SketchMark type="underline">building.</SketchMark>
           </h1>
           <p className="cp-hero__lead">
             Share a short project brief, or reach Softlligence by email or phone. We reply within one
@@ -271,7 +272,9 @@ export function ContactPageView() {
           <div className="cp-form-panel">
             <div className="cp-form-panel__head">
               <p>Project inquiry</p>
-              <h2>Send a brief. We&apos;ll take it from there.</h2>
+              <SketchHeadline id="cp-form-title">
+                Send a <SketchMark type="underline">brief.</SketchMark> We&apos;ll take it from there.
+              </SketchHeadline>
               <p>
                 Share what you&apos;re building and we&apos;ll come back with next steps — usually
                 within one business day.

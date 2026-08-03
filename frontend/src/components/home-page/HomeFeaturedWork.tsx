@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { clientProjects } from "@/lib/content";
 import { homeFeaturedProjectIds } from "@/lib/homePageContent";
 import { pageRoutes } from "@/lib/navigation";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function HomeFeaturedWork() {
   const featured = homeFeaturedProjectIds
@@ -20,9 +21,9 @@ export function HomeFeaturedWork() {
         <div className="hp-work__header">
           <div>
             <Eyebrow number="05">FEATURED WORK</Eyebrow>
-            <SectionTitle>
-              <span id="hp-work-title">Selected platforms we&apos;ve engineered.</span>
-            </SectionTitle>
+            <SketchHeadline id="hp-work-title">
+              Selected <SketchMark type="circle">platforms</SketchMark> we&apos;ve engineered.
+            </SketchHeadline>
             <p className="hp-lead">
               Five production builds — scroll through, open a case, or browse the full portfolio.
             </p>

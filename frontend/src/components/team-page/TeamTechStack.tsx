@@ -1,6 +1,7 @@
 "use client";
 
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { teamTechStack } from "@/lib/teamPageEnrichment";
 
 export function TeamTechStack() {
@@ -10,8 +11,10 @@ export function TeamTechStack() {
     <section className="tp-section tp-stack" aria-labelledby="team-stack-title">
       <Container>
         <Eyebrow number="05">STACK</Eyebrow>
-        <SectionTitle>Technologies we ship with</SectionTitle>
-        <p className="tp-lead tp-lead--narrow" id="team-stack-title">
+        <SketchHeadline id="team-stack-title">
+          Technologies we <SketchMark type="underline">ship</SketchMark> with
+        </SketchHeadline>
+        <p className="tp-lead tp-lead--narrow">
           Modern, maintainable tools chosen for enterprise workloads — not novelty.
         </p>
       </Container>

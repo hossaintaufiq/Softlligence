@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { teamLeadership } from "@/lib/content";
 import { GitHubIcon, LinkedInIcon, MemberPhoto, SocialBtn } from "./teamShared";
 
@@ -21,9 +22,9 @@ export function TeamLeadership() {
       <div className="tp-section__glow" aria-hidden="true" />
       <Container className="relative">
         <Eyebrow number="02">LEADERSHIP</Eyebrow>
-        <SectionTitle>
-          <span id="team-leadership-title">The people who set the standard.</span>
-        </SectionTitle>
+        <SketchHeadline id="team-leadership-title">
+          The <SketchMark type="circle">people</SketchMark> who set the standard.
+        </SketchHeadline>
         <p className="tp-lead tp-lead--narrow">
           Executive-caliber builders who own architecture, delivery, and client relationships —
           and still write production code.

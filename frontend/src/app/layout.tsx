@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, IBM_Plex_Mono, Caveat } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { CursorSpotlightLazy } from "@/components/CursorSpotlightLazy";
 import "./globals.css";
+import "@/components/home-page/sketch-headline.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -26,6 +27,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-ibm-plex-mono",
+  display: "swap",
+  preload: false,
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-caveat",
   display: "swap",
   preload: false,
 });
@@ -59,7 +68,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} ${caveat.variable}`}
     >
       <body className="antialiased">
         <ScrollToTop />

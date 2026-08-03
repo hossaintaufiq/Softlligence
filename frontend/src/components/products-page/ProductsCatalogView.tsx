@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { pageRoutes } from "@/lib/navigation";
 import {
   products,
@@ -58,9 +59,9 @@ export function ProductsCatalogView() {
             <span>/</span> {productsCatalogIntro.eyebrow}
           </p>
           <h1 id="prd-catalog-title" className="prd-hero__title">
-            Enterprise platforms.
+            Enterprise <SketchMark type="circle">platforms.</SketchMark>
             <br />
-            <em>Ready to trial.</em>
+            <SketchMark type="underline">Ready to trial.</SketchMark>
           </h1>
           <p className="prd-hero__lead">{productsCatalogIntro.lead}</p>
           <div className="prd-hero__actions">
@@ -89,7 +90,10 @@ export function ProductsCatalogView() {
             <p className="prd-kicker">
               <span>/</span> Catalog
             </p>
-            <h2 id="prd-list-title">Ready AI-powered platforms for modern organizations.</h2>
+            <SketchHeadline id="prd-list-title">
+              Ready AI-powered <SketchMark type="circle">platforms</SketchMark> for modern
+              organizations.
+            </SketchHeadline>
             <p>
               Each product includes purchase recommendations, AI summaries, and access via mobile,
               WordPress, and Telegram — plus a 7-day trial on app.softlligence.com.
@@ -109,7 +113,9 @@ export function ProductsCatalogView() {
             <p className="prd-kicker">
               <span>/</span> How to engage
             </p>
-            <h2 id="prd-doors-title">Three ways to use Softlligence products.</h2>
+            <SketchHeadline id="prd-doors-title">
+              Three <SketchMark type="underline">ways</SketchMark> to use Softlligence products.
+            </SketchHeadline>
           </div>
           <div className="prd-doors__grid">
             <article>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 export function IndustriesFinalCta() {
@@ -18,7 +19,9 @@ export function IndustriesFinalCta() {
           transition={{ duration: 0.6 }}
         >
           <p className="ip-eyebrow">Next step</p>
-          <h2 id="ip-final-title">Ready to transform your industry?</h2>
+          <SketchHeadline id="ip-final-title">
+            Ready to transform your <SketchMark type="underline">industry?</SketchMark>
+          </SketchHeadline>
           <p>
             Let&apos;s build software designed around your business—not force your business around
             software.

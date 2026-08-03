@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 import { servicesPageHero } from "@/lib/servicesPageContent";
 import { MagneticButton } from "./MagneticButton";
 import { HeroCodeVisual } from "./HeroCodeVisual";
@@ -29,7 +30,7 @@ export function ServicesHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
             >
-              {servicesPageHero.titleLine1}
+              Enterprise <SketchMark type="circle">Software</SketchMark>
             </motion.span>
             <motion.span
               className="sp-hero__line sp-hero__line--accent"
@@ -37,7 +38,7 @@ export function ServicesHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
             >
-              {servicesPageHero.titleLine2}
+              Built for <SketchMark type="underline">Scale.</SketchMark>
             </motion.span>
           </h1>
 

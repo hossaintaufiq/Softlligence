@@ -1,5 +1,6 @@
 import { processWorkingModel, processTypicalWeek, processRealTalk } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { pageRoutes } from "@/lib/navigation";
 
 export function ProcessOperating() {
@@ -10,7 +11,9 @@ export function ProcessOperating() {
           <p className="pp-eyebrow">
             <span>⟨ 02 ⟩</span> OPERATING MODEL
           </p>
-          <h2 id="pp-ops-title">The day-to-day — not the slide deck.</h2>
+          <SketchHeadline id="pp-ops-title">
+            The <SketchMark type="underline">day-to-day</SketchMark> — not the slide deck.
+          </SketchHeadline>
           <p className="pp-lead">
             Five stages on paper. In practice, this is how we stay aligned while the product is being
             built.
@@ -39,7 +42,9 @@ export function ProcessWeek() {
           <p className="pp-eyebrow">
             <span>⟨ 03 ⟩</span> CADENCE
           </p>
-          <h2 id="pp-week-title">What a normal week looks like mid-project.</h2>
+          <SketchHeadline id="pp-week-title">
+            What a normal <SketchMark type="circle">week</SketchMark> looks like mid-project.
+          </SketchHeadline>
           <p className="pp-lead">
             No mystery blackouts. You always know what we&apos;re doing and when you&apos;ll see it.
           </p>
@@ -67,7 +72,9 @@ export function ProcessRealTalk() {
           <p className="pp-eyebrow">
             <span>⟨ 04 ⟩</span> STRAIGHT TALK
           </p>
-          <h2 id="pp-talk-title">How real projects stay on track.</h2>
+          <SketchHeadline id="pp-talk-title">
+            How real projects stay on <SketchMark type="underline">track.</SketchMark>
+          </SketchHeadline>
         </header>
 
         <div className="pp-talk">

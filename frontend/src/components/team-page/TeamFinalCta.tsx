@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function TeamFinalCta() {
   const reduce = useReducedMotion();
@@ -17,7 +18,9 @@ export function TeamFinalCta() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 id="team-cta-title">Let&apos;s Build Something That Matters.</h2>
+          <SketchHeadline id="team-cta-title">
+            Let&apos;s Build Something That <SketchMark type="underline">Matters.</SketchMark>
+          </SketchHeadline>
           <p>
             Whether you&apos;re building an ERP, CRM, AI platform, or enterprise software solution,
             our team is ready to help turn your vision into reality.

@@ -5,6 +5,7 @@ import {
   templateProjects,
 } from "@/lib/content";
 import { FinalCTA } from "@/components/FinalCTA";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { WorkFilters } from "@/components/work-page/WorkFilters";
 import { ProjectCaseStudy } from "@/components/work-page/ProjectCaseStudy";
 import { WorkBottomCta } from "@/components/work-page/WorkBottomCta";
@@ -88,7 +89,10 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
         <div className="wp-container">
           <header className="wp-portfolio__head">
             <p className="wp-eyebrow">Portfolio</p>
-            <h2 id="wp-portfolio-title">Engineering products used by real organizations.</h2>
+            <SketchHeadline id="wp-portfolio-title">
+              Engineering products used by real{" "}
+              <SketchMark type="circle">organizations.</SketchMark>
+            </SketchHeadline>
             <p className="wp-portfolio__sub">
               Filter by category — web &amp; app, AI/ML, tools, and templates. Ongoing projects stay
               in their category with an Ongoing tag.

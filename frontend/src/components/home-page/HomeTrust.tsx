@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { homeTrustStats } from "@/lib/homePageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 function formatNumber(n: number) {
   if (n >= 1000) return `${(n / 1000).toFixed(0)}k`;
@@ -52,9 +53,9 @@ export function HomeTrust() {
     <section className="hp-section hp-trust" id="trust" aria-labelledby="hp-trust-title">
       <Container>
         <Eyebrow number="01">TRUST</Eyebrow>
-        <SectionTitle>
-          <span id="hp-trust-title">Credibility you can measure.</span>
-        </SectionTitle>
+        <SketchHeadline id="hp-trust-title">
+          Credibility you can <SketchMark type="underline">measure</SketchMark>.
+        </SketchHeadline>
         <p className="hp-lead">
           Enterprise delivery capacity — from platforms shipped to the engineers who build them.
         </p>

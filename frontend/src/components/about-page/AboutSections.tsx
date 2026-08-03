@@ -7,6 +7,7 @@ import {
   comparison,
 } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { pageRoutes } from "@/lib/navigation";
 
 export function AboutStory() {
@@ -21,7 +22,9 @@ export function AboutStory() {
           <p className="ap-eyebrow">
             <span>⟨ 01 ⟩</span> THE STUDIO
           </p>
-          <h2 id="ap-story-title">Built to ship systems — not sell themes.</h2>
+          <SketchHeadline id="ap-story-title">
+            Built to ship <SketchMark type="circle">systems</SketchMark> — not sell themes.
+          </SketchHeadline>
           <div className="ap-story__body">
             {aboutStory.body.map((para) => (
               <p key={para.slice(0, 32)}>{para}</p>
@@ -45,7 +48,9 @@ export function AboutBeliefs() {
           <p className="ap-eyebrow">
             <span>⟨ 02 ⟩</span> HOW WE THINK
           </p>
-          <h2 id="ap-beliefs-title">Principles that keep delivery sharp.</h2>
+          <SketchHeadline id="ap-beliefs-title">
+            Principles that keep delivery <SketchMark type="circle">sharp.</SketchMark>
+          </SketchHeadline>
           <p className="ap-lead">
             Senior engineering habits, applied to every engagement — from a marketing site rebuild to
             an operational platform.
@@ -74,7 +79,9 @@ export function AboutCraft() {
           <p className="ap-eyebrow">
             <span>⟨ 03 ⟩</span> THE CRAFT
           </p>
-          <h2 id="ap-craft-title">What we cover end to end.</h2>
+          <SketchHeadline id="ap-craft-title">
+            What we cover end to <SketchMark type="underline">end.</SketchMark>
+          </SketchHeadline>
         </header>
 
         <div className="ap-craft">
@@ -102,7 +109,9 @@ export function AboutLeadership() {
           <p className="ap-eyebrow">
             <span>⟨ 04 ⟩</span> LEADERSHIP
           </p>
-          <h2 id="ap-lead-title">A compact build team.</h2>
+          <SketchHeadline id="ap-lead-title">
+            A compact build <SketchMark type="circle">team.</SketchMark>
+          </SketchHeadline>
           <p className="ap-lead">
             Softlligence is run by engineers who ship together — strategy and delivery in the same
             hands.
@@ -136,7 +145,9 @@ export function AboutCommitments() {
           <p className="ap-eyebrow">
             <span>⟨ 05 ⟩</span> COMMITMENTS
           </p>
-          <h2 id="ap-commit-title">What you can expect when we work together.</h2>
+          <SketchHeadline id="ap-commit-title">
+            What you can expect when we work <SketchMark type="underline">together.</SketchMark>
+          </SketchHeadline>
         </header>
 
         <div className="ap-commit">
@@ -190,7 +201,9 @@ export function AboutFinalCta() {
         <p className="ap-kicker">
           <span>/</span> Next step
         </p>
-        <h2 id="ap-cta-title">Tell us what you&apos;re building.</h2>
+        <SketchHeadline id="ap-cta-title">
+          Tell us what you&apos;re <SketchMark type="underline">building.</SketchMark>
+        </SketchHeadline>
         <p>
           Share the problem, the deadline, and the constraints. We reply within one business day with
           a clear next step — no scripted sales call.

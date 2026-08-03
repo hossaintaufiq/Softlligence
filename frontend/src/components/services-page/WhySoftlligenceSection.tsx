@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { whySoftlligenceServices } from "@/lib/servicesPageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -53,11 +54,11 @@ export function WhySoftlligenceSection() {
           transition={{ duration: 0.7 }}
         >
           <p className="sp-eyebrow">Why Softlligence</p>
-          <h2 id="sp-why-title" className="sp-section-title">
-            Built like infrastructure—
+          <SketchHeadline id="sp-why-title" className="sp-section-title">
+            Built like <SketchMark type="circle">infrastructure</SketchMark>—
             <br />
             <span className="sp-text-gradient">not a one-off site.</span>
-          </h2>
+          </SketchHeadline>
         </motion.header>
 
         <div ref={track} className="sp-why__timeline">

@@ -1,5 +1,6 @@
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { homeProblems } from "@/lib/homePageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function HomeProblems() {
   return (
@@ -7,9 +8,9 @@ export function HomeProblems() {
       <Container>
         <header className="hp-problems__intro">
           <Eyebrow number="03">PROBLEMS</Eyebrow>
-          <SectionTitle>
-            <span id="hp-problems-title">Companies struggle with the same friction.</span>
-          </SectionTitle>
+          <SketchHeadline id="hp-problems-title">
+            Companies struggle with the same <SketchMark type="circle">friction</SketchMark>.
+          </SketchHeadline>
           <p className="hp-lead">
             Manual processes and fragmented tools quietly tax every department — until operations
             can&apos;t scale.

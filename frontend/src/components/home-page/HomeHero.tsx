@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Section";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 import { pageRoutes } from "@/lib/navigation";
 import { HomeHeroVisual } from "./HomeHeroVisual";
 
@@ -54,7 +55,8 @@ export function HomeHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05 }}
           >
-            Enterprise software that powers modern businesses.
+            Enterprise <SketchMark type="circle">software</SketchMark> that powers modern{" "}
+            <SketchMark type="underline">businesses</SketchMark>.
           </motion.h1>
 
           <motion.p

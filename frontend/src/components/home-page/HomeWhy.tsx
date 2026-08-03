@@ -1,16 +1,17 @@
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { homeWhyPoints } from "@/lib/homePageContent";
 import { pageRoutes } from "@/lib/navigation";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function HomeWhy() {
   return (
     <section className="hp-section hp-why" aria-labelledby="hp-why-title">
       <Container>
         <Eyebrow number="07">WHY SOFTLLIGENCE</Eyebrow>
-        <SectionTitle>
-          <span id="hp-why-title">Why organizations choose us.</span>
-        </SectionTitle>
+        <SketchHeadline id="hp-why-title">
+          Why organizations <SketchMark type="underline">choose</SketchMark> us.
+        </SketchHeadline>
         <p className="hp-lead">
           Not another agency pitch — enterprise engineering partnership with clarity and continuity.
         </p>

@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { teamWhyClients } from "@/lib/teamPageEnrichment";
 
 export function TeamWhyClients() {
@@ -11,8 +12,10 @@ export function TeamWhyClients() {
     <section className="tp-section tp-why" aria-labelledby="team-why-title">
       <Container>
         <Eyebrow number="07">PARTNERSHIP</Eyebrow>
-        <SectionTitle>Why clients work with us</SectionTitle>
-        <p className="tp-lead tp-lead--narrow" id="team-why-title">
+        <SketchHeadline id="team-why-title">
+          Why <SketchMark type="underline">clients</SketchMark> work with us
+        </SketchHeadline>
+        <p className="tp-lead tp-lead--narrow">
           Engagements built for clarity, continuity, and enterprise-grade outcomes.
         </p>
 

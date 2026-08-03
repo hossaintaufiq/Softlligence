@@ -1,4 +1,5 @@
 import { processSteps } from "@/lib/content";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function ProcessStages() {
   return (
@@ -8,7 +9,9 @@ export function ProcessStages() {
           <p className="pp-eyebrow">
             <span>⟨ 01 ⟩</span> ROADMAP
           </p>
-          <h2 id="pp-stages-title">The roadmap from brief to production.</h2>
+          <SketchHeadline id="pp-stages-title">
+            The roadmap from brief to <SketchMark type="circle">production.</SketchMark>
+          </SketchHeadline>
           <p className="pp-lead">
             No stage starts before the last one is signed off — so scope, quality, and timeline stay
             honest.

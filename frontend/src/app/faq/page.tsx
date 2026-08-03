@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FAQ } from "@/components/FAQ";
 import { PageHero } from "@/components/ui/PageHero";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -12,7 +13,11 @@ export default function FAQPage() {
     <main>
       <PageHero
         eyebrow="QUESTIONS"
-        title="Answers before you have to ask."
+        title={
+          <>
+            <SketchMark type="circle">Answers</SketchMark> before you have to ask.
+          </>
+        }
         description="Timeline, pricing, engagement models, security and what happens after launch."
       />
       <FAQ />

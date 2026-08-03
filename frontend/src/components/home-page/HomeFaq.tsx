@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { faqs } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function HomeFaq() {
   const [open, setOpen] = useState<number | null>(0);
@@ -15,9 +16,9 @@ export function HomeFaq() {
       <Container>
         <div className="hp-section__head">
           <Eyebrow number="10">FAQ</Eyebrow>
-          <SectionTitle>
-            <span id="hp-faq-title">Answers before you have to ask.</span>
-          </SectionTitle>
+          <SketchHeadline id="hp-faq-title">
+            Answers before you have to <SketchMark type="underline">ask</SketchMark>.
+          </SketchHeadline>
           <p className="hp-lead">Clear expectations on timeline, engagement, and how we ship.</p>
         </div>
 

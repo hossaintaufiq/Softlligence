@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { serviceCategories } from "@/lib/servicesPageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { ServiceCard } from "./ServiceCard";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
@@ -19,12 +20,17 @@ export function ServiceCatalog() {
           transition={{ duration: 0.7 }}
         >
           <p className="sp-eyebrow">Service catalog</p>
-          <h2 id="sp-catalog-title" className="sp-section-title sp-catalog__title">
-            <span className="sp-catalog__title-line">Capabilities organized</span>
+          <SketchHeadline
+            id="sp-catalog-title"
+            className="sp-section-title sp-catalog__title"
+          >
+            <span className="sp-catalog__title-line">
+              <SketchMark type="circle">Capabilities</SketchMark> organized
+            </span>
             <span className="sp-catalog__title-line sp-text-gradient">
               for enterprise delivery.
             </span>
-          </h2>
+          </SketchHeadline>
           <p className="sp-section-sub">
             Six practice areas—from ERP and MES to AI, cloud, and long-term support—scoped with
             clear features, stacks, and timelines.

@@ -1,0 +1,114 @@
+/* Sketch / handwritten section headlines */
+
+.sketch-headline {
+  margin: 0 0 0.9rem;
+  max-width: 40rem;
+  font-family: var(--font-caveat), "Segoe Print", "Comic Sans MS", cursive;
+  font-size: clamp(2rem, 5.5vw, 3.35rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--theme-text);
+}
+
+.hp-section--center .sketch-headline {
+  margin-inline: auto;
+}
+
+.sketch-mark {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.05em 0.12em;
+}
+
+.sketch-mark__text {
+  position: relative;
+  z-index: 1;
+}
+
+.sketch-mark__svg {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.sketch-mark--circle {
+  color: var(--theme-accent);
+}
+
+.sketch-mark--circle .sketch-mark__svg--circle {
+  left: -6%;
+  top: -8%;
+  width: 112%;
+  height: 116%;
+  opacity: 0.95;
+}
+
+.sketch-mark--underline {
+  color: color-mix(in srgb, var(--theme-accent) 82%, #ffd27a);
+}
+
+.sketch-mark--underline .sketch-mark__svg--underline {
+  left: -2%;
+  bottom: -0.08em;
+  width: 104%;
+  height: 0.42em;
+  opacity: 0.95;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sketch-mark__svg path {
+    stroke-dasharray: 280;
+    stroke-dashoffset: 280;
+    animation: sketch-draw 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .sketch-mark--underline .sketch-mark__svg path {
+    stroke-dasharray: 140;
+    stroke-dashoffset: 140;
+    animation-duration: 0.7s;
+    animation-delay: 0.12s;
+  }
+}
+
+@keyframes sketch-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketch-mark__svg path {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+.sketch-headline--cta {
+  max-width: 28ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Caveat wins over page-specific h2 / section-title font rules */
+h2.sketch-headline,
+.pp-section__head h2.sketch-headline,
+.ap-section__head h2.sketch-headline,
+.ap-story h2.sketch-headline,
+.ap-cta h2.sketch-headline,
+.wp-portfolio__head h2.sketch-headline,
+.wp-bottom-cta__copy h2.sketch-headline,
+.ip-principles__head h2.sketch-headline,
+.ip-final__panel h2.sketch-headline,
+.ip-section__title.sketch-headline,
+.cp-form-panel__head h2.sketch-headline,
+.prd-section__head h2.sketch-headline,
+.tp-cta h2.sketch-headline,
+h2.sketch-headline.sp-section-title,
+h2.sketch-headline.sp-final__title {
+  font-family: var(--font-caveat), "Segoe Print", "Comic Sans MS", cursive;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { servicesProcessSteps } from "@/lib/servicesPageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,11 +58,11 @@ export function ProcessTimeline() {
           transition={{ duration: 0.7 }}
         >
           <p className="sp-eyebrow">Process</p>
-          <h2 id="sp-process-title" className="sp-section-title">
+          <SketchHeadline id="sp-process-title" className="sp-section-title">
             From discovery to support—
             <br />
-            one continuous path.
-          </h2>
+            one continuous <SketchMark type="underline">path.</SketchMark>
+          </SketchHeadline>
         </motion.header>
       </div>
 

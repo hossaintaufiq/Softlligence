@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { industryPrinciples } from "@/lib/content";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
@@ -19,9 +20,10 @@ export function IndustriesPrinciples() {
           transition={{ duration: 0.55 }}
         >
           <p className="ip-eyebrow">How we work across sectors</p>
-          <h2 id="ip-principles-title">
-            Same rigor, whether you&apos;re a city hall or a clinic.
-          </h2>
+          <SketchHeadline id="ip-principles-title">
+            Same <SketchMark type="circle">rigor</SketchMark>, whether you&apos;re a city hall or a
+            clinic.
+          </SketchHeadline>
         </motion.header>
 
         <div className="ip-principles__grid">

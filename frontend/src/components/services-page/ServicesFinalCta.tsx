@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { servicesFinalCta } from "@/lib/servicesPageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { MagneticButton } from "./MagneticButton";
 import { FloatingParticles } from "./FloatingParticles";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
@@ -22,9 +23,9 @@ export function ServicesFinalCta() {
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="sp-eyebrow">Next step</p>
-          <h2 id="sp-final-title" className="sp-final__title">
-            {servicesFinalCta.title}
-          </h2>
+          <SketchHeadline id="sp-final-title" className="sp-final__title">
+            Ready to build your next <SketchMark type="underline">enterprise</SketchMark> system?
+          </SketchHeadline>
           <p className="sp-final__subtitle">{servicesFinalCta.subtitle}</p>
           <div className="sp-final__actions">
             <MagneticButton href={servicesFinalCta.primary.href}>

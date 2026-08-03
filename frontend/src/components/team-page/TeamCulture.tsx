@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { teamCulturePoints } from "@/lib/teamPageEnrichment";
 
 export function TeamCulture() {
@@ -13,9 +14,9 @@ export function TeamCulture() {
         <div className="tp-culture__grid">
           <div className="tp-culture__intro">
             <Eyebrow number="01">CULTURE</Eyebrow>
-            <SectionTitle>
-              <span id="team-culture-title">Built for partnership, not handoffs.</span>
-            </SectionTitle>
+            <SketchHeadline id="team-culture-title">
+              Built for <SketchMark type="underline">partnership</SketchMark>, not handoffs.
+            </SketchHeadline>
             <p className="tp-lead">
               We solve business problems through technology — working side by side with your
               stakeholders, valuing engineering excellence, and designing systems meant to last.

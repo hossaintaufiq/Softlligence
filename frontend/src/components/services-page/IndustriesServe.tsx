@@ -17,6 +17,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { servicesIndustries } from "@/lib/servicesPageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 const icons: Record<string, LucideIcon> = {
@@ -48,9 +49,9 @@ export function IndustriesServe() {
           transition={{ duration: 0.7 }}
         >
           <p className="sp-eyebrow">Industries</p>
-          <h2 id="sp-industries-title" className="sp-section-title">
-            Industries We Serve
-          </h2>
+          <SketchHeadline id="sp-industries-title" className="sp-section-title">
+            Industries We <SketchMark type="underline">Serve</SketchMark>
+          </SketchHeadline>
           <p className="sp-section-sub">
             Domain-aware delivery across manufacturing floors, regulated services, and growth-stage
             products.

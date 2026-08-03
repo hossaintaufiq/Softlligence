@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { Container } from "@/components/ui/Section";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 import { teamPageStats } from "@/lib/content";
 import { TeamStatCounters } from "./TeamStatCounters";
 
@@ -40,7 +41,8 @@ export function TeamHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.06 }}
           >
-            Meet the people engineering modern digital systems.
+            Meet the <SketchMark type="circle">people</SketchMark> engineering modern digital{" "}
+            <SketchMark type="underline">systems</SketchMark>.
           </motion.h1>
 
           <motion.p

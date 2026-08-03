@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { teamEngineering } from "@/lib/content";
 import { GitHubIcon, LinkedInIcon, MemberPhoto, SocialBtn } from "./teamShared";
 
@@ -63,9 +64,9 @@ export function TeamEngineering() {
     <section className="tp-section tp-engineering" aria-labelledby="team-engineering-title">
       <Container>
         <Eyebrow number="03">ENGINEERING</Eyebrow>
-        <SectionTitle>
-          <span id="team-engineering-title">Engineering team</span>
-        </SectionTitle>
+        <SketchHeadline id="team-engineering-title">
+          Engineering <SketchMark type="underline">team</SketchMark>
+        </SketchHeadline>
         <p className="tp-lead tp-lead--narrow">
           Specialists across AI, full stack, and platform work — grouped by focus, united by delivery
           standards.

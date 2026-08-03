@@ -1,7 +1,8 @@
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { engagementModels } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function HomeDelivery() {
   return (
@@ -9,9 +10,9 @@ export function HomeDelivery() {
       <Container>
         <div className="hp-section__head hp-delivery__head">
           <Eyebrow number="06">ENGAGEMENT</Eyebrow>
-          <SectionTitle>
-            <span id="hp-delivery-title">Ways to work with Softlligence.</span>
-          </SectionTitle>
+          <SketchHeadline id="hp-delivery-title">
+            Ways to work with <SketchMark type="underline">Softlligence</SketchMark>.
+          </SketchHeadline>
           <p className="hp-lead">
             Clear commercial models — pick the fit for your roadmap, then ship with a named engineering
             team.

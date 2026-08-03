@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { teamExpertise } from "@/lib/content";
 import { teamCapabilityExtras } from "@/lib/teamPageEnrichment";
 
@@ -66,8 +67,10 @@ export function TeamCapabilities() {
     <section className="tp-section tp-capabilities" aria-labelledby="team-cap-title">
       <Container>
         <Eyebrow number="04">CAPABILITIES</Eyebrow>
-        <SectionTitle>What our team brings</SectionTitle>
-        <p className="tp-lead tp-lead--narrow" id="team-cap-title">
+        <SketchHeadline id="team-cap-title">
+          What our team <SketchMark type="circle">brings</SketchMark>
+        </SketchHeadline>
+        <p className="tp-lead tp-lead--narrow">
           Enterprise capabilities spanning architecture, product surfaces, and the platforms that
           keep them reliable.
         </p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { servicesTechnologies } from "@/lib/servicesPageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 export function TechMarquee() {
@@ -12,9 +13,9 @@ export function TechMarquee() {
       <div className="sp-container">
         <header className="sp-section-head sp-section-head--center">
           <p className="sp-eyebrow">Technologies</p>
-          <h2 id="sp-tech-title" className="sp-section-title">
-            The stack behind the systems.
-          </h2>
+          <SketchHeadline id="sp-tech-title" className="sp-section-title">
+            The <SketchMark type="circle">stack</SketchMark> behind the systems.
+          </SketchHeadline>
         </header>
       </div>
 

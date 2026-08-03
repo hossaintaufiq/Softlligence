@@ -191,19 +191,32 @@
 
 .hp-hero__title {
   margin: 0 0 1rem;
-  max-width: 13.5ch;
+  max-width: 14.5ch;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: clamp(2.2rem, 7.2vw, 4.35rem);
   font-weight: 600;
-  line-height: 1.02;
+  line-height: 1.08;
   letter-spacing: -0.038em;
   text-wrap: balance;
 }
 
 @media (min-width: 640px) {
   .hp-hero__title {
-    max-width: 14ch;
+    max-width: 15ch;
   }
+}
+
+/* Keep sketch marks sized for display font in the hero */
+.hp-hero__title .sketch-mark--circle .sketch-mark__svg--circle {
+  left: -4%;
+  top: -2%;
+  width: 108%;
+  height: 108%;
+}
+
+.hp-hero__title .sketch-mark--underline .sketch-mark__svg--underline {
+  bottom: 0.02em;
+  height: 0.28em;
 }
 
 .hp-hero__progression {

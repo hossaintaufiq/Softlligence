@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 import { pageRoutes } from "@/lib/navigation";
 import { processSteps } from "@/lib/content";
 
@@ -22,7 +23,7 @@ export function ProcessHero() {
             <br />
             Clear gates.
             <br />
-            <em>Visible progress.</em>
+            <SketchMark type="underline">Visible progress.</SketchMark>
           </h1>
           <p className="pp-hero__lead">
             A predictable path from discovery to growth — with signed-off deliverables at every step,

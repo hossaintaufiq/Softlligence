@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 import { workStats } from "@/lib/content";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
@@ -53,7 +54,7 @@ export function WorkHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.06, ease: [0.22, 1, 0.36, 1] }}
             >
-              Engineering products
+              Engineering <SketchMark type="circle">products</SketchMark>
             </motion.span>
             <motion.span
               className="wp-hero__line"
@@ -69,7 +70,7 @@ export function WorkHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
             >
-              organizations.
+              <SketchMark type="underline">organizations.</SketchMark>
             </motion.span>
           </h1>
 

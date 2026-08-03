@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { faqs } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionLink } from "@/components/ui/PageHero";
 import { cn } from "@/lib/utils";
 
@@ -20,9 +21,17 @@ export function FAQ({ summary = false, limit = 3 }: FAQProps) {
     <section className={`section-perf bg-panel ${summary ? "py-14 md:py-16" : "py-20 md:py-24"}`} id="faq">
       <Container>
         <Eyebrow number="09">QUESTIONS</Eyebrow>
-        <SectionTitle>
-          {summary ? "Quick answers." : "Answers before you have to ask."}
-        </SectionTitle>
+        <SketchHeadline id="faq-section-title">
+          {summary ? (
+            <>
+              Quick <SketchMark type="circle">answers.</SketchMark>
+            </>
+          ) : (
+            <>
+              Answers before you have to <SketchMark type="underline">ask.</SketchMark>
+            </>
+          )}
+        </SketchHeadline>
 
         <div className="max-w-[760px]">
           {items.map((faq, index) => {

@@ -7,6 +7,7 @@ import { industryImages } from "@/lib/homeVisuals";
 import { industryEnrichment } from "@/lib/industriesPageEnrichment";
 import { IndustryIcon } from "@/components/IndustryIcon";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { ChallengeCards } from "./ChallengeCards";
 import { SolutionCards } from "./SolutionCards";
 import { WorkflowDiagram } from "./WorkflowDiagram";
@@ -53,9 +54,20 @@ export function IndustrySection({
               </div>
             </div>
 
-            <h2 id={`${industry.id}-title`} className="ip-section__title">
-              {industry.title}
-            </h2>
+            <SketchHeadline id={`${industry.id}-title`} className="ip-section__title">
+              {(() => {
+                const spaceIdx = industry.title.indexOf(" ");
+                if (spaceIdx === -1) {
+                  return <SketchMark type="circle">{industry.title}</SketchMark>;
+                }
+                return (
+                  <>
+                    <SketchMark type="circle">{industry.title.slice(0, spaceIdx)}</SketchMark>
+                    {industry.title.slice(spaceIdx)}
+                  </>
+                );
+              })()}
+            </SketchHeadline>
             <p className="ip-section__headline">{industry.headline}</p>
             <p className="ip-section__overview">{industry.longDescription}</p>
 

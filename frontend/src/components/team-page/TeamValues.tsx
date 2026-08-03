@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { teamValues } from "@/lib/teamPageEnrichment";
 
 export function TeamValues() {
@@ -11,8 +12,10 @@ export function TeamValues() {
     <section className="tp-section tp-values" aria-labelledby="team-values-title">
       <Container>
         <Eyebrow number="06">VALUES</Eyebrow>
-        <SectionTitle>Team values</SectionTitle>
-        <p className="tp-lead tp-lead--narrow" id="team-values-title">
+        <SketchHeadline id="team-values-title">
+          Team <SketchMark type="circle">values</SketchMark>
+        </SketchHeadline>
+        <p className="tp-lead tp-lead--narrow">
           Principles that shape how we design, build, and partner.
         </p>
 

@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { pageRoutes } from "@/lib/navigation";
 import { homeWhatWeBuild } from "@/lib/homePageContent";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 const icons: Record<string, ReactNode> = {
   erp: (
@@ -75,9 +76,10 @@ export function HomeWhatWeBuild() {
     <section className="hp-section hp-build" id="services" aria-labelledby="hp-build-title">
       <Container>
         <Eyebrow number="02">WHAT WE BUILD</Eyebrow>
-        <SectionTitle>
-          <span id="hp-build-title">Enterprise software that runs the business.</span>
-        </SectionTitle>
+        <SketchHeadline id="hp-build-title">
+          Enterprise <SketchMark type="circle">software</SketchMark> that runs the{" "}
+          <SketchMark type="underline">business</SketchMark>.
+        </SketchHeadline>
         <p className="hp-lead">
           From ERP and MES to AI automation and mobile — platforms engineered for organizations ready
           to grow.

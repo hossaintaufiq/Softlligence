@@ -1,7 +1,8 @@
-import { Container, Eyebrow, SectionTitle } from "@/components/ui/Section";
+import { Container, Eyebrow } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { teamLeadership } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 export function HomeTeam() {
   const leaders = teamLeadership.slice(0, 4);
@@ -10,9 +11,9 @@ export function HomeTeam() {
     <section className="hp-section hp-team" id="team" aria-labelledby="hp-team-title">
       <Container>
         <Eyebrow number="08">LEADERSHIP</Eyebrow>
-        <SectionTitle>
-          <span id="hp-team-title">Meet the people who set the standard.</span>
-        </SectionTitle>
+        <SketchHeadline id="hp-team-title">
+          Meet the <SketchMark type="circle">people</SketchMark> who set the standard.
+        </SketchHeadline>
         <p className="hp-lead">
           Hands-on leadership — the people on the first call stay through delivery.
         </p>

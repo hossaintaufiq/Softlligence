@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/Button";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 import { aboutSignal, aboutStory } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
 
@@ -15,9 +16,11 @@ export function AboutHero() {
           <span>/</span> {aboutStory.eyebrow}
         </p>
         <h1 id="ap-hero-title">
-          Softlligence builds software
+          Softlligence builds <SketchMark type="circle">software</SketchMark>
           <br />
-          <span>organizations actually run on.</span>
+          <span>
+            <SketchMark type="underline">organizations</SketchMark> actually run on.
+          </span>
         </h1>
         <p className="ap-hero__lead">{aboutStory.lead}</p>
 

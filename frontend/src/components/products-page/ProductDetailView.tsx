@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { pageRoutes } from "@/lib/navigation";
 import { productDetailVisuals } from "@/lib/homeVisuals";
 import {
@@ -25,7 +26,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
               <span>/</span> Products · {product.shortName}
               <em className="prd-detail-hero__badge">{productsAiShared.label}</em>
             </p>
-            <h1 id="prd-detail-title">{product.name}</h1>
+            <h1 id="prd-detail-title">
+              <SketchMark type="underline">{product.name}</SketchMark>
+            </h1>
             <p className="prd-detail-hero__tagline">{product.tagline}</p>
             <p className="prd-detail-hero__lead">{product.aiNote}</p>
             <div className="prd-detail-hero__actions">
@@ -70,7 +73,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             <p className="prd-kicker">
               <span>/</span> AI &amp; access
             </p>
-            <h2 id="prd-ai-title">Intelligence where your team already works.</h2>
+            <SketchHeadline id="prd-ai-title">
+              <SketchMark type="circle">Intelligence</SketchMark> where your team already works.
+            </SketchHeadline>
           </div>
           <div className="prd-channel-grid">
             {visuals.channels.map((channel) => (
@@ -102,7 +107,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             <p className="prd-kicker">
               <span>/</span> Modules
             </p>
-            <h2 id="prd-mod-title">Core areas inside the platform.</h2>
+            <SketchHeadline id="prd-mod-title">
+              Core areas inside the <SketchMark type="underline">platform.</SketchMark>
+            </SketchHeadline>
           </div>
           <div className="prd-mod-visual">
             {product.modules.map((mod, i) => (
@@ -135,7 +142,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             <p className="prd-kicker">
               <span>/</span> Capabilities
             </p>
-            <h2 id="prd-caps-title">What {product.shortName} covers.</h2>
+            <SketchHeadline id="prd-caps-title">
+              What {product.shortName} <SketchMark type="circle">covers.</SketchMark>
+            </SketchHeadline>
           </div>
           <ul className="prd-pill-list">
             {product.capabilities.map((cap) => (
@@ -151,7 +160,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             <p className="prd-kicker">
               <span>/</span> Engagement
             </p>
-            <h2 id="prd-paths-title">Trial, integrate, or deploy locally.</h2>
+            <SketchHeadline id="prd-paths-title">
+              Trial, <SketchMark type="underline">integrate</SketchMark>, or deploy locally.
+            </SketchHeadline>
           </div>
           <div className="prd-doors__grid">
             {product.paths.map((path, i) => (
@@ -182,7 +193,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             <p className="prd-kicker">
               <span>/</span> Outcomes
             </p>
-            <h2 id="prd-cta-title">What teams gain.</h2>
+            <SketchHeadline id="prd-cta-title">
+              What teams <SketchMark type="circle">gain.</SketchMark>
+            </SketchHeadline>
             <ul className="prd-cta-band__outcomes">
               {product.outcomes.map((item) => (
                 <li key={item}>{item}</li>
@@ -207,7 +220,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
               <p className="prd-kicker">
                 <span>/</span> More products
               </p>
-              <h2 id="prd-more-title">Explore the rest of the suite.</h2>
+              <SketchHeadline id="prd-more-title">
+                Explore the rest of the <SketchMark type="underline">suite.</SketchMark>
+              </SketchHeadline>
             </div>
             <div className="prd-more prd-more--visual">
               {others.map((p) => {

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
+import { SketchMark } from "@/components/ui/SketchHeadline";
 import { industryStats, industries } from "@/lib/content";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
@@ -59,7 +60,7 @@ export function IndustriesHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
             >
-              your industry.
+              <SketchMark type="underline">your industry.</SketchMark>
             </motion.span>
           </h1>
 
