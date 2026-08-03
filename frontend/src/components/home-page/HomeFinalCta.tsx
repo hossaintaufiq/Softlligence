@@ -7,21 +7,21 @@ export function HomeFinalCta() {
     <section className="hp-cta" id="contact" aria-labelledby="hp-cta-title">
       <Container className="hp-cta__inner">
         <div className="hp-cta__burst" aria-hidden="true">
-          <svg className="hp-cta__spark" viewBox="0 0 220 90" fill="none">
+          <svg className="hp-cta__spark" viewBox="0 0 120 100" fill="none">
             <path
-              d="M110 78V8M86 72L62 18M134 72L158 18M72 58L28 36M148 58L192 36M92 48L48 12M128 48L172 12"
+              d="M60 88C60 88 14 58 14 34c0-12 9-22 22-22 8 0 15 4 19 11 4-7 11-11 19-11 13 0 22 10 22 22 0 24-46 54-46 54Z"
+              fill="currentColor"
+            />
+            <path
+              d="M60 12V4M78 18l8-10M42 18L34 8M90 36h10M20 36H10M84 58l10 6M36 58l-10 6"
               stroke="currentColor"
-              strokeWidth="2.4"
+              strokeWidth="2.6"
               strokeLinecap="round"
+              opacity="0.85"
             />
-            <path
-              d="M38 22c2.2-3.4 7-3.4 8.8 0 1.4 2.6-.2 5.6-4.4 8.4-4.2-2.8-5.8-5.8-4.4-8.4Z"
-              fill="currentColor"
-            />
-            <path
-              d="M168 16c2.2-3.4 7-3.4 8.8 0 1.4 2.6-.2 5.6-4.4 8.4-4.2-2.8-5.8-5.8-4.4-8.4Z"
-              fill="currentColor"
-            />
+            <circle cx="60" cy="3" r="2.2" fill="currentColor" />
+            <circle cx="88" cy="7" r="2" fill="currentColor" />
+            <circle cx="32" cy="7" r="2" fill="currentColor" />
           </svg>
         </div>
 

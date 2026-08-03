@@ -31,7 +31,13 @@ export function ProcessTimeline() {
         ease: "none",
         scrollTrigger: {
           trigger: pin.current,
-          start: "top top+=72",
+          start: () => {
+            const raw = getComputedStyle(document.documentElement).getPropertyValue(
+              "--site-header-offset",
+            );
+            const offset = Number.parseFloat(raw) || 72;
+            return `top top+=${offset}`;
+          },
           end: () => `+=${Math.max(distance, 400)}`,
           scrub: 1,
           pin: true,

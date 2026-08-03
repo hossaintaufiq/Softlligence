@@ -24,6 +24,9 @@
   --road-asphalt-b: #cdd5e3;
   --marquee-label: #617086;
   --marquee-hover: #0c1220;
+  /* Sticky chrome — updated by Nav via ResizeObserver */
+  --site-header-offset: 4.5rem;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 @theme inline {
@@ -68,6 +71,8 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: clip;
   min-width: 0;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
   transition: none;
 }
 
@@ -949,18 +954,58 @@ footer {
   border-color: rgb(12 18 32 / 0.1);
 }
 
-/* Floating nav pill — light glass over heroes */
+/* Floating nav pill — light glass with soft glow */
 .site-header {
+  position: relative;
+  isolation: isolate;
   border-color: rgb(12 18 32 / 0.1);
-  background-color: rgb(255 255 255 / 0.72);
-  box-shadow: 0 8px 28px rgb(12 18 32 / 0.08);
+  background:
+    radial-gradient(
+      120% 140% at 50% 0%,
+      rgb(255 255 255 / 0.95) 0%,
+      rgb(255 255 255 / 0.72) 55%,
+      rgb(255 252 245 / 0.68) 100%
+    );
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.65) inset,
+    0 8px 28px rgb(12 18 32 / 0.08),
+    0 0 24px rgb(232 160 18 / 0.14),
+    0 0 48px rgb(255 255 255 / 0.55);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    80% 120% at 50% 30%,
+    rgb(232 160 18 / 0.18) 0%,
+    rgb(11 124 184 / 0.06) 42%,
+    transparent 72%
+  );
+  filter: blur(10px);
+  opacity: 0.9;
+  pointer-events: none;
 }
 
 .site-header--scrolled {
   border-color: rgb(12 18 32 / 0.12);
-  background-color: rgb(255 255 255 / 0.9);
-  box-shadow: 0 10px 32px rgb(12 18 32 / 0.1);
+  background:
+    radial-gradient(
+      120% 140% at 50% 0%,
+      rgb(255 255 255 / 0.98) 0%,
+      rgb(255 255 255 / 0.9) 60%,
+      rgb(255 252 245 / 0.88) 100%
+    );
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.7) inset,
+    0 10px 32px rgb(12 18 32 / 0.1),
+    0 0 28px rgb(232 160 18 / 0.16),
+    0 0 52px rgb(255 255 255 / 0.45);
 }
 
 .site-header a {
@@ -972,10 +1017,38 @@ footer {
 }
 
 .mobile-nav-panel {
-  background-color: rgb(255 255 255 / 0.96);
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      100% 80% at 50% 0%,
+      rgb(255 255 255 / 0.98) 0%,
+      rgb(255 255 255 / 0.94) 55%,
+      rgb(255 252 245 / 0.92) 100%
+    );
   border-color: rgb(12 18 32 / 0.1);
   backdrop-filter: blur(16px);
-  box-shadow: 0 24px 48px rgb(12 18 32 / 0.12);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.7) inset,
+    0 24px 48px rgb(12 18 32 / 0.12),
+    0 0 36px rgb(232 160 18 / 0.12),
+    0 0 64px rgb(255 255 255 / 0.4);
+}
+
+.mobile-nav-panel::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    70% 50% at 50% 0%,
+    rgb(232 160 18 / 0.2) 0%,
+    transparent 70%
+  );
+  filter: blur(14px);
+  pointer-events: none;
 }
 
 .mobile-nav-panel .nav-link {

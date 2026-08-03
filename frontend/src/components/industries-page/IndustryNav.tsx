@@ -1,16 +1,67 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { industries } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
-/** Premium sticky industry navigation — same #ids and scroll-spy behavior. */
+function readHeaderOffset() {
+  const raw = getComputedStyle(document.documentElement).getPropertyValue("--site-header-offset");
+  const parsed = Number.parseFloat(raw);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 72;
+}
+
+/** Sticky industry navigation with scroll-spy + smooth section jumps. */
 export function IndustryNav() {
   const [active, setActive] = useState(industries[0]?.id ?? "");
   const navRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLSpanElement>(null);
-  const itemRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const itemRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const clickingRef = useRef(false);
+
+  const getScrollOffset = useCallback(() => {
+    const navHeight = navRef.current?.offsetHeight ?? 56;
+    return readHeaderOffset() + navHeight + 12;
+  }, []);
+
+  const syncIndicator = useCallback((id: string) => {
+    const el = itemRefs.current[id];
+    const indicator = indicatorRef.current;
+    const track = trackRef.current;
+    if (!el || !indicator || !track) return;
+
+    indicator.style.width = `${el.offsetWidth}px`;
+    indicator.style.transform = `translateX(${el.offsetLeft - track.scrollLeft}px)`;
+
+    const left = el.offsetLeft;
+    const right = left + el.offsetWidth;
+    const viewLeft = track.scrollLeft;
+    const viewRight = viewLeft + track.clientWidth;
+    if (left < viewLeft + 24) {
+      track.scrollTo({ left: Math.max(0, left - 40), behavior: "smooth" });
+    } else if (right > viewRight - 24) {
+      track.scrollTo({ left: right - track.clientWidth + 40, behavior: "smooth" });
+    }
+  }, []);
+
+  const scrollToIndustry = useCallback(
+    (id: string) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+
+      clickingRef.current = true;
+      setActive(id);
+      syncIndicator(id);
+
+      const top = section.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+
+      window.setTimeout(() => {
+        clickingRef.current = false;
+      }, 700);
+    },
+    [getScrollOffset, syncIndicator],
+  );
 
   useEffect(() => {
     const sections = industries
@@ -19,58 +70,54 @@ export function IndustryNav() {
 
     if (!sections.length) return;
 
-    const updateObserver = () => {
-      const navHeight = navRef.current?.offsetHeight ?? 56;
-      const headerHeight = 72;
-      const offset = headerHeight + navHeight + 12;
-
+    const applyMargins = () => {
+      const offset = getScrollOffset();
       sections.forEach((section) => {
         section.style.scrollMarginTop = `${offset}px`;
       });
-
-      return new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-          if (visible?.target.id) setActive(visible.target.id);
-        },
-        {
-          rootMargin: `-${offset}px 0px -45% 0px`,
-          threshold: [0.05, 0.15, 0.3],
-        },
-      );
     };
 
-    let observer = updateObserver();
-    sections.forEach((section) => observer.observe(section));
+    const updateActiveFromScroll = () => {
+      if (clickingRef.current) return;
 
-    const onResize = () => {
-      observer.disconnect();
-      observer = updateObserver();
-      sections.forEach((section) => observer.observe(section));
+      const offset = getScrollOffset();
+      const probe = offset + 8;
+      let current = sections[0]?.id ?? "";
+
+      for (const section of sections) {
+        const top = section.getBoundingClientRect().top;
+        if (top - probe <= 0) current = section.id;
+        else break;
+      }
+
+      setActive((prev) => (prev === current ? prev : current));
     };
 
-    window.addEventListener("resize", onResize);
+    applyMargins();
+    updateActiveFromScroll();
+
+    window.addEventListener("scroll", updateActiveFromScroll, { passive: true });
+    window.addEventListener("resize", applyMargins);
+    window.addEventListener("resize", updateActiveFromScroll);
+
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("scroll", updateActiveFromScroll);
+      window.removeEventListener("resize", applyMargins);
+      window.removeEventListener("resize", updateActiveFromScroll);
     };
-  }, []);
+  }, [getScrollOffset]);
 
   useEffect(() => {
-    const el = itemRefs.current[active];
-    const indicator = indicatorRef.current;
-    const nav = navRef.current;
-    if (!el || !indicator || !nav) return;
+    syncIndicator(active);
+  }, [active, syncIndicator]);
 
-    const navRect = nav.querySelector(".ip-nav__track")?.getBoundingClientRect();
-    const rect = el.getBoundingClientRect();
-    if (!navRect) return;
-
-    indicator.style.width = `${rect.width}px`;
-    indicator.style.transform = `translateX(${rect.left - navRect.left}px)`;
-  }, [active]);
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const onTrackScroll = () => syncIndicator(active);
+    track.addEventListener("scroll", onTrackScroll, { passive: true });
+    return () => track.removeEventListener("scroll", onTrackScroll);
+  }, [active, syncIndicator]);
 
   return (
     <nav
@@ -80,23 +127,24 @@ export function IndustryNav() {
       aria-label="Industry sectors"
     >
       <div className="ip-container">
-        <div className="ip-nav__track">
+        <div ref={trackRef} className="ip-nav__track">
           <span ref={indicatorRef} className="ip-nav__indicator" aria-hidden="true" />
           {industries.map((industry) => {
             const isActive = active === industry.id;
             return (
-              <Link
+              <button
                 key={industry.id}
+                type="button"
                 ref={(node) => {
                   itemRefs.current[industry.id] = node;
                 }}
-                href={`#${industry.id}`}
                 className={cn("ip-nav__item", isActive && "ip-nav__item--active")}
                 aria-current={isActive ? "true" : undefined}
+                onClick={() => scrollToIndustry(industry.id)}
               >
                 <span className="ip-nav__index">{industry.index}</span>
                 <span className="ip-nav__label">{industry.tag}</span>
-              </Link>
+              </button>
             );
           })}
         </div>

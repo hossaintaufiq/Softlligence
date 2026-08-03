@@ -199,7 +199,7 @@ export function ServicesScrollExperience() {
         />
       ))}
 
-      <div className="svc3d-sticky sticky top-[72px] flex h-[calc(100dvh-72px)] items-center overflow-hidden">
+      <div className="svc3d-sticky sticky top-[var(--site-header-offset,4.5rem)] flex h-[calc(100dvh-var(--site-header-offset,4.5rem))] items-center overflow-hidden">
         <div className="svc3d-atmosphere" aria-hidden="true" />
         <div className="svc3d-grid" aria-hidden="true" />
 

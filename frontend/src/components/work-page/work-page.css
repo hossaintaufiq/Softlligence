@@ -57,7 +57,7 @@
   min-height: auto;
   display: flex;
   align-items: center;
-  padding: 6.25rem 0 3.25rem;
+  padding: 4.75rem 0 2.75rem;
   overflow: hidden;
   background: var(--theme-ink);
 }
@@ -134,7 +134,7 @@
   flex-direction: column;
   gap: 0.06em;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
-  font-size: clamp(2.55rem, 6.8vw, 4.85rem);
+  font-size: clamp(1.9rem, 6.8vw, 4.85rem);
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.045em;
@@ -796,7 +796,7 @@
   }
 }
 
-@media (min-width: 520px) {
+@media (min-width: 768px) {
   .wp-case:not(.wp-case--featured) .wp-case__details {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

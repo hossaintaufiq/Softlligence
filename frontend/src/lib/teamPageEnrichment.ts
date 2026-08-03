@@ -40,6 +40,7 @@ export const teamWhyClients = [
   { title: "Enterprise quality", description: "Security, roles, and reliability as default." },
 ];
 
+/** @deprecated Team marquee uses homeTechStack logos; kept for capability chip labels. */
 export const teamTechStack = [
   "Next.js",
   "React",
@@ -59,7 +60,7 @@ export const teamTechStack = [
   "Flutter",
   "Tailwind CSS",
   "Prisma",
-];
+] as const;
 
 export const teamCapabilityExtras: Record<string, string[]> = {
   "Frontend Development": ["React", "Next.js", "TypeScript"],

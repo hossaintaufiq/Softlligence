@@ -1,4 +1,4 @@
-﻿/* Scoped to /services only â€” does not alter global theme tokens. */
+/* Scoped to /services only â€” does not alter global theme tokens. */
 
 .services-page {
   --sp-bg: var(--theme-ink);
@@ -187,7 +187,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 6.5rem 0 3.5rem;
+  padding: 4.75rem 0 2.75rem;
   overflow: hidden;
   background:
     radial-gradient(
@@ -234,7 +234,7 @@
   flex-direction: column;
   gap: 0.15em;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
-  font-size: clamp(2.15rem, 9vw, 5.5rem);
+  font-size: clamp(1.85rem, 7vw, 5.5rem);
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.045em;
@@ -911,6 +911,7 @@
 
 .sp-process__pin {
   padding: 2rem 0 4rem;
+  overflow-x: clip;
   background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--sp-accent-2) 6%, transparent), transparent);
 }
 

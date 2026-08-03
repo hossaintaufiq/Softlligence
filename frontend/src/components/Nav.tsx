@@ -16,6 +16,7 @@ export function Nav() {
   const pathname = usePathname();
   const menuId = useId();
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const scrollLockY = useRef(0);
   const skipScrollRestore = useRef(false);
 
@@ -27,6 +28,25 @@ export function Nav() {
     body.style.left = "";
     body.style.right = "";
     body.style.width = "";
+  }, []);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const syncOffset = () => {
+      const h = Math.ceil(header.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--site-header-offset", `${h}px`);
+    };
+
+    syncOffset();
+    const ro = new ResizeObserver(syncOffset);
+    ro.observe(header);
+    window.addEventListener("resize", syncOffset);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", syncOffset);
+    };
   }, []);
 
   useEffect(() => {
@@ -104,10 +124,10 @@ export function Nav() {
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
   return (
-    <header className="pointer-events-none sticky top-0 z-[100]">
+    <header ref={headerRef} className="pointer-events-none sticky top-0 z-[100]">
       <div
         className={cn(
-          "pointer-events-auto relative z-[110] mx-auto grid w-full max-w-[1180px] grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 pt-4 transition-[padding] duration-300 min-[400px]:px-5 sm:px-7 sm:pt-5",
+          "pointer-events-auto relative z-[110] mx-auto grid w-full max-w-[1180px] grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 pt-[max(0.75rem,env(safe-area-inset-top))] transition-[padding] duration-300 min-[400px]:gap-3 min-[400px]:px-5 sm:px-7 sm:pt-5",
           scrolled && "pt-3 sm:pt-3.5",
         )}
       >
