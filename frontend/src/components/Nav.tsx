@@ -127,14 +127,14 @@ export function Nav() {
     <header ref={headerRef} className="pointer-events-none sticky top-0 z-[100]">
       <div
         className={cn(
-          "pointer-events-auto relative z-[110] mx-auto flex w-full max-w-[1180px] items-center justify-between gap-3 px-3 pt-[max(0.5rem,env(safe-area-inset-top))] pb-1.5 transition-[padding] duration-300 min-[400px]:px-5 sm:px-7 sm:pt-5 sm:pb-0",
+          "pointer-events-auto relative z-[110] mx-auto grid w-full max-w-[1180px] grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2 px-3 pt-[max(0.5rem,env(safe-area-inset-top))] pb-1.5 transition-[padding] duration-300 min-[400px]:gap-3 min-[400px]:px-5 sm:px-7 sm:pt-5 sm:pb-0",
           scrolled && "pt-2.5 pb-1 sm:pt-3.5 sm:pb-0",
         )}
       >
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex min-w-0 items-center gap-2.5 font-display text-[17px] font-semibold tracking-tight text-text transition-opacity duration-200 hover:opacity-90 sm:text-[18px]"
+          className="col-start-1 flex min-w-0 items-center gap-2.5 justify-self-start font-display text-[17px] font-semibold tracking-tight text-text transition-opacity duration-200 hover:opacity-90 sm:text-[18px]"
         >
           <span className="flex shrink-0 text-accent" aria-hidden="true">
             <BrandLogo size={30} />
@@ -145,7 +145,7 @@ export function Nav() {
         <nav
           aria-label="Primary"
           className={cn(
-            "site-header absolute left-1/2 hidden h-11 -translate-x-1/2 items-center gap-0.5 rounded-full border px-1.5 min-[980px]:flex",
+            "site-header relative z-[1] col-start-2 hidden h-11 max-w-[min(100%,42rem)] items-center justify-center gap-0.5 overflow-x-auto overscroll-contain rounded-full border px-1.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden min-[980px]:flex",
             scrolled && "site-header--scrolled",
           )}
         >
@@ -156,7 +156,7 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "rounded-full px-3 py-1.5 text-[13px] transition-colors duration-200",
+                  "shrink-0 rounded-full px-2.5 py-1.5 text-[12.5px] transition-colors duration-200 xl:px-3 xl:text-[13px]",
                   isActive
                     ? "bg-[rgb(12_18_32_/0.06)] font-medium text-text"
                     : "text-text-dim hover:text-text",
@@ -168,8 +168,11 @@ export function Nav() {
           })}
         </nav>
 
-        <div className="flex shrink-0 items-center justify-end gap-2">
-          <Button href="/contact" className="max-[979px]:hidden shadow-[0_8px_24px_rgba(232,160,18,0.28)]">
+        <div className="relative z-[2] col-start-3 flex shrink-0 items-center justify-end gap-2 justify-self-end">
+          <Button
+            href="/contact"
+            className="max-[979px]:hidden whitespace-nowrap shadow-[0_8px_24px_rgba(232,160,18,0.28)]"
+          >
             Book a call
           </Button>
           <button
