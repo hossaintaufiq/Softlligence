@@ -115,30 +115,46 @@ export function ServiceCard({ service, index, accent, categoryId }: ServiceCardP
       <div className="sp-service-card__block">
         <p className="sp-label">Technologies</p>
         <div className="sp-tech-row">
-          {service.technologies.map((tech) => {
-            const icon = getTechIcon(tech);
-            if (!icon) {
+          {(() => {
+            // Avoid repeated icons when different tech strings map to the same icon
+            // (ex: "RAG" -> "OpenAI", "Pinecone" -> "LangChain", "Headless CMS" -> "Next.js").
+            const seen = new Set<string>();
+
+            const uniqueTechnologies = service.technologies.filter((tech) => {
+              const trimmed = tech.trim();
+              const icon = getTechIcon(trimmed);
+              const key = icon ? `icon:${icon}` : `tech:${trimmed.toLowerCase()}`;
+              if (seen.has(key)) return false;
+              seen.add(key);
+              return true;
+            });
+
+            return uniqueTechnologies.map((tech) => {
+              const trimmed = tech.trim();
+              const icon = getTechIcon(trimmed);
+              if (!icon) {
+                return (
+                  <span key={`tech:${trimmed.toLowerCase()}`} className="sp-tech-row__fallback">
+                    {trimmed}
+                  </span>
+                );
+              }
               return (
-                <span key={tech} className="sp-tech-row__fallback">
-                  {tech}
+                <span key={`icon:${icon}`} className="sp-tech-row__item" title={trimmed}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={icon}
+                    alt={trimmed}
+                    width={24}
+                    height={24}
+                    className="sp-tech-row__logo"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </span>
               );
-            }
-            return (
-              <span key={tech} className="sp-tech-row__item" title={tech}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={icon}
-                  alt={tech}
-                  width={24}
-                  height={24}
-                  className="sp-tech-row__logo"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-            );
-          })}
+            });
+          })()}
         </div>
       </div>
 

@@ -89,7 +89,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Media library",
           "Preview before publish",
         ],
-        technologies: ["Next.js", "Headless CMS", "Cloudinary", "TypeScript"],
+        technologies: ["Next.js", "GraphQL", "Cloudinary", "TypeScript"],
         timeline: "4–10 weeks",
       },
       {
@@ -343,7 +343,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Human handoff rules",
           "Eval & safety checks",
         ],
-        technologies: ["OpenAI", "RAG", "Python", "PostgreSQL"],
+        technologies: ["OpenAI", "LangChain", "Python", "PostgreSQL"],
         timeline: "6–14 weeks",
       },
       {
@@ -371,7 +371,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Cited answers",
           "Permission-aware search",
         ],
-        technologies: ["LangChain", "OpenAI", "Pinecone", "Python"],
+        technologies: ["LangChain", "OpenAI", "Elasticsearch", "Python"],
         timeline: "6–14 weeks",
       },
       {
@@ -451,7 +451,7 @@ export const serviceCategories: ServiceCategory[] = [
           "Image hardening",
           "Registry workflows",
         ],
-        technologies: ["Docker", "Compose", "Node.js", "Nginx"],
+        technologies: ["Docker", "Kubernetes", "Node.js", "Nginx"],
         timeline: "1–4 weeks",
       },
       {
