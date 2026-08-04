@@ -18,10 +18,11 @@ interface ButtonProps {
 
 const variantClasses: Record<ButtonVariant, string> = {
   accent:
-    "border-accent bg-accent text-accent-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:bg-[color-mix(in_srgb,var(--theme-accent)_90%,white)] hover:shadow-[0_6px_20px_color-mix(in_srgb,var(--theme-accent)_22%,transparent)]",
+    "border-[color-mix(in_srgb,var(--theme-accent)_55%,white)] bg-[linear-gradient(135deg,color-mix(in_srgb,var(--theme-accent)_80%,white)_0%,var(--theme-accent)_38%,var(--theme-accent-2)_100%)] text-accent-ink shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] hover:brightness-[1.05] hover:shadow-[0_6px_20px_color-mix(in_srgb,var(--theme-accent)_22%,transparent)]",
   outline:
-    "border-[rgb(12_18_32_/0.14)] bg-transparent text-text hover:border-[rgb(12_18_32_/0.28)] hover:bg-[rgb(12_18_32_/0.04)]",
-  ghost: "border-transparent text-text-dim hover:bg-[rgb(12_18_32_/0.04)] hover:text-text",
+    "border-[rgb(12_18_32_/0.14)] bg-[linear-gradient(135deg,rgba(12,18,32,0)_0%,color-mix(in_srgb,var(--theme-accent)_10%,transparent)_100%)] text-text hover:border-[rgb(12_18_32_/0.28)] hover:bg-[linear-gradient(135deg,color-mix(in_srgb,var(--theme-accent)_12%,transparent)_0%,color-mix(in_srgb,var(--theme-accent-2)_14%,transparent)_100%)]",
+  ghost:
+    "border-transparent text-text-dim hover:bg-[linear-gradient(135deg,color-mix(in_srgb,var(--theme-accent)_10%,transparent)_0%,color-mix(in_srgb,var(--theme-accent-2)_12%,transparent)_100%)] hover:text-text",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
