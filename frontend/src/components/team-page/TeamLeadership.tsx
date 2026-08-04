@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { teamLeadership } from "@/lib/content";
 import { GitHubIcon, LinkedInIcon, MemberPhoto, SocialBtn } from "./teamShared";
 
@@ -18,7 +19,8 @@ export function TeamLeadership() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="tp-section tp-leadership" aria-labelledby="team-leadership-title">
+    <section className="tp-section tp-leadership has-brush-flourish" aria-labelledby="team-leadership-title">
+      <BrushFlourish seed={25} />
       <div className="tp-section__glow" aria-hidden="true" />
       <Container className="relative">
         <Eyebrow number="02">LEADERSHIP</Eyebrow>

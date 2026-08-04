@@ -26,6 +26,16 @@ export const industryImages: Record<string, string> = {
     "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=720&q=60",
   nonprofit:
     "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=720&q=60",
+  manufacturing:
+    "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=720&q=60",
+  garments:
+    "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=720&q=60",
+  steel:
+    "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=720&q=60",
+  logistics:
+    "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=720&q=60",
+  construction:
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=720&q=60",
 };
 
 export const workCoverImages: Record<string, string> = {

@@ -4,14 +4,16 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionBubbles } from "@/components/ui/SectionBubbles";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { teamCulturePoints } from "@/lib/teamPageEnrichment";
 
 export function TeamCulture() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="tp-section tp-culture has-section-bubbles" aria-labelledby="team-culture-title">
+    <section className="tp-section tp-culture has-section-bubbles has-brush-flourish" aria-labelledby="team-culture-title">
       <SectionBubbles seed={1} />
+      <BrushFlourish seed={14} />
       <Container>
         <div className="tp-culture__grid">
           <div className="tp-culture__intro">

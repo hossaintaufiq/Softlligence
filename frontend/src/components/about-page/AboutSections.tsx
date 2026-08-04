@@ -9,11 +9,13 @@ import {
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionBubbles } from "@/components/ui/SectionBubbles";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { pageRoutes } from "@/lib/navigation";
 
 export function AboutStory() {
   return (
-    <section className="ap-section ap-section--panel" aria-labelledby="ap-story-title">
+    <section className="ap-section ap-section--panel has-brush-flourish" aria-labelledby="ap-story-title">
+      <BrushFlourish seed={15} />
       <div className="ap-container ap-story">
         <div className="ap-story__mark" aria-hidden="true">
           <span>ST</span>
@@ -43,8 +45,9 @@ export function AboutStory() {
 
 export function AboutBeliefs() {
   return (
-    <section className="ap-section has-section-bubbles" aria-labelledby="ap-beliefs-title">
+    <section className="ap-section has-section-bubbles has-brush-flourish" aria-labelledby="ap-beliefs-title">
       <SectionBubbles seed={6} />
+      <BrushFlourish seed={16} />
       <div className="ap-container">
         <header className="ap-section__head">
           <p className="ap-eyebrow">
@@ -75,7 +78,8 @@ export function AboutBeliefs() {
 
 export function AboutCraft() {
   return (
-    <section className="ap-section ap-section--panel" aria-labelledby="ap-craft-title">
+    <section className="ap-section ap-section--panel has-brush-flourish" aria-labelledby="ap-craft-title">
+      <BrushFlourish seed={21} />
       <div className="ap-container">
         <header className="ap-section__head">
           <p className="ap-eyebrow">
@@ -105,8 +109,9 @@ export function AboutCraft() {
 
 export function AboutLeadership() {
   return (
-    <section className="ap-section has-section-bubbles" aria-labelledby="ap-lead-title">
+    <section className="ap-section has-section-bubbles has-brush-flourish" aria-labelledby="ap-lead-title">
       <SectionBubbles seed={8} />
+      <BrushFlourish seed={22} />
       <div className="ap-container">
         <header className="ap-section__head">
           <p className="ap-eyebrow">

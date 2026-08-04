@@ -3,7 +3,6 @@ import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { ProcessHero } from "./ProcessHero";
 import { ProcessStages } from "./ProcessStages";
 import { ProcessOperating, ProcessWeek, ProcessRealTalk } from "./ProcessOperating";
-import { FinalCTA } from "@/components/FinalCTA";
 
 export function ProcessPageView() {
   return (
@@ -14,7 +13,6 @@ export function ProcessPageView() {
       <ProcessOperating />
       <ProcessWeek />
       <ProcessRealTalk />
-      <FinalCTA />
     </div>
   );
 }

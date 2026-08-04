@@ -6,6 +6,7 @@ import { homeFeaturedProjectIds } from "@/lib/homePageContent";
 import { pageRoutes } from "@/lib/navigation";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionBubbles } from "@/components/ui/SectionBubbles";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 
 export function HomeFeaturedWork() {
   const featured = homeFeaturedProjectIds
@@ -17,8 +18,9 @@ export function HomeFeaturedWork() {
   const loop = [...featured, ...featured];
 
   return (
-    <section className="hp-section hp-work has-section-bubbles" id="work" aria-labelledby="hp-work-title">
+    <section className="hp-section hp-work has-section-bubbles has-brush-flourish" id="work" aria-labelledby="hp-work-title">
       <SectionBubbles seed={7} />
+      <BrushFlourish seed={3} />
       <Container>
         <div className="hp-work__header">
           <div>

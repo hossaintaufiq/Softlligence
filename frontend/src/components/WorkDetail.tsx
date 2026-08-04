@@ -4,7 +4,6 @@ import {
   toolsProjects,
   templateProjects,
 } from "@/lib/content";
-import { FinalCTA } from "@/components/FinalCTA";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { WorkFilters } from "@/components/work-page/WorkFilters";
 import { ProjectCaseStudy } from "@/components/work-page/ProjectCaseStudy";
@@ -146,7 +145,6 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
       </section>
 
       <WorkBottomCta />
-      <FinalCTA />
     </div>
   );
 }

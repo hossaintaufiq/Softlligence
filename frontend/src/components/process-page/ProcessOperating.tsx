@@ -1,11 +1,13 @@
 import { processWorkingModel, processTypicalWeek, processRealTalk } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { pageRoutes } from "@/lib/navigation";
 
 export function ProcessOperating() {
   return (
-    <section className="pp-section pp-section--panel" aria-labelledby="pp-ops-title">
+    <section className="pp-section pp-section--panel has-brush-flourish" aria-labelledby="pp-ops-title">
+      <BrushFlourish seed={20} />
       <div className="pp-container">
         <header className="pp-section__head">
           <p className="pp-eyebrow">

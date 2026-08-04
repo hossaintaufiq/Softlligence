@@ -3,13 +3,15 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { teamValues } from "@/lib/teamPageEnrichment";
 
 export function TeamValues() {
   const reduce = useReducedMotion();
 
   return (
-    <section className="tp-section tp-values" aria-labelledby="team-values-title">
+    <section className="tp-section tp-values has-brush-flourish" aria-labelledby="team-values-title">
+      <BrushFlourish seed={27} />
       <Container>
         <Eyebrow number="06">VALUES</Eyebrow>
         <SketchHeadline id="team-values-title">

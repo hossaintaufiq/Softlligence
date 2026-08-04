@@ -3,13 +3,15 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 export function WorkBottomCta() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <section className="wp-bottom-cta" aria-labelledby="wp-bottom-cta-title">
+    <section className="wp-bottom-cta has-brush-flourish" aria-labelledby="wp-bottom-cta-title">
+      <BrushFlourish seed={24} />
       <div className="wp-container">
         <motion.div
           className="wp-bottom-cta__panel"

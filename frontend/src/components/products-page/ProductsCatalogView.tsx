@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionBubbles } from "@/components/ui/SectionBubbles";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import { pageRoutes } from "@/lib/navigation";
 import {
@@ -82,8 +83,9 @@ export function ProductsCatalogView() {
         </div>
       </section>
 
-      <section className="prd-section has-section-bubbles" id="catalog" aria-labelledby="prd-list-title">
+      <section className="prd-section has-section-bubbles has-brush-flourish" id="catalog" aria-labelledby="prd-list-title">
         <SectionBubbles seed={5} />
+        <BrushFlourish seed={18} />
         <div className="prd-container">
           <div className="prd-section__head">
             <p className="prd-kicker">

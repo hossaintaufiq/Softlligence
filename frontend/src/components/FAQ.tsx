@@ -6,6 +6,7 @@ import { pageRoutes } from "@/lib/navigation";
 import { Container, Eyebrow } from "@/components/ui/Section";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionLink } from "@/components/ui/PageHero";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { cn } from "@/lib/utils";
 
 interface FAQProps {
@@ -18,7 +19,8 @@ export function FAQ({ summary = false, limit = 3 }: FAQProps) {
   const items = summary ? faqs.slice(0, limit) : faqs;
 
   return (
-    <section className={`section-perf bg-panel ${summary ? "py-14 md:py-16" : "py-20 md:py-24"}`} id="faq">
+    <section className={`section-perf bg-panel has-brush-flourish ${summary ? "py-14 md:py-16" : "py-20 md:py-24"}`} id="faq">
+      {!summary ? <BrushFlourish seed={26} /> : null}
       <Container>
         <Eyebrow number="09">QUESTIONS</Eyebrow>
         <SketchHeadline id="faq-section-title">

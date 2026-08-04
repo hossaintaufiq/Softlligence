@@ -6,6 +6,7 @@ import { FacebookIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
 import { Button } from "@/components/ui/Button";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { cn } from "@/lib/utils";
 import "./contact-page.css";
 
@@ -280,7 +281,8 @@ export function ContactPageView() {
         </div>
       </section>
 
-      <section className="cp-main" id="contact">
+      <section className="cp-main has-brush-flourish" id="contact">
+        <BrushFlourish seed={19} />
         <div className="cp-container cp-layout">
           <div className="cp-form-panel">
             <div className="cp-form-panel__head">

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Section";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 
 const COLS = 12;
 const ROWS = 5;
@@ -107,7 +108,8 @@ const mosaic = buildMosaic();
 
 export function HomeSocialProof() {
   return (
-    <section className="hp-section hp-social" aria-labelledby="hp-social-title">
+    <section className="hp-section hp-social has-brush-flourish" aria-labelledby="hp-social-title">
+      <BrushFlourish seed={9} />
       <Container className="hp-social__inner">
         <div className="hp-social__mosaic">
           <div

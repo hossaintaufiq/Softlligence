@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/Button";
 import { Container, Eyebrow, SectionSub, SectionTitle } from "@/components/ui/Section";
 import { SectionLink } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { FinalCTA } from "@/components/FinalCTA";
 
 interface ProcessProps {
   summary?: boolean;
@@ -276,8 +275,6 @@ function ProcessReality() {
           </Reveal>
         </Container>
       </section>
-
-      <FinalCTA />
     </>
   );
 }

@@ -4,7 +4,6 @@ import { IndustryNav } from "@/components/industries-page/IndustryNav";
 import { IndustrySection } from "@/components/industries-page/IndustrySection";
 import { IndustriesPrinciples } from "@/components/industries-page/IndustriesPrinciples";
 import { IndustriesFinalCta } from "@/components/industries-page/IndustriesFinalCta";
-import { FinalCTA } from "@/components/FinalCTA";
 import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
 import "@/components/industries-page/industries-page.css";
 
@@ -19,7 +18,6 @@ export function IndustriesDetail() {
       ))}
       <IndustriesPrinciples />
       <IndustriesFinalCta />
-      <FinalCTA />
     </div>
   );
 }

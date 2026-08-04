@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { whySoftlligenceServices } from "@/lib/servicesPageContent";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 import { SectionBubbles } from "@/components/ui/SectionBubbles";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -45,8 +46,9 @@ export function WhySoftlligenceSection() {
   }, [reduced]);
 
   return (
-    <section ref={root} className="sp-why has-section-bubbles" id="why-softlligence" aria-labelledby="sp-why-title">
+    <section ref={root} className="sp-why has-section-bubbles has-brush-flourish" id="why-softlligence" aria-labelledby="sp-why-title">
       <SectionBubbles seed={4} />
+      <BrushFlourish seed={17} />
       <div className="sp-container">
         <motion.header
           className="sp-section-head"

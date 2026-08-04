@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { serviceCategories } from "@/lib/servicesPageContent";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { BrushFlourish } from "@/components/ui/BrushFlourish";
 import { ServiceCard } from "./ServiceCard";
 import { usePrefersReducedMotion } from "./usePrefersReducedMotion";
 
@@ -10,7 +11,8 @@ export function ServiceCatalog() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <section className="sp-catalog" id="service-catalog" aria-labelledby="sp-catalog-title">
+    <section className="sp-catalog has-brush-flourish" id="service-catalog" aria-labelledby="sp-catalog-title">
+      <BrushFlourish seed={23} />
       <div className="sp-container">
         <motion.header
           className="sp-section-head sp-section-head--center sp-catalog__intro"

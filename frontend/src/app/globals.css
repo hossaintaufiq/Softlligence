@@ -328,6 +328,78 @@ footer {
   z-index: 1;
 }
 
+/* Soft golden brush flourishes — one per section via BrushFlourish */
+.has-brush-flourish {
+  position: relative;
+  overflow: hidden;
+}
+
+.has-brush-flourish > *:not(.brush-flourish):not(.section-bubbles):not(.hp-industries__decor) {
+  position: relative;
+  z-index: 1;
+}
+
+.brush-flourish {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: clamp(9rem, 22vw, 15rem);
+  color: color-mix(in srgb, var(--theme-accent) 55%, #f0d4a0);
+  opacity: 0.42;
+  filter: blur(0.2px);
+}
+
+.brush-flourish svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brush-flourish--tr {
+  top: 4%;
+  right: -2%;
+  transform: rotate(8deg);
+}
+
+.brush-flourish--tl {
+  top: 6%;
+  left: -3%;
+  transform: rotate(-12deg) scaleX(-1);
+}
+
+.brush-flourish--br {
+  bottom: 6%;
+  right: -2%;
+  transform: rotate(-6deg) scaleY(-1);
+}
+
+.brush-flourish--bl {
+  bottom: 8%;
+  left: -3%;
+  transform: rotate(10deg) scale(-1);
+}
+
+.brush-flourish--mr {
+  top: 42%;
+  right: -4%;
+  transform: rotate(18deg);
+  opacity: 0.36;
+}
+
+.brush-flourish--ml {
+  top: 38%;
+  left: -4%;
+  transform: rotate(-16deg) scaleX(-1);
+  opacity: 0.36;
+}
+
+@media (max-width: 640px) {
+  .brush-flourish {
+    width: clamp(7rem, 38vw, 10rem);
+    opacity: 0.32;
+  }
+}
+
 /* Section gold bubbles — only where SectionBubbles is mounted (1–2 per section) */
 .has-section-bubbles {
   position: relative;
