@@ -134,12 +134,32 @@ export function Nav() {
         <Link
           href="/"
           onClick={closeMenu}
-          className="col-start-1 flex min-w-0 items-center gap-2.5 justify-self-start font-display text-[17px] font-semibold tracking-tight text-text transition-opacity duration-200 hover:opacity-90 sm:text-[18px]"
+          className="col-start-1 flex min-w-0 items-center gap-2.5 justify-self-start text-[17px] font-semibold tracking-tight text-text transition-opacity duration-200 hover:opacity-90 sm:text-[18px]"
         >
           <span className="flex shrink-0 text-accent" aria-hidden="true">
             <BrandLogo size={30} />
           </span>
-          <span className="truncate max-[360px]:hidden">Softlligence</span>
+          <span className="relative inline-block overflow-visible px-1 pb-1 font-[var(--font-caveat)] text-[1.45rem] leading-[1.15] tracking-tight text-transparent bg-linear-to-r from-accent via-[color-mix(in_srgb,var(--theme-accent)_40%,var(--theme-accent-2))] to-accent-2 bg-clip-text max-[360px]:hidden">
+            Softlligence
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 180 18"
+              className="pointer-events-none absolute -bottom-[7px] left-0 w-full text-accent"
+              fill="none"
+            >
+              <path
+                d="M98 11 C 126 6.5, 152 6.5, 178 10"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                opacity="0.95"
+              />
+            </svg>
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -top-0.5 right-0 h-1.5 w-1.5 rounded-full bg-accent/90"
+            />
+          </span>
         </Link>
 
         <nav
