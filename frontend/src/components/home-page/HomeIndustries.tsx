@@ -6,7 +6,13 @@ import { homeExtraIndustries } from "@/lib/homePageContent";
 import { pageRoutes } from "@/lib/navigation";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
-type Card = { id: string; title: string; tag: string; href: string };
+type Card = {
+  id: string;
+  title: string;
+  tag: string;
+  href: string;
+  blurb?: string;
+};
 
 export function HomeIndustries() {
   const cards: Card[] = [
@@ -14,6 +20,7 @@ export function HomeIndustries() {
       id: ind.id,
       title: ind.title,
       tag: ind.tag,
+      blurb: ind.headline,
       href: `${pageRoutes.industries}#${ind.id}`,
     })),
     ...homeExtraIndustries.map((ind) => ({
@@ -35,19 +42,35 @@ export function HomeIndustries() {
           Manufacturing, healthcare, finance, education, government, and more — same engineering
           standard, different operational constraints.
         </p>
+      </Container>
 
-        <div className="hp-industries__grid">
-          {cards.map((card) => (
-            <Link key={card.id} href={card.href} className="hp-industry">
-              <span className="hp-industry__tag">{card.tag}</span>
-              <h3>{card.title}</h3>
-              <span className="hp-industry__go" aria-hidden="true">
-                →
-              </span>
-            </Link>
-          ))}
+      <div className="hp-industries__rail" role="list">
+        <div className="hp-industries__track">
+          {cards.map((card, index) => {
+            const wave = index % 2 === 0 ? "high" : "low";
+            return (
+              <Link
+                key={card.id}
+                href={card.href}
+                role="listitem"
+                className={`hp-industry hp-industry--${wave}`}
+              >
+                <span className="hp-industry__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="hp-industry__tag">{card.tag}</span>
+                <h3>{card.title}</h3>
+                {card.blurb ? <p className="hp-industry__blurb">{card.blurb}</p> : null}
+                <span className="hp-industry__go" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            );
+          })}
         </div>
+      </div>
 
+      <Container>
         <div className="hp-section__action">
           <Button href={pageRoutes.industries} variant="outline">
             See all industries
