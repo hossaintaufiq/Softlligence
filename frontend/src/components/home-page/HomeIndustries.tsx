@@ -7,31 +7,8 @@ import { homeExtraIndustries } from "@/lib/homePageContent";
 import { industryImages } from "@/lib/homeVisuals";
 import { pageRoutes } from "@/lib/navigation";
 import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
-import { BrushFlourish } from "@/components/ui/BrushFlourish";
 
-type Card = {
-  id: string;
-  title: string;
-  tag: string;
-  href: string;
-  blurb?: string;
-  image?: string;
-};
-
-const ROW_SIZES = [4, 4, 3] as const;
-
-function chunkCards(cards: Card[], sizes: readonly number[]) {
-  const rows: Card[][] = [];
-  let cursor = 0;
-  for (const size of sizes) {
-    rows.push(cards.slice(cursor, cursor + size));
-    cursor += size;
-  }
-  if (cursor < cards.length) {
-    rows.push(cards.slice(cursor));
-  }
-  return rows.filter((row) => row.length > 0);
-}
+type Card = { id: string; title: string; tag: string; href: string; blurb?: string; image?: string };
 
 export function HomeIndustries() {
   const cards: Card[] = [
@@ -52,78 +29,50 @@ export function HomeIndustries() {
     })),
   ];
 
-  const rows = chunkCards(cards, ROW_SIZES);
-  let cardIndex = 0;
-
   return (
-    <section
-      className="hp-section hp-industries has-brush-flourish"
-      id="industries"
-      aria-labelledby="hp-industries-title"
-    >
-      <BrushFlourish seed={4} />
-
-      <Container className="hp-industries__content">
-        <Eyebrow number="04">INDUSTRIES</Eyebrow>
-        <SketchHeadline id="hp-industries-title">
-          Built for the sectors that run on <SketchMark type="circle">systems</SketchMark>.
-        </SketchHeadline>
-        <p className="hp-lead">
-          Manufacturing, healthcare, finance, education, government, and more — same engineering
-          standard, different operational constraints.
-        </p>
-
-        <div className="hp-industries__rows" role="list">
-          {rows.map((row) => {
-            const rowKey = row.map((card) => card.id).join("-");
-            return (
-              <div
-                key={rowKey}
-                className={`hp-industries__row hp-industries__row--${row.length}`}
-              >
-                {row.map((card, col) => {
-                  const index = cardIndex++;
-                  const wave = col % 2 === 0 ? "high" : "low";
-                  return (
-                    <Link
-                      key={card.id}
-                      href={card.href}
-                      role="listitem"
-                      className={`hp-industry hp-industry--${wave}${card.image ? " hp-industry--media" : ""}`}
-                    >
-                      {card.image ? (
-                        <>
-                          <Image
-                            src={card.image}
-                            alt=""
-                            fill
-                            sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 25vw"
-                            quality={60}
-                            className="hp-industry__bg"
-                          />
-                          <span className="hp-industry__veil" aria-hidden="true" />
-                        </>
-                      ) : null}
-                      <span className="hp-industry__body">
-                        <span className="hp-industry__index" aria-hidden="true">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                        <span className="hp-industry__tag">{card.tag}</span>
-                        <h3>{card.title}</h3>
-                        {card.blurb ? <p className="hp-industry__blurb">{card.blurb}</p> : null}
-                      </span>
-                      <span className="hp-industry__go" aria-hidden="true">
-                        →
-                      </span>
-                    </Link>
-                  );
-                })}
-              </div>
-            );
-          })}
+    <section className="hp-section hp-industries" id="industries" aria-labelledby="hp-industries-title">
+      <Container>
+        <div className="hp-split-head">
+          <div>
+            <Eyebrow number="04">INDUSTRIES</Eyebrow>
+            <SketchHeadline id="hp-industries-title">
+              Built for the sectors that run on <SketchMark type="underline">systems</SketchMark>.
+            </SketchHeadline>
+          </div>
+          <p className="hp-lead">
+            Manufacturing, healthcare, finance, education, government, and more — same engineering
+            standard, different operational constraints.
+          </p>
         </div>
 
-        <div className="hp-section__action hp-industries__action">
+        <div className="hp-ind-grid" role="list">
+          {cards.map((card, i) => (
+            <Link key={card.id} href={card.href} className="hp-ind-tile" role="listitem">
+              <span className="hp-ind-tile__media">
+                {card.image ? (
+                  <Image
+                    src={card.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    quality={55}
+                    className="object-cover"
+                  />
+                ) : null}
+              </span>
+              <span className="hp-ind-tile__body">
+                <span className="hp-ind-tile__meta">
+                  <em>{String(i + 1).padStart(2, "0")}</em>
+                  {card.tag}
+                </span>
+                <strong>{card.title}</strong>
+                {card.blurb ? <span className="hp-ind-tile__blurb">{card.blurb}</span> : null}
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="hp-section__action">
           <Button href={pageRoutes.industries} variant="outline">
             See all industries
           </Button>

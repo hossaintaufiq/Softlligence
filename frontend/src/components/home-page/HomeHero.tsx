@@ -37,7 +37,7 @@ export function HomeHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45 }}
           >
-            <span>/</span> Softlligence Technologies · Enterprise Software
+            Softlligence Technologies · Enterprise Software
           </motion.p>
 
           <motion.h1
@@ -81,16 +81,16 @@ export function HomeHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.18 }}
           >
-            <Button href={pageRoutes.contact} size="lg" className="hp-magnetic max-sm:w-full">
-              Book a Consultation
+            <Button href={pageRoutes.products} size="lg" className="hp-magnetic max-sm:w-full">
+              Explore Products
             </Button>
             <Button
-              href={pageRoutes.work}
+              href={pageRoutes.contact}
               variant="outline"
               size="lg"
               className="hp-magnetic max-sm:w-full"
             >
-              Explore Our Work
+              Book a Consultation
             </Button>
           </motion.div>
 

@@ -19,7 +19,7 @@ export function TeamHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span>/</span> Leadership &amp; engineering
+            Leadership &amp; engineering
           </motion.p>
 
           <motion.h1

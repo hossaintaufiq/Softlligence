@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono, Caveat } from "next/font/google";
+import { Space_Grotesk, Inter, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { CursorSpotlightLazy } from "@/components/CursorSpotlightLazy";
 import "./globals.css";
+import "./enterprise.css";
+import "./home-redesign.css";
 import "@/components/home-page/sketch-headline.css";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -32,10 +33,11 @@ const ibmPlexMono = IBM_Plex_Mono({
   preload: false,
 });
 
-const caveat = Caveat({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-caveat",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
   preload: false,
 });
@@ -69,17 +71,27 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} ${caveat.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} ${instrumentSerif.variable}`}
     >
       <body className="antialiased">
         <ScrollToTop />
-        <CursorSpotlightLazy />
         <div className="site-bg" aria-hidden="true">
           <div className="site-grid" />
           <div className="site-orbs">
             <span className="site-orb site-orb--lg" />
             <span className="site-orb site-orb--sm" />
           </div>
+        </div>
+        <div className="announce-bar">
+          <a
+            href="https://inventory-management-system-gules-delta.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="announce-bar__tag">New</span>
+            Softlligence Inventory Management is live — open the demo
+            <span aria-hidden="true"> →</span>
+          </a>
         </div>
         <Nav />
         {children}

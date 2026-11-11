@@ -139,22 +139,8 @@ export function Nav() {
           <span className="flex shrink-0 text-accent" aria-hidden="true">
             <BrandLogo size={30} />
           </span>
-          <span className="relative inline-block overflow-visible px-1 pb-1 font-[var(--font-caveat)] text-[1.45rem] leading-[1.15] tracking-tight text-transparent bg-linear-to-r from-accent via-[color-mix(in_srgb,var(--theme-accent)_40%,var(--theme-accent-2))] to-accent-2 bg-clip-text max-[360px]:hidden">
+          <span className="relative inline-block overflow-visible px-1 pb-1 font-display text-[1.2rem] font-semibold leading-[1.15] tracking-tight text-text max-[360px]:hidden">
             Softlligence
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 180 18"
-              className="pointer-events-none absolute -bottom-[7px] left-0 w-full text-accent"
-              fill="none"
-            >
-              <path
-                d="M98 11 C 126 6.5, 152 6.5, 178 10"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                opacity="0.95"
-              />
-            </svg>
             <span
               aria-hidden="true"
               className="pointer-events-none absolute -top-0.5 right-0 h-1.5 w-1.5 rounded-full bg-accent/90"
@@ -191,7 +177,7 @@ export function Nav() {
         <div className="relative z-[2] col-start-3 flex shrink-0 items-center justify-end gap-2 justify-self-end">
           <Button
             href="/contact"
-            className="max-[979px]:hidden whitespace-nowrap shadow-[0_8px_24px_rgba(232,160,18,0.28)]"
+            className="max-[979px]:hidden whitespace-nowrap shadow-[0_8px_24px_rgba(10,92,214,0.22)]"
           >
             Book a call
           </Button>

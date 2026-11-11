@@ -8,7 +8,7 @@ import { productDetailVisuals } from "@/lib/homeVisuals";
 import {
   products,
   productsAiShared,
-  trialSignupUrl,
+  productLaunchUrl,
   type ProductRecord,
 } from "@/lib/productsContent";
 import "./products-page.css";
@@ -25,7 +25,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         <div className="prd-container prd-detail-hero__layout">
           <div className="prd-detail-hero__copy">
             <p className="prd-kicker">
-              <span>/</span> Products · {product.shortName}
+              Products · {product.shortName}
               <em className="prd-detail-hero__badge">{productsAiShared.label}</em>
             </p>
             <h1 id="prd-detail-title">
@@ -34,8 +34,8 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             <p className="prd-detail-hero__tagline">{product.tagline}</p>
             <p className="prd-detail-hero__lead">{product.aiNote}</p>
             <div className="prd-detail-hero__actions">
-              <Button href={trialSignupUrl(product.slug)} size="lg" external>
-                Start 7-day free trial
+              <Button href={productLaunchUrl(product)} size="lg" external>
+                {product.liveUrl ? "Open live demo" : "Start 7-day free trial"}
               </Button>
               <Button
                 href={`${pageRoutes.contact}?product=${product.slug}`}
@@ -73,7 +73,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         <div className="prd-container">
           <div className="prd-section__head prd-section__head--center">
             <p className="prd-kicker">
-              <span>/</span> AI &amp; access
+              AI &amp; access
             </p>
             <SketchHeadline id="prd-ai-title">
               <SketchMark type="circle">Intelligence</SketchMark> where your team already works.
@@ -107,7 +107,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         <div className="prd-container">
           <div className="prd-section__head">
             <p className="prd-kicker">
-              <span>/</span> Modules
+              Modules
             </p>
             <SketchHeadline id="prd-mod-title">
               Core areas inside the <SketchMark type="underline">platform.</SketchMark>
@@ -142,7 +142,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         <div className="prd-container prd-caps-band">
           <div>
             <p className="prd-kicker">
-              <span>/</span> Capabilities
+              Capabilities
             </p>
             <SketchHeadline id="prd-caps-title">
               What {product.shortName} <SketchMark type="circle">covers.</SketchMark>
@@ -160,7 +160,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         <div className="prd-container">
           <div className="prd-section__head prd-section__head--center">
             <p className="prd-kicker">
-              <span>/</span> Engagement
+              Engagement
             </p>
             <SketchHeadline id="prd-paths-title">
               Trial, <SketchMark type="underline">integrate</SketchMark>, or deploy locally.
@@ -193,7 +193,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         <div className="prd-container prd-cta-band__inner">
           <div>
             <p className="prd-kicker">
-              <span>/</span> Outcomes
+              Outcomes
             </p>
             <SketchHeadline id="prd-cta-title">
               What teams <SketchMark type="circle">gain.</SketchMark>
@@ -205,8 +205,8 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
             </ul>
           </div>
           <div className="prd-cta-band__actions">
-            <Button href={trialSignupUrl(product.slug)} size="lg" external>
-              Start free trial
+            <Button href={productLaunchUrl(product)} size="lg" external>
+              {product.liveUrl ? "Open live demo" : "Start free trial"}
             </Button>
             <Button href={pageRoutes.contact} variant="outline" size="lg">
               Book a consultation
@@ -220,7 +220,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
           <div className="prd-container">
             <div className="prd-section__head">
               <p className="prd-kicker">
-                <span>/</span> More products
+                More products
               </p>
               <SketchHeadline id="prd-more-title">
                 Explore the rest of the <SketchMark type="underline">suite.</SketchMark>

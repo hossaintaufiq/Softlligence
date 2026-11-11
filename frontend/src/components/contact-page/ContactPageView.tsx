@@ -242,7 +242,7 @@ export function ContactPageView() {
       <section className="cp-hero" aria-labelledby="cp-hero-title">
         <div className="cp-container cp-hero__inner">
           <p className="cp-kicker">
-            <span>/</span> Start a project
+            Start a project
           </p>
           <h1 id="cp-hero-title">
             Tell us what you&apos;re <SketchMark type="underline">building.</SketchMark>

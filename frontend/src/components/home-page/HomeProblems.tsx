@@ -33,7 +33,7 @@ export function HomeProblems() {
 
         <div className="hp-problems__resolve">
           <p className="hp-kicker">
-            <span>/</span> The Softlligence response
+            The Softlligence response
           </p>
           <h3>We solve these.</h3>
           <p>

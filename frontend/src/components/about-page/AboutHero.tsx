@@ -8,7 +8,7 @@ export function AboutHero() {
     <section className="ap-hero" aria-labelledby="ap-hero-title">
       <div className="ap-container ap-hero__inner">
         <p className="ap-kicker">
-          <span>/</span> {aboutStory.eyebrow}
+          {aboutStory.eyebrow}
         </p>
         <h1 id="ap-hero-title">
           Softlligence builds <SketchMark type="circle">software</SketchMark>

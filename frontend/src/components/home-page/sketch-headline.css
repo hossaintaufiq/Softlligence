@@ -3,8 +3,8 @@
 .sketch-headline {
   margin: 0 0 0.9rem;
   max-width: min(40rem, 100%);
-  font-family: var(--font-caveat), "Segoe Print", "Comic Sans MS", cursive;
-  font-size: clamp(1.7rem, 5.5vw, 3.35rem);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
   font-weight: 600;
   line-height: 1.12;
   letter-spacing: -0.01em;
@@ -13,8 +13,8 @@
     var(--theme-accent) 0%,
     color-mix(in srgb, var(--theme-accent) 55%, var(--theme-accent-2)) 28%,
     var(--theme-accent-2) 52%,
-    color-mix(in srgb, var(--theme-accent-2) 45%, #0c1220) 72%,
-    #0c1220 100%
+    color-mix(in srgb, var(--theme-accent-2) 45%, #0b1a33) 72%,
+    #0b1a33 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -70,8 +70,8 @@
 }
 
 .sketch-mark--underline {
-  color: color-mix(in srgb, var(--theme-accent) 88%, #ffd27a);
-  -webkit-text-fill-color: color-mix(in srgb, var(--theme-accent) 88%, #ffd27a);
+  color: color-mix(in srgb, var(--theme-accent) 88%, var(--theme-accent-2));
+  -webkit-text-fill-color: color-mix(in srgb, var(--theme-accent) 88%, var(--theme-accent-2));
 }
 
 .sketch-mark--underline .sketch-mark__svg--underline {
@@ -80,7 +80,7 @@
   width: 104%;
   height: 0.42em;
   opacity: 0.95;
-  color: color-mix(in srgb, var(--theme-accent) 88%, #ffd27a);
+  color: color-mix(in srgb, var(--theme-accent) 88%, var(--theme-accent-2));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -146,8 +146,8 @@
     var(--theme-accent) 0%,
     color-mix(in srgb, var(--theme-accent) 55%, var(--theme-accent-2)) 28%,
     var(--theme-accent-2) 52%,
-    color-mix(in srgb, var(--theme-accent-2) 45%, #0c1220) 72%,
-    #0c1220 100%
+    color-mix(in srgb, var(--theme-accent-2) 45%, #0b1a33) 72%,
+    #0b1a33 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -192,7 +192,7 @@
     100deg,
     var(--theme-accent) 0%,
     var(--theme-accent-2) 55%,
-    #0c1220 100%
+    #0b1a33 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -202,8 +202,8 @@
 
 /* Final CTA sketch lines */
 .hp-cta__title-lead {
-  color: #0c1220;
-  -webkit-text-fill-color: #0c1220;
+  color: #0b1a33;
+  -webkit-text-fill-color: #0b1a33;
 }
 
 .hp-cta__title-rest {
@@ -211,7 +211,7 @@
     100deg,
     var(--theme-accent) 0%,
     var(--theme-accent-2) 45%,
-    #0c1220 100%
+    #0b1a33 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -242,7 +242,63 @@ h2.sketch-headline.sp-section-title,
 h2.sketch-headline.sp-final__title,
 .sp-section-title.sketch-headline,
 .sp-final__title.sketch-headline {
-  font-family: var(--font-caveat), "Segoe Print", "Comic Sans MS", cursive !important;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif !important;
+  font-weight: 400;
+  letter-spacing: 0;
 }
+
+/* ── Premium enterprise type: serif display, italic blue marks, gradient underline ── */
+.sketch-headline,
+.headline-gradient,
+.hp-hero__title, .sp-hero__title, .sp-hero__line, .wp-hero__title, .wp-hero__line,
+.ip-hero__title, .ip-hero__line, .tp-hero__title, .ap-hero h1, .pp-hero h1, .cp-hero h1,
+.prd-hero__title, .prd-detail-hero h1, .page-hero h1,
+.prd-hero__title em, .pp-hero h1 em, .cp-hero h1 em,
+.sp-hero__line--accent, .wp-hero__line--accent, .ip-hero__line--accent,
+.hp-cta__title-lead, .hp-cta__title-rest, .hp-social__headline,
+h1.sketch-headline, h2.sketch-headline, h3.sketch-headline {
+  background-image: none !important;
+  color: var(--theme-text) !important;
+  -webkit-text-fill-color: var(--theme-text) !important;
+  font-family: var(--font-serif), Georgia, "Times New Roman", serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.1;
+}
+.sketch-headline { font-size: clamp(2.1rem, 4.8vw, 3.5rem); }
+.hp-hero__title, .sp-hero__title, .wp-hero__title, .ip-hero__title, .tp-hero__title,
+.ap-hero h1, .pp-hero h1, .cp-hero h1, .prd-hero__title, .prd-detail-hero h1, .page-hero h1 {
+  font-size: clamp(2.8rem, 6.6vw, 5.2rem);
+  line-height: 1.04;
+}
+.hp-cta__title-lead { font-size: clamp(2.4rem, 6vw, 4rem) !important; }
+.hp-cta__title-rest { font-size: clamp(1.7rem, 4vw, 2.5rem) !important; }
+.hp-social__headline { font-size: clamp(1.7rem, 3.8vw, 2.5rem) !important; }
+.hp-social__scribble { display: none !important; }
+
+.sketch-mark,
+.sketch-mark--circle,
+.sketch-mark--underline,
+h1 .sketch-mark, h2 .sketch-mark, h3 .sketch-mark {
+  color: var(--theme-accent) !important;
+  -webkit-text-fill-color: var(--theme-accent) !important;
+  font-style: italic;
+  padding: 0 0.04em;
+  margin-inline: 0.02em;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+}
+.sketch-mark .sketch-mark__svg,
+.sketch-mark .sketch-mark__svg--underline,
+.sketch-mark .sketch-mark__svg--circle {
+  position: absolute !important;
+  left: 0 !important;
+  top: auto !important;
+  bottom: -0.12em !important;
+  width: 100% !important;
+  height: 0.14em !important;
+  opacity: 1 !important;
+  overflow: visible;
+}
+.sketch-mark__svg:not(.sketch-mark__svg--underline) { display: none; }

@@ -6,7 +6,15 @@ export function trialSignupUrl(product: string) {
   return `${trialAppBaseUrl}/signup?product=${encodeURIComponent(product)}`;
 }
 
-export type ProductSlug = "erp" | "crm" | "mis";
+export type ProductSlug = "erp" | "crm" | "mis" | "inventory";
+
+const manufacturingCloudUrl = "https://softlligence-manufacturing-cloud.vercel.app";
+const inventoryUrl = "https://inventory-management-system-gules-delta.vercel.app";
+
+/** Live demo URL when a product has one; otherwise falls back to the trial signup. */
+export function productLaunchUrl(product: { slug: string; liveUrl?: string }) {
+  return product.liveUrl ?? trialSignupUrl(product.slug);
+}
 
 export type ProductPath = {
   id: string;
@@ -16,6 +24,7 @@ export type ProductPath = {
 
 export type ProductRecord = {
   slug: ProductSlug;
+  liveUrl?: string;
   name: string;
   shortName: string;
   tagline: string;
@@ -45,6 +54,7 @@ export const productsCatalogIntro = {
 export const products: ProductRecord[] = [
   {
     slug: "erp",
+    liveUrl: manufacturingCloudUrl,
     name: "Softlligence ERP",
     shortName: "ERP",
     tagline: "AI-powered operations, finance, and inventory in one system of record.",
@@ -173,6 +183,7 @@ export const products: ProductRecord[] = [
   },
   {
     slug: "mis",
+    liveUrl: manufacturingCloudUrl,
     name: "Softlligence MIS",
     shortName: "MIS",
     tagline: "AI-powered management information that turns operations into decisions.",
@@ -233,6 +244,47 @@ export const products: ProductRecord[] = [
       "See best sellers in management views",
       "Read AI summaries instead of raw tables",
       "Access insights on mobile, WordPress, and Telegram",
+    ],
+  },
+  {
+    slug: "inventory",
+    liveUrl: inventoryUrl,
+    name: "Softlligence Inventory Management",
+    shortName: "Inventory",
+    tagline: "Real-time stock control across products, warehouses, and suppliers.",
+    summary:
+      "Track stock levels, movements, and reorder points in one place — with AI that recommends what to restock and surfaces best-selling products.",
+    description:
+      "Softlligence Inventory Management gives teams accurate, real-time visibility into products, warehouses, purchase orders, and stock movements. AI-powered recommendations flag what to reorder and which SKUs sell best, while summaries keep managers informed. Open the live system in the cloud, integrate it with your existing tools, or deploy locally.",
+    aiNote:
+      "AI recommends what to restock, highlights best sellers, and summarizes stock positions — on web, mobile, WordPress, and Telegram.",
+    audience: "Retailers, distributors, warehouses, and growing multi-location operators.",
+    capabilities: [
+      "AI restock recommendations",
+      "Best-selling product insights",
+      "Real-time stock levels",
+      "Multi-warehouse tracking",
+      "Purchase orders & suppliers",
+      "Stock movements & adjustments",
+      "Low-stock alerts",
+      "Role-based access & reports",
+    ],
+    modules: [
+      { title: "Stock", description: "Live quantities per product and location, with low-stock alerts and reorder points." },
+      { title: "Warehouses", description: "Track transfers, receipts, and adjustments across every location." },
+      { title: "Purchasing", description: "Suppliers, purchase orders, and AI-guided restock suggestions in one flow." },
+      { title: "AI & channels", description: "Recommendations, AI summaries, mobile app, WordPress embed, and Telegram chatbot." },
+    ],
+    paths: [
+      { id: "trial", title: "Open the live system", description: "Explore the inventory management system in the cloud right now." },
+      { id: "integrate", title: "Integrate with your systems", description: "Connect to your store, ERP, accounting, mobile, or Telegram with Softlligence engineering." },
+      { id: "local", title: "Local / on-prem deployment", description: "Run on your own servers when cloud is not the right fit." },
+    ],
+    outcomes: [
+      "Never run out of your best sellers",
+      "Cut overstock with AI restock suggestions",
+      "See every warehouse in one view",
+      "Reach stock data on mobile, WordPress, and Telegram",
     ],
   },
 ];

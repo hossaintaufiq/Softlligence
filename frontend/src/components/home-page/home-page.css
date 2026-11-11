@@ -412,7 +412,7 @@
 }
 
 .hp-visual__dots i:nth-child(2) {
-  background: color-mix(in srgb, #fbbf24 65%, transparent);
+  background: color-mix(in srgb, var(--theme-accent-2) 65%, transparent);
 }
 
 .hp-visual__dots i:nth-child(3) {
@@ -965,8 +965,8 @@
   background:
     linear-gradient(
       165deg,
-      color-mix(in srgb, #f7fbff 72%, #fff2d8 28%) 0%,
-      color-mix(in srgb, #eef8ff 62%, #fff3dc 38%) 55%,
+      color-mix(in srgb, #f7fbff 72%, #eef3fb 28%) 0%,
+      color-mix(in srgb, #eef8ff 62%, #eef3fb 38%) 55%,
       color-mix(in srgb, var(--theme-panel) 78%, transparent) 100%
     );
   text-decoration: none;
@@ -1004,10 +1004,10 @@
   background:
     linear-gradient(
       180deg,
-      color-mix(in srgb, #e9f7ff 58%, #fff5dd) 0%,
-      color-mix(in srgb, #eff9ff 54%, #fff4de) 30%,
-      color-mix(in srgb, #f6fbff 52%, #fff2d6) 66%,
-      color-mix(in srgb, #f9fdff 58%, #fff6e6) 100%
+      color-mix(in srgb, #e9f7ff 58%, #eef3fb) 0%,
+      color-mix(in srgb, #eff9ff 54%, #eef3fb) 30%,
+      color-mix(in srgb, #f6fbff 52%, #eef3fb) 66%,
+      color-mix(in srgb, #f9fdff 58%, #eef3fb) 100%
     );
   opacity: 0.86;
   transition: background 0.35s ease;
@@ -1038,10 +1038,10 @@
   background:
     linear-gradient(
       180deg,
-      color-mix(in srgb, #e2f4ff 60%, #fff2d9) 0%,
-      color-mix(in srgb, #eaf7ff 58%, #fff0d3) 30%,
+      color-mix(in srgb, #e2f4ff 60%, #eef3fb) 0%,
+      color-mix(in srgb, #eaf7ff 58%, #eef3fb) 30%,
       color-mix(in srgb, #f2faff 55%, #ffeecb) 64%,
-      color-mix(in srgb, #f8fdff 62%, #fff3de) 100%
+      color-mix(in srgb, #f8fdff 62%, #eef3fb) 100%
     );
   opacity: 0.8;
 }
@@ -1063,7 +1063,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.14em;
-  color: #0c1220;
+  color: #0b1a33;
   text-shadow: 0 1px 0 rgb(255 255 255 / 0.75);
 }
 
@@ -1091,7 +1091,7 @@
   font-weight: 600;
   line-height: 1.18;
   letter-spacing: -0.02em;
-  color: #0c1220;
+  color: #0b1a33;
   text-wrap: balance;
 }
 
@@ -1786,11 +1786,11 @@
 }
 
 .hp-social__cell--ink {
-  background: #0c1220;
+  background: #0b1a33;
 }
 
 .hp-social__cell--blue {
-  background: color-mix(in srgb, var(--theme-accent-2) 78%, #0c1220);
+  background: color-mix(in srgb, var(--theme-accent-2) 78%, #0b1a33);
 }
 
 .hp-social__cell--gold {
@@ -1823,7 +1823,7 @@
   width: min(calc(100% - 1.25rem), 36rem);
   padding: clamp(1.2rem, 3.2vw, 1.75rem) clamp(1.5rem, 4vw, 2.75rem);
   border-radius: 999px;
-  background: #ffffff;
+  background: #eef3fb;
   border: 1px solid color-mix(in srgb, var(--theme-text) 10%, transparent);
   box-shadow:
     0 20px 50px rgba(12, 18, 32, 0.11),
@@ -1833,7 +1833,7 @@
 
 .hp-social__headline {
   margin: 0;
-  font-family: var(--font-caveat), "Segoe Print", cursive;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(1.65rem, 4.2vw, 2.55rem);
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -1843,7 +1843,7 @@
     100deg,
     var(--theme-accent) 0%,
     var(--theme-accent-2) 45%,
-    #0c1220 100%
+    #0b1a33 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -1862,7 +1862,7 @@
   left: 50%;
   bottom: calc(100% + 0.05em);
   transform: translateX(-42%) rotate(-8deg);
-  font-family: var(--font-caveat), "Segoe Print", cursive;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-style: normal;
   font-size: 0.55em;
   font-weight: 600;
@@ -2060,14 +2060,14 @@
 }
 
 .hp-cta__title-lead {
-  font-family: var(--font-caveat), "Segoe Print", cursive;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(2.35rem, 10vw, 5.25rem);
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
 .hp-cta__title-rest {
-  font-family: var(--font-caveat), "Segoe Print", cursive;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(1.85rem, 5.5vw, 2.85rem);
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -2080,8 +2080,8 @@
   min-height: 3.1rem;
   padding: 0.85rem 1.75rem;
   border-radius: 0.55rem;
-  background: #0c1220;
-  color: #ffffff;
+  background: #0b1a33;
+  color: #eef3fb;
   font-family: var(--font-space-grotesk), system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -2095,7 +2095,7 @@
 }
 
 .hp-cta__btn:hover {
-  background: color-mix(in srgb, var(--theme-accent-2) 35%, #0c1220);
+  background: color-mix(in srgb, var(--theme-accent-2) 35%, #0b1a33);
   transform: translateY(-2px);
   box-shadow: 0 14px 32px rgba(12, 18, 32, 0.2);
 }

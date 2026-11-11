@@ -9,7 +9,7 @@ import {
   products,
   productsCatalogIntro,
   productsAiShared,
-  trialSignupUrl,
+  productLaunchUrl,
   type ProductRecord,
 } from "@/lib/productsContent";
 import "./products-page.css";
@@ -23,7 +23,7 @@ function ProductCard({ product, index }: { product: ProductRecord; index: number
       <div className="prd-card__top">
         <span className="prd-card__badge">{product.shortName}</span>
         <span className="prd-card__ai">{productsAiShared.label}</span>
-        <span className="prd-card__trial">7-day free trial</span>
+        <span className="prd-card__trial">{product.liveUrl ? "Live demo" : "7-day free trial"}</span>
       </div>
       <h2>
         <Link href={`${pageRoutes.products}/${product.slug}`}>{product.name}</Link>
@@ -40,8 +40,8 @@ function ProductCard({ product, index }: { product: ProductRecord; index: number
         <Button href={`${pageRoutes.products}/${product.slug}`} variant="outline">
           View product
         </Button>
-        <Button href={trialSignupUrl(product.slug)} external>
-          Start free trial
+        <Button href={productLaunchUrl(product)} external>
+          {product.liveUrl ? "Open live demo" : "Start free trial"}
         </Button>
       </div>
     </article>
@@ -55,7 +55,7 @@ export function ProductsCatalogView() {
       <section className="prd-hero" aria-labelledby="prd-catalog-title">
         <div className="prd-container prd-hero__inner">
           <p className="prd-kicker">
-            <span>/</span> {productsCatalogIntro.eyebrow}
+            {productsCatalogIntro.eyebrow}
           </p>
           <h1 id="prd-catalog-title" className="prd-hero__title">
             Enterprise <SketchMark type="circle">platforms.</SketchMark>
@@ -72,6 +72,8 @@ export function ProductsCatalogView() {
             </Button>
           </div>
           <p className="prd-hero__meta">
+            <span>Inventory</span>
+            <i aria-hidden="true">·</i>
             <span>ERP</span>
             <i aria-hidden="true">·</i>
             <span>CRM</span>
@@ -89,7 +91,7 @@ export function ProductsCatalogView() {
         <div className="prd-container">
           <div className="prd-section__head">
             <p className="prd-kicker">
-              <span>/</span> Catalog
+              Catalog
             </p>
             <SketchHeadline id="prd-list-title">
               Ready AI-powered <SketchMark type="circle">platforms</SketchMark> for modern
@@ -112,7 +114,7 @@ export function ProductsCatalogView() {
         <div className="prd-container">
           <div className="prd-section__head">
             <p className="prd-kicker">
-              <span>/</span> How to engage
+              How to engage
             </p>
             <SketchHeadline id="prd-doors-title">
               Three <SketchMark type="underline">ways</SketchMark> to use Softlligence products.

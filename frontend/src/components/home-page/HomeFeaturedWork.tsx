@@ -26,7 +26,7 @@ export function HomeFeaturedWork() {
           <div>
             <Eyebrow number="05">FEATURED WORK</Eyebrow>
             <SketchHeadline id="hp-work-title">
-              Selected <SketchMark type="circle">platforms</SketchMark> we&apos;ve engineered.
+              Selected <SketchMark type="circle">platforms</SketchMark>&nbsp;we&apos;ve engineered.
             </SketchHeadline>
             <p className="hp-lead">
               Five production builds — scroll through, open a case, or browse the full portfolio.

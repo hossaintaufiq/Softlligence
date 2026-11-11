@@ -11,7 +11,7 @@ export function ProcessHero() {
       <div className="pp-container pp-hero__layout">
         <div className="pp-hero__copy">
           <p className="pp-kicker">
-            <span>/</span> How a project runs
+            How a project runs
           </p>
           <h1 id="pp-hero-title">
             Five stages.

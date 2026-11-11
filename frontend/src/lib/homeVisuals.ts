@@ -93,7 +93,7 @@ export const pageHeroImages = {
 
 /** Product detail pages — Unsplash visuals by slug */
 export const productDetailVisuals: Record<
-  "erp" | "crm" | "mis",
+  "erp" | "crm" | "mis" | "inventory",
   {
     hero: string;
     modules: string[];
@@ -124,6 +124,38 @@ export const productDetailVisuals: Record<
         src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=60",
         label: "Mobile app",
         hint: "Manage operations on the go",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=720&q=60",
+        label: "WP · Telegram",
+        hint: "Embed and chat assistants",
+      },
+    ],
+    cta: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=60",
+  },
+  inventory: {
+    hero: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1400&q=70",
+    modules: [
+      "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60",
+    ],
+    channels: [
+      {
+        src: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=720&q=60",
+        label: "AI recommendations",
+        hint: "Restock · best sellers",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=720&q=60",
+        label: "AI summaries",
+        hint: "Stock positions in plain language",
+      },
+      {
+        src: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=720&q=60",
+        label: "Mobile app",
+        hint: "Check stock from anywhere",
       },
       {
         src: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=720&q=60",

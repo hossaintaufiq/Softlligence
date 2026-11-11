@@ -25,6 +25,7 @@ const companyLinks = [
 ];
 
 const productLinks = [
+  { href: `${pageRoutes.products}/inventory`, label: "Inventory" },
   { href: `${pageRoutes.products}/erp`, label: "ERP" },
   { href: `${pageRoutes.products}/crm`, label: "CRM" },
   { href: `${pageRoutes.products}/mis`, label: "MIS" },

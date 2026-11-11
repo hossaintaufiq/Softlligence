@@ -14,40 +14,27 @@ export function SketchMark({
   return (
     <span className={cn("sketch-mark", `sketch-mark--${type}`, className)}>
       <span className="sketch-mark__text">{children}</span>
-      {type === "circle" ? (
-        <svg
-          className="sketch-mark__svg sketch-mark__svg--circle"
-          viewBox="0 0 120 48"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M14 26c2-12 28-20 52-19 28 1 48 10 50 22 2 12-18 18-48 18S10 38 14 26Z"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
-      ) : (
-        <svg
-          className="sketch-mark__svg sketch-mark__svg--underline"
-          viewBox="0 0 100 12"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M2 7c18-3 36 3 52 0s28-4 44 1"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.6"
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
-      )}
+      <svg
+        className="sketch-mark__svg sketch-mark__svg--underline"
+        viewBox="0 0 100 8"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="sm-grad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#0a5cd6" />
+            <stop offset="100%" stopColor="#0891b2" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M1 5.5C25 2.5 60 2 99 4.2"
+          fill="none"
+          stroke="url(#sm-grad)"
+          strokeWidth="2.4"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
     </span>
   );
 }

@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Container, Eyebrow } from "@/components/ui/Section";
+import { Container } from "@/components/ui/Section";
 import { homeTrustStats } from "@/lib/homePageContent";
-import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
 
 function formatNumber(n: number) {
   if (n >= 1000) return `${(n / 1000).toFixed(0)}k`;
@@ -50,16 +49,8 @@ export function HomeTrust() {
   }, []);
 
   return (
-    <section className="hp-section hp-trust" id="trust" aria-labelledby="hp-trust-title">
+    <section className="hp-section hp-trust" id="trust" aria-label="Softlligence at a glance">
       <Container>
-        <Eyebrow number="01">TRUST</Eyebrow>
-        <SketchHeadline id="hp-trust-title">
-          Credibility you can <SketchMark type="underline">measure</SketchMark>.
-        </SketchHeadline>
-        <p className="hp-lead">
-          Enterprise delivery capacity — from platforms shipped to the engineers who build them.
-        </p>
-
         <div ref={ref} className="hp-trust__grid">
           {homeTrustStats.map((stat) => (
             <div key={stat.label} className="hp-trust__card">

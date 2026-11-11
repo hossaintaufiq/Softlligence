@@ -22,13 +22,13 @@ export function BrandLogo({ size = 28 }: BrandLogoProps) {
     >
       <defs>
         <linearGradient id={darkGrad} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#8B5A00" />
-          <stop offset="55%" stopColor="#E8A012" />
-          <stop offset="100%" stopColor="#FFB020" />
+          <stop offset="0%" stopColor="#0b2a5b" />
+          <stop offset="55%" stopColor="#0a5cd6" />
+          <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
         <linearGradient id={vibrantGrad} x1="100%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#FFC94D" />
-          <stop offset="100%" stopColor="#A66A00" />
+          <stop offset="0%" stopColor="#60a5fa" />
+          <stop offset="100%" stopColor="#0b2a5b" />
         </linearGradient>
       </defs>
       <path
@@ -63,7 +63,7 @@ export function BrandLogo({ size = 28 }: BrandLogoProps) {
            C 418,240 422,255 420,270
            L 445,260
            C 448,245 440,225 430,215 Z"
-        fill="#FFB020"
+        fill="#3b82f6"
         opacity="0.85"
       />
     </svg>

@@ -206,7 +206,7 @@ export function AboutFinalCta() {
     <section className="ap-cta" aria-labelledby="ap-cta-title">
       <div className="ap-container ap-cta__inner">
         <p className="ap-kicker">
-          <span>/</span> Next step
+          Next step
         </p>
         <SketchHeadline id="ap-cta-title">
           Tell us what you&apos;re <SketchMark type="underline">building.</SketchMark>
