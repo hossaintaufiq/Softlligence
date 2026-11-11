@@ -1,0 +1,165 @@
+/* About page extras. Shared scaffolding comes from products.css and sections.css. */
+
+.pdp-prose--stack + .pdp-prose--stack {
+  margin-top: 20px;
+}
+
+.ab-facts {
+  margin: 0;
+  padding: 8px 28px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-md);
+}
+.ab-facts div {
+  display: grid;
+  gap: 2px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+.ab-facts div:first-child {
+  border-top: 0;
+}
+.ab-facts dt {
+  font-size: 0.9375rem;
+  color: var(--text-3);
+}
+.ab-facts dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.ab-quote {
+  margin: 36px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--line-strong);
+  max-width: 34ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+.ab-craft {
+  display: grid;
+  gap: 8px;
+}
+.ab-craft > div {
+  padding: 24px 0;
+  border-top: 1px solid var(--line-strong);
+}
+.ab-craft h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+.ab-craft ul {
+  display: grid;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.0625rem;
+  color: var(--text-2);
+}
+@media (min-width: 800px) {
+  .ab-craft {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+  }
+}
+
+.ab-team-btn {
+  margin-top: 28px;
+}
+.ab-roles {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--line-strong);
+}
+.ab-roles li {
+  display: grid;
+  gap: 4px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line-strong);
+}
+.ab-roles b {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.ab-roles span {
+  font-size: 1rem;
+  color: var(--text-2);
+}
+
+.ab-compare {
+  display: grid;
+  gap: 24px;
+  margin-top: 56px;
+}
+.ab-compare > div {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--bg-elev);
+}
+.ab-compare h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.ab-compare ul {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ab-compare li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--text-2);
+}
+.ab-compare svg {
+  flex: none;
+  margin-top: 3px;
+}
+.ab-compare__us {
+  border-color: color-mix(in srgb, var(--brand-2) 40%, var(--line)) !important;
+  background:
+    radial-gradient(24rem 12rem at 100% 0%, color-mix(in srgb, var(--brand-2) 14%, transparent), transparent 70%),
+    var(--bg-elev) !important;
+}
+.ab-compare__us li {
+  color: var(--text);
+}
+.ab-compare__us svg {
+  color: var(--brand);
+}
+:root[data-theme="dark"] .ab-compare__us svg {
+  color: var(--link);
+}
+@media (min-width: 800px) {
+  .ab-compare {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

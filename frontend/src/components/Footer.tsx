@@ -1,192 +1,104 @@
 import Link from "next/link";
 import { BrandLogo } from "@/components/BrandLogo";
 import { FacebookIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Section";
 import { companyContact, pageRoutes } from "@/lib/navigation";
+import { products } from "@/lib/productsContent";
+import { resourcesMenu, serviceLinks, solutionsMenu } from "@/lib/siteLinks";
 
-const serviceLinks = [
-  { href: `${pageRoutes.services}#web`, label: "Websites & apps" },
-  { href: `${pageRoutes.services}#mobile`, label: "Mobile" },
-  { href: `${pageRoutes.services}#design`, label: "Product design" },
-  { href: `${pageRoutes.services}#integrations`, label: "Integrations" },
-  { href: `${pageRoutes.services}#cloud`, label: "Cloud & DevOps" },
-];
-
-const companyLinks = [
-  { href: pageRoutes.products, label: "Products" },
+const company = [
   { href: pageRoutes.about, label: "About" },
   { href: pageRoutes.team, label: "Team" },
-  { href: pageRoutes.work, label: "Work" },
-  { href: pageRoutes.industries, label: "Industries" },
-  { href: pageRoutes.process, label: "Process" },
-  { href: pageRoutes.faq, label: "FAQ" },
   { href: pageRoutes.contact, label: "Contact" },
-];
-
-const productLinks = [
-  { href: `${pageRoutes.products}/inventory`, label: "Inventory" },
-  { href: `${pageRoutes.products}/erp`, label: "ERP" },
-  { href: `${pageRoutes.products}/crm`, label: "CRM" },
-  { href: `${pageRoutes.products}/mis`, label: "MIS" },
 ];
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="site-footer">
-      <div className="site-footer__wave" aria-hidden="true">
-        <svg
-          className="site-footer__wave-svg"
-          viewBox="0 0 1440 72"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            className="site-footer__wave-accent"
-            d="M0 28C240 64 480 4 720 28C960 52 1200 68 1440 24V72H0V28Z"
-          />
-          <path
-            className="site-footer__wave-fill"
-            d="M0 36C220 68 460 8 720 32C980 56 1220 64 1440 28V72H0V36Z"
-          />
-        </svg>
-      </div>
-
-      <div className="site-footer__body bg-elevated pt-12 pb-8 md:pt-14">
-        <Container>
-          <div className="grid gap-10 border-b border-white/8 pb-12 max-md:grid-cols-1 max-md:justify-items-center max-md:text-center md:max-[980px]:grid-cols-2 min-[981px]:grid-cols-[1.5fr_1fr_1fr_1fr]">
-            <div className="max-md:col-span-1 max-md:flex max-md:w-full max-md:flex-col max-md:items-center md:max-[980px]:col-span-2 min-[981px]:col-span-1">
-              <Link href="/" className="inline-flex items-center gap-2.5 font-display text-lg font-semibold">
-                <span className="flex text-accent" aria-hidden="true">
-                  <BrandLogo />
-                </span>
-                Softlligence
-              </Link>
-              <p className="mt-4 max-w-[300px] text-[14px] leading-relaxed text-text-dim">
-                A modern software studio for organizations that need systems they can rely on — from
-                sketch to production.
-              </p>
-              <div className="mt-5 flex flex-col gap-2 font-mono text-[13px] max-md:items-center">
-                <a href={companyContact.mailto} className="text-accent-2 hover:text-accent">
-                  {companyContact.email}
-                </a>
-                <a href={companyContact.tel} className="text-text-dim hover:text-accent">
-                  {companyContact.phoneDisplay}
-                </a>
-                <a
-                  href={companyContact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-text-dim hover:text-accent"
-                >
-                  <LinkedInIcon className="h-3.5 w-3.5" />
-                  {companyContact.linkedinLabel}
-                </a>
-                <a
-                  href={companyContact.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-text-dim hover:text-accent"
-                >
-                  <FacebookIcon className="h-3.5 w-3.5" />
-                  {companyContact.facebookLabel}
-                </a>
-              </div>
-            </div>
-
-            <div className="max-md:w-full max-md:text-center">
-              <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
-                Products
-              </h5>
-              <div className="max-md:flex max-md:flex-col max-md:items-center">
-                <Link
-                  href={pageRoutes.products}
-                  className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
-                >
-                  All products
-                </Link>
-                {productLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-              <h5 className="mb-4 mt-8 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
-                Services
-              </h5>
-              <div className="max-md:flex max-md:flex-col max-md:items-center">
-                {serviceLinks.map((link) => (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="max-md:w-full max-md:text-center">
-              <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
-                Company
-              </h5>
-              <div className="max-md:flex max-md:flex-col max-md:items-center">
-                {companyLinks.map((link) => (
-                  <Link
-                    key={link.href + link.label}
-                    href={link.href}
-                    className="mb-2.5 block text-[14px] text-text-dim transition-colors hover:text-text"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="max-md:flex max-md:w-full max-md:flex-col max-md:items-center max-md:text-center">
-              <h5 className="mb-4 font-mono text-[11px] tracking-[0.12em] text-text-dim uppercase">
-                Next step
-              </h5>
-              <p className="mb-5 max-w-[280px] text-[14px] leading-relaxed text-text-dim">
-                Tell us what you&apos;re building. We reply within one business day.
-              </p>
-              <Button href={pageRoutes.contact} variant="outline">
-                Contact us
-              </Button>
-            </div>
+    <footer className="foot">
+      <div className="wrap">
+        <div className="foot__grid">
+          <div className="foot__brand">
+            <Link href="/" className="foot__logo" aria-label="Softlligence home">
+              <span className="foot__mark" aria-hidden="true">
+                <BrandLogo size={30} />
+              </span>
+              Softlligence
+            </Link>
+            <p>
+              SaaS platforms, enterprise systems and intelligent digital solutions for businesses that
+              plan to scale.
+            </p>
+            <p className="foot__contact">
+              <a href={companyContact.mailto}>{companyContact.email}</a>
+              <a href={companyContact.tel}>{companyContact.phoneDisplay}</a>
+            </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-6 text-[12px] text-text-dim max-md:flex-col max-md:justify-center max-md:text-center">
-            <span>© {year} Softlligence Technologies</span>
-            <div className="flex flex-wrap items-center gap-4 max-md:justify-center">
-              <a
-                href={companyContact.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono tracking-wide uppercase transition-colors hover:text-accent"
-              >
-                <LinkedInIcon className="h-3.5 w-3.5" />
-                LinkedIn
-              </a>
-              <a
-                href={companyContact.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono tracking-wide uppercase transition-colors hover:text-accent"
-              >
-                <FacebookIcon className="h-3.5 w-3.5" />
-                Facebook
-              </a>
-            </div>
-          </div>
-        </Container>
+          <nav aria-label="Products">
+            <h2 className="foot__h">Products</h2>
+            <ul>
+              {products.map((p) => (
+                <li key={p.slug}>
+                  <Link href={`${pageRoutes.products}/${p.slug}`}>
+                    {p.shortName === "Inventory" ? "Inventory Management" : p.shortName}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href={pageRoutes.products}>All products</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <nav aria-label="Solutions and services">
+            <h2 className="foot__h">Solutions</h2>
+            <ul>
+              {solutionsMenu.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+              {serviceLinks.slice(0, 3).map((l) => (
+                <li key={l.label}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-label="Company and resources">
+            <h2 className="foot__h">Company</h2>
+            <ul>
+              {company.map((l) => (
+                <li key={l.label}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+              {resourcesMenu.slice(0, 3).map((l) => (
+                <li key={l.label}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div className="foot__base">
+          <span>© {year} Softlligence Technologies</span>
+          <span className="foot__social">
+            <a href={companyContact.linkedin} target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon className="h-4 w-4" />
+              LinkedIn
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a href={companyContact.facebook} target="_blank" rel="noopener noreferrer">
+              <FacebookIcon className="h-4 w-4" />
+              Facebook
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </span>
+        </div>
       </div>
     </footer>
   );

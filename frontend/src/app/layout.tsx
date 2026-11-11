@@ -1,38 +1,44 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { themeInitScript } from "@/components/theme/ThemeToggle";
 import "./globals.css";
 import "./enterprise.css";
-import "./home-redesign.css";
 import "@/components/home-page/sketch-headline.css";
+import "./brand.css";
+import "./sections.css";
 import { Analytics } from "@vercel/analytics/next";
 
-const spaceGrotesk = Space_Grotesk({
+/** Display: expressive grotesque with optical sizing. */
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["500", "600"],
-  variable: "--font-space-grotesk",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-bricolage",
   display: "swap",
   preload: true,
 });
 
-const inter = Inter({
+/** Interface and body. */
+const geist = Geist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-geist",
+  display: "swap",
+  preload: true,
+});
+
+/** Numerals and tiny data labels only. */
+const geistMono = Geist_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-inter",
+  variable: "--font-geist-mono",
   display: "swap",
   preload: false,
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-ibm-plex-mono",
-  display: "swap",
-  preload: false,
-});
-
+/** Still used by the inner-page headline component until those pages are redesigned. */
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
@@ -44,21 +50,24 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Softlligence Technologies — Custom Software for Organizations",
-    template: "%s · Softlligence Technologies",
+    default: "Softlligence — Intelligent software for ambitious businesses",
+    template: "%s · Softlligence",
   },
   description:
-    "Softlligence designs and ships websites, web apps and mobile products for businesses, schools, agencies and nonprofits — from first sketch to production.",
+    "SaaS platforms, enterprise systems and AI-powered ERP, CRM, MIS and Inventory products. Engineering intelligent software for ambitious businesses.",
   metadataBase: new URL("https://softlligence.com"),
   openGraph: {
-    title: "Softlligence Technologies",
-    description: "Custom software organizations actually run on.",
+    title: "Softlligence",
+    description: "Engineering intelligent software for ambitious businesses.",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f6f7fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#070b1f" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -71,30 +80,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${ibmPlexMono.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
+      className={`${bricolage.variable} ${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="antialiased">
         <ScrollToTop />
-        <div className="site-bg" aria-hidden="true">
-          <div className="site-grid" />
-          <div className="site-orbs">
-            <span className="site-orb site-orb--lg" />
-            <span className="site-orb site-orb--sm" />
-          </div>
-        </div>
-        <div className="announce-bar">
-          <a
-            href="https://inventory-management-system-gules-delta.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="announce-bar__tag">New</span>
-            Softlligence Inventory Management is live — open the demo
-            <span aria-hidden="true"> →</span>
-          </a>
-        </div>
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <Nav />
-        {children}
+        <div id="main" tabIndex={-1}>
+          {children}
+        </div>
         <Footer />
         <Analytics />
       </body>

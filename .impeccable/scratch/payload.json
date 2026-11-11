@@ -1,0 +1,209 @@
+{
+ "title": "Choose the visual world for Softlligence",
+ "question": "The roll assigned The Multi-Part Form Set: four plies for four products. Keep it, take the pick, or re-roll.",
+ "options": [
+  {
+   "id": "assigned",
+   "kind": "assigned",
+   "label": "The Multi-Part Form Set",
+   "kicker": "THE ROLL",
+   "lineage": "carbonless NCR forms: purchase orders, waybills, delivery notes in white, canary, pink and goldenrod plies",
+   "thesis": "Softlligence sells four products, ERP, CRM, MIS and Inventory. The homepage is one printed form set: four plies, one per product, written once and read through every copy. It is the paperwork every operations buyer already trusts, and the product mechanism is the layout itself.",
+   "palette": [
+    "#f4f1e6",
+    "#f5de6b",
+    "#efa7b7",
+    "#1d2f78"
+   ],
+   "materials": [
+    "carbonless paper plies with perforated edges",
+    "ballpoint-blue entry ink",
+    "registration ticks and numbered form fields"
+   ],
+   "viewport": "A large order form fills the frame: Softlligence headline in printed form type, a stepped stack of four plies peeking out below, each tab labelled with a product name and its real tagline. One primary action, 'Open live demo' or 'Book a demo', sits as the form's submit field. Nav is a form header row.",
+   "risk": "Reads as paperwork nostalgia if ply colours get pastel-cute; it must stay as strict and dense as a real form. Needs care with mobile, where plies stack as numbered sheets.",
+   "raised": [
+    {
+     "from": "Oscilloscope Signal Bench",
+     "raise": "Everything registers to one measured grid, so the plies align edge to edge like a printed form."
+    },
+    {
+     "from": "Game Boy Four-Shade Field",
+     "raise": "Exactly four ply colours, one per product, plus one ink; hierarchy by borders and inversion, not extra colours."
+    },
+    {
+     "from": "Kaiju Broadcast Alert",
+     "raise": "Colour is reserved for state: a ply only tints when its product is selected or has a live demo."
+    }
+   ],
+   "verdicts": "All six challengers declined on audience identification."
+  },
+  {
+   "id": "model-pick",
+   "kind": "pick",
+   "label": "The Industrial Parts Catalogue",
+   "kicker": "IMPECCABLE'S PICK",
+   "lineage": "Swiss-style industrial catalogues and spec sheets (Siemens, Braun, Festo)",
+   "thesis": "A strict modular grid, white ground, one signal red, product photography-style cut-outs and spec tables: the site as a catalogue of four numbered products with part-number-style codes.",
+   "palette": [
+    "#ffffff",
+    "#111111",
+    "#d9231b",
+    "#e9e9e6"
+   ],
+   "materials": [
+    "white coated stock",
+    "hairline rules",
+    "spec tables"
+   ],
+   "viewport": "Left rail with the Softlligence wordmark and a numbered product index (01 ERP, 02 CRM, 03 MIS, 04 Inventory); main field shows the lead product's spec table and one red action.",
+   "risk": "Most familiar option; this is where many enterprise sites land. It is credible but could be mistaken for a template."
+  },
+  {
+   "id": "c1",
+   "kind": "challenger",
+   "catalogId": "generative-art-computational-color-chord-counterpoint",
+   "label": "Colour Chord Canopy",
+   "verdict": "declined",
+   "lineage": "translucent silk banners over a courtyard",
+   "palette": [
+    "#2b2a8a",
+    "#b3262e",
+    "#f2b632",
+    "#ffffff"
+   ],
+   "materials": [
+    "translucent silk",
+    "sun-white ground"
+   ],
+   "case": "Fuses beautifully but obscures what the products do.",
+   "kept": "Overlap as a labelled joint state; echoed by plies showing through each other.",
+   "hero": "https://impeccable.style/worlds/cards/generative-art-computational-color-chord-counterpoint-hero.webp"
+  },
+  {
+   "id": "c2",
+   "kind": "challenger",
+   "catalogId": "dream-surreal-impossible-worlds-alphabet-storm",
+   "label": "Alphabet Storm",
+   "verdict": "declined",
+   "lineage": "letters as weather",
+   "palette": [
+    "#ffffff",
+    "#111111",
+    "#c0c0c8"
+   ],
+   "materials": [
+    "monumental grotesk"
+   ],
+   "case": "Loses on clarity: buyers must read a plain offer.",
+   "kept": "One monumental grotesk used as the headline voice.",
+   "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-alphabet-storm-hero.webp"
+  },
+  {
+   "id": "c3",
+   "kind": "challenger",
+   "catalogId": "pop-culture-shelf-kaiju-broadcast-alert",
+   "label": "Kaiju Broadcast Alert",
+   "verdict": "declined",
+   "lineage": "civil-defence broadcast graphics",
+   "palette": [
+    "#9a9a9a",
+    "#c8102e",
+    "#ffffff"
+   ],
+   "materials": [
+    "newsreel grey",
+    "stripe borders"
+   ],
+   "case": "Alarm register fights a sober enterprise buyer.",
+   "kept": "Colour reserved for state.",
+   "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-kaiju-broadcast-alert-hero.webp"
+  },
+  {
+   "id": "c4",
+   "kind": "challenger",
+   "catalogId": "digital-design-canon-gameboy-four-shade-field",
+   "label": "Game Boy Four-Shade Field",
+   "verdict": "declined",
+   "lineage": "four-green LCD",
+   "palette": [
+    "#9bbc0f",
+    "#8bac0f",
+    "#306230",
+    "#0f380f"
+   ],
+   "materials": [
+    "dither",
+    "8x8 tiles"
+   ],
+   "case": "A game metaphor undermines enterprise trust.",
+   "kept": "Exactly four tones, one per product.",
+   "hero": "https://impeccable.style/worlds/cards/digital-design-canon-gameboy-four-shade-field-hero.webp"
+  },
+  {
+   "id": "c5",
+   "kind": "challenger",
+   "catalogId": "hand-drawn-zine-explainer",
+   "label": "Hand-drawn Zine",
+   "verdict": "declined",
+   "lineage": "marker-and-doodle explainers",
+   "palette": [
+    "#f6efdc",
+    "#111111",
+    "#f5d442",
+    "#e86a9a"
+   ],
+   "materials": [
+    "marker ink",
+    "cream paper"
+   ],
+   "case": "This is the off-tone playfulness the critique flagged.",
+   "kept": "Numbered stepping through the story.",
+   "hero": "https://impeccable.style/worlds/cards/hand-drawn-zine-explainer-hero.webp"
+  },
+  {
+   "id": "c6",
+   "kind": "challenger",
+   "catalogId": "scientific-notation-oscilloscope-signal-bench",
+   "label": "Oscilloscope Signal Bench",
+   "verdict": "declined",
+   "lineage": "CRT scope on a bench",
+   "palette": [
+    "#7cff7c",
+    "#0a0f0a",
+    "#6b756b",
+    "#ffb000"
+   ],
+   "materials": [
+    "phosphor",
+    "etched graticule"
+   ],
+   "case": "Instrument costume for buyers who are not engineers.",
+   "kept": "A single measured grid.",
+   "hero": "https://impeccable.style/worlds/cards/scientific-notation-oscilloscope-signal-bench-hero.webp"
+  }
+ ],
+ "reroll": {
+  "registers": [
+   "safer",
+   "bolder"
+  ]
+ },
+ "canon": true,
+ "canonCard": {
+  "kind": "canon",
+  "label": "The category standard",
+  "thesis": "Clean enterprise SaaS: white ground, navy type, one blue accent, product screenshots in a hero, logo row, feature grid.",
+  "palette": [
+   "#ffffff",
+   "#0f172a",
+   "#2563eb"
+  ],
+  "materials": [
+   "clean grid",
+   "product screenshots"
+  ],
+  "viewport": "Headline, sub-copy, two buttons and a dashboard screenshot.",
+  "risk": "Interchangeable with every competitor."
+ }
+}

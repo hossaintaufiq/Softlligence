@@ -1,65 +1,58 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { Mail, Phone } from "lucide-react";
 import { companyContact } from "@/lib/navigation";
 import { FacebookIcon, LinkedInIcon } from "@/components/icons/SocialIcons";
-import { Button } from "@/components/ui/Button";
-import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
-import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
-import { BrushFlourish } from "@/components/ui/BrushFlourish";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
-import "./contact-page.css";
+import "@/components/products-page/products.css";
+import "@/components/pages/pages.css";
 
 const WEB3FORMS_KEY = "ad8699c5-fcb9-4e02-94eb-641db0cd30c4";
 
 function ContactChannels() {
   return (
-    <div>
-      <a href={companyContact.mailto} className="cp-channel">
-        <div>
-          <span>Email</span>
-          <strong>{companyContact.email}</strong>
-        </div>
-        <em>Email</em>
-      </a>
-      <a href={companyContact.tel} className="cp-channel">
-        <div>
-          <span>Phone</span>
-          <strong>{companyContact.phoneDisplay}</strong>
-        </div>
-        <em>Call</em>
-      </a>
-      <a
-        href={companyContact.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="cp-channel"
-      >
-        <div>
-          <span className="inline-flex items-center gap-2">
-            <LinkedInIcon className="h-3.5 w-3.5" />
-            LinkedIn
+    <ul className="ct-channels">
+      <li>
+        <a href={companyContact.mailto}>
+          <Mail size={18} aria-hidden="true" />
+          <span>
+            <small>Email</small>
+            {companyContact.email}
           </span>
-          <strong>Softlligence Technologies</strong>
-        </div>
-        <em>Follow</em>
-      </a>
-      <a
-        href={companyContact.facebook}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="cp-channel"
-      >
-        <div>
-          <span className="inline-flex items-center gap-2">
-            <FacebookIcon className="h-3.5 w-3.5" />
-            Facebook
+        </a>
+      </li>
+      <li>
+        <a href={companyContact.tel}>
+          <Phone size={18} aria-hidden="true" />
+          <span>
+            <small>Phone</small>
+            {companyContact.phoneDisplay}
           </span>
-          <strong>Softlligence Technologies</strong>
-        </div>
-        <em>Follow</em>
-      </a>
-    </div>
+        </a>
+      </li>
+      <li>
+        <a href={companyContact.linkedin} target="_blank" rel="noopener noreferrer">
+          <LinkedInIcon className="h-[18px] w-[18px]" />
+          <span>
+            <small>LinkedIn</small>
+            Softlligence Technologies
+            <span className="sr-only"> (opens in a new tab)</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href={companyContact.facebook} target="_blank" rel="noopener noreferrer">
+          <FacebookIcon className="h-[18px] w-[18px]" />
+          <span>
+            <small>Facebook</small>
+            Softlligence Technologies
+            <span className="sr-only"> (opens in a new tab)</span>
+          </span>
+        </a>
+      </li>
+    </ul>
   );
 }
 
@@ -75,10 +68,10 @@ function ContactForm() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    // Honeypot — bots fill this; humans leave it empty
+    // Honeypot: bots fill this, humans leave it empty
     if (String(formData.get("botcheck") || "").trim()) {
       setStatus("success");
-      setMessage("Thank you — your inquiry was received. We will reply within one business day.");
+      setMessage("Thank you. Your inquiry was received. We will reply within one business day.");
       form.reset();
       return;
     }
@@ -96,7 +89,7 @@ function ContactForm() {
 
       if (data.success) {
         setStatus("success");
-        setMessage("Thank you — your inquiry was received. We will reply within one business day.");
+        setMessage("Thank you. Your inquiry was received. We will reply within one business day.");
         form.reset();
       } else {
         setStatus("error");
@@ -109,7 +102,7 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="cp-form" noValidate>
+    <form onSubmit={onSubmit} className="ct-form" noValidate>
       <input
         type="checkbox"
         name="botcheck"
@@ -119,20 +112,12 @@ function ContactForm() {
         aria-hidden="true"
       />
 
-      <div className="cp-grid cp-grid--2">
-        <div className="cp-field">
+      <div className="ct-row">
+        <div className="ct-field">
           <label htmlFor="cName">Full name *</label>
-          <input
-            id="cName"
-            name="name"
-            type="text"
-            required
-            autoComplete="name"
-            placeholder="Your name"
-            className="cp-input"
-          />
+          <input id="cName" name="name" type="text" required autoComplete="name" placeholder="Your name" />
         </div>
-        <div className="cp-field">
+        <div className="ct-field">
           <label htmlFor="cEmail">Work email *</label>
           <input
             id="cEmail"
@@ -141,13 +126,12 @@ function ContactForm() {
             required
             autoComplete="email"
             placeholder="you@company.com"
-            className="cp-input"
           />
         </div>
       </div>
 
-      <div className="cp-grid cp-grid--2">
-        <div className="cp-field">
+      <div className="ct-row">
+        <div className="ct-field">
           <label htmlFor="cCompany">Company / organization</label>
           <input
             id="cCompany"
@@ -155,26 +139,18 @@ function ContactForm() {
             type="text"
             autoComplete="organization"
             placeholder="Company name"
-            className="cp-input"
           />
         </div>
-        <div className="cp-field">
+        <div className="ct-field">
           <label htmlFor="cPhone">Phone</label>
-          <input
-            id="cPhone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            placeholder="+880…"
-            className="cp-input"
-          />
+          <input id="cPhone" name="phone" type="tel" autoComplete="tel" placeholder="+880…" />
         </div>
       </div>
 
-      <div className="cp-grid cp-grid--2">
-        <div className="cp-field">
+      <div className="ct-row">
+        <div className="ct-field">
           <label htmlFor="cType">What are you building? *</label>
-          <select id="cType" name="project_type" required defaultValue="" className="cp-input">
+          <select id="cType" name="project_type" required defaultValue="">
             <option value="" disabled>
               Select one
             </option>
@@ -186,9 +162,9 @@ function ContactForm() {
             <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
-        <div className="cp-field">
+        <div className="ct-field">
           <label htmlFor="cBudget">Estimated budget</label>
-          <select id="cBudget" name="budget" defaultValue="" className="cp-input">
+          <select id="cBudget" name="budget" defaultValue="">
             <option value="" disabled>
               Select a range
             </option>
@@ -203,7 +179,7 @@ function ContactForm() {
         </div>
       </div>
 
-      <div className="cp-field" style={{ marginBottom: "1.15rem" }}>
+      <div className="ct-field">
         <label htmlFor="cMessage">Project details *</label>
         <textarea
           id="cMessage"
@@ -211,25 +187,19 @@ function ContactForm() {
           rows={5}
           required
           placeholder="What are you trying to build, for whom, and by when?"
-          className="cp-input cp-input--area"
         />
       </div>
 
-      <button type="submit" disabled={status === "sending"} className="cp-submit">
+      <button type="submit" disabled={status === "sending"} className="btn btn--primary btn--lg ct-submit">
         {status === "sending" ? "Submitting…" : "Submit inquiry"}
       </button>
 
       <p
         role="status"
         aria-live="polite"
-        className={cn(
-          "cp-status",
-          status === "success" && "cp-status--ok",
-          status === "error" && "cp-status--err",
-        )}
+        className={cn("ct-status", status === "success" && "is-ok", status === "error" && "is-err")}
       >
-        {message ||
-          (status === "idle" ? "Typical response time: within one business day." : "")}
+        {message || (status === "idle" ? "Typical response time: within one business day." : "")}
       </p>
     </form>
   );
@@ -237,102 +207,47 @@ function ContactForm() {
 
 export function ContactPageView() {
   return (
-    <div className="contact-page">
-      <PageOrbBridge />
-      <section className="cp-hero" aria-labelledby="cp-hero-title">
-        <div className="cp-container cp-hero__inner">
-          <p className="cp-kicker">
-            Start a project
-          </p>
-          <h1 id="cp-hero-title">
-            Tell us what you&apos;re <SketchMark type="underline">building.</SketchMark>
+    <div className="pdp">
+      <ScrollReveal />
+
+      <section className="pdp-hero" aria-labelledby="contact-title">
+        <div className="pdp-hero__wash" aria-hidden="true" />
+        <div className="wrap">
+          <h1 id="contact-title" className="pdp-title enter">
+            Tell us what you&apos;re building.
           </h1>
-          <p className="cp-hero__lead">
+          <p className="pdp-lead enter" style={{ "--d": "90ms" } as React.CSSProperties}>
             Share a short project brief, or reach Softlligence by email or phone. We reply within one
-            business day — with clear next steps, not a scripted pitch.
+            business day with clear next steps, not a scripted pitch.
           </p>
-          <div className="cp-hero__actions">
-            <Button href="#contact" size="lg" className="max-sm:w-full">
-              Send a project brief
-            </Button>
-            <Button
-              href={companyContact.mailto}
-              variant="outline"
-              size="lg"
-              className="max-sm:w-full"
-            >
-              Email Softlligence
-            </Button>
-          </div>
-          <ul className="cp-hero__meta">
-            <li>
-              <strong>&lt;24h</strong>
-              Typical reply
-            </li>
-            <li>
-              <strong>Engineers</strong>
-              Named team
-            </li>
-            <li>
-              <strong>Discovery</strong>
-              Clear estimate
-            </li>
-          </ul>
         </div>
       </section>
 
-      <section className="cp-main has-brush-flourish" id="contact">
-        <BrushFlourish seed={19} />
-        <div className="cp-container cp-layout">
-          <div className="cp-form-panel">
-            <div className="cp-form-panel__head">
-              <p>Project inquiry</p>
-              <SketchHeadline id="cp-form-title">
-                Send a <SketchMark type="underline">brief.</SketchMark> We&apos;ll take it from there.
-              </SketchHeadline>
-              <p>
-                Share what you&apos;re building and we&apos;ll come back with next steps — usually
-                within one business day.
-              </p>
-            </div>
+      <section className="sec ct-main" id="contact" aria-label="Contact">
+        <div className="wrap ct-layout">
+          <div className="ct-panel" data-reveal>
+            <h2 className="ct-panel__title">Send a project brief</h2>
+            <p className="ct-panel__lead">
+              Share what you&apos;re building and we&apos;ll come back with next steps.
+            </p>
             <ContactForm />
           </div>
 
-          <aside className="cp-side">
-            <div className="cp-side__card">
-              <p>Direct contact</p>
-              <h3>Reach the team</h3>
-              <p>
-                Prefer email, phone, LinkedIn, or Facebook? Use any channel below — the same team that delivers
-                the work.
-              </p>
-              <ContactChannels />
-              <div className="cp-next">
-                <p>What happens next</p>
-                <ol>
-                  <li>
-                    <span>01</span>
-                    We review your brief within one business day
-                  </li>
-                  <li>
-                    <span>02</span>
-                    A short discovery call if it looks like a fit
-                  </li>
-                  <li>
-                    <span>03</span>
-                    Clear next steps, scope, and estimate options
-                  </li>
-                </ol>
-              </div>
-            </div>
+          <aside className="ct-side" data-reveal style={{ "--rv-delay": "80ms" } as React.CSSProperties}>
+            <h2 className="ct-side__title">Reach the team directly</h2>
+            <ContactChannels />
 
-            <div className="cp-assurance">
-              <h3>No pressure. Clear process.</h3>
-              <p>
-                You talk to builders — not a rotating sales desk. If we&apos;re not the right fit,
-                we&apos;ll say so early.
-              </p>
-            </div>
+            <h3 className="ct-side__sub">What happens next</h3>
+            <ol className="ct-next">
+              <li>We review your brief within one business day.</li>
+              <li>A short discovery call if it looks like a fit.</li>
+              <li>Clear next steps, scope and estimate options.</li>
+            </ol>
+
+            <p className="ct-assure">
+              You talk to builders, not a rotating sales desk. If we are not the right fit, we will say so
+              early.
+            </p>
           </aside>
         </div>
       </section>

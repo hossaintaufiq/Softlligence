@@ -43,9 +43,9 @@
   --color-accent-ink: var(--theme-accent-ink);
   --color-accent-2: var(--theme-accent-2);
   --color-danger: var(--theme-danger);
-  --font-display: var(--font-space-grotesk);
-  --font-body: var(--font-inter);
-  --font-mono: var(--font-ibm-plex-mono);
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
   --radius-card: 8px;
 }
 

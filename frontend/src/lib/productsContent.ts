@@ -48,7 +48,7 @@ export const productsAiShared = {
 export const productsCatalogIntro = {
   eyebrow: "Products",
   title: "Enterprise platforms. Ready to trial.",
-  lead: "AI-powered ERP, CRM, and MIS — try free for 7 days, then integrate or deploy locally.",
+  lead: "AI-powered ERP, CRM, MIS and Inventory Management — try free for 7 days, then integrate or deploy locally.",
 };
 
 export const products: ProductRecord[] = [

@@ -1,267 +1,191 @@
-import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
-import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
-import { pageRoutes } from "@/lib/navigation";
+import { ArrowRight, Check, FileText, Send, Smartphone, Sparkles } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ProductMock } from "@/components/home-page/mocks/ProductMocks";
 import { productDetailVisuals } from "@/lib/homeVisuals";
-import {
-  products,
-  productsAiShared,
-  productLaunchUrl,
-  type ProductRecord,
-} from "@/lib/productsContent";
-import "./products-page.css";
-import "./product-detail-visual.css";
+import { pageRoutes } from "@/lib/navigation";
+import { productBlurb } from "@/lib/siteLinks";
+import { products, productLaunchUrl, type ProductRecord } from "@/lib/productsContent";
+import "./products.css";
+
+const channelIcons = [Sparkles, FileText, Smartphone, Send];
+const channelLabels = ["AI recommendations", "AI summaries", "Mobile app", "WordPress and Telegram"];
 
 export function ProductDetailView({ product }: { product: ProductRecord }) {
   const others = products.filter((p) => p.slug !== product.slug);
-  const visuals = productDetailVisuals[product.slug];
+  const channels = productDetailVisuals[product.slug].channels;
+  const launch = productLaunchUrl(product);
+  const launchLabel = product.liveUrl ? "Open live demo" : "Start 7-day trial";
 
   return (
-    <div className="products-page">
-      <PageOrbBridge />
-      <section className="prd-detail-hero" aria-labelledby="prd-detail-title">
-        <div className="prd-container prd-detail-hero__layout">
-          <div className="prd-detail-hero__copy">
-            <p className="prd-kicker">
-              Products · {product.shortName}
-              <em className="prd-detail-hero__badge">{productsAiShared.label}</em>
-            </p>
-            <h1 id="prd-detail-title">
-              <SketchMark type="underline">{product.name}</SketchMark>
-            </h1>
-            <p className="prd-detail-hero__tagline">{product.tagline}</p>
-            <p className="prd-detail-hero__lead">{product.aiNote}</p>
-            <div className="prd-detail-hero__actions">
-              <Button href={productLaunchUrl(product)} size="lg" external>
-                {product.liveUrl ? "Open live demo" : "Start 7-day free trial"}
-              </Button>
-              <Button
-                href={`${pageRoutes.contact}?product=${product.slug}`}
-                variant="outline"
-                size="lg"
-              >
-                Discuss integration
-              </Button>
-            </div>
-          </div>
+    <div className="pdp">
+      <ScrollReveal />
 
-          <div className="prd-detail-hero__visual">
-            <div className="prd-detail-hero__frame">
-              <Image
-                src={visuals.hero}
-                alt=""
-                fill
-                priority
-                sizes="(max-width: 900px) 100vw, 48vw"
-                quality={70}
-                className="object-cover"
-              />
-              <div className="prd-detail-hero__veil" aria-hidden="true" />
-            </div>
-            <div className="prd-detail-hero__float">
-              <p>AI-powered</p>
-              <strong>Recommend · Summarize · Reach</strong>
-              <span>Mobile · WordPress · Telegram</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="prd-section" aria-labelledby="prd-ai-title">
-        <div className="prd-container">
-          <div className="prd-section__head prd-section__head--center">
-            <p className="prd-kicker">
-              AI &amp; access
-            </p>
-            <SketchHeadline id="prd-ai-title">
-              <SketchMark type="circle">Intelligence</SketchMark> where your team already works.
-            </SketchHeadline>
-          </div>
-          <div className="prd-channel-grid">
-            {visuals.channels.map((channel) => (
-              <article key={channel.label} className="prd-channel-card">
-                <div className="prd-channel-card__media">
-                  <Image
-                    src={channel.src}
-                    alt=""
-                    fill
-                    sizes="(max-width: 720px) 100vw, 25vw"
-                    quality={60}
-                    className="object-cover"
-                  />
-                  <div className="prd-channel-card__veil" aria-hidden="true" />
-                </div>
-                <div className="prd-channel-card__body">
-                  <h3>{channel.label}</h3>
-                  <p>{channel.hint}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="prd-section prd-section--panel" aria-labelledby="prd-mod-title">
-        <div className="prd-container">
-          <div className="prd-section__head">
-            <p className="prd-kicker">
-              Modules
-            </p>
-            <SketchHeadline id="prd-mod-title">
-              Core areas inside the <SketchMark type="underline">platform.</SketchMark>
-            </SketchHeadline>
-          </div>
-          <div className="prd-mod-visual">
-            {product.modules.map((mod, i) => (
-              <article key={mod.title} className="prd-mod-card">
-                <div className="prd-mod-card__media">
-                  <Image
-                    src={visuals.modules[i] ?? visuals.modules[0]}
-                    alt=""
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    quality={60}
-                    className="object-cover"
-                  />
-                  <div className="prd-mod-card__veil" aria-hidden="true" />
-                  <span>{String(i + 1).padStart(2, "0")}</span>
-                </div>
-                <div className="prd-mod-card__body">
-                  <h3>{mod.title}</h3>
-                  <p>{mod.description}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="prd-section" aria-labelledby="prd-caps-title">
-        <div className="prd-container prd-caps-band">
+      <section className="pdp-hero pdp-hero--detail" aria-labelledby="product-title">
+        <div className="pdp-hero__wash" aria-hidden="true" />
+        <div className="wrap pdp-detail__grid">
           <div>
-            <p className="prd-kicker">
-              Capabilities
+            <nav aria-label="Breadcrumb" className="pdp-crumb enter">
+              <Link href={pageRoutes.products}>Products</Link>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">{product.shortName}</span>
+            </nav>
+            <h1 id="product-title" className="pdp-title enter" style={{ "--d": "60ms" } as React.CSSProperties}>
+              {product.name}
+            </h1>
+            <p className="pdp-lead enter" style={{ "--d": "120ms" } as React.CSSProperties}>
+              {product.tagline}
             </p>
-            <SketchHeadline id="prd-caps-title">
-              What {product.shortName} <SketchMark type="circle">covers.</SketchMark>
-            </SketchHeadline>
+            <div className="pdp-actions enter" style={{ "--d": "200ms" } as React.CSSProperties}>
+              <a href={launch} target="_blank" rel="noopener noreferrer" className="btn btn--primary btn--lg">
+                {launchLabel}
+                <ArrowRight size={18} className="btn__arrow" aria-hidden="true" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              <Link href={`${pageRoutes.contact}?product=${product.slug}`} className="btn btn--ghost btn--lg">
+                Discuss integration
+              </Link>
+            </div>
           </div>
-          <ul className="prd-pill-list">
-            {product.capabilities.map((cap) => (
-              <li key={cap}>{cap}</li>
+
+          <div className="pdp-detail__stage enter" style={{ "--d": "160ms" } as React.CSSProperties}>
+            <ProductMock slug={product.slug} />
+            <p className="pdp-caption">Illustrative interface preview with sample data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" aria-labelledby="overview-title">
+        <div className="wrap pdp-split">
+          <div data-reveal>
+            <h2 id="overview-title" className="sec__title">
+              Who it is for
+            </h2>
+          </div>
+          <div data-reveal style={{ "--rv-delay": "80ms" } as React.CSSProperties}>
+            <p className="pdp-prose">{product.audience}</p>
+            <p className="pdp-prose pdp-prose--soft">{product.summary}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec--soft" aria-labelledby="modules-title">
+        <div className="wrap">
+          <div className="sec__head" data-reveal>
+            <h2 id="modules-title" className="sec__title">
+              What is inside
+            </h2>
+          </div>
+          <ol className="pdp-modules">
+            {product.modules.map((m, i) => (
+              <li key={m.title} data-reveal style={{ "--rv-delay": `${i * 60}ms` } as React.CSSProperties}>
+                <h3>{m.title}</h3>
+                <p>{m.description}</p>
+              </li>
+            ))}
+          </ol>
+          <ul className="pdp-chips" aria-label={`${product.shortName} capabilities`} data-reveal>
+            {product.capabilities.map((c) => (
+              <li key={c}>{c}</li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="prd-section prd-section--panel" aria-labelledby="prd-paths-title">
-        <div className="prd-container">
-          <div className="prd-section__head prd-section__head--center">
-            <p className="prd-kicker">
-              Engagement
-            </p>
-            <SketchHeadline id="prd-paths-title">
-              Trial, <SketchMark type="underline">integrate</SketchMark>, or deploy locally.
-            </SketchHeadline>
+      <section className="sec" aria-labelledby="channels-title">
+        <div className="wrap">
+          <div className="sec__head" data-reveal>
+            <h2 id="channels-title" className="sec__title">
+              Intelligence where your team already works
+            </h2>
           </div>
-          <div className="prd-doors__grid">
-            {product.paths.map((path, i) => (
-              <article key={path.id}>
-                <span>{String(i + 1).padStart(2, "0")}</span>
-                <h3>{path.title}</h3>
-                <p>{path.description}</p>
-              </article>
-            ))}
-          </div>
+          <ul className="pdp-channels">
+            {channels.map((c, i) => {
+              const Icon = channelIcons[i] ?? Sparkles;
+              return (
+                <li key={c.label} data-reveal style={{ "--rv-delay": `${i * 60}ms` } as React.CSSProperties}>
+                  <Icon size={22} aria-hidden="true" />
+                  <h3>{channelLabels[i] ?? c.label}</h3>
+                  <p>{c.hint}</p>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
 
-      <section className="prd-cta-band" aria-labelledby="prd-cta-title">
-        <div className="prd-cta-band__media" aria-hidden="true">
-          <Image
-            src={visuals.cta}
-            alt=""
-            fill
-            sizes="100vw"
-            quality={60}
-            className="object-cover"
-          />
-          <div className="prd-cta-band__veil" />
+      <section className="sec sec--soft" aria-labelledby="paths-title">
+        <div className="wrap">
+          <div className="sec__head" data-reveal>
+            <h2 id="paths-title" className="sec__title">
+              Trial it, integrate it, or deploy it locally
+            </h2>
+          </div>
+          <ul className="pdp-ways">
+            {product.paths.map((p, i) => (
+              <li key={p.id} data-reveal style={{ "--rv-delay": `${i * 70}ms` } as React.CSSProperties}>
+                <h3>{p.title}</h3>
+                <p>{p.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="prd-container prd-cta-band__inner">
+      </section>
+
+      <section className="pdp-band" aria-labelledby="outcomes-title">
+        <div className="wrap pdp-band__inner" data-reveal>
           <div>
-            <p className="prd-kicker">
-              Outcomes
-            </p>
-            <SketchHeadline id="prd-cta-title">
-              What teams <SketchMark type="circle">gain.</SketchMark>
-            </SketchHeadline>
-            <ul className="prd-cta-band__outcomes">
-              {product.outcomes.map((item) => (
-                <li key={item}>{item}</li>
+            <h2 id="outcomes-title" className="pdp-band__title">
+              What teams gain with {product.shortName}
+            </h2>
+            <ul className="pdp-band__list">
+              {product.outcomes.map((o) => (
+                <li key={o}>
+                  <Check size={18} aria-hidden="true" />
+                  {o}
+                </li>
               ))}
             </ul>
           </div>
-          <div className="prd-cta-band__actions">
-            <Button href={productLaunchUrl(product)} size="lg" external>
-              {product.liveUrl ? "Open live demo" : "Start free trial"}
-            </Button>
-            <Button href={pageRoutes.contact} variant="outline" size="lg">
+          <div className="pdp-band__actions">
+            <a href={launch} target="_blank" rel="noopener noreferrer" className="btn btn--light btn--lg">
+              {launchLabel}
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <Link href={pageRoutes.contact} className="btn btn--outline-light btn--lg">
               Book a consultation
-            </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {others.length > 0 ? (
-        <section className="prd-section" aria-labelledby="prd-more-title">
-          <div className="prd-container">
-            <div className="prd-section__head">
-              <p className="prd-kicker">
-                More products
-              </p>
-              <SketchHeadline id="prd-more-title">
-                Explore the rest of the <SketchMark type="underline">suite.</SketchMark>
-              </SketchHeadline>
-            </div>
-            <div className="prd-more prd-more--visual">
-              {others.map((p) => {
-                const thumb = productDetailVisuals[p.slug].hero;
-                return (
-                  <Link
-                    key={p.slug}
-                    href={`${pageRoutes.products}/${p.slug}`}
-                    className="prd-more__card prd-more__card--media"
-                  >
-                    <span className="prd-more__thumb">
-                      <Image
-                        src={thumb}
-                        alt=""
-                        fill
-                        sizes="(max-width: 720px) 100vw, 33vw"
-                        quality={55}
-                        className="object-cover"
-                      />
-                    </span>
-                    <span className="prd-more__meta">
-                      <span>{p.shortName}</span>
-                      <strong>{p.name}</strong>
-                      <em>{p.tagline}</em>
-                    </span>
-                  </Link>
-                );
-              })}
-              <Link href={pageRoutes.products} className="prd-more__card prd-more__card--all">
-                <span>All</span>
-                <strong>Back to products</strong>
-                <em>View the full catalog</em>
-              </Link>
-            </div>
+      <section className="sec" aria-labelledby="more-title">
+        <div className="wrap">
+          <div className="sec__head" data-reveal>
+            <h2 id="more-title" className="sec__title">
+              The rest of the suite
+            </h2>
           </div>
-        </section>
-      ) : null}
+          <ul className="pdp-more">
+            {others.map((p) => (
+              <li key={p.slug}>
+                <Link href={`${pageRoutes.products}/${p.slug}`}>
+                  <span className="pdp-more__name">{p.name}</span>
+                  <span className="pdp-more__blurb">{productBlurb[p.slug]}</span>
+                  <ArrowRight size={18} aria-hidden="true" className="pdp-more__arrow" />
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href={pageRoutes.products}>
+                <span className="pdp-more__name">All products</span>
+                <span className="pdp-more__blurb">Back to the full catalog</span>
+                <ArrowRight size={18} aria-hidden="true" className="pdp-more__arrow" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 }

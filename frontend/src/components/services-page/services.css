@@ -1,0 +1,228 @@
+/* Services page extras. Shared scaffolding comes from products.css and sections.css. */
+
+.sv-index {
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--bg-elev);
+  box-shadow: var(--shadow-md);
+}
+.sv-index__label {
+  margin-bottom: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-3);
+}
+.sv-index ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sv-index li + li {
+  border-top: 1px solid var(--line);
+}
+.sv-index a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 54px;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+.sv-index a svg {
+  color: var(--text-3);
+  transition:
+    transform 240ms var(--ease),
+    color 160ms ease;
+}
+.sv-index a:hover {
+  color: var(--link);
+}
+.sv-index a:hover svg {
+  color: var(--link);
+  transform: translateX(4px);
+}
+
+.sv-cat {
+  scroll-margin-top: calc(var(--site-header-offset, 68px) + 8px);
+}
+.sv-cat__grid {
+  display: grid;
+  gap: 40px;
+}
+@media (min-width: 980px) {
+  .sv-cat__grid {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: 72px;
+  }
+  .sv-cat__intro {
+    position: sticky;
+    top: 110px;
+    align-self: start;
+  }
+}
+
+.sv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--line-strong);
+}
+.sv-list > li {
+  padding: 28px 0;
+  border-top: 1px solid var(--line-strong);
+}
+.sv-list__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 20px;
+}
+.sv-list__head h3 {
+  max-width: 28ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+.sv-list__time {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-3);
+}
+.sv-list > li > p {
+  margin-top: 10px;
+  max-width: 62ch;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--text-2);
+  text-wrap: pretty;
+}
+.sv-feats {
+  display: grid;
+  gap: 6px 24px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.sv-feats li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.9688rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+.sv-feats li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+}
+@media (min-width: 640px) {
+  .sv-feats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.sv-tech {
+  margin-top: 18px;
+}
+.sv-tech li {
+  padding: 5px 12px;
+  font-size: 0.875rem;
+}
+.sv-why {
+  margin-top: 40px;
+}
+
+.sv-ind {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--line-strong);
+}
+.sv-ind li {
+  display: grid;
+  gap: 2px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line-strong);
+}
+.sv-ind b {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.sv-ind span {
+  font-size: 0.9688rem;
+  color: var(--text-2);
+}
+@media (min-width: 720px) {
+  .sv-ind {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
+  }
+  .sv-ind li:nth-child(2) {
+    border-top: 1px solid var(--line-strong);
+  }
+}
+@media (min-width: 1040px) {
+  .sv-ind {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sv-steps {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.sv-steps li {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line-strong);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+.sv-steps__n {
+  min-width: 2ch;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text-3);
+}
+@media (min-width: 800px) {
+  .sv-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 56px;
+  }
+}
+
+.sv-list__head h3,
+.sv-ind b {
+  text-wrap: balance;
+}

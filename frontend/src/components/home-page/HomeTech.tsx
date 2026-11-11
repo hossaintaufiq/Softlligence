@@ -1,37 +1,67 @@
-import { Container, Eyebrow } from "@/components/ui/Section";
-import { homeTechStack } from "@/lib/homePageContent";
-import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
+import { productsAiShared } from "@/lib/productsContent";
+
+const capabilities = [
+  {
+    title: "Intelligence in the product",
+    text: "A trained recommendation model suggests what to buy and restock, and AI-powered summaries turn your data into something a team can act on.",
+  },
+  {
+    title: "Connected where you work",
+    text: "Use the same system on the web, in a mobile app, inside WordPress, or through a Telegram chatbot, with integration into the stack you already run.",
+  },
+  {
+    title: "Secure and fast from sprint one",
+    text: "Access controls, encrypted data and performance budgets are planned at the start, not added at the end.",
+  },
+];
+
+const stack = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+  "NestJS",
+  "Python",
+  "FastAPI",
+  "Laravel",
+  "GraphQL",
+  "React Native",
+  "Flutter",
+  "TensorFlow",
+  "PyTorch",
+  "OpenAI",
+  "LangChain",
+  "n8n",
+];
 
 export function HomeTech() {
   return (
-    <section className="hp-section hp-tech" aria-labelledby="hp-tech-title">
-      <Container>
-        <Eyebrow number="09">TECHNOLOGIES</Eyebrow>
-        <SketchHeadline id="hp-tech-title">
-          The <SketchMark type="circle">stack</SketchMark> behind enterprise delivery.
-        </SketchHeadline>
-        <p className="hp-lead">
-          Modern, maintainable tools chosen for performance, security, and longevity — including
-          PHP/Laravel backends and AI/ML systems that plug into real business workflows.
-        </p>
+    <section className="sec sec--soft" aria-labelledby="tech-title">
+      <div className="wrap tech">
+        <div data-reveal>
+          <h2 id="tech-title" className="sec__title">
+            Technology and innovation, built into the work
+          </h2>
+          <p className="sec__lead">{productsAiShared.label} features are part of every Softlligence product.</p>
+          <ul className="tech__caps">
+            {capabilities.map((c) => (
+              <li key={c.title}>
+                <h3>{c.title}</h3>
+                <p>{c.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <ul className="hp-tech__grid">
-          {homeTechStack.map((tech) => (
-            <li key={tech.name} className="hp-tech__item" title={tech.name}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={tech.icon}
-                alt={tech.name}
-                width={32}
-                height={32}
-                className="hp-tech__logo"
-                loading="lazy"
-                decoding="async"
-              />
-            </li>
-          ))}
-        </ul>
-      </Container>
+        <div className="tech__stack" data-reveal style={{ "--rv-delay": "100ms" } as React.CSSProperties}>
+          <h3 className="tech__stackhead">Our working stack</h3>
+          <ul>
+            {stack.map((s) => (
+              <li key={s}>{s}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </section>
   );
 }

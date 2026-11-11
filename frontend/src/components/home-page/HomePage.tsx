@@ -1,38 +1,27 @@
-import "./home-page.css";
-import "./sketch-headline.css";
-import { PageOrbBridge } from "@/components/ui/PageOrbBridge";
+import "./home.css";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HomeHero } from "./HomeHero";
+import { HomeStats } from "./HomeStats";
 import { HomeProducts } from "./HomeProducts";
-import { HomeTrust } from "./HomeTrust";
-import { HomeWhatWeBuild } from "./HomeWhatWeBuild";
-import { HomeProblems } from "./HomeProblems";
+import { HomeSolutions } from "./HomeSolutions";
 import { HomeIndustries } from "./HomeIndustries";
-import { HomeFeaturedWork } from "./HomeFeaturedWork";
-import { HomeDelivery } from "./HomeDelivery";
 import { HomeWhy } from "./HomeWhy";
-import { HomeTeam } from "./HomeTeam";
 import { HomeTech } from "./HomeTech";
-import { HomeFaq } from "./HomeFaq";
-import { HomeProcess } from "./HomeProcess";
+import { HomeWork } from "./HomeWork";
 import { HomeFinalCta } from "./HomeFinalCta";
 
 export function HomePage() {
   return (
-    <div className="home-page">
-      <PageOrbBridge />
+    <div className="home">
+      <ScrollReveal />
       <HomeHero />
-      <HomeTrust />
+      <HomeStats />
       <HomeProducts />
-      <HomeWhatWeBuild />
-      <HomeProblems />
+      <HomeSolutions />
       <HomeIndustries />
-      <HomeProcess />
-      <HomeFeaturedWork />
-      <HomeDelivery />
       <HomeWhy />
-      <HomeTeam />
       <HomeTech />
-      <HomeFaq />
+      <HomeWork />
       <HomeFinalCta />
     </div>
   );

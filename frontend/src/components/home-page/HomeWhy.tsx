@@ -1,39 +1,26 @@
-import { Container, Eyebrow } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
-import { homeWhyPoints } from "@/lib/homePageContent";
-import { pageRoutes } from "@/lib/navigation";
-import { SketchHeadline, SketchMark } from "@/components/ui/SketchHeadline";
-import { SectionBubbles } from "@/components/ui/SectionBubbles";
+import { whySoftlligence } from "@/lib/content";
 
 export function HomeWhy() {
   return (
-    <section className="hp-section hp-why has-section-bubbles" aria-labelledby="hp-why-title">
-      <SectionBubbles seed={4} />
-      <Container>
-        <Eyebrow number="07">WHY SOFTLLIGENCE</Eyebrow>
-        <SketchHeadline id="hp-why-title">
-          Why organizations <SketchMark type="underline">choose</SketchMark> us.
-        </SketchHeadline>
-        <p className="hp-lead">
-          Not another agency pitch — enterprise engineering partnership with clarity and continuity.
-        </p>
-
-        <div className="hp-why__grid">
-          {homeWhyPoints.map((item, i) => (
-            <article key={item.title} className="hp-why__card">
-              <span>{String(i + 1).padStart(2, "0")}</span>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-            </article>
+    <section className="sec" aria-labelledby="why-title">
+      <div className="wrap why">
+        <div className="why__lead" data-reveal>
+          <h2 id="why-title" className="sec__title">
+            Why teams choose Softlligence
+          </h2>
+          <p className="sec__lead">
+            Serious software needs a partner who stays accountable after launch. That is how we work.
+          </p>
+        </div>
+        <ol className="why__list">
+          {whySoftlligence.map((w, i) => (
+            <li key={w.title} data-reveal style={{ "--rv-delay": `${i * 70}ms` } as React.CSSProperties}>
+              <h3>{w.title}</h3>
+              <p>{w.description}</p>
+            </li>
           ))}
-        </div>
-
-        <div className="hp-section__action">
-          <Button href={pageRoutes.about} variant="outline">
-            About Softlligence
-          </Button>
-        </div>
-      </Container>
+        </ol>
+      </div>
     </section>
   );
 }
