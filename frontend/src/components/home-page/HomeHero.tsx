@@ -3,10 +3,12 @@ import { ArrowRight } from "lucide-react";
 import { Parallax } from "@/components/ui/Parallax";
 import { pageRoutes } from "@/lib/navigation";
 import { ErpMock } from "./mocks/ProductMocks";
+import { HomeHero3D } from "./HomeHero3D";
 
 export function HomeHero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
+      <HomeHero3D />
       <div className="hero__wash" aria-hidden="true" />
       <div className="wrap hero__grid">
         <div className="hero__copy">
