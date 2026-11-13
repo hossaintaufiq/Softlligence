@@ -16,7 +16,7 @@ export function HomeWork() {
       <div className="wrap">
         <div className="sec__head sec__head--split" data-reveal>
           <h2 id="work-title" className="sec__title">
-            Selected projects
+            Selected <em className="em">projects</em>
           </h2>
           <Link href={pageRoutes.work} className="link-arrow">
             See all case studies

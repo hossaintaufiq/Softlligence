@@ -13,6 +13,8 @@ import {
 } from "@/lib/servicesPageContent";
 import "@/components/products-page/products.css";
 import "./services.css";
+import { BandPhoto } from "@/components/ui/Photo";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 export function ServicesPage() {
   return (
@@ -21,6 +23,7 @@ export function ServicesPage() {
 
       <section className="pdp-hero" aria-labelledby="services-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="wave" />
         <div className="wrap pdp-detail__grid">
           <div>
             <h1 id="services-title" className="pdp-title enter">
@@ -156,7 +159,9 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <section className="cta" id="start-project" aria-labelledby="sv-cta-title">
+      <section className="cta has-3d" id="start-project" aria-labelledby="sv-cta-title">
+        <BandPhoto src="/images/server-racks.jpg" />
+        <SectionBg3D variant="contour" tone="dark" />
         <div className="wrap cta__inner" data-reveal>
           <h2 id="sv-cta-title" className="cta__title">
             {servicesFinalCta.title}

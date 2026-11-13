@@ -6,6 +6,7 @@ import { ProductMock } from "@/components/home-page/mocks/ProductMocks";
 import { pageRoutes } from "@/lib/navigation";
 import { products, productsAiShared, productsCatalogIntro, productLaunchUrl } from "@/lib/productsContent";
 import "./products.css";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 const ways = [
   { title: "Try", text: "A 7-day free cloud trial with a sandbox tenant and demo data." },
@@ -20,6 +21,7 @@ export function ProductsCatalogView() {
 
       <section className="pdp-hero" aria-labelledby="catalog-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="lattice" />
         <div className="wrap pdp-hero__inner">
           <h1 id="catalog-title" className="pdp-title enter">
             Enterprise platforms, ready to trial.

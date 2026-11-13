@@ -7,6 +7,8 @@ import { pageRoutes } from "@/lib/navigation";
 import { productBlurb } from "@/lib/siteLinks";
 import { products, productLaunchUrl, type ProductRecord } from "@/lib/productsContent";
 import "./products.css";
+import { BandPhoto } from "@/components/ui/Photo";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 const channelIcons = [Sparkles, FileText, Smartphone, Send];
 const channelLabels = ["AI recommendations", "AI summaries", "Mobile app", "WordPress and Telegram"];
@@ -23,6 +25,7 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
 
       <section className="pdp-hero pdp-hero--detail" aria-labelledby="product-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="network" />
         <div className="wrap pdp-detail__grid">
           <div>
             <nav aria-label="Breadcrumb" className="pdp-crumb enter">
@@ -132,7 +135,9 @@ export function ProductDetailView({ product }: { product: ProductRecord }) {
         </div>
       </section>
 
-      <section className="pdp-band" aria-labelledby="outcomes-title">
+      <section className="pdp-band has-3d" aria-labelledby="outcomes-title">
+        <BandPhoto src="/images/schematic.jpg" />
+        <SectionBg3D variant="lattice" tone="dark" />
         <div className="wrap pdp-band__inner" data-reveal>
           <div>
             <h2 id="outcomes-title" className="pdp-band__title">

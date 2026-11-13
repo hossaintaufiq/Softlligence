@@ -13,11 +13,11 @@ export function HomeHero() {
       <div className="wrap hero__grid">
         <div className="hero__copy">
           <h1 id="hero-title" className="hero__title enter" style={{ "--d": "0ms" } as React.CSSProperties}>
-            Engineering Intelligent Software for Ambitious Businesses.
+            Software that runs your business, so <em className="em">you can grow it.</em>
           </h1>
           <p className="hero__lead enter" style={{ "--d": "90ms" } as React.CSSProperties}>
-            We build powerful SaaS platforms, enterprise systems, and intelligent digital solutions that help
-            businesses operate smarter, scale faster, and innovate confidently.
+            We build ERP, CRM, MIS and inventory systems, plus custom platforms, that cut manual work, put live
+            numbers in front of your leaders, and scale with your revenue. Our team stays after launch.
           </p>
           <div className="hero__actions enter" style={{ "--d": "180ms" } as React.CSSProperties}>
             <Link href={pageRoutes.products} className="btn btn--primary btn--lg">
@@ -25,11 +25,11 @@ export function HomeHero() {
               <ArrowRight size={18} className="btn__arrow" aria-hidden="true" />
             </Link>
             <Link href={pageRoutes.contact} className="btn btn--ghost btn--lg">
-              Let&apos;s Talk
+              Book a discovery call
             </Link>
           </div>
           <p className="hero__note enter" style={{ "--d": "260ms" } as React.CSSProperties}>
-            AI-powered ERP, CRM, MIS and Inventory products, with live demos you can open today.
+            <span className="mono-label">Live demos</span> Open a working ERP, CRM, MIS or Inventory system today and judge it yourself.
           </p>
         </div>
 

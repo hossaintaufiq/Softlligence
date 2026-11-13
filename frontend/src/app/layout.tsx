@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Martian_Mono, Instrument_Serif } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -29,8 +29,8 @@ const geist = Geist({
   preload: true,
 });
 
-/** Numerals and tiny data labels only. */
-const geistMono = Geist_Mono({
+/** Technical labels and data: a wide, uncommon mono that reads as instrumentation rather than a code editor. */
+const geistMono = Martian_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-geist-mono",

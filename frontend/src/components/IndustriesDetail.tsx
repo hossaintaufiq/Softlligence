@@ -6,6 +6,7 @@ import { industries, industryPrinciples } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
 import "@/components/products-page/products.css";
 import "@/components/pages/pages.css";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 export function IndustriesDetail() {
   return (
@@ -14,6 +15,7 @@ export function IndustriesDetail() {
 
       <section className="pdp-hero" aria-labelledby="industries-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="contour" />
         <div className="wrap pdp-detail__grid">
           <div>
             <h1 id="industries-title" className="pdp-title enter">

@@ -6,6 +6,7 @@ import { teamEngineering, teamExpertise, teamLeadership, teamWorkflow, values } 
 import { pageRoutes } from "@/lib/navigation";
 import "@/components/products-page/products.css";
 import "@/components/pages/pages.css";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 type Person = {
   initials: string;
@@ -80,6 +81,7 @@ export function TeamDetail() {
 
       <section className="pdp-hero" aria-labelledby="team-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="lattice" />
         <div className="wrap">
           <h1 id="team-title" className="pdp-title enter">
             The people engineering modern digital systems.

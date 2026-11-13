@@ -102,8 +102,7 @@ export function HomeHero3D() {
     const landscapeGroup = new THREE.Group();
     landscapeGroup.rotation.x = -Math.PI * 0.44;
     landscapeGroup.rotation.z = -0.07;
-    landscapeGroup.position.set(initialIsMobile ? 0 : 2.8, -2.5, -1);
-
+    
     for (let r = 0; r < numRows; r++) {
       const positions = new Float32Array(pointsPerRow * 3);
       const y = (r / (numRows - 1) - 0.5) * landscapeDepth;
@@ -163,7 +162,6 @@ export function HomeHero3D() {
     const icoGroup = new THREE.Group();
     icoGroup.add(icoMesh);
     icoGroup.add(icoCore);
-    icoGroup.position.set(initialIsMobile ? 2.6 : 8.2, initialIsMobile ? 4.2 : 4.1, -1.8);
     scene.add(icoGroup);
 
     // B: Dual-Ring Gyroscope - Right flank floating ring
@@ -181,7 +179,6 @@ export function HomeHero3D() {
     ringInner.rotation.y = Math.PI / 4;
     gyroGroup.add(ringOuter);
     gyroGroup.add(ringInner);
-    gyroGroup.position.set(initialIsMobile ? -2.8 : 9.2, initialIsMobile ? -1.0 : -0.6, 0.2);
     scene.add(gyroGroup);
 
     // C: Octahedron (Data Crystal) - Lower right
@@ -203,7 +200,6 @@ export function HomeHero3D() {
     const octaGroup = new THREE.Group();
     octaGroup.add(octaMesh);
     octaGroup.add(octaCore);
-    octaGroup.position.set(initialIsMobile ? 2.4 : 7.2, initialIsMobile ? -3.4 : -2.8, 1.2);
     scene.add(octaGroup);
 
     // 3. AMBIENT DATA PARTICLES (Gentle micro-dust)
@@ -267,10 +263,10 @@ export function HomeHero3D() {
         gyroWireMat.color.set(0xa855f7);
         gyroWireMat.opacity = 0.7;
 
-        octaWireMat.color.set(0x38bdf8);
-        octaWireMat.opacity = 0.7;
-        octaCoreMat.color.set(0x0284c7);
-        octaCoreMat.opacity = 0.3;
+        octaWireMat.color.set(0xf0bb55);
+        octaWireMat.opacity = 0.8;
+        octaCoreMat.color.set(0xd99a2b);
+        octaCoreMat.opacity = 0.28;
 
         particleMat.color.set(0xa5b4fc);
         particleMat.opacity = 0.7;
@@ -299,10 +295,10 @@ export function HomeHero3D() {
         gyroWireMat.color.set(0x7c3aed);
         gyroWireMat.opacity = 0.4;
 
-        octaWireMat.color.set(0x0284c7);
-        octaWireMat.opacity = 0.42;
-        octaCoreMat.color.set(0x0891b2);
-        octaCoreMat.opacity = 0.12;
+        octaWireMat.color.set(0xb7791f);
+        octaWireMat.opacity = 0.55;
+        octaCoreMat.color.set(0xd99a2b);
+        octaCoreMat.opacity = 0.14;
 
         particleMat.color.set(0x2563eb);
         particleMat.opacity = 0.35;
@@ -314,10 +310,6 @@ export function HomeHero3D() {
         pointLight.intensity = 2.0;
         ambientLight.intensity = 0.95;
       }
-
-      lineMat.needsUpdate = true;
-      nodeMat.needsUpdate = true;
-      particleMat.needsUpdate = true;
     };
 
     updateTheme();
@@ -352,45 +344,43 @@ export function HomeHero3D() {
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
 
-      // Reposition and scale objects for mobile vs desktop
-      if (isMobile) {
-        landscapeGroup.scale.setScalar(0.65);
-        landscapeGroup.position.set(0, 0.8, -2);
-
-        icoGroup.scale.setScalar(0.7);
-        icoGroup.position.set(2.4, 4.8, -1.8);
-
-        gyroGroup.scale.setScalar(0.65);
-        gyroGroup.position.set(-2.5, 1.2, 0);
-
-        octaGroup.scale.setScalar(0.65);
-        octaGroup.position.set(2.2, -1.2, 1);
-      } else {
-        landscapeGroup.scale.setScalar(1.0);
-        landscapeGroup.position.set(2.8, -2.5, -1);
-
-        icoGroup.scale.setScalar(1.0);
-        icoGroup.position.set(8.2, 4.1, -1.8);
-
-        gyroGroup.scale.setScalar(1.0);
-        gyroGroup.position.set(9.2, -0.6, 0.2);
-
-        octaGroup.scale.setScalar(1.0);
-        octaGroup.position.set(7.2, -2.8, 1.2);
-      }
+      applyLayout(isMobile);
     };
 
-    // Apply initial scale on load
-    if (initialIsMobile) {
-      landscapeGroup.scale.setScalar(0.65);
-      landscapeGroup.position.set(0, 0.8, -2);
-      icoGroup.scale.setScalar(0.7);
-      icoGroup.position.set(2.4, 4.8, -1.8);
-      gyroGroup.scale.setScalar(0.65);
-      gyroGroup.position.set(-2.5, 1.2, 0);
-      octaGroup.scale.setScalar(0.65);
-      octaGroup.position.set(2.2, -1.2, 1);
+    // Single source of truth for object placement; the animation loop hovers
+    // around these base values so resize and render never disagree.
+    const layouts = {
+      mobile: {
+        land: { s: 0.65, x: 0, y: 0.8, z: -2 },
+        ico: { s: 0.7, x: 2.4, y: 4.8, z: -1.8 },
+        gyro: { s: 0.65, x: -2.5, y: 1.2, z: 0 },
+        octa: { s: 0.65, x: 2.2, y: -1.2, z: 1 },
+      },
+      desktop: {
+        land: { s: 1, x: 2.8, y: -2.5, z: -1 },
+        ico: { s: 1, x: 8.2, y: 4.1, z: -1.8 },
+        gyro: { s: 1, x: 9.2, y: -0.6, z: 0.2 },
+        octa: { s: 1, x: 7.2, y: -2.8, z: 1.2 },
+      },
+    };
+    let layout = initialIsMobile ? layouts.mobile : layouts.desktop;
+    let isMobileNow = initialIsMobile;
+
+    function applyLayout(isMobile: boolean) {
+      isMobileNow = isMobile;
+      layout = isMobile ? layouts.mobile : layouts.desktop;
+      const targets: [THREE.Object3D, { s: number; x: number; y: number; z: number }][] = [
+        [landscapeGroup, layout.land],
+        [icoGroup, layout.ico],
+        [gyroGroup, layout.gyro],
+        [octaGroup, layout.octa],
+      ];
+      for (const [obj, l] of targets) {
+        obj.scale.setScalar(l.s);
+        obj.position.set(l.x, l.y, l.z);
+      }
     }
+    applyLayout(initialIsMobile);
 
     const resizeObserver = new ResizeObserver(onResize);
     resizeObserver.observe(container);
@@ -424,7 +414,7 @@ export function HomeHero3D() {
       // Always render first 30 frames to guarantee initial paint
       if (!isVisible && initialFrameCount > 30) return;
 
-      const isMobile = container.clientWidth < 768;
+      const isMobile = isMobileNow;
       const speedMultiplier = prefersReducedMotion ? 0.05 : 1.0;
       clock += 0.011 * speedMultiplier;
 
@@ -498,18 +488,18 @@ export function HomeHero3D() {
       // Floating polyhedra rotations & hovering
       icoGroup.rotation.x += 0.003 * speedMultiplier;
       icoGroup.rotation.y += 0.0045 * speedMultiplier;
-      const icoBaseY = isMobile ? 4.2 : 4.1;
+      const icoBaseY = layout.ico.y;
       icoGroup.position.y = icoBaseY + Math.sin(clock * 0.75) * 0.25;
 
       gyroGroup.rotation.x += 0.004 * speedMultiplier;
       gyroGroup.rotation.y += 0.006 * speedMultiplier;
       ringInner.rotation.z += 0.008 * speedMultiplier;
-      const gyroBaseY = isMobile ? -1.0 : -0.6;
+      const gyroBaseY = layout.gyro.y;
       gyroGroup.position.y = gyroBaseY + Math.sin(clock * 0.65) * 0.22;
 
       octaGroup.rotation.y += 0.0055 * speedMultiplier;
       octaGroup.rotation.z += 0.0035 * speedMultiplier;
-      const octaBaseY = isMobile ? -3.4 : -2.8;
+      const octaBaseY = layout.octa.y;
       octaGroup.position.y = octaBaseY + Math.cos(clock * 0.8) * 0.2;
 
       // Ambient particles drift

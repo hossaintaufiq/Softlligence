@@ -48,7 +48,7 @@ export function HomeSolutions() {
       <div className="wrap">
         <div className="sec__head sec__head--split" data-reveal>
           <h2 id="solutions-title" className="sec__title">
-            Enterprise solutions, shaped around how you operate
+            Enterprise solutions, shaped around <em className="em">how you operate</em>
           </h2>
           <p className="sec__lead">
             Beyond the packaged suite, we design and build the systems that run plants, warehouses, sales

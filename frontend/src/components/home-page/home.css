@@ -21,6 +21,11 @@
   height: 100% !important;
   display: block;
 }
+.tech__stack {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
 .hero__wash {
   position: absolute;
   inset: -80px 0 0 0;

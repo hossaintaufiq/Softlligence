@@ -18,7 +18,7 @@ export function HomeProducts() {
       <div className="wrap">
         <div className="sec__head" data-reveal>
           <h2 id="products-title" className="sec__title">
-            A product suite built to run the business
+            A product suite built to <em className="em">run the business</em>
           </h2>
           <p className="sec__lead">
             ERP, CRM, MIS and Inventory Management, each AI-powered and ready to connect. Open a live

@@ -11,6 +11,7 @@ import {
 import { pageRoutes } from "@/lib/navigation";
 import "@/components/products-page/products.css";
 import "@/components/pages/pages.css";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 export function ProcessPageView() {
   return (
@@ -19,6 +20,7 @@ export function ProcessPageView() {
 
       <section className="pdp-hero" aria-labelledby="process-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="network" />
         <div className="wrap pdp-detail__grid">
           <div>
             <h1 id="process-title" className="pdp-title enter">

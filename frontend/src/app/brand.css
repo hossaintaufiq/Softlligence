@@ -22,6 +22,9 @@
   --brand: #3452f0;
   --brand-2: #5b4bff;
   --violet: #8b5cf6;
+  --gold: #b7791f;
+  --gold-soft: rgba(183, 121, 31, 0.14);
+  --grad-gold: linear-gradient(135deg, #f3c96b 0%, #d99a2b 55%, #b7791f 100%);
   --link: #2a45e0;
   --on-brand: #ffffff;
   --grad-brand: linear-gradient(135deg, #2f55ff 0%, #5b4bff 58%, #7a4dff 100%);
@@ -81,6 +84,8 @@
   --line: rgba(160, 175, 255, 0.16);
   --line-strong: rgba(160, 175, 255, 0.32);
 
+  --gold: #f0bb55;
+  --gold-soft: rgba(240, 187, 85, 0.16);
   --brand: #4a67ff;
   --link: #a3b3ff;
 

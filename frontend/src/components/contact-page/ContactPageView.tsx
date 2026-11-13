@@ -8,6 +8,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { cn } from "@/lib/utils";
 import "@/components/products-page/products.css";
 import "@/components/pages/pages.css";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 const WEB3FORMS_KEY = "ad8699c5-fcb9-4e02-94eb-641db0cd30c4";
 
@@ -212,6 +213,7 @@ export function ContactPageView() {
 
       <section className="pdp-hero" aria-labelledby="contact-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="wave" />
         <div className="wrap">
           <h1 id="contact-title" className="pdp-title enter">
             Tell us what you&apos;re building.

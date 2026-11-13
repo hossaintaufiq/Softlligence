@@ -3,6 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { industries } from "@/lib/content";
 import { homeExtraIndustries } from "@/lib/homePageContent";
 import { pageRoutes } from "@/lib/navigation";
+import { BandPhoto } from "@/components/ui/Photo";
+import { SectionBg3D } from "./SectionBg3D";
 
 export function HomeIndustries() {
   const rows = [
@@ -11,11 +13,13 @@ export function HomeIndustries() {
   ];
 
   return (
-    <section className="sec sec--band" id="industries" aria-labelledby="industries-title">
+    <section className="sec sec--band has-3d" id="industries" aria-labelledby="industries-title">
+      <BandPhoto src="/images/earth-night.jpg" position="center 40%" />
+      <SectionBg3D variant="contour" tone="dark" />
       <div className="wrap ind">
         <div className="ind__head" data-reveal>
           <h2 id="industries-title" className="sec__title">
-            Built for the industries that keep things moving
+            Built for the industries that <em className="em">keep things moving</em>
           </h2>
           <p className="sec__lead">
             From the shop floor to the front desk, we start with how your sector actually works.

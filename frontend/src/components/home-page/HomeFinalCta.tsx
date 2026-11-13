@@ -2,17 +2,21 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { companyContact, pageRoutes } from "@/lib/navigation";
 import { productLaunchUrl, products } from "@/lib/productsContent";
+import { BandPhoto } from "@/components/ui/Photo";
+import { SectionBg3D } from "./SectionBg3D";
 
 export function HomeFinalCta() {
   const erp = products.find((p) => p.slug === "erp");
   return (
-    <section className="cta" aria-labelledby="cta-title">
+    <section className="cta has-3d" aria-labelledby="cta-title">
+      <BandPhoto src="/images/circuit-board.jpg" />
+      <SectionBg3D variant="wave" tone="dark" />
       <div className="wrap cta__inner" data-reveal>
         <h2 id="cta-title" className="cta__title">
-          Let&apos;s build the software your business grows into.
+          Let&apos;s build the software your business <em className="em">grows into.</em>
         </h2>
         <p className="cta__lead">
-          Tell us about the system you want to build or replace. We reply within one business day.
+          Tell us what is slowing your business down. We reply within one business day with a clear next step, not a sales deck.
         </p>
         <div className="cta__actions">
           <Link href={pageRoutes.contact} className="btn btn--light btn--lg">

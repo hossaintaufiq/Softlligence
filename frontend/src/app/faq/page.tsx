@@ -7,6 +7,7 @@ import { faqs } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
 import "@/components/products-page/products.css";
 import "@/components/pages/pages.css";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 export const metadata: Metadata = {
   title: "FAQ",
@@ -20,6 +21,7 @@ export default function FAQPage() {
 
       <section className="pdp-hero" aria-labelledby="faq-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="network" />
         <div className="wrap">
           <h1 id="faq-title" className="pdp-title enter">
             Answers before you have to ask.

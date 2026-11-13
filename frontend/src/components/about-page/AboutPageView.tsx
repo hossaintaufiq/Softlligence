@@ -14,6 +14,8 @@ import {
 import { pageRoutes } from "@/lib/navigation";
 import "@/components/products-page/products.css";
 import "./about.css";
+import { PhotoFrame } from "@/components/ui/Photo";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 export function AboutPageView() {
   return (
@@ -22,6 +24,7 @@ export function AboutPageView() {
 
       <section className="pdp-hero" aria-labelledby="about-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="lattice" />
         <div className="wrap pdp-detail__grid">
           <div>
             <h1 id="about-title" className="pdp-title enter">
@@ -58,6 +61,12 @@ export function AboutPageView() {
             <h2 id="story-title" className="sec__title">
               Built to ship systems, not sell themes
             </h2>
+            <PhotoFrame
+              src="/images/team-collab.jpg"
+              alt="A small engineering team working together on laptops"
+              caption="Engineers who still write the product"
+              ratio="4 / 3"
+            />
           </div>
           <div data-reveal style={{ "--rv-delay": "80ms" } as React.CSSProperties}>
             {aboutStory.body.map((para) => (

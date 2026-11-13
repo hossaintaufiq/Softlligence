@@ -14,6 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import "@/components/products-page/products.css";
 import "@/components/pages/pages.css";
+import { SectionBg3D } from "@/components/home-page/SectionBg3D";
 
 export type { WorkFilter };
 
@@ -96,6 +97,7 @@ export function WorkDetail({ filter = "all" }: { filter?: WorkFilter }) {
 
       <section className="pdp-hero" aria-labelledby="work-title">
         <div className="pdp-hero__wash" aria-hidden="true" />
+        <SectionBg3D variant="contour" />
         <div className="wrap">
           <h1 id="work-title" className="pdp-title enter">
             Engineering products used by real organizations.
