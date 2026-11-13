@@ -1121,7 +1121,7 @@ export const aboutStory = {
   eyebrow: "ABOUT SOFTLLIGENCE",
   title: "We build software organizations actually run on.",
   lead:
-    "Softlligence Technologies is a founder-led software studio. We design, engineer, and ship production systems for companies, schools, agencies, and nonprofits — custom builds, not stretched templates.",
+    "Softlligence Technologies is a founder-led software studio, operating since May 2024. We design, engineer, and ship production systems for companies, schools, agencies, and nonprofits — custom builds, not stretched templates.",
   body: [
     "Most organizations do not need another agency pitch. They need a named team that understands their workflow, writes maintainable code, and stays reachable after launch.",
     "That is the studio we built: compact leadership, clear ownership, and engineers who still write the product. Discovery, architecture, delivery, and support live under one roof — so nothing gets lost between a slide deck and production.",
@@ -1129,7 +1129,7 @@ export const aboutStory = {
 };
 
 export const aboutSignal = [
-  { label: "Model", value: "Founder-led studio" },
+  { label: "Operating", value: "Since May 2024" },
   { label: "Delivery", value: "Design → build → ship" },
   { label: "Focus", value: "Web, mobile & cloud" },
   { label: "Base", value: "Dhaka · Bangladesh" },
@@ -1178,10 +1178,10 @@ export const aboutCraft = [
 ];
 
 export const aboutLeadershipStrip = [
-  { role: "Team Lead & Backend AI Engineer", focus: "Architecture, standards, delivery" },
-  { role: "Frontend & UI/UX Designer", focus: "Interfaces, design systems, frontend" },
-  { role: "Frontend Engineer", focus: "Performant UI and component architecture" },
-  { role: "Full Stack Engineer", focus: "Mobile and cross-platform" },
+  { role: "Founder & CEO", focus: "Vision, strategy, delivery" },
+  { role: "Co-Founder & CMO", focus: "Marketing, brand, design" },
+  { role: "Co-Founder & COO", focus: "Operations and project delivery" },
+  { role: "Co-Founder & CTO", focus: "Technology and architecture" },
 ];
 
 export const aboutCommitments = [
@@ -1241,33 +1241,33 @@ export const team = [
   {
     initials: "MH",
     name: "Hossain Ahmmed Taufiq",
-    role: "Team Lead & Senior Backend Engineer",
+    role: "Founder & CEO",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Full-stack developer focused on scalable web applications and clean API design.",
+    bio: "Founded Softlligence and sets the company's vision, strategy and engineering standards — leading growth, client relationships and delivery of scalable, production-grade systems.",
     skills: ["React", "Node.js", "PostgreSQL", "Python", "Docker", "AWS", "Node.js"],
   },
   {
     initials: "FS",
     name: "Fiad Sarowar",
-    role: "Frontend & UI/UX Designer",
+    role: "Co-Founder & CMO",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Works across frontend and UI/UX design with a focus on reliable delivery.",
+    bio: "Co-founded Softlligence and leads marketing, brand and design — shaping how the studio presents itself and turning client goals into polished, user-focused experiences.",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "UI/UX Design", "Figma", "Adobe XD", "Adobe Photoshop", "Adobe Illustrator"],
   },
   {
     initials: "MS",
     name: "Mehedi Ashraf Simanto",
-    role: "Frontend Engineer",
+    role: "Co-Founder & COO",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Builds performant, accessible frontends with a sharp eye for UX and maintainable component architecture.",
+    bio: "Co-founded Softlligence and runs day-to-day operations — project planning, team coordination and delivery processes that keep client work on time and on scope.",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
   },
   {
     initials: "AB",
     name: "Al Mustafiz Bappy",
-    role: "Full Stack Engineer",
+    role: "Co-Founder & CTO",
     school: "BSc in CSE, North South University, Bangladesh",
-    bio: "Delivers cross-platform mobile and web experiences with clean, production-ready code.",
+    bio: "Co-founded Softlligence and owns technology direction — architecture, mobile and web platforms, and the engineering practices that keep every product reliable and production-ready.",
     skills: ["React Native", "Flutter", "Firebase", "TypeScript"],
   },
 ];
@@ -1283,8 +1283,8 @@ export const teamLeadership = [
   {
     initials: "MH",
     name: "Hossain Ahmmed Taufiq",
-    role: "Team Lead & Backend AI Engineer",
-    bio: "Leads architecture and engineering standards — focused on scalable web applications, clean API design, and systems organizations can rely on.",
+    role: "Founder & CEO",
+    bio: "Founded Softlligence and sets the company's vision, strategy and engineering standards — leading growth, client relationships and delivery of scalable, production-grade systems.",
     skills: [ "Next.js", "Node.js","Python", "Tensorflow", "Keras", "Scikit-learn", "TypeScript", "PostgreSQL", "AWS"],
     linkedin: "https://www.linkedin.com/in/hossain-ahmmed-129b29253/",
     github: "https://github.com/hossaintaufiq",
@@ -1295,8 +1295,8 @@ export const teamLeadership = [
   {
     initials: "FS",
     name: "Fiad Sarowar",
-    role: "Frontend & UI/UX Designer",
-    bio: "Designs and builds polished interfaces — from Figma systems to production React and Next.js frontends.",
+    role: "Co-Founder & CMO",
+    bio: "Co-founded Softlligence and leads marketing, brand and design — shaping how the studio presents itself and turning client goals into polished, user-focused experiences.",
     skills: ["UI/UX Design", "Figma", "React", "Next.js", "TypeScript", "Tailwind CSS", "Adobe XD", "Adobe Photoshop"],
     linkedin: "https://www.linkedin.com/in/fiad-sarowar-965491422/",
     github: "https://github.com/Fiad-123",
@@ -1307,8 +1307,8 @@ export const teamLeadership = [
   {
     initials: "MS",
     name: "Mehedi Ashraf Simanto",
-    role: "Frontend Engineer",
-    bio: "Builds performant, accessible frontends with a sharp eye for UX and maintainable component architecture.",
+    role: "Co-Founder & COO",
+    bio: "Co-founded Softlligence and runs day-to-day operations — project planning, team coordination and delivery processes that keep client work on time and on scope.",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
     linkedin: "www.linkedin.com/in/mehedi-simanto-1000641a7",
     github: "https://github.com/simanto4321",
@@ -1319,8 +1319,8 @@ export const teamLeadership = [
   {
     initials: "AB",
     name: "Al Mustafiz Bappy",
-    role: "Full Stack Engineer",
-    bio: "Delivers cross-platform mobile and web experiences with clean, production-ready code.",
+    role: "Co-Founder & CTO",
+    bio: "Co-founded Softlligence and owns technology direction — architecture, mobile and web platforms, and the engineering practices that keep every product reliable and production-ready.",
     skills: ["React Native", "Flutter", "Firebase", "TypeScript"],
     linkedin: "https://www.linkedin.com/in/al-mustafiz-bappy",
     github: "https://github.com/bappy-3/",
