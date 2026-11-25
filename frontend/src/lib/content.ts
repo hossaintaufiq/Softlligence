@@ -1273,7 +1273,7 @@ export const team = [
 ];
 
 export const teamPageStats = [
-  { count: 8, suffix: "", label: "Team Members" },
+  { count: 10, suffix: "", label: "Team Members" },
   { count: 12, suffix: "+", label: "Projects Delivered" },
   { count: 4, suffix: "", label: "Leadership" },
   { count: 100, suffix: "%", label: "Hands-on Delivery" },
@@ -1339,7 +1339,7 @@ export const teamEngineering = [
     skills: ["Node.js", "Python", "PostgreSQL", "Docker", "AI", "OpenAI", "Google Cloud", "Azure", "AWS", "Tensorflow", "PyTorch", "Keras", "Scikit-learn"],
     linkedin: "https://www.linkedin.com/in/mdalamin5/",
     github: "https://github.com/MDalamin5",
-    photo: "/team/engineering/md-al-amin.jpg" as string | null,
+    photo: "/team/software%20engineer/md-al-amin.jpg" as string | null,
     photoTone: "from-white/10 to-panel",
   },
   {
@@ -1350,7 +1350,7 @@ export const teamEngineering = [
     skills: ["TypeScript", "Next.js", "PostgreSQL", "MongoDB", "Node.js","Prisma","Express","Redux","React.js"],
     linkedin: "https://www.linkedin.com/in/minhajul-shobuj-0000000000/",
     github: "https://github.com/Minhajul-Shobuj",
-    photo: "/team/engineering/minhajul-shobuj.jpeg" as string | null,
+    photo: "/team/software%20engineer/minhajul-shobuj.jpeg" as string | null,
     photoTone: "from-accent-2/20 to-ink",
   },
   {
@@ -1376,6 +1376,28 @@ export const teamMarketing = [
     linkedin: "https://www.linkedin.com/in/masturadiya",
     photo: "/team/marketing/mastura_rashid_diya.jpg" as string | null,
     photoTone: "from-accent/20 to-panel",
+  },
+];
+
+export const teamIot = [
+  {
+    initials: "AJ",
+    name: "Arifa Jahan",
+    role: "IoT Engineer",
+    bio: "BSc EEE student at BRAC University. Builds and maintains IoT hardware — ID-check devices, POS machines and camera/ML systems — with ESP32/Arduino, sensors and PCB design.",
+    skills: ["ESP32", "Arduino", "Embedded Systems", "Altium Designer", "MATLAB & Simulink", "Python", "Machine Learning"],
+    linkedin: "https://www.linkedin.com/in/arifa-jahan-eee",
+    photo: "/team/iot%20engineer/Arifa_jahan_srabony.jpeg" as string | null,
+    photoTone: "from-accent/20 to-panel",
+  },
+  {
+    initials: "ST",
+    name: "Sadia Tanjim Joya",
+    role: "IoT Engineer",
+    bio: "BSc EEE student at BRAC University and robotics enthusiast. Supports IoT hardware — ID-check devices, POS machines and camera/ML systems — with a focus on robotics and wireless sensor networks.",
+    skills: ["Robotics", "Wireless Sensor Networks", "MATLAB", "Electronics & Communication", "Problem Solving"],
+    photo: "/team/iot%20engineer/joya.jpeg" as string | null,
+    photoTone: "from-accent-2/20 to-panel",
   },
 ];
 

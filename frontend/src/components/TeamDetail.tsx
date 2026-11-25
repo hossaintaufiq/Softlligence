@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { HomeFinalCta } from "@/components/home-page/HomeFinalCta";
-import { teamEngineering, teamExpertise, teamLeadership, teamMarketing, teamWorkflow, values } from "@/lib/content";
+import { teamEngineering, teamExpertise, teamLeadership, teamIot, teamMarketing, teamWorkflow, values } from "@/lib/content";
 import { pageRoutes } from "@/lib/navigation";
 import "@/components/products-page/products.css";
 import "@/components/pages/pages.css";
@@ -123,6 +123,21 @@ export function TeamDetail() {
           </div>
           <ul className="tm-grid">
             {teamEngineering.map((p) => (
+              <PersonRow key={p.name} p={p as Person} />
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="sec sec--soft" aria-labelledby="iot-title">
+        <div className="wrap">
+          <div className="sec__head" data-reveal>
+            <h2 id="iot-title" className="sec__title">
+              IoT Engineering
+            </h2>
+          </div>
+          <ul className="tm-grid">
+            {teamIot.map((p) => (
               <PersonRow key={p.name} p={p as Person} />
             ))}
           </ul>
