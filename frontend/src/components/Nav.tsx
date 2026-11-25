@@ -5,9 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   BarChart3,
+  AudioLines,
   BookOpen,
   Building2,
+  CarFront,
   ChevronDown,
+  ImageOff,
   Factory,
   HelpCircle,
   Layers,
@@ -21,6 +24,7 @@ import {
 import { BrandLogo } from "@/components/BrandLogo";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import { products } from "@/lib/productsContent";
+import { tools } from "@/lib/toolsContent";
 import { pageRoutes } from "@/lib/navigation";
 import { productBlurb, resourcesMenu, solutionsMenu, type NavItem } from "@/lib/siteLinks";
 import { cn } from "@/lib/utils";
@@ -38,6 +42,9 @@ const icons: Record<string, LucideIcon> = {
   "/process": Workflow,
   "/faq": HelpCircle,
   "/team": UsersRound,
+  "/tools#showroom": CarFront,
+  "/tools#cleanmeta": ImageOff,
+  "/tools#voice": AudioLines,
 };
 
 const productsMenu: NavItem[] = [
@@ -47,6 +54,12 @@ const productsMenu: NavItem[] = [
     description: productBlurb[p.slug],
   })),
 ];
+
+const toolsMenu: NavItem[] = tools.map((t) => ({
+  href: `${pageRoutes.tools}#${t.slug}`,
+  label: t.menuLabel,
+  description: t.blurb,
+}));
 
 type Entry =
   | { key: string; label: string; href: string }
@@ -60,6 +73,13 @@ const entries: Entry[] = [
     href: pageRoutes.products,
     menu: productsMenu,
     footer: { href: pageRoutes.products, label: "Browse all products" },
+  },
+  {
+    key: "tools",
+    label: "Tools",
+    href: pageRoutes.tools,
+    menu: toolsMenu,
+    footer: { href: pageRoutes.tools, label: "Browse all tools" },
   },
   { key: "solutions", label: "Solutions", href: "/#solutions", menu: solutionsMenu },
   { key: "services", label: "Services", href: pageRoutes.services },

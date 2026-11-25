@@ -1,0 +1,339 @@
+/* Tools catalog. Layout comes from products.css; these are tool-specific details and mock-ups. */
+
+.tool-row {
+  scroll-margin-top: calc(var(--site-header-offset, 72px) + 16px);
+}
+.tool-kind {
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+.tool-audience {
+  margin-top: 20px;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.tool-audience span {
+  font-weight: 600;
+  color: var(--text);
+}
+.tool-plans__cta {
+  margin-top: 40px;
+}
+
+/* ---------- Mock-ups ---------- */
+
+.tmock-hero {
+  display: grid;
+  gap: 4px;
+  padding: 18px 16px;
+  border-radius: 12px;
+  background:
+    radial-gradient(18rem 8rem at 85% 0%, color-mix(in srgb, var(--brand-2) 30%, transparent), transparent 70%),
+    var(--bg-inset);
+}
+.tmock-hero small {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+.tmock-hero strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.tmock-hero__cta {
+  justify-self: start;
+  margin-top: 8px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--grad-brand);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+}
+.tmock-cats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.tmock-cats div {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.tmock-cats div.is-on {
+  border-color: var(--line-strong);
+  background: var(--bg-soft);
+}
+.tmock-cats i {
+  height: 34px;
+  border-radius: 6px;
+  background: var(--bg-inset);
+}
+.tmock-cats .is-on i {
+  background: var(--grad-brand);
+  opacity: 0.85;
+}
+.tmock-cats b {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.tmock-owner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+.tmock-owner span {
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--text-2);
+}
+
+.tmock-file,
+.tmock-voice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.tmock-file b,
+.tmock-voice b:not(.pill) {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.tmock-file small,
+.tmock-voice small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+.tmock-file__thumb {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--grad-brand);
+  opacity: 0.85;
+}
+.tmock-meta {
+  margin-top: 10px;
+}
+.tmock-done {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--link);
+}
+
+.tmock-voice .pill {
+  margin-left: auto;
+}
+.tmock-voice__avatar {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--grad-brand);
+}
+.tmock-script {
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.tmock-wave {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 56px;
+  margin-top: 10px;
+}
+.tmock-wave span {
+  flex: 1;
+  border-radius: 3px;
+  background: var(--bg-inset);
+}
+.tmock-wave span.is-hot {
+  background: var(--grad-brand);
+}
+
+/* ---------- Showroom configurator stage ---------- */
+
+.sr-stage {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  background: var(--bg-inset);
+}
+.sr-sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(26rem 10rem at 50% 115%, color-mix(in srgb, var(--brand-2) 34%, transparent), transparent 70%),
+    radial-gradient(16rem 8rem at 80% 0%, color-mix(in srgb, var(--brand) 18%, transparent), transparent 70%);
+}
+.sr-road {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  height: 2px;
+  overflow: hidden;
+}
+.sr-road span {
+  position: absolute;
+  inset: 0 -50% 0 0;
+  background: repeating-linear-gradient(90deg, var(--line-strong) 0 28px, transparent 28px 56px);
+  animation: sr-road 0.9s linear infinite;
+}
+.sr-badge {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-elev);
+  font-size: 0.75rem;
+  color: var(--text-2);
+}
+.sr-car {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: min(92%, 440px);
+  transform: translateX(-50%);
+  overflow: visible;
+}
+.sr-car path,
+.sr-car stop {
+  transition: fill 420ms var(--ease), stop-color 420ms var(--ease);
+}
+.sr-body {
+  animation: sr-bob 1.6s ease-in-out infinite;
+}
+.sr-spin {
+  animation: sr-spin 0.9s linear infinite;
+}
+.sr-sheen {
+  animation: sr-sheen 4.2s var(--ease) infinite;
+}
+.sr-lamp {
+  filter: drop-shadow(0 0 6px #fff3b0);
+}
+.sr-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+}
+.sr-trims {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.sr-trims button {
+  min-height: 32px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.sr-trims button.is-on {
+  background: var(--grad-brand);
+  color: #fff;
+}
+.sr-paints {
+  display: inline-flex;
+  gap: 8px;
+}
+.sr-paints button {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 2px solid var(--bg-elev);
+  border-radius: 50%;
+  background: var(--swatch);
+  box-shadow: 0 0 0 1px var(--line-strong);
+  cursor: pointer;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.sr-paints button:hover {
+  transform: scale(1.1);
+}
+.sr-paints button.is-on {
+  box-shadow: 0 0 0 2px var(--link);
+}
+.sr-name {
+  margin-left: auto;
+  font-size: 0.8125rem;
+  color: var(--text-3);
+}
+
+@keyframes sr-road {
+  to {
+    transform: translateX(-56px);
+  }
+}
+@keyframes sr-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sr-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+@keyframes sr-sheen {
+  0%,
+  30% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(680px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sr-road span,
+  .sr-body,
+  .sr-spin,
+  .sr-sheen {
+    animation: none;
+  }
+}

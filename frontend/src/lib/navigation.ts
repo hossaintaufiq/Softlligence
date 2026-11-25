@@ -11,6 +11,7 @@ export const navLinks = [
 export const pageRoutes = {
   services: "/services",
   products: "/products",
+  tools: "/tools",
   work: "/work",
   industries: "/industries",
   process: "/process",
