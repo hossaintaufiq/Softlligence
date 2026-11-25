@@ -180,34 +180,45 @@
   background: var(--grad-brand);
 }
 
-/* ---------- Showroom configurator stage ---------- */
+/* ---------- Showroom 360° viewer ---------- */
 
 .sr-stage {
   position: relative;
-  height: 230px;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: var(--bg-inset);
-}
-.sr-sky {
-  position: absolute;
-  inset: 0;
   background:
-    radial-gradient(26rem 10rem at 50% 115%, color-mix(in srgb, var(--brand-2) 34%, transparent), transparent 70%),
-    radial-gradient(16rem 8rem at 80% 0%, color-mix(in srgb, var(--brand) 18%, transparent), transparent 70%);
+    radial-gradient(60% 55% at 50% 38%, color-mix(in srgb, var(--brand-2) 12%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--bg-elev) 0%, var(--bg-inset) 100%);
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
-.sr-road {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 22px;
-  height: 2px;
-  overflow: hidden;
+.sr-stage.is-dragging {
+  cursor: grabbing;
 }
-.sr-road span {
+.sr-stage:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: -4px;
+}
+.sr-floor {
   position: absolute;
-  inset: 0 -50% 0 0;
-  background: repeating-linear-gradient(90deg, var(--line-strong) 0 28px, transparent 28px 56px);
-  animation: sr-road 0.9s linear infinite;
+  left: 14%;
+  right: 14%;
+  bottom: 13%;
+  height: 12%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.32), transparent);
+  filter: blur(4px);
+}
+.sr-car {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 4%;
+  pointer-events: none;
 }
 .sr-badge {
   position: absolute;
@@ -220,29 +231,38 @@
   font-size: 0.75rem;
   color: var(--text-2);
 }
-.sr-car {
+.sr-deg {
   position: absolute;
+  right: 44px;
+  bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-3);
+}
+.sr-dial {
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+}
+.sr-dial span {
+  position: absolute;
+  inset: 0;
+}
+.sr-dial span::before {
+  content: "";
+  position: absolute;
+  top: 2px;
   left: 50%;
-  bottom: 6px;
-  width: min(92%, 440px);
-  transform: translateX(-50%);
-  overflow: visible;
-}
-.sr-car path,
-.sr-car stop {
-  transition: fill 420ms var(--ease), stop-color 420ms var(--ease);
-}
-.sr-body {
-  animation: sr-bob 1.6s ease-in-out infinite;
-}
-.sr-spin {
-  animation: sr-spin 0.9s linear infinite;
-}
-.sr-sheen {
-  animation: sr-sheen 4.2s var(--ease) infinite;
-}
-.sr-lamp {
-  filter: drop-shadow(0 0 6px #fff3b0);
+  width: 2px;
+  height: 7px;
+  margin-left: -1px;
+  border-radius: 2px;
+  background: var(--link);
 }
 .sr-controls {
   display: flex;
@@ -252,31 +272,9 @@
   padding: 12px 14px;
   border-top: 1px solid var(--line);
 }
-.sr-trims {
-  display: inline-flex;
-  padding: 3px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-}
-.sr-trims button {
-  min-height: 32px;
-  padding: 0 14px;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  font: inherit;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--text-2);
-  cursor: pointer;
-}
-.sr-trims button.is-on {
-  background: var(--grad-brand);
-  color: #fff;
-}
 .sr-paints {
   display: inline-flex;
-  gap: 8px;
+  gap: 10px;
 }
 .sr-paints button {
   width: 26px;
@@ -300,40 +298,7 @@
   font-size: 0.8125rem;
   color: var(--text-3);
 }
-
-@keyframes sr-road {
-  to {
-    transform: translateX(-56px);
-  }
-}
-@keyframes sr-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@keyframes sr-bob {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-1.5px);
-  }
-}
-@keyframes sr-sheen {
-  0%,
-  30% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(680px);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .sr-road span,
-  .sr-body,
-  .sr-spin,
-  .sr-sheen {
-    animation: none;
-  }
+.sr-name span {
+  font-weight: 600;
+  color: var(--text);
 }
