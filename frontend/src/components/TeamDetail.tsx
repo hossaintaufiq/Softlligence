@@ -118,7 +118,7 @@ export function TeamDetail() {
         <div className="wrap">
           <div className="sec__head" data-reveal>
             <h2 id="eng-title" className="sec__title">
-              Engineering
+              Software Engineering
             </h2>
           </div>
           <ul className="tm-grid">
