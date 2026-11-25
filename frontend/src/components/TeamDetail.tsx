@@ -114,7 +114,22 @@ export function TeamDetail() {
         </div>
       </section>
 
-      <section className="sec sec--soft" aria-labelledby="eng-title">
+      <section className="sec sec--soft" aria-labelledby="mkt-title">
+        <div className="wrap">
+          <div className="sec__head" data-reveal>
+            <h2 id="mkt-title" className="sec__title">
+              Marketing
+            </h2>
+          </div>
+          <ul className="tm-grid">
+            {teamMarketing.map((p) => (
+              <PersonRow key={p.name} p={p as Person} />
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="sec" aria-labelledby="eng-title">
         <div className="wrap">
           <div className="sec__head" data-reveal>
             <h2 id="eng-title" className="sec__title">
@@ -144,22 +159,7 @@ export function TeamDetail() {
         </div>
       </section>
 
-      <section className="sec" aria-labelledby="mkt-title">
-        <div className="wrap">
-          <div className="sec__head" data-reveal>
-            <h2 id="mkt-title" className="sec__title">
-              Marketing
-            </h2>
-          </div>
-          <ul className="tm-grid">
-            {teamMarketing.map((p) => (
-              <PersonRow key={p.name} p={p as Person} />
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="sec sec--soft" aria-labelledby="exp-title">
+      <section className="sec" aria-labelledby="exp-title">
         <div className="wrap">
           <div className="sec__head" data-reveal>
             <h2 id="exp-title" className="sec__title">
