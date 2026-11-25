@@ -1273,7 +1273,7 @@ export const team = [
 ];
 
 export const teamPageStats = [
-  { count: 7, suffix: "", label: "Team Members" },
+  { count: 8, suffix: "", label: "Team Members" },
   { count: 12, suffix: "+", label: "Projects Delivered" },
   { count: 4, suffix: "", label: "Leadership" },
   { count: 100, suffix: "%", label: "Hands-on Delivery" },
@@ -1366,6 +1366,18 @@ export const teamEngineering = [
   },
 ];
 
+export const teamMarketing = [
+  {
+    initials: "MR",
+    name: "Mastura Rashid Diya",
+    role: "Marketing",
+    bio: "BBA in Finance student at North South University with a background in client servicing, relationship management and reporting — supporting Softlligence's outreach, client communication and brand presence.",
+    skills: ["Client Servicing", "Relationship Management", "Financial Analysis", "Presentations", "Microsoft Excel", "Canva", "Content Writing"],
+    linkedin: "https://www.linkedin.com/in/masturadiya",
+    photo: "/team/marketing/mastura_rashid_diya.jpg" as string | null,
+    photoTone: "from-accent/20 to-panel",
+  },
+];
 
 export const teamExpertise = [
   {
