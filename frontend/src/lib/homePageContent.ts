@@ -92,40 +92,51 @@ export const homeProcessSteps = [
   "Support",
 ];
 
+/** Reasons on the home page: the promise, how we keep it, and what the client gets. */
 export const homeWhyPoints = [
   {
-    title: "Business-first approach",
-    description: "We start from operations and outcomes — then choose the architecture that fits.",
+    title: "Builders you can reach",
+    description:
+      "You talk to the engineers writing the code, not a rotating account manager who passes notes along.",
+    proof: "A shared WhatsApp or Slack thread with your engineers",
   },
   {
-    title: "Enterprise architecture",
-    description: "Modular systems designed for roles, auditability, and growth.",
+    title: "Progress you can click",
+    description: "We build in two-week cycles and walk you through working software at the end of each one.",
+    proof: "A staging build to review, not a status slide",
   },
   {
-    title: "Custom development",
-    description: "Software shaped to your workflows — not forced into a one-size product.",
+    title: "Scope that stays honest",
+    description:
+      "We plan and estimate after discovery. New ideas are logged with their effect on timeline and budget, and you approve them first.",
+    proof: "A written estimate and roadmap you can hold us to",
   },
   {
-    title: "AI ready",
-    description: "Assistants and automation wired into real processes with clear ownership.",
+    title: "Ownership you keep",
+    description: "What we build for you is yours to run, with no lock-in after launch.",
+    proof: "Source code, credentials and documentation",
   },
   {
-    title: "Scalable systems",
-    description: "Built to absorb more users, data, and integrations without a rewrite.",
+    title: "Security from sprint one",
+    description:
+      "Role-based access, encrypted data and audit logging are built in early, not bolted on the week before launch.",
+    proof: "An NDA before discovery calls when you need one",
   },
   {
-    title: "Dedicated team",
-    description: "Named engineers you can reach — the people who write the code.",
-  },
-  {
-    title: "Long-term support",
-    description: "Launch is a milestone. We stay for monitoring, fixes, and roadmap work.",
-  },
-  {
-    title: "Security & performance",
-    description: "Access controls, encrypted data, and performance budgets from sprint one.",
+    title: "Ship, then stay",
+    description: "Launch is a milestone. We follow it with monitoring, fixes and a backlog based on real usage.",
+    proof: "A support window after every launch",
   },
 ];
+
+/** One line per step of `processSteps`, short enough for the home page timeline. */
+export const homeProcessSummaries: Record<string, string> = {
+  Discover: "Requirements, roadmap and estimate",
+  Design: "Clickable prototype before production code",
+  Build: "A working demo every two weeks",
+  Launch: "Load testing and a launch checklist",
+  Grow: "Monitoring, support and what to build next",
+};
 
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 const SI = "https://cdn.jsdelivr.net/npm/simple-icons@13/icons";
