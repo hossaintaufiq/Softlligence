@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import "./showroom-stage.css";
 
 /** 72 frames per paint, one every 5°. 01 is the front, 19 the side, 37 the rear. */
 const FRAMES = 72;
@@ -23,13 +24,16 @@ const wrap = (n: number) => ((n % FRAMES) + FRAMES) % FRAMES;
 /**
  * Showroom 360° preview: 72 photographed angles per colour, turned by scrolling the page,
  * dragging the car, or the arrow keys.
+ *
+ * `stageOnly` shows just the car in one colour: no window frame or paint picker, and
+ * scrolling the page leaves it still.
  */
-export function ShowroomStage() {
+export function ShowroomStage({ stageOnly = false }: { stageOnly?: boolean } = {}) {
   const stageRef = useRef<HTMLDivElement>(null);
   const cache = useRef(new Map<string, HTMLImageElement>());
   const scrollFrame = useRef(0);
   const userFrame = useRef(0);
-  const drag = useRef<{ x: number; start: number } | null>(null);
+  const drag = useRef<{ x: number; y: number; start: number } | null>(null);
 
   const [paint, setPaint] = useState<PaintId>("blue");
   const [frame, setFrame] = useState(0);
@@ -72,7 +76,7 @@ export function ShowroomStage() {
   // Scroll-linked rotation: one full turn while the viewer crosses the screen.
   useEffect(() => {
     const el = stageRef.current;
-    if (!el) return;
+    if (!el || stageOnly) return;
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -92,16 +96,19 @@ export function ShowroomStage() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [sync]);
+  }, [stageOnly, sync]);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
     e.currentTarget.setPointerCapture(e.pointerId);
-    drag.current = { x: e.clientX, start: userFrame.current };
+    drag.current = { x: e.clientX, y: e.clientY, start: userFrame.current };
     setDragging(true);
   };
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!drag.current) return;
-    userFrame.current = drag.current.start - Math.round((e.clientX - drag.current.x) / DRAG_STEP);
+    const dx = e.clientX - drag.current.x;
+    // A mostly vertical swipe is someone scrolling the page, not turning the car.
+    if (e.pointerType === "touch" && Math.abs(e.clientY - drag.current.y) > Math.abs(dx)) return;
+    userFrame.current = drag.current.start - Math.round(dx / DRAG_STEP);
     sync();
   };
   const endDrag = () => {
@@ -121,6 +128,52 @@ export function ShowroomStage() {
   const ready = progress >= FRAMES;
   const degrees = frame * 5;
 
+  const stage = (
+    <div
+      ref={stageRef}
+      className={`sr-stage${dragging ? " is-dragging" : ""}`}
+      role="slider"
+      tabIndex={0}
+      aria-label={`Kia Sonet in ${current.name}, rotate the car`}
+      aria-valuemin={0}
+      aria-valuemax={355}
+      aria-valuenow={degrees}
+      aria-valuetext={`${degrees} degrees`}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={endDrag}
+      onPointerCancel={endDrag}
+      onKeyDown={onKeyDown}
+    >
+      <div className="sr-floor" aria-hidden="true" />
+      {/* eslint-disable-next-line @next/next/no-img-element -- frame swapping needs a plain img */}
+      <img
+        className="sr-car"
+        src={frameSrc(paint, near ? frame : 0)}
+        alt=""
+        width={1336}
+        height={650}
+        draggable={false}
+        loading="lazy"
+      />
+      <span className="sr-badge" aria-hidden="true">
+        {!ready
+          ? `Loading 360° · ${Math.round((progress / FRAMES) * 100)}%`
+          : stageOnly
+            ? "Drag to rotate 360°"
+            : "Scroll or drag to rotate"}
+      </span>
+      <span className="sr-deg" aria-hidden="true">
+        {degrees}°
+      </span>
+      <div className="sr-dial" aria-hidden="true">
+        <span style={{ transform: `rotate(${degrees}deg)` }} />
+      </div>
+    </div>
+  );
+
+  if (stageOnly) return stage;
+
   return (
     <div className="mock sr">
       <div className="mock__chrome" aria-hidden="true">
@@ -131,42 +184,7 @@ export function ShowroomStage() {
         <em>Live preview</em>
       </div>
 
-      <div
-        ref={stageRef}
-        className={`sr-stage${dragging ? " is-dragging" : ""}`}
-        role="slider"
-        tabIndex={0}
-        aria-label={`Kia Sonet in ${current.name}, rotate the car`}
-        aria-valuemin={0}
-        aria-valuemax={355}
-        aria-valuenow={degrees}
-        aria-valuetext={`${degrees} degrees`}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-        onKeyDown={onKeyDown}
-      >
-        <div className="sr-floor" aria-hidden="true" />
-        {/* eslint-disable-next-line @next/next/no-img-element -- frame swapping needs a plain img */}
-        <img
-          className="sr-car"
-          src={frameSrc(paint, near ? frame : 0)}
-          alt=""
-          width={1336}
-          height={650}
-          draggable={false}
-        />
-        <span className="sr-badge" aria-hidden="true">
-          {ready ? "Scroll or drag to rotate" : `Loading 360° · ${Math.round((progress / FRAMES) * 100)}%`}
-        </span>
-        <span className="sr-deg" aria-hidden="true">
-          {degrees}°
-        </span>
-        <div className="sr-dial" aria-hidden="true">
-          <span style={{ transform: `rotate(${degrees}deg)` }} />
-        </div>
-      </div>
+      {stage}
 
       <div className="sr-controls">
         <div className="sr-paints" role="radiogroup" aria-label="Paint colour">

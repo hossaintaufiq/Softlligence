@@ -622,24 +622,11 @@
   line-height: 1.55;
   color: #cbd3f5;
 }
-.hwork__stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 32px;
+.hwork__lead .sr-stage {
+  flex: none;
+  width: 100%;
   margin: auto 0 8px;
-  padding: 0;
-  list-style: none;
-}
-.hwork__stats b {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-.hwork__stats span {
-  font-size: 0.875rem;
-  color: #b9c4ff;
+  border-radius: 16px;
 }
 .hwork__side {
   display: grid;
