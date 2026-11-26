@@ -1,0 +1,451 @@
+/* Home page product suite. Tokens come from brand.css. */
+
+.suite {
+  /* Lets the open panel's contents be sized from the row, so nothing reflows while it widens. */
+  container-type: inline-size;
+}
+.suite__row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.suite__panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    linear-gradient(to bottom, transparent 45%, rgba(5, 8, 24, 0.5)),
+    linear-gradient(155deg, var(--stage-from) 25%, var(--stage-to) 130%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.suite :focus-visible {
+  outline-color: #fff;
+}
+
+/* ---------- Spine ---------- */
+
+.suite__spine {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 68px;
+  overflow: hidden;
+  padding: 0 20px;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #fff;
+  cursor: pointer;
+}
+/* A faint slice of the first screen tells closed panels apart. */
+.suite__spine img {
+  z-index: -1;
+  object-fit: cover;
+  opacity: 0.16;
+  transition: opacity 250ms ease;
+}
+.suite__spine:hover img {
+  opacity: 0.34;
+}
+.suite__spine:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.suite__spine:focus-visible {
+  outline-offset: -5px;
+  border-radius: 14px;
+}
+.is-open .suite__spine {
+  cursor: default;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- Open panel ---------- */
+
+.suite__body {
+  display: none;
+  min-width: 0;
+  padding: 14px;
+}
+.is-open .suite__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.suite__mock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  aspect-ratio: 12 / 5;
+  overflow: hidden;
+  padding: 20px 20px 0;
+  border-radius: 12px;
+  background: var(--bg-inset);
+  box-shadow: 0 30px 50px -24px rgba(0, 0, 0, 0.75);
+}
+/* The preview is taller than the frame, so fade it out rather than slicing a row in half. */
+.suite__mock::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 32%;
+  background: linear-gradient(to bottom, transparent, var(--bg-inset) 92%);
+}
+.suite__mock .mock {
+  max-width: 620px;
+  color: var(--text);
+}
+.suite__note {
+  margin-top: 14px;
+  padding: 0 4px;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.suite__info {
+  display: grid;
+  gap: 18px;
+  margin-top: auto;
+  padding: 22px 6px 6px;
+}
+.suite__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.022em;
+}
+.suite__summary {
+  margin-top: 8px;
+  max-width: 54ch;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.86);
+  text-wrap: pretty;
+}
+.suite__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+.suite__more {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 5px;
+}
+.suite__more:hover {
+  text-decoration-color: #fff;
+}
+
+/* ---------- Screens ---------- */
+
+.pshots {
+  min-width: 0;
+}
+.pshots__screen {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 12 / 5;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 30px 50px -24px rgba(0, 0, 0, 0.75);
+  cursor: zoom-in;
+}
+.pshots__screen:focus-visible {
+  outline-offset: -4px;
+}
+.pshots__screen img {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+.pshots__screen img.is-active {
+  opacity: 1;
+}
+.pshots__zoom {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(5, 8, 24, 0.82);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.pshots__screen:hover .pshots__zoom,
+.pshots__screen:focus-visible .pshots__zoom {
+  opacity: 1;
+}
+/* No hover on touch screens, so keep the hint on show. */
+@media (hover: none) {
+  .pshots__zoom {
+    opacity: 1;
+  }
+}
+
+.pshots__strip {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 4px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.pshots__thumb {
+  display: grid;
+  flex: 1 0 84px;
+  max-width: 120px;
+  gap: 5px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.78);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.pshots__thumb img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+  opacity: 0.68;
+  transition:
+    opacity 200ms ease,
+    box-shadow 200ms ease;
+}
+.pshots__thumb:hover img {
+  opacity: 0.9;
+}
+.pshots__thumb[aria-pressed="true"] {
+  color: #fff;
+}
+.pshots__thumb[aria-pressed="true"] img {
+  box-shadow: 0 0 0 2px #fff;
+  opacity: 1;
+}
+
+/* ---------- Open slot ---------- */
+
+.suite__add {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 68px;
+  padding: 0 18px;
+  border: 2px dashed var(--line-strong);
+  border-radius: 18px;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  color: var(--text-2);
+  text-decoration: none;
+  transition:
+    border-color 200ms ease,
+    color 200ms ease,
+    background-color 200ms ease;
+}
+.suite__add:hover {
+  border-color: var(--link);
+  background: var(--bg-elev);
+  color: var(--link);
+}
+.suite .suite__add:focus-visible {
+  outline-color: var(--link);
+}
+
+/* ---------- Wide screens: side by side ---------- */
+
+@media (min-width: 1024px) {
+  .suite__row {
+    --spine: 72px;
+    --gap: 10px;
+    /* Row width less every spine and gap: what the open panel's contents get. */
+    --body: calc(100cqi - var(--count) * var(--spine) - (var(--count) - 1) * var(--gap));
+    --slide: 700ms;
+    --glide: cubic-bezier(0.45, 0.05, 0.15, 1);
+    flex-direction: row;
+    gap: var(--gap);
+  }
+  /* The open panel takes the spare width through flex-grow, so the row stays
+     exactly full even when the pointer changes panel halfway through a slide. */
+  .suite__panel {
+    display: flex;
+    flex: 0 0 var(--spine);
+    min-width: 0;
+    transition: flex-grow var(--slide) var(--glide);
+  }
+  .suite__panel.is-open {
+    flex-grow: 100;
+  }
+  .suite__head {
+    display: flex;
+    flex: 0 0 var(--spine);
+  }
+  .suite__spine {
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px 0;
+  }
+  .suite__spine span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+  /* Closed contents stay laid out, so the row keeps one height whichever panel is open. */
+  .suite__body,
+  .is-open .suite__body {
+    display: flex;
+    flex: 0 0 var(--body);
+    flex-direction: column;
+    padding: 20px;
+  }
+  .suite__body {
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 220ms ease,
+      visibility 0s 220ms;
+  }
+  .is-open .suite__body {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 480ms ease 200ms;
+  }
+  .suite__info {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 24px;
+    padding: 20px 4px 4px;
+  }
+  .suite__actions {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .suite__add {
+    flex: 0 0 var(--spine);
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px 0;
+  }
+  .suite__add span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+}
+
+/* A mouse opens panels by hovering, so the spines should not look like click targets. */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .suite__spine {
+    cursor: default;
+  }
+}
+
+/* ---------- Full-size viewer ---------- */
+
+.pview {
+  width: min(1600px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: #070b1f;
+  color: #fff;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.pview::backdrop {
+  background: rgba(3, 5, 16, 0.86);
+}
+.pview__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 12px 12px 20px;
+}
+.pview__bar p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  margin-right: auto;
+  font-size: 0.9375rem;
+}
+.pview__bar span {
+  color: #b4bde3;
+}
+.pview__bar button {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.pview__bar button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+.pview__scroll {
+  overflow-x: auto;
+}
+.pview__scroll img {
+  display: block;
+  width: 100%;
+  /* Narrow screens pan sideways instead of shrinking the interface to nothing. */
+  min-width: 960px;
+  height: auto;
+}
+.pview :focus-visible {
+  outline-color: #a3b3ff;
+}
+/* Stop the page scrolling behind the open viewer. */
+html:has(.pview[open]) {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .suite__panel,
+  .suite__body,
+  .is-open .suite__body,
+  .suite__spine img,
+  .pshots__screen img,
+  .pshots__thumb img,
+  .pshots__zoom {
+    transition: none;
+  }
+}
